@@ -58,8 +58,6 @@ export default {
   runPrefix: 'Hannun — ',
   folio: n => `p. ${n}`,
 
-  bytesText: '# Weekly meeting\n- Date: Sep 26\n- Attendees: 4\n',
-
   snip: {
     Digit1: ['Heading 1', '# Heading'], Digit2: ['Heading 2', '## Heading'], Digit3: ['Heading 3', '### Heading'],
     Digit4: ['Heading 4', '#### Heading'], Digit5: ['Heading 5', '##### Heading'], Digit6: ['Heading 6', '###### Heading'],
@@ -69,4 +67,13 @@ export default {
     KeyZ: ['Link', '[text](https://)'], KeyX: ['Image', '![description](images/)'], KeyC: ['Code block', '```'],
     KeyV: ['Table', '| Item | Value |'], KeyB: ['Divider', '---'],
   },
+
+  // 임시 문서 체험 — 상태 표시와 저장할 파일 이름
+  scratch: { saved: 'Backed up', empty: 'Empty', file: 'Untitled' },
+
+  // 원본 보존 — git diff 판
+  gitdiff: { changed: n => `${n} line${n === 1 ? '' : 's'} changed`, none: 'No changes' },
+
+  // 원본 보존 — diff 비교에 처음 들어 있는 글 (Windows 에서 만든 회의록처럼 BOM + CRLF 로 다룬다)
+  diffDoc: '# Weekly sync\n\n| Task | Owner |\n|---|---|\n| Release prep | Sky |\n| Screenshots | Doyun |\n\n* Tidy up the help pages\n* Check translations\n',
 }

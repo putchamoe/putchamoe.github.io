@@ -76,7 +76,6 @@
           <dt>한눈 <small>ハンヌン · 韓国語</small></dt>
           <dd>ひと目で見渡すこと。一度にすべてを見ること。</dd>
           <dd class="ex">문서가 한눈에 들어온다 — 文書がひと目でわかる。</dd>
-          <dd class="en">Hannun [han-noon] — Korean for “at a glance.”</dd>
         </dl>
       </aside>
     </div>
@@ -106,16 +105,15 @@
     <div class="wrap grid">
       <div class="num sec__num">1<span>はじめに</span></div>
       <div class="main prose">
-        <h2>会議中にやることではありませんでした</h2>
-        <p>Markdown ファイルをひとつ見るために、毎回この手順を踏んでいました。会議中、みんなが画面を待っている間にやるには、あまりにも手間がかかります。</p>
+        <h2>作業中の画面に割り込みません</h2>
+        <p>関係のない Markdown ファイルをひとつ見るだけのために、開いているプロジェクトやブラウザを散らかしたくありませんでした。</p>
         <ol class="steps">
-          <li><s>ブラウザを起動する</s></li>
-          <li><s>Markdown 用の拡張機能を入れる</s></li>
-          <li><s>ファイルをウインドウにドラッグする</s></li>
-          <li><s>ローカルファイルへのアクセスを許可する</s><small>設定のどこかで</small></li>
-          <li class="now">ファイルをダブルクリックする<small>Hannun</small></li>
+          <li><s>VS Code で開く</s><small>今のプロジェクトのウインドウに混ざる</small></li>
+          <li><s>ブラウザにドラッグする</s><small>タブがまたひとつ増える</small></li>
+          <li><s>拡張機能を入れて、ファイルへのアクセスを許可する</s><small>設定のどこかで</small></li>
+          <li class="now">ファイルをダブルクリックする<small>別に開いて、閉じれば終わり</small></li>
         </ol>
-        <p class="gap">ほかのアプリは、まずアプリを起動してからファイルを探しに行きます。Hannun は逆です。<strong>ファイルを開くだけで済みます。</strong></p>
+        <p class="gap">先にアプリを起動してファイルを探しに行く必要もありません。<strong>ファイルを開くだけで済みます。</strong></p>
       </div>
       <aside class="note">
         <p>保管庫やワークスペースを用意する必要はありません。文書がどこにあっても、その場で開けます。</p>
@@ -132,34 +130,32 @@
       <div class="main">
         <h2>元のファイルは、<br>そのままに。</h2>
         <p class="sub">文字コード、BOM、改行コードを変えずに保存します。1 文字直せば、変わるのはその 1 文字だけです。</p>
-      </div>
-      <div class="main">
-        <div class="bytes" id="bytesDemo">
-          <div class="bytes__top">
-            <span class="bytes__file">議事録.md</span>
-            <span class="bytes__tags"><span>UTF-8 · BOM</span><span>CRLF</span></span>
-            <div class="seg" role="group" aria-label="保存のしかた">
-              <button type="button" data-save="hannun" aria-pressed="true">Hannun で保存</button>
-              <button type="button" data-save="other" aria-pressed="false">一般的なエディタで保存</button>
-            </div>
-          </div>
-          <div class="bytes__body">
-            <textarea spellcheck="false" aria-label="議事録の内容 — 書き換えてみてください"></textarea>
-            <pre class="bytes__hex" aria-live="polite"></pre>
-          </div>
-          <div class="bytes__foot">
-            <span>元のファイル <b data-k="orig">0</b> バイト</span>
-            <span>保存後 <b data-k="size">0</b> バイト</span>
-            <span data-k="chgwrap">変わったバイト <b data-k="chg">0</b></span>
-          </div>
-        </div>
+        <p class="sub sub--git"><strong>Git で管理している文書なら、この差は大きいです。</strong>改行コードや文字コードが変わると、直したのは 1 行なのに git diff ではファイル全体が変わったように見えます。Hannun で保存すれば、diff に残るのは実際に直した行だけ。レビューする人も、あとで見返す自分も迷いません。</p>
       </div>
       <aside class="note">
-        <p class="mark">左の文章を書き換えてみてください。</p>
-        <p>右側は、保存されるファイルの実際のバイト列です。茶色の部分が元のファイルから変わったところです。</p>
+        <p class="mark">上の議事録を 1 文字だけ書き換えてみてください。</p>
+        <p>下の 2 つは、同じ文章をそれぞれ保存したときの git diff です。何も直さずに保存しただけでも、左側はすでに何行も変わっています。</p>
         <hr>
         <p>ステータスバーの文字コードをクリックすると、別の文字コードで読み直すこともできます。</p>
       </aside>
+      <div class="band diffdemo" id="diffDemo">
+        <div class="diffdemo__doc">
+          <div class="bytes__top"><span class="bytes__file">議事録.md</span><span class="bytes__tags"><span>UTF-8 · BOM</span><span>CRLF</span></span></div>
+          <textarea spellcheck="false" rows="9" aria-label="議事録 — 書き換えてみてください"></textarea>
+        </div>
+        <div class="diffdemo__cols">
+          <div class="diffdemo__col" data-side="other">
+            <div class="diffdemo__head"><span>一般的な Markdown エディタで保存</span><b data-k="n"></b></div>
+            <p class="diffdemo__note">表を揃え直し、リスト記号や改行コードを自分の流儀で書き換えて保存するエディタの例</p>
+            <pre aria-live="polite"></pre>
+          </div>
+          <div class="diffdemo__col" data-side="hannun">
+            <div class="diffdemo__head"><span>Hannun で保存</span><b data-k="n"></b></div>
+            <p class="diffdemo__note">直した行だけが変わります</p>
+            <pre aria-live="polite"></pre>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -250,7 +246,6 @@
         </div>
         <ul class="feats">
           <li><b>日本語入力</b><span>日本語・韓国語・中国語の変換中に文字が崩れることはありません。勝手に書式を変えることもありません。</span></li>
-          <li><b>新規書類</b><span><kbd>⌘</kbd><kbd>N</kbd> ですぐに書き始められます。保存しなくても、次にアプリを開いたときにそのまま残っています。</span></li>
           <li><b>検索 · 置換</b><span>プレビュー、エディタ、PDF のどこでも、同じ方法で検索・置換できます。</span></li>
         </ul>
       </div>
@@ -262,10 +257,45 @@
     </div>
   </section>
 
+  <section class="sec" id="scratch" data-run="下書き">
+    <div class="wrap grid">
+      <div class="num sec__num">5<span>下書き</span></div>
+      <div class="main prose">
+        <h2>メモ帳のように書いて、<br>閉じても消えません</h2>
+        <p>Windows のメモ帳のように、<kbd>⌘</kbd><kbd>N</kbd> ですぐに書き始められます。ファイル名も保存場所も聞かれません。</p>
+        <p>アプリを閉じて開き直しても、書きかけの文章はそのまま残っています。いらなければ捨てて、残したいときだけ <kbd>⌘</kbd><kbd>S</kbd> で保存してください。保存形式は <code>.md</code> と <code>.txt</code> から選べます。</p>
+      </div>
+      <aside class="note">
+        <p>下書きはデバイス内に自動でバックアップされ、外部には送信されません。</p>
+        <hr>
+        <p>Mac 専用の機能です。</p>
+      </aside>
+      <div class="band scratch">
+        <div class="hn-app scratch__win" data-theme="light" data-mode="edit" id="scratchWin">
+          <div class="hn-titlebar">
+            <div class="hn-lights" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="hn-title">Hannunで[<b>無題</b>]を書いています</div>
+          </div>
+          <div class="hn-tabbar"><span class="hn-tab" aria-selected="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 1.5h5.5L13 5v9.5H4Z"/><path d="M9.3 1.7V5.2H13"/><path d="M6 11V8l1.2 1.4L8.4 8v3M10 8.2v2.6M9.1 10l.9.9.9-.9"/></svg><span class="hn-tab__name">無題</span></span></div>
+          <div class="hn-body"><textarea class="scratch__ta" spellcheck="false" aria-label="無題"></textarea></div>
+          <div class="hn-status"><span data-r="state"></span><span data-r="pos">1:1</span><span>UTF-8</span><span>LF</span></div>
+        </div>
+        <div class="scratch__bar">
+          <p class="demo__cap">ここに何か書いてから、このページを再読み込みしてみてください。書いた内容がそのまま残っています。このブラウザ内にだけ保存されます。</p>
+          <div class="scratch__acts">
+            <button type="button" class="scratch__btn" data-act="discard">捨てる</button>
+            <span class="seg" role="group" aria-label="形式"><button type="button" data-fmt="md" aria-pressed="true">.md</button><button type="button" data-fmt="txt" aria-pressed="false">.txt</button></span>
+            <button type="button" class="btn btn--seal scratch__save" data-act="save">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ⑥ 다른 형식 ───────────────────────────────────────────────── -->
   <section class="sec" id="data" data-run="ほかの形式">
     <div class="wrap grid">
-      <div class="num sec__num">5<span>ほかの形式</span></div>
+      <div class="num sec__num">6<span>ほかの形式</span></div>
       <div class="main prose">
         <h2>JSON、XML、PDF も開けます</h2>
         <p>データファイルは、折りたたんだり展開したりしながら読めます。最初はエディタと同じ見た目の<strong>ソース</strong>で開き、名前と値だけを残した<strong>ツリー</strong>、キー · 型 · 値に分けた<strong>リスト</strong>にも切り替えられます。ツリーでは、同じ形の項目が並んでいると表にまとめて表示します。どの表示でも、数値や値はファイルに書かれたとおりに表示します。</p>
@@ -285,7 +315,7 @@
   <!-- ⑦ 기기 ───────────────────────────────────────────────────────── -->
   <section class="sec" id="devices" data-run="対応デバイス">
     <div class="wrap grid">
-      <div class="num sec__num">6<span>対応デバイス</span></div>
+      <div class="num sec__num">7<span>対応デバイス</span></div>
       <div class="main prose">
         <h2>Mac でも、iPad でも、iPhone でも</h2>
         <p>Mac では Finder でダブルクリックするだけ。iPad と iPhone では、「ファイル」App にある文書をそのまま開けます。直した内容は元のファイルに保存されます。</p>
@@ -293,15 +323,15 @@
       </div>
       <div class="band devices">
         <figure class="fig">
-          <div class="fig__img" style="--ar: 16 / 10" data-missing="Mac の画面を準備中"><img src="../../assets/hannun/mac/preview-light.png" alt="Mac で開いた Hannun — 屋上菜園の観測記録のプレビュー"><img class="fig__dark" src="../../assets/hannun/mac/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="ライトとダークの比較 — ドラッグで境界を動かします"></div>
+          <div class="fig__img" style="--ar: 16 / 10" data-missing="Mac の画面を準備中"><img src="../../assets/hannun/ja/mac/preview-light.png" alt="Mac で開いた Hannun — 屋上菜園の観測記録のプレビュー"><img class="fig__dark" src="../../assets/hannun/ja/mac/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="ライトとダークの比較 — ドラッグで境界を動かします"></div>
           <figcaption><b>Mac</b>Finder でダブルクリック、スペースバーでクイックルック</figcaption>
         </figure>
         <figure class="fig">
-          <div class="fig__img" style="--ar: 3 / 4" data-missing="iPad の画面を準備中"><img src="../../assets/hannun/ipad/preview-light.png" alt="iPad で開いた Hannun — 目次パネルとプレビュー"><img class="fig__dark" src="../../assets/hannun/ipad/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="ライトとダークの比較 — ドラッグで境界を動かします"></div>
+          <div class="fig__img" style="--ar: 3 / 4" data-missing="iPad の画面を準備中"><img src="../../assets/hannun/ja/ipad/preview-light.png" alt="iPad で開いた Hannun — 目次パネルとプレビュー"><img class="fig__dark" src="../../assets/hannun/ja/ipad/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="ライトとダークの比較 — ドラッグで境界を動かします"></div>
           <figcaption><b>iPad</b>目次を横に出したまま読む</figcaption>
         </figure>
         <figure class="fig">
-          <div class="fig__img" style="--ar: 9 / 19.5" data-missing="iPhone の画面を準備中"><img src="../../assets/hannun/iphone/preview-light.png" alt="iPhone で開いた Hannun — プレビュー"><img class="fig__dark" src="../../assets/hannun/iphone/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="ライトとダークの比較 — ドラッグで境界を動かします"></div>
+          <div class="fig__img" style="--ar: 9 / 19.5" data-missing="iPhone の画面を準備中"><img src="../../assets/hannun/ja/iphone/preview-light.png" alt="iPhone で開いた Hannun — プレビュー"><img class="fig__dark" src="../../assets/hannun/ja/iphone/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="ライトとダークの比較 — ドラッグで境界を動かします"></div>
           <figcaption><b>iPhone</b>共有された文書もすぐに開く</figcaption>
         </figure>
       </div>
@@ -311,7 +341,7 @@
   <!-- ⑧ 기능 목록 ─────────────────────────────────────────────────── -->
   <section class="sec" id="inv" data-run="機能一覧">
     <div class="wrap grid">
-      <div class="num sec__num">7<span>機能一覧</span></div>
+      <div class="num sec__num">8<span>機能一覧</span></div>
       <div class="main">
         <h2>必要な機能は、そろっています</h2>
         <div class="inv">
@@ -361,7 +391,7 @@
   <!-- ⑨ 기본 앱 ────────────────────────────────────────────────────── -->
   <section class="sec" id="default" data-run="デフォルトApp">
     <div class="wrap grid">
-      <div class="num sec__num">8<span>デフォルトApp</span></div>
+      <div class="num sec__num">9<span>デフォルトApp</span></div>
       <div class="main prose">
         <h2>ダブルクリックで Hannun が開くように</h2>
         <p>Mac では最初、<code>.md</code> ファイルはほかのアプリで開きます。Hannun の<strong>設定 › 一般 › デフォルトApp</strong>で一度設定しておけば、次からはダブルクリックするだけで Hannun で開きます。</p>
@@ -389,7 +419,7 @@
   <!-- ⑩ 개인정보 ─────────────────────────────────────────────────────── -->
   <section class="plate" id="privacy" data-run="プライバシー">
     <div class="wrap grid">
-      <div class="num sec__num">9<span>プライバシー</span></div>
+      <div class="num sec__num">10<span>プライバシー</span></div>
       <div class="main">
         <h2>文書は、端末の外に<br>出ていきません。</h2>
       </div>
@@ -405,10 +435,24 @@
     </div>
   </section>
 
+  <section class="sec maker" id="maker" data-run="作者">
+    <div class="wrap grid">
+      <div class="num sec__num">11<span>作者</span></div>
+      <div class="main">
+        <h2>自分で使うために作りました</h2>
+        <blockquote class="maker__words">
+          <p>Markdown ファイルをひとつ開くのに、なぜこんなに手間がかかるのか。メモ帳のようにさっと書き留める機能も、たいしたものではないのに、しっくりくるアプリがありませんでした。</p>
+          <p>だから自分で作りました。自分でも使っているアプリなので、不便なところは私も同じように感じています。教えていただければ直します。</p>
+          <footer>— 作者</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
   <!-- ⑪ 다운로드 ───────────────────────────────────────────────────────── -->
   <section class="sec" id="get" data-run="ダウンロード">
     <div class="wrap grid">
-      <div class="num sec__num">10<span>ダウンロード</span></div>
+      <div class="num sec__num">12<span>ダウンロード</span></div>
       <div class="main">
         <h2>入手方法は 2 つあります</h2>
         <div class="get">
@@ -446,7 +490,7 @@
   <!-- ⑫ 자주 묻는 질문 ─────────────────────────────────────────────────── -->
   <section class="sec" id="faq" data-run="よくある質問">
     <div class="wrap grid">
-      <div class="num sec__num">11<span>FAQ</span></div>
+      <div class="num sec__num">13<span>FAQ</span></div>
       <div class="main">
         <h2>よくある質問</h2>
         <div class="faq">
@@ -483,9 +527,9 @@
       <dl class="box">
         <div class="t">Hannun</div>
         <dt>バージョン</dt><dd id="colVer">1.0</dd>
-        <dt>制作</dt><dd>プッチャメ</dd>
+        <dt>発行</dt><dd>プッチャメ</dd>
         <dt>お問い合わせ</dt><dd><a href="mailto:hannun@putchamoe.com">hannun@putchamoe.com</a></dd>
-        <dt>フォント</dt><dd>Noto Serif JP（SIL OFL）</dd>
+        <dt>フォント</dt><dd>源ノ明朝 · Noto Serif JP（SIL OFL）</dd>
         <dt>このページ</dt><dd>広告、Cookie、解析ツールなし</dd>
       </dl>
       <p class="links"><a href="help/">ヘルプ</a><a href="support/">サポート</a><a href="privacy/">プライバシーポリシー</a><a href="https://github.com/putchamoe/hannun-releases/releases">リリースノート</a><a href="/">プッチャメ</a></p>

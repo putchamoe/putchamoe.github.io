@@ -57,8 +57,6 @@ export default {
   runPrefix: 'Hannun — ',
   folio: n => `第 ${n} 页`,
 
-  bytesText: '# 周会\n- 日期：9 月 26 日\n- 参会：4 人\n',
-
   snip: {
     Digit1: ['标题 1', '# 标题'], Digit2: ['标题 2', '## 标题'], Digit3: ['标题 3', '### 标题'],
     Digit4: ['标题 4', '#### 标题'], Digit5: ['标题 5', '##### 标题'], Digit6: ['标题 6', '###### 标题'],
@@ -68,4 +66,13 @@ export default {
     KeyZ: ['链接', '[文字](https://)'], KeyX: ['图像', '![说明](images/)'], KeyC: ['代码块', '```'],
     KeyV: ['表格', '| 项目 | 值 |'], KeyB: ['分隔线', '---'],
   },
+
+  // 임시 문서 체험 — 상태 표시와 저장할 파일 이름
+  scratch: { saved: '已自动备份', empty: '空白', file: '无标题' },
+
+  // 원본 보존 — git diff 판
+  gitdiff: { changed: n => `${n} 行有改动`, none: '没有改动' },
+
+  // 원본 보존 — diff 비교에 처음 들어 있는 글 (Windows 에서 만든 회의록처럼 BOM + CRLF 로 다룬다)
+  diffDoc: '# 周会\n\n| 事项 | 负责人 |\n|---|---|\n| 发布准备 | 天天 |\n| 截图 | 小雨 |\n\n* 整理帮助文档\n* 检查翻译\n',
 }

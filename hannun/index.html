@@ -76,7 +76,6 @@
           <dt>한눈 <small>명사</small></dt>
           <dd>한꺼번에 모두 봄.</dd>
           <dd class="ex">문서가 한눈에 들어온다.</dd>
-          <dd class="en">Hannun [han-noon] — Korean for “at a glance.”</dd>
         </dl>
       </aside>
     </div>
@@ -106,16 +105,15 @@
     <div class="wrap grid">
       <div class="num sec__num">1<span>소개</span></div>
       <div class="main prose">
-        <h2>회의 중에 할 일은 아니었습니다</h2>
-        <p>마크다운 파일 하나를 보려고 매번 이 과정을 거쳤습니다. 회의 중에 모두가 화면을 기다리는 동안 하기에는 너무 번거로운 일이었습니다.</p>
+        <h2>보던 작업에 끼어들지 않습니다</h2>
+        <p>상관없는 마크다운 파일 하나 보려고, 열어 둔 프로젝트나 브라우저를 어지럽히고 싶지 않았습니다.</p>
         <ol class="steps">
-          <li><s>브라우저를 켠다</s></li>
-          <li><s>마크다운 확장 프로그램을 설치한다</s></li>
-          <li><s>파일을 창에 끌어다 놓는다</s></li>
-          <li><s>로컬 파일 접근 권한을 켠다</s><small>설정 어딘가에서</small></li>
-          <li class="now">파일을 더블클릭한다<small>한눈</small></li>
+          <li><s>VS Code에서 연다</s><small>지금 프로젝트 창에 섞인다</small></li>
+          <li><s>브라우저에 끌어다 놓는다</s><small>탭이 하나 더 는다</small></li>
+          <li><s>확장 프로그램을 깔고 파일 접근 권한을 켠다</s><small>설정 어딘가에서</small></li>
+          <li class="now">파일을 더블클릭한다<small>따로 열리고, 닫으면 끝</small></li>
         </ol>
-        <p class="gap">다른 앱은 먼저 앱을 켜고 파일을 찾아 들어가야 합니다. 한눈은 반대입니다. <strong>파일만 열면 됩니다.</strong></p>
+        <p class="gap">먼저 앱을 켜고 파일을 찾아 들어갈 필요도 없습니다. <strong>파일만 열면 됩니다.</strong></p>
       </div>
       <aside class="note">
         <p>보관함이나 작업 공간을 따로 만들 필요가 없습니다. 문서가 어디에 있든 그 자리에서 엽니다.</p>
@@ -132,34 +130,32 @@
       <div class="main">
         <h2>원본 파일은<br>그대로 둡니다.</h2>
         <p class="sub">인코딩, BOM, 줄바꿈 형식을 바꾸지 않고 저장합니다. 한 글자를 고치면 딱 그 글자만 바뀝니다.</p>
-      </div>
-      <div class="main">
-        <div class="bytes" id="bytesDemo">
-          <div class="bytes__top">
-            <span class="bytes__file">회의록.md</span>
-            <span class="bytes__tags"><span>UTF-8 · BOM</span><span>CRLF</span></span>
-            <div class="seg" role="group" aria-label="저장 방식">
-              <button type="button" data-save="hannun" aria-pressed="true">한눈으로 저장</button>
-              <button type="button" data-save="other" aria-pressed="false">일반 편집기로 저장</button>
-            </div>
-          </div>
-          <div class="bytes__body">
-            <textarea spellcheck="false" aria-label="회의록 내용 — 고쳐 보세요"></textarea>
-            <pre class="bytes__hex" aria-live="polite"></pre>
-          </div>
-          <div class="bytes__foot">
-            <span>원본 <b data-k="orig">0</b> 바이트</span>
-            <span>저장 <b data-k="size">0</b> 바이트</span>
-            <span data-k="chgwrap">바뀐 바이트 <b data-k="chg">0</b></span>
-          </div>
-        </div>
+        <p class="sub sub--git"><strong>Git으로 관리하는 문서라면 이 차이가 큽니다.</strong> 줄바꿈이나 인코딩이 바뀌면 고친 건 한 줄인데 git diff에는 파일 전체가 바뀐 것으로 나옵니다. 한눈으로 저장하면 diff에는 실제로 고친 줄만 남습니다. 리뷰하는 사람도, 나중에 다시 보는 나도 헷갈리지 않습니다.</p>
       </div>
       <aside class="note">
-        <p class="mark">왼쪽 글을 고쳐 보세요.</p>
-        <p>오른쪽은 저장될 파일의 실제 바이트입니다. 갈색으로 표시된 부분이 원본과 달라진 곳입니다.</p>
+        <p class="mark">위 회의록을 한 글자 고쳐 보세요.</p>
+        <p>아래 두 칸은 같은 글을 각각 저장했을 때의 git diff입니다. 아무것도 고치지 않고 저장만 해도 왼쪽은 이미 여러 줄이 바뀌어 있습니다.</p>
         <hr>
         <p>상태 표시줄에서 인코딩을 눌러 CP949 같은 다른 인코딩으로 다시 읽을 수도 있습니다.</p>
       </aside>
+      <div class="band diffdemo" id="diffDemo">
+        <div class="diffdemo__doc">
+          <div class="bytes__top"><span class="bytes__file">회의록.md</span><span class="bytes__tags"><span>UTF-8 · BOM</span><span>CRLF</span></span></div>
+          <textarea spellcheck="false" rows="9" aria-label="회의록 — 고쳐 보세요"></textarea>
+        </div>
+        <div class="diffdemo__cols">
+          <div class="diffdemo__col" data-side="other">
+            <div class="diffdemo__head"><span>일반 마크다운 편집기로 저장</span><b data-k="n"></b></div>
+            <p class="diffdemo__note">표를 다시 맞추고, 목록 기호와 줄바꿈을 자기 방식으로 바꿔 저장하는 편집기의 예</p>
+            <pre aria-live="polite"></pre>
+          </div>
+          <div class="diffdemo__col" data-side="hannun">
+            <div class="diffdemo__head"><span>한눈으로 저장</span><b data-k="n"></b></div>
+            <p class="diffdemo__note">고친 줄만 바뀝니다</p>
+            <pre aria-live="polite"></pre>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -250,7 +246,6 @@
         </div>
         <ul class="feats">
           <li><b>한글 입력</b><span>한글·일본어·중국어를 입력하는 도중에 글자가 꼬이지 않습니다. 멋대로 서식을 바꾸지도 않습니다.</span></li>
-          <li><b>새 문서</b><span><kbd>⌘</kbd><kbd>N</kbd>으로 바로 새 문서를 씁니다. 저장하지 않아도 앱을 다시 켜면 그대로 남아 있습니다.</span></li>
           <li><b>찾기 · 바꾸기</b><span>프리뷰, 편집기, PDF 어디서든 같은 방식으로 찾고 바꿉니다.</span></li>
         </ul>
       </div>
@@ -262,10 +257,45 @@
     </div>
   </section>
 
+  <section class="sec" id="scratch" data-run="임시 문서">
+    <div class="wrap grid">
+      <div class="num sec__num">5<span>임시 문서</span></div>
+      <div class="main prose">
+        <h2>메모장처럼 쓰고,<br>닫아도 남아 있습니다</h2>
+        <p>Windows 메모장처럼 <kbd>⌘</kbd><kbd>N</kbd>을 누르면 바로 쓰기 시작합니다. 파일 이름도, 저장할 곳도 묻지 않습니다.</p>
+        <p>앱을 닫았다가 다시 열어도 쓰던 글이 그대로 있습니다. 잠깐 적어 두고 버려도 되고, 남기고 싶을 때만 <kbd>⌘</kbd><kbd>S</kbd>로 저장하면 됩니다. 저장할 때 <code>.md</code>와 <code>.txt</code> 중에서 고를 수 있습니다.</p>
+      </div>
+      <aside class="note">
+        <p>임시 문서는 기기 안에 자동으로 백업됩니다. 밖으로 보내지 않습니다.</p>
+        <hr>
+        <p>Mac 전용 기능입니다.</p>
+      </aside>
+      <div class="band scratch">
+        <div class="hn-app scratch__win" data-theme="light" data-mode="edit" id="scratchWin">
+          <div class="hn-titlebar">
+            <div class="hn-lights" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="hn-title">한눈에 [<b>이름 없는 문서</b>] 쓰는 중</div>
+          </div>
+          <div class="hn-tabbar"><span class="hn-tab" aria-selected="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 1.5h5.5L13 5v9.5H4Z"/><path d="M9.3 1.7V5.2H13"/><path d="M6 11V8l1.2 1.4L8.4 8v3M10 8.2v2.6M9.1 10l.9.9.9-.9"/></svg><span class="hn-tab__name">이름 없는 문서</span></span></div>
+          <div class="hn-body"><textarea class="scratch__ta" spellcheck="false" aria-label="이름 없는 문서"></textarea></div>
+          <div class="hn-status"><span data-r="state"></span><span data-r="pos">1:1</span><span>UTF-8</span><span>LF</span></div>
+        </div>
+        <div class="scratch__bar">
+          <p class="demo__cap">여기에 아무거나 써 보고 이 페이지를 새로고침해 보세요. 쓴 글이 그대로 남아 있습니다. 이 브라우저 안에만 저장됩니다.</p>
+          <div class="scratch__acts">
+            <button type="button" class="scratch__btn" data-act="discard">버리기</button>
+            <span class="seg" role="group" aria-label="형식"><button type="button" data-fmt="md" aria-pressed="true">.md</button><button type="button" data-fmt="txt" aria-pressed="false">.txt</button></span>
+            <button type="button" class="btn btn--seal scratch__save" data-act="save">저장</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ⑥ 다른 형식 ───────────────────────────────────────────────── -->
   <section class="sec" id="data" data-run="다른 형식">
     <div class="wrap grid">
-      <div class="num sec__num">5<span>다른 형식</span></div>
+      <div class="num sec__num">6<span>다른 형식</span></div>
       <div class="main prose">
         <h2>JSON, XML, PDF도 엽니다</h2>
         <p>데이터 파일은 접고 펴면서 읽습니다. 처음에는 편집기와 같은 모양의 <strong>원문</strong>으로 열리고, 이름과 값만 남긴 <strong>트리</strong>, 키 · 형식 · 값으로 나눈 <strong>목록</strong>으로 바꿔 볼 수 있습니다. 트리에서는 같은 모양의 항목이 줄지어 있으면 표로 정리됩니다. 어느 방식으로 보든 숫자와 값은 파일에 적힌 그대로 보여 줍니다.</p>
@@ -285,7 +315,7 @@
   <!-- ⑦ 기기 ───────────────────────────────────────────────────────── -->
   <section class="sec" id="devices" data-run="지원 기기">
     <div class="wrap grid">
-      <div class="num sec__num">6<span>지원 기기</span></div>
+      <div class="num sec__num">7<span>지원 기기</span></div>
       <div class="main prose">
         <h2>Mac, iPad, iPhone에서 모두</h2>
         <p>Mac에서는 Finder에서 더블클릭하면 되고, iPad와 iPhone에서는 파일 앱에 있는 문서를 바로 엽니다. 고친 내용은 원본 파일에 저장됩니다.</p>
@@ -311,7 +341,7 @@
   <!-- ⑧ 기능 목록 ─────────────────────────────────────────────────── -->
   <section class="sec" id="inv" data-run="기능 목록">
     <div class="wrap grid">
-      <div class="num sec__num">7<span>기능 목록</span></div>
+      <div class="num sec__num">8<span>기능 목록</span></div>
       <div class="main">
         <h2>필요한 기능은 다 있습니다</h2>
         <div class="inv">
@@ -361,7 +391,7 @@
   <!-- ⑨ 기본 앱 ────────────────────────────────────────────────────── -->
   <section class="sec" id="default" data-run="기본 앱">
     <div class="wrap grid">
-      <div class="num sec__num">8<span>기본 앱</span></div>
+      <div class="num sec__num">9<span>기본 앱</span></div>
       <div class="main prose">
         <h2>더블클릭하면 한눈으로 열리게</h2>
         <p>Mac은 처음에 <code>.md</code> 파일을 다른 앱으로 엽니다. 한눈의 <strong>설정 › 일반 › 기본 앱</strong>에서 한 번만 설정하면, 그다음부터는 더블클릭만으로 한눈에서 열립니다.</p>
@@ -389,7 +419,7 @@
   <!-- ⑩ 개인정보 ─────────────────────────────────────────────────────── -->
   <section class="plate" id="privacy" data-run="개인정보">
     <div class="wrap grid">
-      <div class="num sec__num">9<span>개인정보</span></div>
+      <div class="num sec__num">10<span>개인정보</span></div>
       <div class="main">
         <h2>문서는 기기를<br>떠나지 않습니다.</h2>
       </div>
@@ -405,10 +435,24 @@
     </div>
   </section>
 
+  <section class="sec maker" id="maker" data-run="지은이">
+    <div class="wrap grid">
+      <div class="num sec__num">11<span>지은이</span></div>
+      <div class="main">
+        <h2>제가 쓰려고 만들었습니다</h2>
+        <blockquote class="maker__words">
+          <p>마크다운 파일 하나 여는 데 왜 이렇게 손이 많이 가는지 늘 불편했습니다. 메모장처럼 잠깐 적어 두는 기능도 별것 아닌데, 마음에 드는 앱이 없었습니다.</p>
+          <p>그래서 직접 만들었습니다. 제가 쓰는 앱이라 불편한 점은 저도 똑같이 느낍니다. 알려 주시면 고치겠습니다.</p>
+          <footer>— 지은이</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
   <!-- ⑪ 다운로드 ───────────────────────────────────────────────────────── -->
   <section class="sec" id="get" data-run="다운로드">
     <div class="wrap grid">
-      <div class="num sec__num">10<span>다운로드</span></div>
+      <div class="num sec__num">12<span>다운로드</span></div>
       <div class="main">
         <h2>두 가지로 받을 수 있습니다</h2>
         <div class="get">
@@ -446,7 +490,7 @@
   <!-- ⑫ 자주 묻는 질문 ─────────────────────────────────────────────────── -->
   <section class="sec" id="faq" data-run="자주 묻는 질문">
     <div class="wrap grid">
-      <div class="num sec__num">11<span>FAQ</span></div>
+      <div class="num sec__num">13<span>FAQ</span></div>
       <div class="main">
         <h2>자주 묻는 질문</h2>
         <div class="faq">
@@ -483,7 +527,7 @@
       <dl class="box">
         <div class="t">한눈</div>
         <dt>버전</dt><dd id="colVer">1.0</dd>
-        <dt>만든 곳</dt><dd>풋참외</dd>
+        <dt>펴낸 곳</dt><dd>풋참외</dd>
         <dt>문의</dt><dd><a href="mailto:hannun@putchamoe.com">hannun@putchamoe.com</a></dd>
         <dt>글꼴</dt><dd>본명조 · Noto Serif KR (SIL OFL)</dd>
         <dt>이 페이지</dt><dd>광고, 쿠키, 분석 도구 없음</dd>

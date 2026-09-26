@@ -11,7 +11,7 @@ const LANGS = {
   ko: {
     html: 'ko', name: '한국어', dir: '', font: 'Noto+Serif+KR:wght@400;600',
     langLabel: '언어', langPick: '언어 선택', toc: '차례', get: '다운로드', app: '한눈',
-    madeBy: '만든 곳', maker: '풋참외', contact: '문의', privacyDt: '개인정보',
+    madeBy: '펴낸 곳', maker: '풋참외', contact: '문의', privacyDt: '개인정보',
     links: { home: '한눈', help: '도움말', support: '지원', privacy: '개인정보처리방침', brand: '풋참외' },
     contactNote: '개발자가 직접 읽고 답장드립니다. 사용하는 기기와 한눈 버전을 함께 적어 주세요.',
     pages: {
@@ -23,7 +23,7 @@ const LANGS = {
   en: {
     html: 'en', name: 'English', dir: 'en/', font: 'Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400',
     langLabel: 'Language', langPick: 'Choose language', toc: 'Contents', get: 'Download', app: 'Hannun',
-    madeBy: 'Made by', maker: 'Putchamoe', contact: 'Contact', privacyDt: 'Privacy',
+    madeBy: 'Published by', maker: 'Putchamoe', contact: 'Contact', privacyDt: 'Privacy',
     links: { home: 'Hannun', help: 'Help', support: 'Support', privacy: 'Privacy Policy', brand: 'Putchamoe' },
     contactNote: 'Every email is read and answered by the developer. Please include your device and your Hannun version.',
     pages: {
@@ -35,7 +35,7 @@ const LANGS = {
   ja: {
     html: 'ja', name: '日本語', dir: 'ja/', font: 'Noto+Serif+JP:wght@400;600',
     langLabel: '言語', langPick: '言語を選択', toc: '目次', get: 'ダウンロード', app: 'Hannun',
-    madeBy: '制作', maker: 'プッチャメ', contact: 'お問い合わせ', privacyDt: 'プライバシー',
+    madeBy: '発行', maker: 'プッチャメ', contact: 'お問い合わせ', privacyDt: 'プライバシー',
     links: { home: 'Hannun', help: 'ヘルプ', support: 'サポート', privacy: 'プライバシーポリシー', brand: 'プッチャメ' },
     contactNote: 'いただいたメールは開発者本人がすべて読み、お返事します。お使いのデバイスと Hannun のバージョンを添えてください。',
     pages: {
@@ -47,7 +47,7 @@ const LANGS = {
   zh: {
     html: 'zh-Hans', name: '简体中文', dir: 'zh/', font: 'Noto+Serif+SC:wght@400;600',
     langLabel: '语言', langPick: '选择语言', toc: '目录', get: '下载', app: 'Hannun',
-    madeBy: '开发者', maker: 'Putchamoe', contact: '联系我们', privacyDt: '隐私',
+    madeBy: '出品', maker: 'Putchamoe', contact: '联系我们', privacyDt: '隐私',
     links: { home: 'Hannun', help: '帮助', support: '支持', privacy: '隐私政策', brand: 'Putchamoe' },
     contactNote: '每封邮件都由开发者本人阅读并回复。请注明您使用的设备和 Hannun 版本。',
     pages: {

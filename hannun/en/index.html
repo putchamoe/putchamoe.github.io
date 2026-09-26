@@ -73,10 +73,9 @@
       <aside class="note rise d3" aria-label="About the name">
         <dl class="entry">
           <img src="../img/icon-512.png" alt="Hannun app icon" width="132" height="132">
-          <dt>한눈 <small>Hannun · han-noon</small></dt>
+          <dt>한눈 <small>noun · han-noon</small></dt>
           <dd>Korean for “at a glance” — taking in everything in one look.</dd>
           <dd class="ex">“The whole document, at a glance.”</dd>
-          <dd class="en">The name is about effort, not length: you shouldn't have to work to open a Markdown file.</dd>
         </dl>
       </aside>
     </div>
@@ -106,16 +105,15 @@
     <div class="wrap grid">
       <div class="num sec__num">1<span>Why</span></div>
       <div class="main prose">
-        <h2>Not something to do in the middle of a meeting</h2>
-        <p>Viewing a single Markdown file used to mean the same routine every time. With everyone waiting on your screen, it was far too many steps.</p>
+        <h2>Stays out of your work</h2>
+        <p>I didn’t want to clutter an open project or my browser just to read one unrelated Markdown file.</p>
         <ol class="steps">
-          <li><s>Open a browser</s></li>
-          <li><s>Install a Markdown extension</s></li>
-          <li><s>Drag the file into a window</s></li>
-          <li><s>Allow access to local files</s><small>somewhere in settings</small></li>
-          <li class="now">Double-click the file<small>Hannun</small></li>
+          <li><s>Open it in VS Code</s><small>lands in your project window</small></li>
+          <li><s>Drag it into a browser</s><small>one more tab</small></li>
+          <li><s>Install an extension and allow file access</s><small>somewhere in settings</small></li>
+          <li class="now">Double-click the file<small>opens on its own; close it and you’re done</small></li>
         </ol>
-        <p class="gap">Most apps make you open the app first, then go looking for the file. Hannun works the other way around. <strong>Just open the file.</strong></p>
+        <p class="gap">No opening an app first and hunting for the file, either. <strong>Just open the file.</strong></p>
       </div>
       <aside class="note">
         <p>No vault or workspace to set up. Your files stay wherever they are, and Hannun opens them right there.</p>
@@ -126,40 +124,38 @@
   </section>
 
   <!-- ③ Original file ───────────────────────────────────────────────────── -->
-  <section class="plate" id="bytes" data-run="Your file, untouched">
+  <section class="plate" id="bytes" data-run="Original">
     <div class="wrap grid">
-      <div class="num sec__num">2<span>Your file</span></div>
+      <div class="num sec__num">2<span>Original</span></div>
       <div class="main">
         <h2>Your file stays<br>exactly as it was.</h2>
         <p class="sub">Hannun saves without changing the encoding, BOM, or line endings. Edit one character, and only that character changes.</p>
-      </div>
-      <div class="main">
-        <div class="bytes" id="bytesDemo">
-          <div class="bytes__top">
-            <span class="bytes__file">meeting-notes.md</span>
-            <span class="bytes__tags"><span>UTF-8 · BOM</span><span>CRLF</span></span>
-            <div class="seg" role="group" aria-label="How to save">
-              <button type="button" data-save="hannun" aria-pressed="true">Save with Hannun</button>
-              <button type="button" data-save="other" aria-pressed="false">Save with a typical editor</button>
-            </div>
-          </div>
-          <div class="bytes__body">
-            <textarea spellcheck="false" aria-label="Meeting notes — try editing"></textarea>
-            <pre class="bytes__hex" aria-live="polite"></pre>
-          </div>
-          <div class="bytes__foot">
-            <span>Original <b data-k="orig">0</b> bytes</span>
-            <span>Saved <b data-k="size">0</b> bytes</span>
-            <span data-k="chgwrap">Bytes changed <b data-k="chg">0</b></span>
-          </div>
-        </div>
+        <p class="sub sub--git"><strong>If your documents live in Git, this matters.</strong> Change the line endings or encoding and a one-line edit shows up in git diff as a rewrite of the whole file. Save with Hannun and the diff shows only the lines you actually changed — clear for reviewers, and for you later.</p>
       </div>
       <aside class="note">
-        <p class="mark">Try editing the text on the left.</p>
-        <p>On the right are the actual bytes that would be saved. Anything highlighted in brown differs from the original.</p>
+        <p class="mark">Change a single character in the notes above.</p>
+        <p>The two panels below show the git diff after saving the same text each way. Even with no edits at all, the left side already has several changed lines.</p>
         <hr>
         <p>If a file looks garbled, click the encoding in the status bar to reopen it with a different encoding, such as CP949.</p>
       </aside>
+      <div class="band diffdemo" id="diffDemo">
+        <div class="diffdemo__doc">
+          <div class="bytes__top"><span class="bytes__file">meeting-notes.md</span><span class="bytes__tags"><span>UTF-8 · BOM</span><span>CRLF</span></span></div>
+          <textarea spellcheck="false" rows="9" aria-label="Meeting notes — try editing"></textarea>
+        </div>
+        <div class="diffdemo__cols">
+          <div class="diffdemo__col" data-side="other">
+            <div class="diffdemo__head"><span>Saved in a typical Markdown editor</span><b data-k="n"></b></div>
+            <p class="diffdemo__note">An example of an editor that realigns tables and rewrites list markers and line endings its own way</p>
+            <pre aria-live="polite"></pre>
+          </div>
+          <div class="diffdemo__col" data-side="hannun">
+            <div class="diffdemo__head"><span>Saved in Hannun</span><b data-k="n"></b></div>
+            <p class="diffdemo__note">Only the line you changed</p>
+            <pre aria-live="polite"></pre>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -250,7 +246,6 @@
         </div>
         <ul class="feats">
           <li><b>Korean, Japanese, Chinese input</b><span>Characters don't get mangled while you're composing them, and nothing is auto-formatted behind your back.</span></li>
-          <li><b>New document</b><span>Press <kbd>⌘</kbd><kbd>N</kbd> and start writing — no save dialog. Even if you never save, it's still there when you reopen the app.</span></li>
           <li><b>Find &amp; Replace</b><span>Works the same way in the preview, the editor, and PDFs.</span></li>
         </ul>
       </div>
@@ -262,10 +257,45 @@
     </div>
   </section>
 
+  <section class="sec" id="scratch" data-run="Scratch notes">
+    <div class="wrap grid">
+      <div class="num sec__num">5<span>Scratch</span></div>
+      <div class="main prose">
+        <h2>Write like Notepad.<br>Close it. It’s still there.</h2>
+        <p>Like Notepad on Windows, press <kbd>⌘</kbd><kbd>N</kbd> and start typing. No file name, no save dialog.</p>
+        <p>Quit the app and come back — your text is right where you left it. Toss it when you’re done, or press <kbd>⌘</kbd><kbd>S</kbd> when it’s worth keeping and choose <code>.md</code> or <code>.txt</code>.</p>
+      </div>
+      <aside class="note">
+        <p>Scratch documents are backed up automatically, on your device only.</p>
+        <hr>
+        <p>Available on Mac.</p>
+      </aside>
+      <div class="band scratch">
+        <div class="hn-app scratch__win" data-theme="light" data-mode="edit" id="scratchWin">
+          <div class="hn-titlebar">
+            <div class="hn-lights" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="hn-title">Writing [<b>Untitled</b>] in Hannun</div>
+          </div>
+          <div class="hn-tabbar"><span class="hn-tab" aria-selected="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 1.5h5.5L13 5v9.5H4Z"/><path d="M9.3 1.7V5.2H13"/><path d="M6 11V8l1.2 1.4L8.4 8v3M10 8.2v2.6M9.1 10l.9.9.9-.9"/></svg><span class="hn-tab__name">Untitled</span></span></div>
+          <div class="hn-body"><textarea class="scratch__ta" spellcheck="false" aria-label="Untitled"></textarea></div>
+          <div class="hn-status"><span data-r="state"></span><span data-r="pos">1:1</span><span>UTF-8</span><span>LF</span></div>
+        </div>
+        <div class="scratch__bar">
+          <p class="demo__cap">Type anything here, then reload this page. It’ll still be there — saved only in this browser.</p>
+          <div class="scratch__acts">
+            <button type="button" class="scratch__btn" data-act="discard">Discard</button>
+            <span class="seg" role="group" aria-label="Format"><button type="button" data-fmt="md" aria-pressed="true">.md</button><button type="button" data-fmt="txt" aria-pressed="false">.txt</button></span>
+            <button type="button" class="btn btn--seal scratch__save" data-act="save">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ⑥ Other formats ───────────────────────────────────────────────── -->
   <section class="sec" id="data" data-run="Other formats">
     <div class="wrap grid">
-      <div class="num sec__num">5<span>Other formats</span></div>
+      <div class="num sec__num">6<span>Other formats</span></div>
       <div class="main prose">
         <h2>Opens JSON, XML, and PDF, too</h2>
         <p>Data files open collapsible, so you can fold away what you don't need. They start in <strong>Source</strong>, which looks just like your code editor. Switch to <strong>Tree</strong> for names and values only, or <strong>List</strong> for key, type, and value in columns. In Tree, runs of items with the same shape turn into a table. Whichever view you pick, numbers and values appear exactly as written in the file.</p>
@@ -285,7 +315,7 @@
   <!-- ⑦ Devices ───────────────────────────────────────────────────────── -->
   <section class="sec" id="devices" data-run="Devices">
     <div class="wrap grid">
-      <div class="num sec__num">6<span>Devices</span></div>
+      <div class="num sec__num">7<span>Devices</span></div>
       <div class="main prose">
         <h2>On Mac, iPad, and iPhone</h2>
         <p>On a Mac, double-click in Finder. On iPad and iPhone, open documents straight from the Files app. Your edits are saved back to the original file.</p>
@@ -293,15 +323,15 @@
       </div>
       <div class="band devices">
         <figure class="fig">
-          <div class="fig__img" style="--ar: 16 / 10" data-missing="Mac screenshot coming soon"><img src="../../assets/hannun/mac/preview-light.png" alt="Hannun on Mac — previewing a document"><img class="fig__dark" src="../../assets/hannun/mac/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="Compare Light and Dark — drag to move the divider"></div>
+          <div class="fig__img" style="--ar: 16 / 10" data-missing="Mac screenshot coming soon"><img src="../../assets/hannun/en/mac/preview-light.png" alt="Hannun on Mac — previewing a document"><img class="fig__dark" src="../../assets/hannun/en/mac/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="Compare Light and Dark — drag to move the divider"></div>
           <figcaption><b>Mac</b>Double-click in Finder, press Space to preview</figcaption>
         </figure>
         <figure class="fig">
-          <div class="fig__img" style="--ar: 3 / 4" data-missing="iPad screenshot coming soon"><img src="../../assets/hannun/ipad/preview-light.png" alt="Hannun on iPad — table of contents beside the preview"><img class="fig__dark" src="../../assets/hannun/ipad/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="Compare Light and Dark — drag to move the divider"></div>
+          <div class="fig__img" style="--ar: 3 / 4" data-missing="iPad screenshot coming soon"><img src="../../assets/hannun/en/ipad/preview-light.png" alt="Hannun on iPad — table of contents beside the preview"><img class="fig__dark" src="../../assets/hannun/en/ipad/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="Compare Light and Dark — drag to move the divider"></div>
           <figcaption><b>iPad</b>Read with the table of contents alongside</figcaption>
         </figure>
         <figure class="fig">
-          <div class="fig__img" style="--ar: 9 / 19.5" data-missing="iPhone screenshot coming soon"><img src="../../assets/hannun/iphone/preview-light.png" alt="Hannun on iPhone — preview"><img class="fig__dark" src="../../assets/hannun/iphone/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="Compare Light and Dark — drag to move the divider"></div>
+          <div class="fig__img" style="--ar: 9 / 19.5" data-missing="iPhone screenshot coming soon"><img src="../../assets/hannun/en/iphone/preview-light.png" alt="Hannun on iPhone — preview"><img class="fig__dark" src="../../assets/hannun/en/iphone/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="Compare Light and Dark — drag to move the divider"></div>
           <figcaption><b>iPhone</b>Open files people share with you</figcaption>
         </figure>
       </div>
@@ -311,7 +341,7 @@
   <!-- ⑧ Features ─────────────────────────────────────────────────── -->
   <section class="sec" id="inv" data-run="Features">
     <div class="wrap grid">
-      <div class="num sec__num">7<span>Features</span></div>
+      <div class="num sec__num">8<span>Features</span></div>
       <div class="main">
         <h2>Everything you'd expect</h2>
         <div class="inv">
@@ -361,7 +391,7 @@
   <!-- ⑨ Default app ────────────────────────────────────────────────────── -->
   <section class="sec" id="default" data-run="Default app">
     <div class="wrap grid">
-      <div class="num sec__num">8<span>Default app</span></div>
+      <div class="num sec__num">9<span>Default app</span></div>
       <div class="main prose">
         <h2>Make double-click open Hannun</h2>
         <p>Out of the box, your Mac opens <code>.md</code> files in another app. Set it once in Hannun under <strong>Settings › General › Default App</strong>, and from then on a double-click opens Hannun.</p>
@@ -389,7 +419,7 @@
   <!-- ⑩ Privacy ─────────────────────────────────────────────────────── -->
   <section class="plate" id="privacy" data-run="Privacy">
     <div class="wrap grid">
-      <div class="num sec__num">9<span>Privacy</span></div>
+      <div class="num sec__num">10<span>Privacy</span></div>
       <div class="main">
         <h2>Your documents<br>never leave your device.</h2>
       </div>
@@ -405,10 +435,24 @@
     </div>
   </section>
 
+  <section class="sec maker" id="maker" data-run="Author">
+    <div class="wrap grid">
+      <div class="num sec__num">11<span>Author</span></div>
+      <div class="main">
+        <h2>I made it for myself</h2>
+        <blockquote class="maker__words">
+          <p>Opening a single Markdown file always took more steps than it should. A notepad-style scratch pad is a small thing, too — yet I couldn’t find an app that did it the way I wanted.</p>
+          <p>So I built one. I use Hannun myself, so I run into the same rough edges you do. Tell me about them, and I’ll fix them.</p>
+          <footer>— the author</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
   <!-- ⑪ Download ───────────────────────────────────────────────────────── -->
   <section class="sec" id="get" data-run="Download">
     <div class="wrap grid">
-      <div class="num sec__num">10<span>Download</span></div>
+      <div class="num sec__num">12<span>Download</span></div>
       <div class="main">
         <h2>Two ways to get Hannun</h2>
         <div class="get">
@@ -446,7 +490,7 @@
   <!-- ⑫ FAQ ─────────────────────────────────────────────────── -->
   <section class="sec" id="faq" data-run="FAQ">
     <div class="wrap grid">
-      <div class="num sec__num">11<span>FAQ</span></div>
+      <div class="num sec__num">13<span>FAQ</span></div>
       <div class="main">
         <h2>Frequently asked questions</h2>
         <div class="faq">
@@ -483,7 +527,7 @@
       <dl class="box">
         <div class="t">Hannun</div>
         <dt>Version</dt><dd id="colVer">1.0</dd>
-        <dt>Made by</dt><dd>Putchamoe</dd>
+        <dt>Published by</dt><dd>Putchamoe</dd>
         <dt>Contact</dt><dd><a href="mailto:hannun@putchamoe.com">hannun@putchamoe.com</a></dd>
         <dt>Typeface</dt><dd>Newsreader (SIL OFL)</dd>
         <dt>This page</dt><dd>No ads, cookies, or analytics</dd>

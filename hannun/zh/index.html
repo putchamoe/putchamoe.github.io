@@ -31,8 +31,8 @@
     <a class="head__brand" href="#top"><img src="../img/icon-128.png" alt="">Hannun</a>
     <div class="head__run" id="run" aria-hidden="true"><b>Markdown 阅读器</b></div>
     <div class="head__folio" id="folio" aria-hidden="true">第 1 页</div>
-    <button class="head__src" id="srcToggle" type="button" aria-pressed="false" title="以 Markdown 源码查看本页">
-      <span>查看 Markdown 源码</span><kbd>⌘</kbd><kbd>/</kbd>
+    <button class="head__src" id="srcToggle" type="button" aria-pressed="false" title="以 Markdown 原稿查看本页">
+      <span>查看 Markdown 原稿</span><kbd>⌘</kbd><kbd>/</kbd>
     </button>
     <details class="head__lang">
       <summary aria-label="选择语言">简体中文</summary>
@@ -76,7 +76,6 @@
           <dt>한눈 <small>韩语 · 读作 han-noon</small></dt>
           <dd>一眼看全；一目了然。</dd>
           <dd class="ex">文件内容，一眼就能看清。</dd>
-          <dd class="en">Hannun [han-noon] — Korean for “at a glance.”</dd>
         </dl>
       </aside>
     </div>
@@ -106,16 +105,15 @@
     <div class="wrap grid">
       <div class="num sec__num">1<span>缘起</span></div>
       <div class="main prose">
-        <h2>开会时，没空折腾这些</h2>
-        <p>以前为了看一个 Markdown 文件，每次都要走一遍这些步骤。开会时大家都盯着屏幕等你，实在太麻烦了。</p>
+        <h2>不打扰手头的工作</h2>
+        <p>只是想看一个无关的 Markdown 文件，不想把正在开着的项目或浏览器弄乱。</p>
         <ol class="steps">
-          <li><s>打开浏览器</s></li>
-          <li><s>安装 Markdown 扩展</s></li>
-          <li><s>把文件拖进窗口</s></li>
-          <li><s>开启本地文件访问权限</s><small>藏在设置某处</small></li>
-          <li class="now">双击文件<small>Hannun</small></li>
+          <li><s>用 VS Code 打开</s><small>混进当前项目窗口</small></li>
+          <li><s>拖进浏览器</s><small>又多一个标签页</small></li>
+          <li><s>安装扩展并开启文件访问权限</s><small>藏在设置某处</small></li>
+          <li class="now">双击文件<small>单独打开，看完关掉就好</small></li>
         </ol>
-        <p class="gap">别的应用要先打开应用，再去找文件。Hannun 反过来：<strong>直接打开文件就行。</strong></p>
+        <p class="gap">也不用先打开应用再去找文件。<strong>直接打开文件就行。</strong></p>
       </div>
       <aside class="note">
         <p>不用另建资料库或工作区。文件放在哪里，就在哪里打开。</p>
@@ -132,34 +130,32 @@
       <div class="main">
         <h2>原文件，<br>原样保留。</h2>
         <p class="sub">保存时不改动编码、BOM 和换行格式。改一个字，就只变这一个字。</p>
-      </div>
-      <div class="main">
-        <div class="bytes" id="bytesDemo">
-          <div class="bytes__top">
-            <span class="bytes__file">会议记录.md</span>
-            <span class="bytes__tags"><span>UTF-8 · BOM</span><span>CRLF</span></span>
-            <div class="seg" role="group" aria-label="保存方式">
-              <button type="button" data-save="hannun" aria-pressed="true">用 Hannun 保存</button>
-              <button type="button" data-save="other" aria-pressed="false">用普通编辑器保存</button>
-            </div>
-          </div>
-          <div class="bytes__body">
-            <textarea spellcheck="false" aria-label="会议记录内容——试着改一改"></textarea>
-            <pre class="bytes__hex" aria-live="polite"></pre>
-          </div>
-          <div class="bytes__foot">
-            <span>原文件 <b data-k="orig">0</b> 字节</span>
-            <span>保存后 <b data-k="size">0</b> 字节</span>
-            <span data-k="chgwrap">改动字节 <b data-k="chg">0</b></span>
-          </div>
-        </div>
+        <p class="sub sub--git"><strong>如果文档用 Git 管理，这点差别就很关键。</strong>换行符或编码一变，明明只改了一行，git diff 却显示整个文件都变了。用 Hannun 保存，diff 里只留下你真正改动的那几行，审阅的人看得清楚，日后回看也不会糊涂。</p>
       </div>
       <aside class="note">
-        <p class="mark">试着改一下左边的文字。</p>
-        <p>右边是保存后文件的实际字节。棕色标出的地方，就是和原文件不同的部分。</p>
+        <p class="mark">在上面的会议记录里改一个字试试。</p>
+        <p>下面两栏是同一段文字分别保存后的 git diff。就算什么都不改、只是保存一下，左边也已经变了好几行。</p>
         <hr>
         <p>也可以点按状态栏中的编码，换一种编码重新读取文件。</p>
       </aside>
+      <div class="band diffdemo" id="diffDemo">
+        <div class="diffdemo__doc">
+          <div class="bytes__top"><span class="bytes__file">会议记录.md</span><span class="bytes__tags"><span>UTF-8 · BOM</span><span>CRLF</span></span></div>
+          <textarea spellcheck="false" rows="9" aria-label="会议记录 — 改改试试"></textarea>
+        </div>
+        <div class="diffdemo__cols">
+          <div class="diffdemo__col" data-side="other">
+            <div class="diffdemo__head"><span>用一般的 Markdown 编辑器保存</span><b data-k="n"></b></div>
+            <p class="diffdemo__note">示例：保存时会重新对齐表格、按自己的习惯改写列表符号和换行符的编辑器</p>
+            <pre aria-live="polite"></pre>
+          </div>
+          <div class="diffdemo__col" data-side="hannun">
+            <div class="diffdemo__head"><span>用 Hannun 保存</span><b data-k="n"></b></div>
+            <p class="diffdemo__note">只有改过的那一行会变</p>
+            <pre aria-live="polite"></pre>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -250,7 +246,6 @@
         </div>
         <ul class="feats">
           <li><b>中文输入</b><span>用拼音等输入法打字时，应用不会中途插手，也不会擅自改格式。</span></li>
-          <li><b>新建文稿</b><span>按 <kbd>⌘</kbd><kbd>N</kbd> 直接开写。就算没保存，重新打开应用时内容也还在。</span></li>
           <li><b>查找与替换</b><span>在预览、编辑器和 PDF 中，都用同样的方式查找和替换。</span></li>
         </ul>
       </div>
@@ -262,10 +257,45 @@
     </div>
   </section>
 
+  <section class="sec" id="scratch" data-run="临时文稿">
+    <div class="wrap grid">
+      <div class="num sec__num">5<span>临时文稿</span></div>
+      <div class="main prose">
+        <h2>像记事本一样写，<br>关掉也还在</h2>
+        <p>像 Windows 的记事本一样，按 <kbd>⌘</kbd><kbd>N</kbd> 就能直接开写，不用起文件名，也不用选保存位置。</p>
+        <p>关掉 App 再打开，没写完的内容还在原处。用完可以直接丢掉，想留下时再按 <kbd>⌘</kbd><kbd>S</kbd> 保存，可以选择 <code>.md</code> 或 <code>.txt</code> 格式。</p>
+      </div>
+      <aside class="note">
+        <p>临时文稿会自动备份在设备上，不会发送到任何地方。</p>
+        <hr>
+        <p>仅限 Mac。</p>
+      </aside>
+      <div class="band scratch">
+        <div class="hn-app scratch__win" data-theme="light" data-mode="edit" id="scratchWin">
+          <div class="hn-titlebar">
+            <div class="hn-lights" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="hn-title">正在 Hannun 中书写[<b>无标题</b>]</div>
+          </div>
+          <div class="hn-tabbar"><span class="hn-tab" aria-selected="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 1.5h5.5L13 5v9.5H4Z"/><path d="M9.3 1.7V5.2H13"/><path d="M6 11V8l1.2 1.4L8.4 8v3M10 8.2v2.6M9.1 10l.9.9.9-.9"/></svg><span class="hn-tab__name">无标题</span></span></div>
+          <div class="hn-body"><textarea class="scratch__ta" spellcheck="false" aria-label="无标题"></textarea></div>
+          <div class="hn-status"><span data-r="state"></span><span data-r="pos">1:1</span><span>UTF-8</span><span>LF</span></div>
+        </div>
+        <div class="scratch__bar">
+          <p class="demo__cap">在这里随便写点什么，然后刷新页面试试，内容还在。只保存在这个浏览器里。</p>
+          <div class="scratch__acts">
+            <button type="button" class="scratch__btn" data-act="discard">丢弃</button>
+            <span class="seg" role="group" aria-label="格式"><button type="button" data-fmt="md" aria-pressed="true">.md</button><button type="button" data-fmt="txt" aria-pressed="false">.txt</button></span>
+            <button type="button" class="btn btn--seal scratch__save" data-act="save">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ⑥ 其他格式 ───────────────────────────────────────────────── -->
   <section class="sec" id="data" data-run="其他格式">
     <div class="wrap grid">
-      <div class="num sec__num">5<span>其他格式</span></div>
+      <div class="num sec__num">6<span>其他格式</span></div>
       <div class="main prose">
         <h2>JSON、XML、PDF 也能打开</h2>
         <p>数据文件可以折叠、展开着看。默认以和编辑器相同的<strong>源文本</strong>打开，也可以切换成只保留名称和值的<strong>树</strong>，或按键、类型、值分栏显示的<strong>列表</strong>。在树视图里，结构相同的条目连在一起时会自动整理成表格。无论用哪种方式查看，数字和值都与文件中写的完全一致。</p>
@@ -285,7 +315,7 @@
   <!-- ⑦ 设备 ───────────────────────────────────────────────────────── -->
   <section class="sec" id="devices" data-run="支持的设备">
     <div class="wrap grid">
-      <div class="num sec__num">6<span>支持的设备</span></div>
+      <div class="num sec__num">7<span>支持的设备</span></div>
       <div class="main prose">
         <h2>Mac、iPad、iPhone 都能用</h2>
         <p>在 Mac 上，在访达中双击即可；在 iPad 和 iPhone 上，直接打开“文件”App 里的文档。改动会保存到原文件。</p>
@@ -293,15 +323,15 @@
       </div>
       <div class="band devices">
         <figure class="fig">
-          <div class="fig__img" style="--ar: 16 / 10" data-missing="Mac 截图准备中"><img src="../../assets/hannun/mac/preview-light.png" alt="在 Mac 上用 Hannun 打开的屋顶菜园观测文档预览"><img class="fig__dark" src="../../assets/hannun/mac/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="对比浅色与深色——拖动以移动分界线"></div>
+          <div class="fig__img" style="--ar: 16 / 10" data-missing="Mac 截图准备中"><img src="../../assets/hannun/zh/mac/preview-light.png" alt="在 Mac 上用 Hannun 打开的屋顶菜园观测文档预览"><img class="fig__dark" src="../../assets/hannun/zh/mac/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="对比浅色与深色——拖动以移动分界线"></div>
           <figcaption><b>Mac</b>在访达中双击，按空格键快速查看</figcaption>
         </figure>
         <figure class="fig">
-          <div class="fig__img" style="--ar: 3 / 4" data-missing="iPad 截图准备中"><img src="../../assets/hannun/ipad/preview-light.png" alt="在 iPad 上用 Hannun 打开的目录面板与预览"><img class="fig__dark" src="../../assets/hannun/ipad/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="对比浅色与深色——拖动以移动分界线"></div>
+          <div class="fig__img" style="--ar: 3 / 4" data-missing="iPad 截图准备中"><img src="../../assets/hannun/zh/ipad/preview-light.png" alt="在 iPad 上用 Hannun 打开的目录面板与预览"><img class="fig__dark" src="../../assets/hannun/zh/ipad/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="对比浅色与深色——拖动以移动分界线"></div>
           <figcaption><b>iPad</b>目录放在一旁，边看边翻</figcaption>
         </figure>
         <figure class="fig">
-          <div class="fig__img" style="--ar: 9 / 19.5" data-missing="iPhone 截图准备中"><img src="../../assets/hannun/iphone/preview-light.png" alt="在 iPhone 上用 Hannun 打开的预览"><img class="fig__dark" src="../../assets/hannun/iphone/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="对比浅色与深色——拖动以移动分界线"></div>
+          <div class="fig__img" style="--ar: 9 / 19.5" data-missing="iPhone 截图准备中"><img src="../../assets/hannun/zh/iphone/preview-light.png" alt="在 iPhone 上用 Hannun 打开的预览"><img class="fig__dark" src="../../assets/hannun/zh/iphone/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="对比浅色与深色——拖动以移动分界线"></div>
           <figcaption><b>iPhone</b>别人发来的文档，也能直接打开</figcaption>
         </figure>
       </div>
@@ -311,7 +341,7 @@
   <!-- ⑧ 功能一览 ─────────────────────────────────────────────────── -->
   <section class="sec" id="inv" data-run="功能一览">
     <div class="wrap grid">
-      <div class="num sec__num">7<span>功能一览</span></div>
+      <div class="num sec__num">8<span>功能一览</span></div>
       <div class="main">
         <h2>该有的功能，都有</h2>
         <div class="inv">
@@ -361,7 +391,7 @@
   <!-- ⑨ 默认应用 ────────────────────────────────────────────────────── -->
   <section class="sec" id="default" data-run="默认应用">
     <div class="wrap grid">
-      <div class="num sec__num">8<span>默认应用</span></div>
+      <div class="num sec__num">9<span>默认应用</span></div>
       <div class="main prose">
         <h2>设为默认，双击即开</h2>
         <p>Mac 一开始会用别的应用打开 <code>.md</code> 文件。在 Hannun 的<strong>设置 › 通用 › 默认应用</strong>中设置一次，以后双击就会直接用 Hannun 打开。</p>
@@ -389,7 +419,7 @@
   <!-- ⑩ 隐私 ─────────────────────────────────────────────────────── -->
   <section class="plate" id="privacy" data-run="隐私">
     <div class="wrap grid">
-      <div class="num sec__num">9<span>隐私</span></div>
+      <div class="num sec__num">10<span>隐私</span></div>
       <div class="main">
         <h2>文档不会<br>离开你的设备。</h2>
       </div>
@@ -405,10 +435,24 @@
     </div>
   </section>
 
+  <section class="sec maker" id="maker" data-run="作者">
+    <div class="wrap grid">
+      <div class="num sec__num">11<span>作者</span></div>
+      <div class="main">
+        <h2>我是为自己做的</h2>
+        <blockquote class="maker__words">
+          <p>打开一个 Markdown 文件，总要多费好几步。像记事本那样随手记一笔，也不是什么复杂的功能，却一直没找到顺手的 App。</p>
+          <p>所以我自己做了一个。我自己也在用 Hannun，你遇到的不便我也会遇到。告诉我，我来改。</p>
+          <footer>— 作者</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
   <!-- ⑪ 下载 ───────────────────────────────────────────────────────── -->
   <section class="sec" id="get" data-run="下载">
     <div class="wrap grid">
-      <div class="num sec__num">10<span>下载</span></div>
+      <div class="num sec__num">12<span>下载</span></div>
       <div class="main">
         <h2>两种获取方式</h2>
         <div class="get">
@@ -446,7 +490,7 @@
   <!-- ⑫ 常见问题 ─────────────────────────────────────────────────── -->
   <section class="sec" id="faq" data-run="常见问题">
     <div class="wrap grid">
-      <div class="num sec__num">11<span>FAQ</span></div>
+      <div class="num sec__num">13<span>FAQ</span></div>
       <div class="main">
         <h2>常见问题</h2>
         <div class="faq">
@@ -483,7 +527,7 @@
       <dl class="box">
         <div class="t">Hannun</div>
         <dt>版本</dt><dd id="colVer">1.0</dd>
-        <dt>开发者</dt><dd>Putchamoe</dd>
+        <dt>出品</dt><dd>Putchamoe</dd>
         <dt>联系</dt><dd><a href="mailto:hannun@putchamoe.com">hannun@putchamoe.com</a></dd>
         <dt>字体</dt><dd>思源宋体 · Noto Serif SC (SIL OFL)</dd>
         <dt>本页</dt><dd>无广告、无 Cookie、无统计分析</dd>

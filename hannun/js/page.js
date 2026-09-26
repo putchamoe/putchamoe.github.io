@@ -85,73 +85,73 @@ $$('#knobs [data-knob]').forEach(group => {
   })
 })
 
-// ── 원문은 바뀌지 않습니다 — 바이트 보기 ──────────────────────────────
+// ── 원본 보존 — 같은 글을 두 방식으로 저장했을 때의 git diff ─────────────
+//
+// 원본은 Windows 에서 만든 회의록처럼 UTF-8 BOM + CRLF 로 둔다.
+// "일반 편집기"는 특정 앱이 아니라, 저장할 때 자기 방식으로 다시 쓰는 편집기의 예다.
+//   BOM 을 떼고 · 줄바꿈을 LF 로 · 목록 기호를 - 로 · 표 칸을 다시 맞춘다
 
-const bytesBox = $('#bytesDemo')
-const ORIGINAL_TEXT = T.bytesText
-const enc = new TextEncoder()
-const toBytes = (text, how) => {
-  const body = enc.encode(how === 'hannun' ? text.replace(/\n/g, '\r\n') : text)
-  if (how !== 'hannun') return [...body]
-  return [0xef, 0xbb, 0xbf, ...body]
-}
-const ORIGINAL = toBytes(ORIGINAL_TEXT, 'hannun')
-let saveHow = 'hannun'
-
-// 바이트 단위 최소 편집 — 작은 LCS 로 지운 것과 넣은 것을 가린다
-function diff(a, b) {
-  if (a.length * b.length > 400000) return b.map(x => ({ v: x, op: 'ins' }))
-  const n = a.length
-  const m = b.length
-  const dp = Array.from({ length: n + 1 }, () => new Uint16Array(m + 1))
-  for (let i = n - 1; i >= 0; i--)
-    for (let j = m - 1; j >= 0; j--)
+const diffBox = $('#diffDemo')
+if (diffBox) {
+  const ORIGINAL = T.diffDoc
+  const ta = diffBox.querySelector('textarea')
+  // 한글·한자·가나는 두 칸으로 센다 — 표 칸 맞춤에 쓴다
+  const width = t => [...t].reduce((n, c) => n + (/[ᄀ-ᇿ　-鿿가-힯＀-￯]/.test(c) ? 2 : 1), 0)
+  function normalize(text) {
+    const lines = text.replace(/\n$/, '').split('\n').map(l => l.replace(/^(\s*)[*+] /, '$1- '))
+    // 표 덩어리마다 칸 너비를 맞춰 다시 쓴다
+    for (let i = 0; i < lines.length; i++) {
+      if (!/^\s*\|/.test(lines[i])) continue
+      let j = i
+      while (j < lines.length && /^\s*\|/.test(lines[j])) j++
+      const rows = lines.slice(i, j).map(r => r.trim().replace(/^\||\|$/g, '').split('|').map(c => c.trim()))
+      const cols = Math.max(...rows.map(r => r.length))
+      const w = Array.from({ length: cols }, (_, c) => Math.max(3, ...rows.map((r, k) => (/^:?-+:?$/.test(r[c] || '') ? 3 : width(r[c] || '')))))
+      rows.forEach((r, k) => {
+        const sep = r.every(c => /^:?-+:?$/.test(c))
+        lines[i + k] = '| ' + w.map((cw, c) => (sep ? '-'.repeat(cw) : (r[c] || '') + ' '.repeat(cw - width(r[c] || '')))).join(' | ') + ' |'
+      })
+      i = j
+    }
+    return lines
+  }
+  const mark = (ls, crlf, bom) => ls.map((l, i) => (bom && i === 0 ? '<BOM>' : '') + l + (crlf ? '^M' : ''))
+  const esc2 = t => t.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]).replace(/\^M/g, '<i>^M</i>').replace(/&lt;BOM&gt;/g, '<i>&lt;BOM&gt;</i>')
+  function diff(a, b) {
+    const n = a.length, m = b.length
+    const dp = Array.from({ length: n + 1 }, () => new Uint16Array(m + 1))
+    for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
       dp[i][j] = a[i] === b[j] ? dp[i + 1][j + 1] + 1 : Math.max(dp[i + 1][j], dp[i][j + 1])
-  const out = []
-  let i = 0
-  let j = 0
-  while (i < n && j < m) {
-    if (a[i] === b[j]) { out.push({ v: b[j], op: 'eq' }); i++; j++ }
-    else if (dp[i + 1][j] >= dp[i][j + 1]) out.push({ v: a[i++], op: 'del' })
-    else out.push({ v: b[j++], op: 'ins' })
+    const out = []
+    let i = 0, j = 0, changed = 0
+    while (i < n || j < m) {
+      if (i < n && j < m && a[i] === b[j]) { out.push(`<span class="ctx">  ${esc2(a[i])}</span>`); i++; j++ }
+      // git 처럼 지운 줄(-)을 먼저, 넣은 줄(+)을 뒤에
+      else if (i < n && (j >= m || dp[i + 1][j] >= dp[i][j + 1])) { out.push(`<span class="del">- ${esc2(a[i])}</span>`); i++ }
+      else { out.push(`<span class="add">+ ${esc2(b[j])}</span>`); j++; changed++ }
+    }
+    return { html: out.join(''), changed }
   }
-  while (i < n) out.push({ v: a[i++], op: 'del' })
-  while (j < m) out.push({ v: b[j++], op: 'ins' })
-  return out
-}
-
-function drawBytes() {
-  const ta = bytesBox.querySelector('textarea')
-  const saved = toBytes(ta.value, saveHow)
-  const ops = diff(ORIGINAL, saved)
-  let html = ''
-  let pos = 0
-  let changed = 0
-  for (const o of ops) {
-    const hex = o.v.toString(16).toUpperCase().padStart(2, '0')
-    const isBom = o.op !== 'ins' && pos < 3 && ORIGINAL[pos] === o.v && [0xef, 0xbb, 0xbf][pos] === o.v
-    if (o.op !== 'ins') pos++
-    let cls = o.v === 0x0d || o.v === 0x0a ? 'eol' : isBom ? 'bom' : ''
-    if (o.op !== 'eq') { cls = 'chg'; changed++ }
-    html += o.op === 'del' ? `<i class="chg"><s>${hex}</s></i>` : `<i class="${cls}">${hex}</i>`
-    if (o.v === 0x0a && o.op !== 'del') html += '<br>'
+  const before = mark(ORIGINAL.replace(/\n$/, '').split('\n'), true, true)
+  function draw() {
+    const text = ta.value
+    const sides = {
+      other: mark(normalize(text), false, false),
+      hannun: mark(text.replace(/\n$/, '').split('\n'), true, true),
+    }
+    for (const [side, after] of Object.entries(sides)) {
+      const col = diffBox.querySelector(`[data-side="${side}"]`)
+      const d = diff(before, after)
+      col.querySelector('pre').innerHTML = d.html
+      const n = col.querySelector('[data-k="n"]')
+      n.textContent = d.changed ? T.gitdiff.changed(d.changed) : T.gitdiff.none
+      n.classList.toggle('bad', side === 'other')
+    }
   }
-  bytesBox.querySelector('.bytes__hex').innerHTML = html
-  bytesBox.querySelector('[data-k="orig"]').textContent = ORIGINAL.length
-  bytesBox.querySelector('[data-k="size"]').textContent = saved.length
-  bytesBox.querySelector('[data-k="chg"]').textContent = changed
-  bytesBox.querySelector('[data-k="chgwrap"]').classList.toggle('bad', saveHow !== 'hannun')
+  ta.value = ORIGINAL
+  ta.addEventListener('input', draw)
+  draw()
 }
-bytesBox.querySelector('textarea').value = ORIGINAL_TEXT
-bytesBox.querySelector('textarea').addEventListener('input', drawBytes)
-bytesBox.querySelector('.seg').addEventListener('click', e => {
-  const b = e.target.closest('button')
-  if (!b) return
-  saveHow = b.dataset.save
-  bytesBox.querySelectorAll('.seg button').forEach(x => x.setAttribute('aria-pressed', String(x === b)))
-  drawBytes()
-})
-drawBytes()
 
 // ── 문법 팔레트 판 — 실제 키보드에 반응 ──────────────────────────────
 
@@ -287,3 +287,51 @@ document.addEventListener('click', e => {
   const d = document.querySelector('.head__lang')
   if (d?.open && !d.contains(e.target)) d.open = false
 })
+
+// ── 임시 문서 — 새로고침해도 남아 있다 (이 브라우저에만) ────────────────
+
+const scratch = $('#scratchWin')
+if (scratch) {
+  const KEY = 'hannun-scratch'
+  const ta = scratch.querySelector('.scratch__ta')
+  const state = scratch.querySelector('[data-r="state"]')
+  const pos = scratch.querySelector('[data-r="pos"]')
+  const bar = scratch.parentElement.querySelector('.scratch__acts')
+  let fmt = 'md'
+  const read = () => { try { return localStorage.getItem(KEY) || '' } catch { return '' } }
+  const write = v => { try { v ? localStorage.setItem(KEY, v) : localStorage.removeItem(KEY) } catch {} }
+  const status = () => {
+    state.textContent = ta.value ? T.scratch.saved : T.scratch.empty
+    const before = ta.value.slice(0, ta.selectionStart)
+    pos.textContent = `${before.split('\n').length}:${before.length - before.lastIndexOf('\n')}`
+  }
+  ta.value = read()
+  status()
+  let timer
+  ta.addEventListener('input', () => {
+    clearTimeout(timer)
+    timer = setTimeout(() => { write(ta.value); status() }, 250)
+  })
+  for (const ev of ['keyup', 'click']) ta.addEventListener(ev, status)
+  bar.addEventListener('click', e => {
+    const b = e.target.closest('button')
+    if (!b) return
+    if (b.dataset.fmt) {
+      fmt = b.dataset.fmt
+      bar.querySelectorAll('[data-fmt]').forEach(x => x.setAttribute('aria-pressed', String(x === b)))
+    } else if (b.dataset.act === 'discard') {
+      ta.value = ''
+      write('')
+      status()
+      ta.focus()
+    } else if (b.dataset.act === 'save') {
+      const url = URL.createObjectURL(new Blob([ta.value], { type: fmt === 'md' ? 'text/markdown' : 'text/plain' }))
+      const a = Object.assign(document.createElement('a'), { href: url, download: `${T.scratch.file}.${fmt}` })
+      document.body.append(a)
+      a.click()
+      a.remove()
+      setTimeout(() => URL.revokeObjectURL(url), 1000)
+    }
+  })
+}
+

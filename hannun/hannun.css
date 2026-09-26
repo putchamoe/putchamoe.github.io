@@ -1109,3 +1109,150 @@ kbd, .kbd {
 @media (max-width: 720px) {
   .head__lang summary { padding: 6px 8px; }
 }
+
+/* ── 임시 문서 체험 ───────────────────────────────────────────────── */
+
+.hn-app.scratch__win { height: 340px; }
+.scratch__win .hn-body { background: var(--hn-bg); }
+.scratch__ta {
+  flex: 1;
+  width: 100%;
+  padding: 18px 22px;
+  border: 0;
+  resize: none;
+  outline: none;
+  background: transparent;
+  color: var(--hn-fg);
+  caret-color: var(--hn-fg);
+  font-family: var(--hn-font-mono);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.scratch__win .hn-status span:first-child { margin-inline-end: auto; }
+.scratch__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin-top: 18px;
+}
+.scratch__bar .demo__cap { margin: 0; flex: 1 1 24em; }
+.scratch__acts { display: flex; align-items: center; gap: 10px; }
+.scratch__acts .seg { margin: 0; }
+.scratch__btn {
+  padding: 9px 14px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: none;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+.scratch__btn:hover { color: var(--ink); border-color: #cfc9bc; }
+.scratch__save { padding: 10px 18px 9px; font-size: 14px; }
+
+/* ── 만든 사람 ─────────────────────────────────────────────────────── */
+
+.maker__words {
+  margin: 8px 0 0;
+  padding: 4px 0 0 28px;
+  border-left: 2px solid var(--ink);
+  font-size: 22px;
+  line-height: 1.75;
+}
+.maker__words p { margin: 0 0 0.8em; }
+.maker__words footer {
+  margin-top: 18px;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--ink-2);
+}
+@media (max-width: 720px) {
+  .maker__words { font-size: 19px; padding-left: 18px; }
+  .hn-app.scratch__win { height: 280px; }
+}
+
+/* ── git diff 판 ───────────────────────────────────────────────────── */
+
+.sub--git { margin-top: 18px !important; font-size: 18px !important; color: var(--ink-2); }
+.sub--git strong { color: var(--ink); font-weight: 600; }
+.bytes__diff { border-top: 1px solid var(--rule); background: #fcfbf8; }
+.bytes__diffhead {
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 16px 0;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--ink-2);
+}
+.bytes__diffhead b { font-family: var(--sans); font-weight: 600; color: var(--ink); }
+.bytes__diffhead b.bad { color: var(--seal); }
+.bytes__diff pre {
+  margin: 0;
+  padding: 8px 16px 12px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.bytes__diff pre span { display: block; padding: 0 6px; border-radius: 2px; }
+.bytes__diff .ctx { color: var(--ink-2); }
+.bytes__diff .add { background: rgb(40 140 70 / 10%); color: #1f6b3a; }
+.bytes__diff .del { background: rgb(190 50 40 / 9%); color: #9a2f25; }
+.bytes__diff i { font-style: normal; opacity: 0.55; }
+
+/* ── 원본 보존 — diff 비교 ─────────────────────────────────────────── */
+
+.diffdemo { border: 1px solid var(--rule); border-radius: 4px; background: #fff; box-shadow: 0 1px 0 rgb(0 0 0 / 3%), 0 18px 40px -26px rgb(60 40 20 / 30%); }
+.diffdemo__doc { border-bottom: 1px solid var(--rule); }
+.diffdemo__doc textarea {
+  display: block;
+  width: 100%;
+  padding: 14px 18px;
+  border: 0;
+  resize: vertical;
+  background: none;
+  font-family: var(--mono);
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--ink);
+  outline: none;
+}
+.diffdemo__doc textarea:focus { background: rgb(140 90 60 / 3%); }
+.diffdemo__cols { display: grid; grid-template-columns: 1fr 1fr; }
+.diffdemo__col { min-width: 0; padding: 14px 0 16px; background: #fcfbf8; }
+.diffdemo__col + .diffdemo__col { border-left: 1px solid var(--rule); }
+.diffdemo__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 16px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.diffdemo__head b { font-weight: 600; color: #1f6b3a; white-space: nowrap; }
+.diffdemo__head b.bad { color: var(--seal); }
+.diffdemo__note { margin: 4px 16px 10px; font-family: var(--sans); font-size: 12px; line-height: 1.5; color: var(--ink-2); }
+.diffdemo__col pre {
+  margin: 0;
+  padding: 0 10px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.7;
+  white-space: pre;
+  overflow-x: auto;
+}
+.diffdemo__col pre span { display: block; padding: 0 6px; border-radius: 2px; }
+.diffdemo__col .ctx { color: var(--ink-2); }
+.diffdemo__col .add { background: rgb(40 140 70 / 10%); color: #1f6b3a; }
+.diffdemo__col .del { background: rgb(190 50 40 / 9%); color: #9a2f25; }
+.diffdemo__col i { font-style: normal; opacity: 0.55; }
+@media (max-width: 720px) {
+  .diffdemo__cols { grid-template-columns: 1fr; }
+  .diffdemo__col + .diffdemo__col { border-left: 0; border-top: 1px solid var(--rule); }
+}
