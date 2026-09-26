@@ -1,0 +1,20 @@
+{
+  "study": "How Much Cooler Is a Rooftop Garden?",
+  "period": { "start": "2026-06-15", "end": "2026-08-14" },
+  "logInterval (min)": 10,
+  "sites": [
+    { "code": "A", "name": "Sunrise Apartments", "floor": 5, "plants": "Vegetables · herbs", "soilDepth (cm)": 25, "middayAvg (°C)": 31.2 },
+    { "code": "B", "name": "Pine Street Shops", "floor": 4, "plants": "Grass", "soilDepth (cm)": 15, "middayAvg (°C)": 31.8 },
+    { "code": "C", "name": "Starlight Library", "floor": 3, "plants": "Perennials", "soilDepth (cm)": 30, "middayAvg (°C)": 30.9 },
+    { "code": "D", "name": "Bare roof (baseline)", "floor": 5, "plants": null, "soilDepth (cm)": null, "middayAvg (°C)": 33.6 }
+  ],
+  "dropAfterSunset (°C, 2 h)": [
+    { "date": "2026-07-19", "A": 3.1, "B": 2.8, "C": 3.4, "D": 2.1 },
+    { "date": "2026-07-20", "A": 3.3, "B": 2.9, "C": 3.6, "D": 2.1 },
+    { "date": "2026-07-21", "A": 3.2, "B": 2.7, "C": 3.5, "D": 1.9 },
+    { "date": "2026-07-22", "A": 3.4, "B": 3.1, "C": 3.7, "D": 2.2 },
+    { "date": "2026-07-23", "A": 2.9, "B": 2.6, "C": 3.3, "D": 1.8 }
+  ],
+  "sensor": { "model": "Demo Weather Sensor T-10", "accuracy (°C)": 0.2, "calibrated": true },
+  "note": "Sample data made up for this landing page."
+}

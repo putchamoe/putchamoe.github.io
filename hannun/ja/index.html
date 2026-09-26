@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hannun — Markdown ビューア</title>
+<meta name="description" content="Markdown ファイルは、ダブルクリックするだけ。Mac · iPad · iPhone 用の Markdown ビューア兼エディタです。アカウントもデータ収集もありません。">
+<meta name="theme-color" content="#fbfaf7">
+<meta property="og:title" content="Hannun — Markdown ビューア">
+<meta property="og:description" content="Markdown ファイルは、ダブルクリックするだけ。">
+<meta property="og:image" content="https://putchamoe.com/hannun/img/icon-512.png">
+<meta property="og:url" content="https://putchamoe.com/hannun/ja/">
+<link rel="alternate" hreflang="ko" href="https://putchamoe.com/hannun/">
+<link rel="alternate" hreflang="en" href="https://putchamoe.com/hannun/en/">
+<link rel="alternate" hreflang="ja" href="https://putchamoe.com/hannun/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://putchamoe.com/hannun/zh/">
+<link rel="alternate" hreflang="x-default" href="https://putchamoe.com/hannun/en/">
+<link rel="icon" href="../img/icon-128.png">
+<link rel="apple-touch-icon" href="../img/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.4/dist/katex.min.css">
+<link rel="stylesheet" href="../hannun.css">
+<link rel="stylesheet" href="../demo.css">
+</head>
+<body>
+
+<header class="head">
+  <div class="wrap">
+    <a class="head__brand" href="#top"><img src="../img/icon-128.png" alt="">Hannun</a>
+    <div class="head__run" id="run" aria-hidden="true"><b>Markdown ビューア</b></div>
+    <div class="head__folio" id="folio" aria-hidden="true">1ページ</div>
+    <button class="head__src" id="srcToggle" type="button" aria-pressed="false" title="このページを Markdown で表示">
+      <span>Markdown で見る</span><kbd>⌘</kbd><kbd>/</kbd>
+    </button>
+    <details class="head__lang">
+      <summary aria-label="言語を選択">日本語</summary>
+      <nav aria-label="言語">
+        <a href="/hannun/" lang="ko" hreflang="ko">한국어</a>
+        <a href="/hannun/en/" lang="en" hreflang="en">English</a>
+        <a href="/hannun/ja/" lang="ja" hreflang="ja" aria-current="page">日本語</a>
+        <a href="/hannun/zh/" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
+      </nav>
+    </details>
+    <a class="head__get" href="#get">ダウンロード</a>
+  </div>
+</header>
+
+<main id="top" class="md-able">
+
+  <!-- ① 첫 화면 ─────────────────────────────────────────────────────── -->
+  <section class="hero" data-run="Markdown ビューア">
+    <div class="wrap grid">
+      <div class="hero__head">
+        <p class="hero__kicker rise"><span>Markdown ビューア</span><span>Mac</span><span>iPad</span><span>iPhone</span></p>
+        <h1 class="rise d1">Markdown は、<br><span class="soft" style="white-space:nowrap">ダブルクリック</span><span style="white-space:nowrap">だけ。</span></h1>
+      </div>
+      <div class="main">
+        <p class="hero__lede rise d2">Hannun（ハンヌン）は、韓国語で「ひと目で」という意味です。Markdown ファイルを開くのに手間をかけなくていいように、開いた瞬間に読める形で表示します。</p>
+        <div class="cta rise d3">
+          <a class="btn btn--seal" href="https://github.com/putchamoe/hannun-releases/releases/latest" id="dl">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M5.5 8.5 10 13l4.5-4.5M4 16.5h12"/></svg>
+            Mac 版を無料でダウンロード
+          </a>
+          <a class="btn btn--line is-soon" href="#get" id="as" aria-disabled="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M13.6 10.6c0-1.6 1.3-2.4 1.4-2.4-.8-1.1-2-1.3-2.4-1.3-1-.1-2 .6-2.5.6s-1.3-.6-2.2-.6c-1.1 0-2.2.7-2.8 1.7-1.2 2.1-.3 5.1.9 6.8.6.8 1.2 1.7 2.1 1.7.8 0 1.2-.5 2.2-.5s1.3.5 2.2.5 1.5-.8 2-1.7c.6-.9.9-1.8.9-1.9 0 0-1.8-.7-1.8-2.9ZM12 5.6c.5-.6.8-1.4.7-2.2-.7 0-1.5.5-2 1.1-.4.5-.8 1.3-.7 2.1.8 0 1.5-.4 2-1Z"/></svg>
+            App Store <small>近日公開</small>
+          </a>
+        </div>
+        <p class="meta rise d4"><span id="ver">1.0</span><span>macOS 26 以降 · Apple シリコン</span><span>iOS · iPadOS 26 以降</span></p>
+      </div>
+      <aside class="note rise d3" aria-label="言葉の意味">
+        <dl class="entry">
+          <img src="../img/icon-512.png" alt="Hannun のアプリアイコン" width="132" height="132">
+          <dt>한눈 <small>ハンヌン · 韓国語</small></dt>
+          <dd>ひと目で見渡すこと。一度にすべてを見ること。</dd>
+          <dd class="ex">문서가 한눈에 들어온다 — 文書がひと目でわかる。</dd>
+          <dd class="en">Hannun [han-noon] — Korean for “at a glance.”</dd>
+        </dl>
+      </aside>
+    </div>
+
+    <!-- 미리 써 보기 -->
+    <div class="wrap grid demo">
+      <div class="band">
+      <div class="demo__stage">
+        <div class="hn-app" id="demo" tabindex="-1" aria-label="Hannun を試す" data-mode="preview" data-theme="light">
+          <noscript><p style="padding:2rem">JavaScript を有効にすると、ここで Hannun を実際に試せます。</p></noscript>
+        </div>
+      </div>
+      <div class="demo__hint">
+        <span><kbd>⌘</kbd><kbd>/</kbd> <b>プレビュー · 分割 · 編集の切り替え</b></span>
+        <span><kbd>⌥</kbd> を押したまま <b>記法パレット</b></span>
+        <span>画像 · 図をクリックで <b>拡大</b></span>
+        <span>本文中の <b>文書リンク</b>は <b>新しいタブ</b>で</span>
+        <span class="tail"><button type="button" id="demoReset">最初の状態に戻す</button></span>
+      </div>
+      <p class="demo__cap">上の画面はスクリーンショットではなく、Hannun と同じエンジンで実際に動いています。自由に書き換えてみてください。入力した内容がこのブラウザの外に送られることはありません。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ② 왜 ─────────────────────────────────────────────────────────── -->
+  <section class="sec" id="why" data-run="作った理由">
+    <div class="wrap grid">
+      <div class="num sec__num">1<span>はじめに</span></div>
+      <div class="main prose">
+        <h2>会議中にやることではありませんでした</h2>
+        <p>Markdown ファイルをひとつ見るために、毎回この手順を踏んでいました。会議中、みんなが画面を待っている間にやるには、あまりにも手間がかかります。</p>
+        <ol class="steps">
+          <li><s>ブラウザを起動する</s></li>
+          <li><s>Markdown 用の拡張機能を入れる</s></li>
+          <li><s>ファイルをウインドウにドラッグする</s></li>
+          <li><s>ローカルファイルへのアクセスを許可する</s><small>設定のどこかで</small></li>
+          <li class="now">ファイルをダブルクリックする<small>Hannun</small></li>
+        </ol>
+        <p class="gap">ほかのアプリは、まずアプリを起動してからファイルを探しに行きます。Hannun は逆です。<strong>ファイルを開くだけで済みます。</strong></p>
+      </div>
+      <aside class="note">
+        <p>保管庫やワークスペースを用意する必要はありません。文書がどこにあっても、その場で開けます。</p>
+        <hr>
+        <p>Mac の Finder でスペースバーを押すと、Markdown が整った状態でクイックルックに表示されます。</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ③ 원본 보존 ───────────────────────────────────────────────────────── -->
+  <section class="plate" id="bytes" data-run="元のファイルを守る">
+    <div class="wrap grid">
+      <div class="num sec__num">2<span>元のファイル</span></div>
+      <div class="main">
+        <h2>元のファイルは、<br>そのままに。</h2>
+        <p class="sub">文字コード、BOM、改行コードを変えずに保存します。1 文字直せば、変わるのはその 1 文字だけです。</p>
+      </div>
+      <div class="main">
+        <div class="bytes" id="bytesDemo">
+          <div class="bytes__top">
+            <span class="bytes__file">議事録.md</span>
+            <span class="bytes__tags"><span>UTF-8 · BOM</span><span>CRLF</span></span>
+            <div class="seg" role="group" aria-label="保存のしかた">
+              <button type="button" data-save="hannun" aria-pressed="true">Hannun で保存</button>
+              <button type="button" data-save="other" aria-pressed="false">一般的なエディタで保存</button>
+            </div>
+          </div>
+          <div class="bytes__body">
+            <textarea spellcheck="false" aria-label="議事録の内容 — 書き換えてみてください"></textarea>
+            <pre class="bytes__hex" aria-live="polite"></pre>
+          </div>
+          <div class="bytes__foot">
+            <span>元のファイル <b data-k="orig">0</b> バイト</span>
+            <span>保存後 <b data-k="size">0</b> バイト</span>
+            <span data-k="chgwrap">変わったバイト <b data-k="chg">0</b></span>
+          </div>
+        </div>
+      </div>
+      <aside class="note">
+        <p class="mark">左の文章を書き換えてみてください。</p>
+        <p>右側は、保存されるファイルの実際のバイト列です。茶色の部分が元のファイルから変わったところです。</p>
+        <hr>
+        <p>ステータスバーの文字コードをクリックすると、別の文字コードで読み直すこともできます。</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ④ 읽기 ───────────────────────────────────────────────────────── -->
+  <section class="sec" id="read" data-run="読む">
+    <div class="wrap grid">
+      <div class="num sec__num">3<span>読む</span></div>
+      <div class="main prose">
+        <h2>長い文書も、読みやすく</h2>
+        <p>表やチェックボックス、コードのハイライト、数式、図まで、きれいに表示します。本文の幅と書体は好みに合わせて選べます。</p>
+        <p>このページで試してみてください。下のボタンを押すと、いま読んでいるこのページがその場で変わります。</p>
+        <div class="knobs" id="knobs">
+          <span>本文の幅</span>
+          <div class="seg" role="group" aria-label="本文の幅" data-knob="width">
+            <button type="button" data-v="full" aria-pressed="false">全幅</button>
+            <button type="button" data-v="wide" aria-pressed="false">広い</button>
+            <button type="button" data-v="medium" aria-pressed="true">標準</button>
+            <button type="button" data-v="narrow" aria-pressed="false">狭い</button>
+          </div>
+          <span>本文の書体</span>
+          <div class="seg" role="group" aria-label="本文の書体" data-knob="body">
+            <button type="button" data-v="serif" aria-pressed="true">明朝</button>
+            <button type="button" data-v="sans" aria-pressed="false">ゴシック</button>
+          </div>
+          <span>見出しの書体</span>
+          <div class="seg" role="group" aria-label="見出しの書体" data-knob="head">
+            <button type="button" data-v="serif" aria-pressed="true">明朝</button>
+            <button type="button" data-v="sans" aria-pressed="false">ゴシック</button>
+          </div>
+          <p>本文と見出しは別々に選べます。見出しは明朝、本文はゴシック、その逆も可能です。</p>
+        </div>
+        <ul class="feats">
+          <li><b>目次</b><span>文書の見出しを左のパネルにまとめて表示します。パネルの幅はドラッグで調整でき、次回もそのまま残ります。</span></li>
+          <li><b>拡大</b><span>画像や図はクリックすると大きく表示できます。図はベクターなので、どこまで拡大してもくっきりしています。</span></li>
+          <li><b>ダークモード</b><span>ライト、ダーク、システム設定に合わせる、から選べます。</span></li>
+          <li><b>拡大 · 縮小</b><span>ピンチ、または <kbd>⌘</kbd><kbd>+</kbd> <kbd>⌘</kbd><kbd>−</kbd>。プレビュー、エディタ、PDF のどこでも同じ操作です。</span></li>
+        </ul>
+      </div>
+      <aside class="note">
+        <p>日本語・韓国語・中国語の文書に合わせて、字間と行間を調整しています。</p>
+        <hr>
+        <p>このページの設定は、Hannun の<span class="mark">設定 › プレビュー</span>にあるものと同じです。</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ⑤ 고치기 ─────────────────────────────────────────────────────── -->
+  <section class="sec" id="edit" data-run="編集">
+    <div class="wrap grid">
+      <div class="num sec__num">4<span>編集</span></div>
+      <div class="main prose">
+        <h2>読みながら、そのまま直せます</h2>
+        <p><kbd>⌘</kbd><kbd>/</kbd> ひとつで、プレビュー、分割表示、編集を切り替えます。分割表示では左右のスクロールが連動します。</p>
+        <p>記法を覚える必要もありません。<kbd>⌥</kbd> を押したままにすると、キーボードの配列どおりに並んだ記法パレットが表示されます。同じキーをもう一度押すと解除されます。</p>
+        <div class="keys" id="keys" aria-label="記法パレットの配置 — ⌥ を押したままにすると機能が表示されます">
+          <div class="keys__row">
+            <span class="cap" data-k="Digit1"><b>1</b><span>見出し 1</span></span>
+            <span class="cap" data-k="Digit2"><b>2</b><span>見出し 2</span></span>
+            <span class="cap" data-k="Digit3"><b>3</b><span>見出し 3</span></span>
+            <span class="cap" data-k="Digit4"><b>4</b><span>見出し 4</span></span>
+            <span class="cap" data-k="Digit5"><b>5</b><span>見出し 5</span></span>
+            <span class="cap" data-k="Digit6"><b>6</b><span>見出し 6</span></span>
+            <span class="cap is-blank"><b>7</b></span>
+            <span class="cap is-blank"><b>8</b></span>
+            <span class="cap is-blank"><b>9</b></span>
+            <span class="cap" data-k="Digit0"><b>0</b><span>本文</span></span>
+          </div>
+          <div class="keys__row keys__row--2">
+            <span class="cap" data-k="KeyA"><b>A</b><span>見出し切替</span></span>
+            <span class="cap" data-k="KeyS"><b>S</b><span>太字</span></span>
+            <span class="cap" data-k="KeyD"><b>D</b><span>斜体</span></span>
+            <span class="cap" data-k="KeyF"><b>F</b><span>取り消し線</span></span>
+            <span class="cap" data-k="KeyG"><b>G</b><span>コード</span></span>
+            <span class="cap" data-k="KeyH"><b>H</b><span>箇条書き</span></span>
+            <span class="cap" data-k="KeyJ"><b>J</b><span>番号付き</span></span>
+            <span class="cap" data-k="KeyK"><b>K</b><span>チェック</span></span>
+            <span class="cap" data-k="KeyL"><b>L</b><span>引用</span></span>
+          </div>
+          <div class="keys__row keys__row--3">
+            <span class="cap is-mod" data-k="Alt"><b>⌥</b><span>押したまま</span></span>
+            <span class="cap" data-k="KeyZ"><b>Z</b><span>リンク</span></span>
+            <span class="cap" data-k="KeyX"><b>X</b><span>画像</span></span>
+            <span class="cap" data-k="KeyC"><b>C</b><span>コードブロック</span></span>
+            <span class="cap" data-k="KeyV"><b>V</b><span>表</span></span>
+            <span class="cap" data-k="KeyB"><b>B</b><span>区切り線</span></span>
+          </div>
+          <div class="keys__out" id="keysOut"><span>キーボードの <kbd>⌥</kbd> を押してみてください。</span></div>
+        </div>
+        <ul class="feats">
+          <li><b>日本語入力</b><span>日本語・韓国語・中国語の変換中に文字が崩れることはありません。勝手に書式を変えることもありません。</span></li>
+          <li><b>新規書類</b><span><kbd>⌘</kbd><kbd>N</kbd> ですぐに書き始められます。保存しなくても、次にアプリを開いたときにそのまま残っています。</span></li>
+          <li><b>検索 · 置換</b><span>プレビュー、エディタ、PDF のどこでも、同じ方法で検索・置換できます。</span></li>
+        </ul>
+      </div>
+      <aside class="note">
+        <p><kbd>⌥</kbd> キーで開く方法は Mac だけです。iPad と iPhone では、編集画面の右下のボタンから開きます。</p>
+        <hr>
+        <p>上の試用画面で <kbd>⌘</kbd><kbd>/</kbd> を押して編集モードにし、<kbd>⌥</kbd> を押したままにすると実際に動きます。</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ⑥ 다른 형식 ───────────────────────────────────────────────── -->
+  <section class="sec" id="data" data-run="ほかの形式">
+    <div class="wrap grid">
+      <div class="num sec__num">5<span>ほかの形式</span></div>
+      <div class="main prose">
+        <h2>JSON、XML、PDF も開けます</h2>
+        <p>データファイルは、折りたたんだり展開したりしながら読めます。最初はエディタと同じ見た目の<strong>ソース</strong>で開き、名前と値だけを残した<strong>ツリー</strong>、キー · 型 · 値に分けた<strong>リスト</strong>にも切り替えられます。ツリーでは、同じ形の項目が並んでいると表にまとめて表示します。どの表示でも、数値や値はファイルに書かれたとおりに表示します。</p>
+        <p>下の画面の上にあるボタンで切り替えてみてください。</p>
+      </div>
+      <aside class="note">
+        <p>YAML はソース表示とインデント単位の折りたたみで読めます。</p>
+        <hr>
+        <p>PDF はページのサムネールと一緒に表示します。Markdown は PDF に書き出せて、日本語も画像ではなく文字として埋め込まれるので、検索やコピーができます。</p>
+      </aside>
+      <div class="band datacard">
+        <div class="hn-app" id="datademo" tabindex="-1" aria-label="データ文書の表示を試す" data-mode="preview" data-theme="light"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑦ 기기 ───────────────────────────────────────────────────────── -->
+  <section class="sec" id="devices" data-run="対応デバイス">
+    <div class="wrap grid">
+      <div class="num sec__num">6<span>対応デバイス</span></div>
+      <div class="main prose">
+        <h2>Mac でも、iPad でも、iPhone でも</h2>
+        <p>Mac では Finder でダブルクリックするだけ。iPad と iPhone では、「ファイル」App にある文書をそのまま開けます。直した内容は元のファイルに保存されます。</p>
+        <p>ライトモードとダークモードはシステム設定に合わせて切り替わります。下の画面の中央の線を左右にドラッグして比べてみてください。</p>
+      </div>
+      <div class="band devices">
+        <figure class="fig">
+          <div class="fig__img" style="--ar: 16 / 10" data-missing="Mac の画面を準備中"><img src="../../assets/hannun/mac/preview-light.png" alt="Mac で開いた Hannun — 屋上菜園の観測記録のプレビュー"><img class="fig__dark" src="../../assets/hannun/mac/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="ライトとダークの比較 — ドラッグで境界を動かします"></div>
+          <figcaption><b>Mac</b>Finder でダブルクリック、スペースバーでクイックルック</figcaption>
+        </figure>
+        <figure class="fig">
+          <div class="fig__img" style="--ar: 3 / 4" data-missing="iPad の画面を準備中"><img src="../../assets/hannun/ipad/preview-light.png" alt="iPad で開いた Hannun — 目次パネルとプレビュー"><img class="fig__dark" src="../../assets/hannun/ipad/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="ライトとダークの比較 — ドラッグで境界を動かします"></div>
+          <figcaption><b>iPad</b>目次を横に出したまま読む</figcaption>
+        </figure>
+        <figure class="fig">
+          <div class="fig__img" style="--ar: 9 / 19.5" data-missing="iPhone の画面を準備中"><img src="../../assets/hannun/iphone/preview-light.png" alt="iPhone で開いた Hannun — プレビュー"><img class="fig__dark" src="../../assets/hannun/iphone/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="ライトとダークの比較 — ドラッグで境界を動かします"></div>
+          <figcaption><b>iPhone</b>共有された文書もすぐに開く</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑧ 기능 목록 ─────────────────────────────────────────────────── -->
+  <section class="sec" id="inv" data-run="機能一覧">
+    <div class="wrap grid">
+      <div class="num sec__num">7<span>機能一覧</span></div>
+      <div class="main">
+        <h2>必要な機能は、そろっています</h2>
+        <div class="inv">
+          <section><h4>文書</h4><ul>
+            <li>GFM の表 · チェックボックス · 取り消し線</li>
+            <li>コードのハイライト</li>
+            <li>KaTeX の数式</li>
+            <li>Mermaid の図 <small>22 種類</small></li>
+            <li>YAML フロントマター</li>
+            <li>文書間リンク <small>新しいタブ</small></li>
+          </ul></section>
+          <section><h4>読む</h4><ul>
+            <li>本文の幅 4 段階</li>
+            <li>本文 · 見出しの書体を個別に選択</li>
+            <li>目次パネル</li>
+            <li>画像 · 図の拡大</li>
+            <li>ライト · ダーク · 自動</li>
+          </ul></section>
+          <section><h4>編集</h4><ul>
+            <li>プレビュー · 分割 · 編集</li>
+            <li>スクロールの連動</li>
+            <li>記法パレット <small>Mac</small></li>
+            <li>エディタのハイライト</li>
+            <li>下書きの自動バックアップ</li>
+          </ul></section>
+          <section><h4>ファイル</h4><ul>
+            <li>バイト単位でそのまま保存</li>
+            <li>タブ · セッションの復元</li>
+            <li>外部での変更を検知</li>
+            <li>クイックルック <small>Mac</small></li>
+          </ul></section>
+          <section><h4>ほかの形式</h4><ul>
+            <li>JSON · XML <small>ソース · ツリー · リスト</small></li>
+            <li>YAML <small>ソース · 折りたたみ</small></li>
+            <li>PDF の表示 · 書き出し</li>
+            <li>.txt の編集</li>
+          </ul></section>
+          <section><h4>言語</h4><ul>
+            <li>日本語 · English</li>
+            <li>한국어 · 简体中文</li>
+          </ul></section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑨ 기본 앱 ────────────────────────────────────────────────────── -->
+  <section class="sec" id="default" data-run="デフォルトApp">
+    <div class="wrap grid">
+      <div class="num sec__num">8<span>デフォルトApp</span></div>
+      <div class="main prose">
+        <h2>ダブルクリックで Hannun が開くように</h2>
+        <p>Mac では最初、<code>.md</code> ファイルはほかのアプリで開きます。Hannun の<strong>設定 › 一般 › デフォルトApp</strong>で一度設定しておけば、次からはダブルクリックするだけで Hannun で開きます。</p>
+        <div class="prefs" id="prefs">
+          <div class="prefs__bar"><i></i><i></i><i></i><span>一般</span></div>
+          <div class="prefs__body">
+            <h5>デフォルトApp</h5>
+            <div class="prefs__group">
+              <div class="prefs__row"><span>Markdown<small>.md .markdown</small></span><button type="button">デフォルトに設定</button></div>
+              <div class="prefs__row"><span>テキスト<small>.txt</small></span><button type="button">デフォルトに設定</button></div>
+              <div class="prefs__row"><span>データ文書<small>.json .xml .yaml</small></span><button type="button">デフォルトに設定</button></div>
+              <div class="prefs__row"><span>PDF<small>.pdf</small></span><button type="button">デフォルトに設定</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class="note">
+        <p>ファイルの種類ごとに設定します。PDF はこれまでどおり「プレビュー」で開き、Markdown だけを Hannun で開く、という使い方もできます。</p>
+        <hr>
+        <p>すでに Hannun で開くようになっている種類には、ボタンの代わりに<span class="mark">デフォルトに設定済み</span>と表示されます。</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ⑩ 개인정보 ─────────────────────────────────────────────────────── -->
+  <section class="plate" id="privacy" data-run="プライバシー">
+    <div class="wrap grid">
+      <div class="num sec__num">9<span>プライバシー</span></div>
+      <div class="main">
+        <h2>文書は、端末の外に<br>出ていきません。</h2>
+      </div>
+      <div class="main prose">
+        <p class="sub" style="margin-top:28px">アカウントもログインも広告もありません。解析ツールもクラッシュレポートも組み込んでいません。プレビューは外部への接続を遮断しているので、文書の中の外部画像が勝手に読み込まれることもありません。</p>
+        <p class="gap"><a href="privacy/">プライバシーポリシーを読む</a></p>
+      </div>
+      <aside class="note">
+        <p>公式サイトからダウンロードした無料版（Mac）は、新しいバージョンを確認するときだけインターネットに接続します。<span class="mark">設定 › 一般</span>でオフにできます。</p>
+        <hr>
+        <p>デベロッパ署名と Apple の公証を済ませたアプリです。</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ⑪ 다운로드 ───────────────────────────────────────────────────────── -->
+  <section class="sec" id="get" data-run="ダウンロード">
+    <div class="wrap grid">
+      <div class="num sec__num">10<span>ダウンロード</span></div>
+      <div class="main">
+        <h2>入手方法は 2 つあります</h2>
+        <div class="get">
+          <div>
+            <h3>公式サイト</h3>
+            <p class="price"><b>無料</b>Mac のみ</p>
+            <ul>
+              <li>すべての機能</li>
+              <li>アプリ内でアップデートの通知 · インストール</li>
+              <li class="off">iPad · iPhone 版</li>
+              <li class="off">ファミリー共有</li>
+            </ul>
+            <a class="btn btn--seal" href="https://github.com/putchamoe/hannun-releases/releases/latest">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M5.5 8.5 10 13l4.5-4.5M4 16.5h12"/></svg>
+              .dmg をダウンロード
+            </a>
+          </div>
+          <div>
+            <h3>App Store</h3>
+            <p class="price"><b id="price">有料</b>一度の購入ですべてのデバイスで</p>
+            <ul>
+              <li>すべての機能</li>
+              <li>Mac · iPad · iPhone</li>
+              <li>ファミリー共有 <small>（最大 6 人）</small></li>
+              <li>App Store で自動アップデート</li>
+            </ul>
+            <a class="btn btn--line is-soon" href="#get" aria-disabled="true">App Store <small>近日公開</small></a>
+          </div>
+        </div>
+        <p class="frank"><strong>先にお伝えしておくと、どちらも機能はまったく同じです。</strong>App Store 版には iPhone · iPad 版とファミリー共有が含まれ、ご購入は Hannun の開発を続ける大きな支えになります。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑫ 자주 묻는 질문 ─────────────────────────────────────────────────── -->
+  <section class="sec" id="faq" data-run="よくある質問">
+    <div class="wrap grid">
+      <div class="num sec__num">11<span>FAQ</span></div>
+      <div class="main">
+        <h2>よくある質問</h2>
+        <div class="faq">
+          <details><summary>インターネット接続は必要ですか？</summary><div>
+            <p>いいえ。文書を開く、読む、直すのにインターネットは使いません。数式、図、フォントはすべてアプリに入っています。</p>
+            <p>公式サイトからダウンロードした無料版（Mac）だけが、新しいバージョンの確認のために接続します。これは設定でオフにできます。</p>
+          </div></details>
+          <details><summary>文書の中の画像が表示されません。</summary><div>
+            <p>macOS のセキュリティの仕組み上、文書と同じフォルダにある画像を読むには一度許可が必要です。上に表示される案内バーの<strong>フォルダを許可</strong>をクリックしてください。</p>
+            <p>インターネット上のアドレスで指定された画像は読み込みません。読んでいる人を追跡するのに使われることがあるためです。</p>
+          </div></details>
+          <details><summary>ファイルが書き換わったり、壊れたりしませんか？</summary><div>
+            <p>Hannun は、開いたときの形式のまま保存します。文字コード、BOM、改行コードを変えることはありません。</p>
+            <p>ほかのアプリが同じファイルを変更すると、Hannun が読み直します。Hannun で編集中だった場合は、どちらを残すかを先に確認します。</p>
+          </div></details>
+          <details><summary>Intel 搭載の Mac でも使えますか？</summary><div>
+            <p>いいえ。macOS 26 以降を搭載した Apple シリコン（M1 以降）の Mac でお使いいただけます。</p>
+          </div></details>
+        </div>
+      </div>
+      <aside class="note">
+        <p>使い方は<a href="help/">ヘルプ</a>に、トラブルの解決方法とお問い合わせは<a href="support/">サポート</a>にあります。いただいたメールは、開発者が直接読んでお返事します。</p>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<!-- 판권 ──────────────────────────────────────────────────────────── -->
+<footer class="colophon" data-run="情報">
+  <div class="wrap grid">
+    <div class="num"></div>
+    <div class="main">
+      <dl class="box">
+        <div class="t">Hannun</div>
+        <dt>バージョン</dt><dd id="colVer">1.0</dd>
+        <dt>制作</dt><dd>プッチャメ</dd>
+        <dt>お問い合わせ</dt><dd><a href="mailto:hannun@putchamoe.com">hannun@putchamoe.com</a></dd>
+        <dt>フォント</dt><dd>Noto Serif JP（SIL OFL）</dd>
+        <dt>このページ</dt><dd>広告、Cookie、解析ツールなし</dd>
+      </dl>
+      <p class="links"><a href="help/">ヘルプ</a><a href="support/">サポート</a><a href="privacy/">プライバシーポリシー</a><a href="https://github.com/putchamoe/hannun-releases/releases">リリースノート</a><a href="/">プッチャメ</a></p>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="../js/page.js"></script>
+</body>
+</html>

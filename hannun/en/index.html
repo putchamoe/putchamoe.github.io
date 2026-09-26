@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hannun — Markdown Viewer for Mac, iPad and iPhone</title>
+<meta name="description" content="No vault. No workspace. Just double-click. Hannun is a Markdown viewer and editor for Mac, iPad and iPhone. No account, no tracking.">
+<meta name="theme-color" content="#fbfaf7">
+<meta property="og:title" content="Hannun — Markdown Viewer">
+<meta property="og:description" content="No vault. No workspace. Just double-click.">
+<meta property="og:image" content="https://putchamoe.com/hannun/img/icon-512.png">
+<meta property="og:url" content="https://putchamoe.com/hannun/en/">
+<link rel="alternate" hreflang="ko" href="https://putchamoe.com/hannun/">
+<link rel="alternate" hreflang="en" href="https://putchamoe.com/hannun/en/">
+<link rel="alternate" hreflang="ja" href="https://putchamoe.com/hannun/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://putchamoe.com/hannun/zh/">
+<link rel="alternate" hreflang="x-default" href="https://putchamoe.com/hannun/en/">
+<link rel="icon" href="../img/icon-128.png">
+<link rel="apple-touch-icon" href="../img/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.4/dist/katex.min.css">
+<link rel="stylesheet" href="../hannun.css">
+<link rel="stylesheet" href="../demo.css">
+</head>
+<body>
+
+<header class="head">
+  <div class="wrap">
+    <a class="head__brand" href="#top"><img src="../img/icon-128.png" alt="">Hannun</a>
+    <div class="head__run" id="run" aria-hidden="true"><b>Markdown Viewer</b></div>
+    <div class="head__folio" id="folio" aria-hidden="true">p. 1</div>
+    <button class="head__src" id="srcToggle" type="button" aria-pressed="false" title="Show this page as Markdown">
+      <span>View as Markdown</span><kbd>⌘</kbd><kbd>/</kbd>
+    </button>
+    <details class="head__lang">
+      <summary aria-label="Choose language">English</summary>
+      <nav aria-label="Language">
+        <a href="/hannun/" lang="ko" hreflang="ko">한국어</a>
+        <a href="/hannun/en/" lang="en" hreflang="en" aria-current="page">English</a>
+        <a href="/hannun/ja/" lang="ja" hreflang="ja">日本語</a>
+        <a href="/hannun/zh/" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
+      </nav>
+    </details>
+    <a class="head__get" href="#get">Download</a>
+  </div>
+</header>
+
+<main id="top" class="md-able">
+
+  <!-- ① Hero ─────────────────────────────────────────────────────────── -->
+  <section class="hero" data-run="Markdown Viewer">
+    <div class="wrap grid">
+      <div class="hero__head">
+        <p class="hero__kicker rise"><span>Markdown Viewer</span><span>Mac</span><span>iPad</span><span>iPhone</span></p>
+        <h1 class="rise d1">No vault.<br>No workspace.<br><span class="soft">Just</span> double-click.</h1>
+      </div>
+      <div class="main">
+        <p class="hero__lede rise d2">Markdown files should just open — no browser, no extension, no fuss. Hannun shows them the moment you double-click — clean and easy to read.</p>
+        <div class="cta rise d3">
+          <a class="btn btn--seal" href="https://github.com/putchamoe/hannun-releases/releases/latest" id="dl">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M5.5 8.5 10 13l4.5-4.5M4 16.5h12"/></svg>
+            Download free for Mac
+          </a>
+          <a class="btn btn--line is-soon" href="#get" id="as" aria-disabled="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M13.6 10.6c0-1.6 1.3-2.4 1.4-2.4-.8-1.1-2-1.3-2.4-1.3-1-.1-2 .6-2.5.6s-1.3-.6-2.2-.6c-1.1 0-2.2.7-2.8 1.7-1.2 2.1-.3 5.1.9 6.8.6.8 1.2 1.7 2.1 1.7.8 0 1.2-.5 2.2-.5s1.3.5 2.2.5 1.5-.8 2-1.7c.6-.9.9-1.8.9-1.9 0 0-1.8-.7-1.8-2.9ZM12 5.6c.5-.6.8-1.4.7-2.2-.7 0-1.5.5-2 1.1-.4.5-.8 1.3-.7 2.1.8 0 1.5-.4 2-1Z"/></svg>
+            App Store <small>Coming soon</small>
+          </a>
+        </div>
+        <p class="meta rise d4"><span id="ver">1.0</span><span>macOS 26 or later · Apple silicon</span><span>iOS · iPadOS 26 or later</span></p>
+      </div>
+      <aside class="note rise d3" aria-label="About the name">
+        <dl class="entry">
+          <img src="../img/icon-512.png" alt="Hannun app icon" width="132" height="132">
+          <dt>한눈 <small>Hannun · han-noon</small></dt>
+          <dd>Korean for “at a glance” — taking in everything in one look.</dd>
+          <dd class="ex">“The whole document, at a glance.”</dd>
+          <dd class="en">The name is about effort, not length: you shouldn't have to work to open a Markdown file.</dd>
+        </dl>
+      </aside>
+    </div>
+
+    <!-- Live demo -->
+    <div class="wrap grid demo">
+      <div class="band">
+      <div class="demo__stage">
+        <div class="hn-app" id="demo" tabindex="-1" aria-label="Try Hannun" data-mode="preview" data-theme="light">
+          <noscript><p style="padding:2rem">Turn on JavaScript to try Hannun right here.</p></noscript>
+        </div>
+      </div>
+      <div class="demo__hint">
+        <span><kbd>⌘</kbd><kbd>/</kbd> <b>Switch Preview · Split · Editor</b></span>
+        <span>Hold <kbd>⌥</kbd> <b>Syntax Palette</b></span>
+        <span>Click an image or diagram <b>to zoom</b></span>
+        <span><b>Links to other files</b> open in <b>a new tab</b></span>
+        <span class="tail"><button type="button" id="demoReset">Reset demo</button></span>
+      </div>
+      <p class="demo__cap">This isn't a screenshot. It runs on the same rendering engine as Hannun, so go ahead and edit. Nothing you type leaves your browser.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ② Why ─────────────────────────────────────────────────────────── -->
+  <section class="sec" id="why" data-run="Why Hannun">
+    <div class="wrap grid">
+      <div class="num sec__num">1<span>Why</span></div>
+      <div class="main prose">
+        <h2>Not something to do in the middle of a meeting</h2>
+        <p>Viewing a single Markdown file used to mean the same routine every time. With everyone waiting on your screen, it was far too many steps.</p>
+        <ol class="steps">
+          <li><s>Open a browser</s></li>
+          <li><s>Install a Markdown extension</s></li>
+          <li><s>Drag the file into a window</s></li>
+          <li><s>Allow access to local files</s><small>somewhere in settings</small></li>
+          <li class="now">Double-click the file<small>Hannun</small></li>
+        </ol>
+        <p class="gap">Most apps make you open the app first, then go looking for the file. Hannun works the other way around. <strong>Just open the file.</strong></p>
+      </div>
+      <aside class="note">
+        <p>No vault or workspace to set up. Your files stay wherever they are, and Hannun opens them right there.</p>
+        <hr>
+        <p>On a Mac, press Space in Finder to preview Markdown as a nicely formatted page.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ③ Original file ───────────────────────────────────────────────────── -->
+  <section class="plate" id="bytes" data-run="Your file, untouched">
+    <div class="wrap grid">
+      <div class="num sec__num">2<span>Your file</span></div>
+      <div class="main">
+        <h2>Your file stays<br>exactly as it was.</h2>
+        <p class="sub">Hannun saves without changing the encoding, BOM, or line endings. Edit one character, and only that character changes.</p>
+      </div>
+      <div class="main">
+        <div class="bytes" id="bytesDemo">
+          <div class="bytes__top">
+            <span class="bytes__file">meeting-notes.md</span>
+            <span class="bytes__tags"><span>UTF-8 · BOM</span><span>CRLF</span></span>
+            <div class="seg" role="group" aria-label="How to save">
+              <button type="button" data-save="hannun" aria-pressed="true">Save with Hannun</button>
+              <button type="button" data-save="other" aria-pressed="false">Save with a typical editor</button>
+            </div>
+          </div>
+          <div class="bytes__body">
+            <textarea spellcheck="false" aria-label="Meeting notes — try editing"></textarea>
+            <pre class="bytes__hex" aria-live="polite"></pre>
+          </div>
+          <div class="bytes__foot">
+            <span>Original <b data-k="orig">0</b> bytes</span>
+            <span>Saved <b data-k="size">0</b> bytes</span>
+            <span data-k="chgwrap">Bytes changed <b data-k="chg">0</b></span>
+          </div>
+        </div>
+      </div>
+      <aside class="note">
+        <p class="mark">Try editing the text on the left.</p>
+        <p>On the right are the actual bytes that would be saved. Anything highlighted in brown differs from the original.</p>
+        <hr>
+        <p>If a file looks garbled, click the encoding in the status bar to reopen it with a different encoding, such as CP949.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ④ Reading ───────────────────────────────────────────────────────── -->
+  <section class="sec" id="read" data-run="Reading">
+    <div class="wrap grid">
+      <div class="num sec__num">3<span>Reading</span></div>
+      <div class="main prose">
+        <h2>Long documents, easy on the eyes</h2>
+        <p>Tables, checkboxes, syntax-highlighted code, math, and diagrams all come out clean. You choose the content width and the fonts.</p>
+        <p>Try it on this page. The buttons below change the page you're reading right now.</p>
+        <div class="knobs" id="knobs">
+          <span>Content width</span>
+          <div class="seg" role="group" aria-label="Content width" data-knob="width">
+            <button type="button" data-v="full" aria-pressed="false">Full</button>
+            <button type="button" data-v="wide" aria-pressed="false">Wide</button>
+            <button type="button" data-v="medium" aria-pressed="true">Medium</button>
+            <button type="button" data-v="narrow" aria-pressed="false">Narrow</button>
+          </div>
+          <span>Body font</span>
+          <div class="seg" role="group" aria-label="Body font" data-knob="body">
+            <button type="button" data-v="serif" aria-pressed="true">Serif</button>
+            <button type="button" data-v="sans" aria-pressed="false">Sans-serif</button>
+          </div>
+          <span>Heading font</span>
+          <div class="seg" role="group" aria-label="Heading font" data-knob="head">
+            <button type="button" data-v="serif" aria-pressed="true">Serif</button>
+            <button type="button" data-v="sans" aria-pressed="false">Sans-serif</button>
+          </div>
+          <p>Body and headings are set separately — serif headings over sans-serif text, or the other way around.</p>
+        </div>
+        <ul class="feats">
+          <li><b>Table of Contents</b><span>Collects your headings in a sidebar. Drag to resize it, and Hannun remembers the width.</span></li>
+          <li><b>Zoom in</b><span>Click an image or diagram to see it up close. Diagrams are vector, so they stay sharp at any size.</span></li>
+          <li><b>Dark mode</b><span>Choose Light, Dark, or follow your system setting.</span></li>
+          <li><b>Zoom</b><span>Pinch, or <kbd>⌘</kbd><kbd>+</kbd> <kbd>⌘</kbd><kbd>−</kbd>. Works the same in the preview, the editor, and PDFs.</span></li>
+        </ul>
+      </div>
+      <aside class="note">
+        <p>Letter and line spacing are tuned for Korean, Japanese, and Chinese text, too.</p>
+        <hr>
+        <p>The options on this page are the same ones you'll find in Hannun under <span class="mark">Settings › Preview</span>.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ⑤ Editing ─────────────────────────────────────────────────────── -->
+  <section class="sec" id="edit" data-run="Editing">
+    <div class="wrap grid">
+      <div class="num sec__num">4<span>Editing</span></div>
+      <div class="main prose">
+        <h2>Spot a typo? Fix it right there.</h2>
+        <p>One shortcut, <kbd>⌘</kbd><kbd>/</kbd>, moves between Preview, Split View, and Editor. In Split View, both sides scroll together.</p>
+        <p>No need to memorize syntax, either. Hold <kbd>⌥</kbd> and the Syntax Palette appears, laid out like your keyboard. Press the same key again to undo the formatting.</p>
+        <div class="keys" id="keys" aria-label="Syntax Palette layout — hold ⌥ to see what each key does">
+          <div class="keys__row">
+            <span class="cap" data-k="Digit1"><b>1</b><span>Heading 1</span></span>
+            <span class="cap" data-k="Digit2"><b>2</b><span>Heading 2</span></span>
+            <span class="cap" data-k="Digit3"><b>3</b><span>Heading 3</span></span>
+            <span class="cap" data-k="Digit4"><b>4</b><span>Heading 4</span></span>
+            <span class="cap" data-k="Digit5"><b>5</b><span>Heading 5</span></span>
+            <span class="cap" data-k="Digit6"><b>6</b><span>Heading 6</span></span>
+            <span class="cap is-blank"><b>7</b></span>
+            <span class="cap is-blank"><b>8</b></span>
+            <span class="cap is-blank"><b>9</b></span>
+            <span class="cap" data-k="Digit0"><b>0</b><span>Body</span></span>
+          </div>
+          <div class="keys__row keys__row--2">
+            <span class="cap" data-k="KeyA"><b>A</b><span>Cycle headings</span></span>
+            <span class="cap" data-k="KeyS"><b>S</b><span>Bold</span></span>
+            <span class="cap" data-k="KeyD"><b>D</b><span>Italic</span></span>
+            <span class="cap" data-k="KeyF"><b>F</b><span>Strike</span></span>
+            <span class="cap" data-k="KeyG"><b>G</b><span>Inline code</span></span>
+            <span class="cap" data-k="KeyH"><b>H</b><span>Bullet</span></span>
+            <span class="cap" data-k="KeyJ"><b>J</b><span>Numbered</span></span>
+            <span class="cap" data-k="KeyK"><b>K</b><span>Checkbox</span></span>
+            <span class="cap" data-k="KeyL"><b>L</b><span>Quote</span></span>
+          </div>
+          <div class="keys__row keys__row--3">
+            <span class="cap is-mod" data-k="Alt"><b>⌥</b><span>Hold</span></span>
+            <span class="cap" data-k="KeyZ"><b>Z</b><span>Link</span></span>
+            <span class="cap" data-k="KeyX"><b>X</b><span>Image</span></span>
+            <span class="cap" data-k="KeyC"><b>C</b><span>Code block</span></span>
+            <span class="cap" data-k="KeyV"><b>V</b><span>Table</span></span>
+            <span class="cap" data-k="KeyB"><b>B</b><span>Divider</span></span>
+          </div>
+          <div class="keys__out" id="keysOut"><span>Press <kbd>⌥</kbd> on your keyboard.</span></div>
+        </div>
+        <ul class="feats">
+          <li><b>Korean, Japanese, Chinese input</b><span>Characters don't get mangled while you're composing them, and nothing is auto-formatted behind your back.</span></li>
+          <li><b>New document</b><span>Press <kbd>⌘</kbd><kbd>N</kbd> and start writing — no save dialog. Even if you never save, it's still there when you reopen the app.</span></li>
+          <li><b>Find &amp; Replace</b><span>Works the same way in the preview, the editor, and PDFs.</span></li>
+        </ul>
+      </div>
+      <aside class="note">
+        <p>Holding <kbd>⌥</kbd> for the palette is Mac only. On iPad and iPhone, tap the button at the bottom right of the editor.</p>
+        <hr>
+        <p>In the demo above, press <kbd>⌘</kbd><kbd>/</kbd> to switch to the editor, then hold <kbd>⌥</kbd> — it really works.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ⑥ Other formats ───────────────────────────────────────────────── -->
+  <section class="sec" id="data" data-run="Other formats">
+    <div class="wrap grid">
+      <div class="num sec__num">5<span>Other formats</span></div>
+      <div class="main prose">
+        <h2>Opens JSON, XML, and PDF, too</h2>
+        <p>Data files open collapsible, so you can fold away what you don't need. They start in <strong>Source</strong>, which looks just like your code editor. Switch to <strong>Tree</strong> for names and values only, or <strong>List</strong> for key, type, and value in columns. In Tree, runs of items with the same shape turn into a table. Whichever view you pick, numbers and values appear exactly as written in the file.</p>
+        <p>Try the buttons at the top of the window below.</p>
+      </div>
+      <aside class="note">
+        <p>YAML opens in Source view, with folding by indentation.</p>
+        <hr>
+        <p>PDFs open with page thumbnails. You can also export Markdown to PDF, with Korean, Japanese, and Chinese text embedded as real text — searchable and copyable.</p>
+      </aside>
+      <div class="band datacard">
+        <div class="hn-app" id="datademo" tabindex="-1" aria-label="Try Data View" data-mode="preview" data-theme="light"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑦ Devices ───────────────────────────────────────────────────────── -->
+  <section class="sec" id="devices" data-run="Devices">
+    <div class="wrap grid">
+      <div class="num sec__num">6<span>Devices</span></div>
+      <div class="main prose">
+        <h2>On Mac, iPad, and iPhone</h2>
+        <p>On a Mac, double-click in Finder. On iPad and iPhone, open documents straight from the Files app. Your edits are saved back to the original file.</p>
+        <p>Light and Dark follow your system setting. Drag the line in the middle of each screenshot to compare.</p>
+      </div>
+      <div class="band devices">
+        <figure class="fig">
+          <div class="fig__img" style="--ar: 16 / 10" data-missing="Mac screenshot coming soon"><img src="../../assets/hannun/mac/preview-light.png" alt="Hannun on Mac — previewing a document"><img class="fig__dark" src="../../assets/hannun/mac/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="Compare Light and Dark — drag to move the divider"></div>
+          <figcaption><b>Mac</b>Double-click in Finder, press Space to preview</figcaption>
+        </figure>
+        <figure class="fig">
+          <div class="fig__img" style="--ar: 3 / 4" data-missing="iPad screenshot coming soon"><img src="../../assets/hannun/ipad/preview-light.png" alt="Hannun on iPad — table of contents beside the preview"><img class="fig__dark" src="../../assets/hannun/ipad/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="Compare Light and Dark — drag to move the divider"></div>
+          <figcaption><b>iPad</b>Read with the table of contents alongside</figcaption>
+        </figure>
+        <figure class="fig">
+          <div class="fig__img" style="--ar: 9 / 19.5" data-missing="iPhone screenshot coming soon"><img src="../../assets/hannun/iphone/preview-light.png" alt="Hannun on iPhone — preview"><img class="fig__dark" src="../../assets/hannun/iphone/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="Compare Light and Dark — drag to move the divider"></div>
+          <figcaption><b>iPhone</b>Open files people share with you</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑧ Features ─────────────────────────────────────────────────── -->
+  <section class="sec" id="inv" data-run="Features">
+    <div class="wrap grid">
+      <div class="num sec__num">7<span>Features</span></div>
+      <div class="main">
+        <h2>Everything you'd expect</h2>
+        <div class="inv">
+          <section><h4>Documents</h4><ul>
+            <li>GFM tables · checkboxes · strikethrough</li>
+            <li>Syntax highlighting</li>
+            <li>KaTeX math</li>
+            <li>Mermaid diagrams <small>22 types</small></li>
+            <li>YAML front matter card</li>
+            <li>Links between files <small>new tab</small></li>
+          </ul></section>
+          <section><h4>Reading</h4><ul>
+            <li>4 content widths</li>
+            <li>Separate body &amp; heading fonts</li>
+            <li>Table of contents</li>
+            <li>Zoom into images &amp; diagrams</li>
+            <li>Light · Dark · Auto</li>
+          </ul></section>
+          <section><h4>Editing</h4><ul>
+            <li>Preview · Split · Editor</li>
+            <li>Synced scrolling</li>
+            <li>Syntax Palette <small>Mac</small></li>
+            <li>Editor syntax highlighting</li>
+            <li>Scratch documents with auto-backup</li>
+          </ul></section>
+          <section><h4>Files</h4><ul>
+            <li>Byte-for-byte saving</li>
+            <li>Tabs · session restore</li>
+            <li>Picks up outside changes</li>
+            <li>Quick Look preview <small>Mac</small></li>
+          </ul></section>
+          <section><h4>Other formats</h4><ul>
+            <li>JSON · XML <small>Source · Tree · List</small></li>
+            <li>YAML <small>Source · folding</small></li>
+            <li>PDF viewing · export</li>
+            <li>.txt editing</li>
+          </ul></section>
+          <section><h4>Languages</h4><ul>
+            <li>English · 한국어</li>
+            <li>日本語 · 简体中文</li>
+          </ul></section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑨ Default app ────────────────────────────────────────────────────── -->
+  <section class="sec" id="default" data-run="Default app">
+    <div class="wrap grid">
+      <div class="num sec__num">8<span>Default app</span></div>
+      <div class="main prose">
+        <h2>Make double-click open Hannun</h2>
+        <p>Out of the box, your Mac opens <code>.md</code> files in another app. Set it once in Hannun under <strong>Settings › General › Default App</strong>, and from then on a double-click opens Hannun.</p>
+        <div class="prefs" id="prefs">
+          <div class="prefs__bar"><i></i><i></i><i></i><span>General</span></div>
+          <div class="prefs__body">
+            <h5>Default App</h5>
+            <div class="prefs__group">
+              <div class="prefs__row"><span>Markdown<small>.md .markdown</small></span><button type="button">Set as Default</button></div>
+              <div class="prefs__row"><span>Text<small>.txt</small></span><button type="button">Set as Default</button></div>
+              <div class="prefs__row"><span>Data documents<small>.json .xml .yaml</small></span><button type="button">Set as Default</button></div>
+              <div class="prefs__row"><span>PDF<small>.pdf</small></span><button type="button">Set as Default</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class="note">
+        <p>Each file type is set separately — keep PDFs in Preview and open only Markdown in Hannun, if you like.</p>
+        <hr>
+        <p>If Hannun is already the default for a type, you'll see <span class="mark">Default</span> instead of a button.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ⑩ Privacy ─────────────────────────────────────────────────────── -->
+  <section class="plate" id="privacy" data-run="Privacy">
+    <div class="wrap grid">
+      <div class="num sec__num">9<span>Privacy</span></div>
+      <div class="main">
+        <h2>Your documents<br>never leave your device.</h2>
+      </div>
+      <div class="main prose">
+        <p class="sub" style="margin-top:28px">No account, no sign-in, no ads. No analytics and no crash reporting built in. The preview is blocked from reaching the internet, so remote images in a document can't load behind your back.</p>
+        <p class="gap"><a href="privacy/">Read the privacy policy</a></p>
+      </div>
+      <aside class="note">
+        <p>The free Mac version from our website connects only to check for new versions. You can turn this off in <span class="mark">Settings › General</span>.</p>
+        <hr>
+        <p>Signed with a Developer ID and notarized by Apple.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ⑪ Download ───────────────────────────────────────────────────────── -->
+  <section class="sec" id="get" data-run="Download">
+    <div class="wrap grid">
+      <div class="num sec__num">10<span>Download</span></div>
+      <div class="main">
+        <h2>Two ways to get Hannun</h2>
+        <div class="get">
+          <div>
+            <h3>Our website</h3>
+            <p class="price"><b>Free</b>Mac only</p>
+            <ul>
+              <li>Every feature</li>
+              <li>In-app update alerts &amp; install</li>
+              <li class="off">iPad · iPhone apps</li>
+              <li class="off">Family Sharing</li>
+            </ul>
+            <a class="btn btn--seal" href="https://github.com/putchamoe/hannun-releases/releases/latest">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M5.5 8.5 10 13l4.5-4.5M4 16.5h12"/></svg>
+              Download .dmg
+            </a>
+          </div>
+          <div>
+            <h3>App Store</h3>
+            <p class="price"><b id="price">Paid</b>Buy once, use everywhere</p>
+            <ul>
+              <li>Every feature</li>
+              <li>Mac · iPad · iPhone</li>
+              <li>Family Sharing <small>(up to 6 people)</small></li>
+              <li>Automatic updates from the App Store</li>
+            </ul>
+            <a class="btn btn--line is-soon" href="#get" aria-disabled="true">App Store <small>Coming soon</small></a>
+          </div>
+        </div>
+        <p class="frank"><strong>To be upfront: both versions have exactly the same features.</strong> The App Store version adds the iPhone and iPad apps plus Family Sharing — and it's what keeps Hannun going.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑫ FAQ ─────────────────────────────────────────────────── -->
+  <section class="sec" id="faq" data-run="FAQ">
+    <div class="wrap grid">
+      <div class="num sec__num">11<span>FAQ</span></div>
+      <div class="main">
+        <h2>Frequently asked questions</h2>
+        <div class="faq">
+          <details><summary>Do I need an internet connection?</summary><div>
+            <p>No. Opening, reading, and editing documents never uses the internet. Math, diagrams, and fonts are all built into the app.</p>
+            <p>Only the free Mac version from our website connects, to check for new versions — and you can turn that off in Settings.</p>
+          </div></details>
+          <details><summary>Images in my document don't show up.</summary><div>
+            <p>macOS security rules require your one-time permission before Hannun can read images in a document's folder. Click <strong>Allow Folder…</strong> in the banner at the top.</p>
+            <p>Images linked from the web aren't loaded, because they can be used to track who's reading.</p>
+          </div></details>
+          <details><summary>Will Hannun change or damage my files?</summary><div>
+            <p>Hannun saves files in exactly the format they were opened in. It doesn't change the encoding, BOM, or line endings.</p>
+            <p>If another app changes a file you have open, Hannun reloads it. If you were in the middle of editing, it asks which version to keep first.</p>
+          </div></details>
+          <details><summary>Does it work on Intel Macs?</summary><div>
+            <p>No. Hannun requires a Mac with Apple silicon (M1 or later) running macOS 26 or later.</p>
+          </div></details>
+        </div>
+      </div>
+      <aside class="note">
+        <p>How-tos are in the <a href="help/">Help</a> guide; troubleshooting and contact info are on the <a href="support/">Support</a> page. Every email is read and answered by the developer.</p>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<!-- Colophon ──────────────────────────────────────────────────────────── -->
+<footer class="colophon" data-run="About">
+  <div class="wrap grid">
+    <div class="num"></div>
+    <div class="main">
+      <dl class="box">
+        <div class="t">Hannun</div>
+        <dt>Version</dt><dd id="colVer">1.0</dd>
+        <dt>Made by</dt><dd>Putchamoe</dd>
+        <dt>Contact</dt><dd><a href="mailto:hannun@putchamoe.com">hannun@putchamoe.com</a></dd>
+        <dt>Typeface</dt><dd>Newsreader (SIL OFL)</dd>
+        <dt>This page</dt><dd>No ads, cookies, or analytics</dd>
+      </dl>
+      <p class="links"><a href="help/">Help</a><a href="support/">Support</a><a href="privacy/">Privacy Policy</a><a href="https://github.com/putchamoe/hannun-releases/releases">Release Notes</a><a href="/">Putchamoe</a></p>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="../js/page.js"></script>
+</body>
+</html>

@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>한눈 — 마크다운 뷰어</title>
+<meta name="description" content="마크다운 파일, 더블클릭하면 끝. Mac · iPad · iPhone용 마크다운 뷰어이자 편집기. 계정도, 데이터 수집도 없습니다.">
+<meta name="theme-color" content="#fbfaf7">
+<meta property="og:title" content="한눈 — 마크다운 뷰어">
+<meta property="og:description" content="마크다운 파일, 더블클릭하면 끝.">
+<meta property="og:image" content="https://putchamoe.com/hannun/img/icon-512.png">
+<meta property="og:url" content="https://putchamoe.com/hannun/">
+<link rel="alternate" hreflang="ko" href="https://putchamoe.com/hannun/">
+<link rel="alternate" hreflang="en" href="https://putchamoe.com/hannun/en/">
+<link rel="alternate" hreflang="ja" href="https://putchamoe.com/hannun/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://putchamoe.com/hannun/zh/">
+<link rel="alternate" hreflang="x-default" href="https://putchamoe.com/hannun/en/">
+<link rel="icon" href="img/icon-128.png">
+<link rel="apple-touch-icon" href="img/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.4/dist/katex.min.css">
+<link rel="stylesheet" href="hannun.css">
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+
+<header class="head">
+  <div class="wrap">
+    <a class="head__brand" href="#top"><img src="img/icon-128.png" alt="">한눈</a>
+    <div class="head__run" id="run" aria-hidden="true"><b>마크다운 뷰어</b></div>
+    <div class="head__folio" id="folio" aria-hidden="true">1쪽</div>
+    <button class="head__src" id="srcToggle" type="button" aria-pressed="false" title="이 페이지를 마크다운으로 보기">
+      <span>마크다운으로 보기</span><kbd>⌘</kbd><kbd>/</kbd>
+    </button>
+    <details class="head__lang">
+      <summary aria-label="언어 선택">한국어</summary>
+      <nav aria-label="언어">
+        <a href="/hannun/" lang="ko" hreflang="ko" aria-current="page">한국어</a>
+        <a href="/hannun/en/" lang="en" hreflang="en">English</a>
+        <a href="/hannun/ja/" lang="ja" hreflang="ja">日本語</a>
+        <a href="/hannun/zh/" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
+      </nav>
+    </details>
+    <a class="head__get" href="#get">다운로드</a>
+  </div>
+</header>
+
+<main id="top" class="md-able">
+
+  <!-- ① 첫 화면 ─────────────────────────────────────────────────────── -->
+  <section class="hero" data-run="마크다운 뷰어">
+    <div class="wrap grid">
+      <div class="hero__head">
+        <p class="hero__kicker rise"><span>마크다운 뷰어</span><span>Mac</span><span>iPad</span><span>iPhone</span></p>
+        <h1 class="rise d1">마크다운 파일,<br><span class="soft">더블클릭하면</span> 끝.</h1>
+      </div>
+      <div class="main">
+        <p class="hero__lede rise d2"><q>한눈에 들어온다</q>의 한눈. 마크다운 파일을 열기 위해 애쓰지 않아도 되도록, 단번에 보이게 만들었습니다.</p>
+        <div class="cta rise d3">
+          <a class="btn btn--seal" href="https://github.com/putchamoe/hannun-releases/releases/latest" id="dl">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M5.5 8.5 10 13l4.5-4.5M4 16.5h12"/></svg>
+            Mac용 무료 다운로드
+          </a>
+          <a class="btn btn--line is-soon" href="#get" id="as" aria-disabled="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M13.6 10.6c0-1.6 1.3-2.4 1.4-2.4-.8-1.1-2-1.3-2.4-1.3-1-.1-2 .6-2.5.6s-1.3-.6-2.2-.6c-1.1 0-2.2.7-2.8 1.7-1.2 2.1-.3 5.1.9 6.8.6.8 1.2 1.7 2.1 1.7.8 0 1.2-.5 2.2-.5s1.3.5 2.2.5 1.5-.8 2-1.7c.6-.9.9-1.8.9-1.9 0 0-1.8-.7-1.8-2.9ZM12 5.6c.5-.6.8-1.4.7-2.2-.7 0-1.5.5-2 1.1-.4.5-.8 1.3-.7 2.1.8 0 1.5-.4 2-1Z"/></svg>
+            App Store <small>출시 예정</small>
+          </a>
+        </div>
+        <p class="meta rise d4"><span id="ver">1.0</span><span>macOS 26 이상 · Apple 실리콘</span><span>iOS · iPadOS 26 이상</span></p>
+      </div>
+      <aside class="note rise d3" aria-label="낱말 풀이">
+        <dl class="entry">
+          <img src="img/icon-512.png" alt="한눈 앱 아이콘" width="132" height="132">
+          <dt>한눈 <small>명사</small></dt>
+          <dd>한꺼번에 모두 봄.</dd>
+          <dd class="ex">문서가 한눈에 들어온다.</dd>
+          <dd class="en">Hannun [han-noon] — Korean for “at a glance.”</dd>
+        </dl>
+      </aside>
+    </div>
+
+    <!-- 미리 써 보기 -->
+    <div class="wrap grid demo">
+      <div class="band">
+      <div class="demo__stage">
+        <div class="hn-app" id="demo" tabindex="-1" aria-label="한눈 미리 써 보기" data-mode="preview" data-theme="light">
+          <noscript><p style="padding:2rem">자바스크립트를 켜면 여기서 한눈을 직접 써 볼 수 있습니다.</p></noscript>
+        </div>
+      </div>
+      <div class="demo__hint">
+        <span><kbd>⌘</kbd><kbd>/</kbd> <b>프리뷰 · 분할 · 편집 전환</b></span>
+        <span><kbd>⌥</kbd> 누르고 있기 <b>문법 팔레트</b></span>
+        <span>그림 · 다이어그램 누르기 <b>확대</b></span>
+        <span>본문 속 <b>문서 링크</b>는 <b>새 탭</b>으로</span>
+        <span class="tail"><button type="button" id="demoReset">처음으로 되돌리기</button></span>
+      </div>
+      <p class="demo__cap">위 화면은 캡처가 아니라 한눈과 같은 엔진으로 실제로 동작합니다. 마음껏 고쳐 보세요. 입력한 내용은 이 브라우저 밖으로 나가지 않습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ② 왜 ─────────────────────────────────────────────────────────── -->
+  <section class="sec" id="why" data-run="왜 만들었나">
+    <div class="wrap grid">
+      <div class="num sec__num">1<span>소개</span></div>
+      <div class="main prose">
+        <h2>회의 중에 할 일은 아니었습니다</h2>
+        <p>마크다운 파일 하나를 보려고 매번 이 과정을 거쳤습니다. 회의 중에 모두가 화면을 기다리는 동안 하기에는 너무 번거로운 일이었습니다.</p>
+        <ol class="steps">
+          <li><s>브라우저를 켠다</s></li>
+          <li><s>마크다운 확장 프로그램을 설치한다</s></li>
+          <li><s>파일을 창에 끌어다 놓는다</s></li>
+          <li><s>로컬 파일 접근 권한을 켠다</s><small>설정 어딘가에서</small></li>
+          <li class="now">파일을 더블클릭한다<small>한눈</small></li>
+        </ol>
+        <p class="gap">다른 앱은 먼저 앱을 켜고 파일을 찾아 들어가야 합니다. 한눈은 반대입니다. <strong>파일만 열면 됩니다.</strong></p>
+      </div>
+      <aside class="note">
+        <p>보관함이나 작업 공간을 따로 만들 필요가 없습니다. 문서가 어디에 있든 그 자리에서 엽니다.</p>
+        <hr>
+        <p>Mac의 Finder에서 스페이스바를 누르면 마크다운이 정리된 모습으로 미리 보입니다.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ③ 원본 보존 ───────────────────────────────────────────────────────── -->
+  <section class="plate" id="bytes" data-run="원본 보존">
+    <div class="wrap grid">
+      <div class="num sec__num">2<span>원본 보존</span></div>
+      <div class="main">
+        <h2>원본 파일은<br>그대로 둡니다.</h2>
+        <p class="sub">인코딩, BOM, 줄바꿈 형식을 바꾸지 않고 저장합니다. 한 글자를 고치면 딱 그 글자만 바뀝니다.</p>
+      </div>
+      <div class="main">
+        <div class="bytes" id="bytesDemo">
+          <div class="bytes__top">
+            <span class="bytes__file">회의록.md</span>
+            <span class="bytes__tags"><span>UTF-8 · BOM</span><span>CRLF</span></span>
+            <div class="seg" role="group" aria-label="저장 방식">
+              <button type="button" data-save="hannun" aria-pressed="true">한눈으로 저장</button>
+              <button type="button" data-save="other" aria-pressed="false">일반 편집기로 저장</button>
+            </div>
+          </div>
+          <div class="bytes__body">
+            <textarea spellcheck="false" aria-label="회의록 내용 — 고쳐 보세요"></textarea>
+            <pre class="bytes__hex" aria-live="polite"></pre>
+          </div>
+          <div class="bytes__foot">
+            <span>원본 <b data-k="orig">0</b> 바이트</span>
+            <span>저장 <b data-k="size">0</b> 바이트</span>
+            <span data-k="chgwrap">바뀐 바이트 <b data-k="chg">0</b></span>
+          </div>
+        </div>
+      </div>
+      <aside class="note">
+        <p class="mark">왼쪽 글을 고쳐 보세요.</p>
+        <p>오른쪽은 저장될 파일의 실제 바이트입니다. 갈색으로 표시된 부분이 원본과 달라진 곳입니다.</p>
+        <hr>
+        <p>상태 표시줄에서 인코딩을 눌러 CP949 같은 다른 인코딩으로 다시 읽을 수도 있습니다.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ④ 읽기 ───────────────────────────────────────────────────────── -->
+  <section class="sec" id="read" data-run="읽기">
+    <div class="wrap grid">
+      <div class="num sec__num">3<span>읽기</span></div>
+      <div class="main prose">
+        <h2>긴 문서도 편하게 읽힙니다</h2>
+        <p>표와 체크박스, 코드 구문 강조, 수식, 다이어그램까지 깔끔하게 보여 줍니다. 본문 너비와 글꼴은 원하는 대로 고를 수 있습니다.</p>
+        <p>이 페이지에서 바로 해 보세요. 아래 버튼을 누르면 지금 보고 있는 이 페이지가 바로 바뀝니다.</p>
+        <div class="knobs" id="knobs">
+          <span>본문 너비</span>
+          <div class="seg" role="group" aria-label="본문 너비" data-knob="width">
+            <button type="button" data-v="full" aria-pressed="false">전체</button>
+            <button type="button" data-v="wide" aria-pressed="false">넓게</button>
+            <button type="button" data-v="medium" aria-pressed="true">보통</button>
+            <button type="button" data-v="narrow" aria-pressed="false">좁게</button>
+          </div>
+          <span>본문 글꼴</span>
+          <div class="seg" role="group" aria-label="본문 글꼴" data-knob="body">
+            <button type="button" data-v="serif" aria-pressed="true">명조</button>
+            <button type="button" data-v="sans" aria-pressed="false">고딕</button>
+          </div>
+          <span>제목 글꼴</span>
+          <div class="seg" role="group" aria-label="제목 글꼴" data-knob="head">
+            <button type="button" data-v="serif" aria-pressed="true">명조</button>
+            <button type="button" data-v="sans" aria-pressed="false">고딕</button>
+          </div>
+          <p>본문과 제목을 따로 고를 수 있습니다. 명조 제목에 고딕 본문, 그 반대도 됩니다.</p>
+        </div>
+        <ul class="feats">
+          <li><b>목차</b><span>문서의 제목을 왼쪽 패널에 모아 보여 줍니다. 패널 너비는 끌어서 조절할 수 있고, 다음에도 그대로 유지됩니다.</span></li>
+          <li><b>확대</b><span>그림과 다이어그램은 눌러서 크게 봅니다. 다이어그램은 벡터라 아무리 키워도 선명합니다.</span></li>
+          <li><b>다크 모드</b><span>라이트, 다크, 시스템 설정에 맞추기 중에서 고릅니다.</span></li>
+          <li><b>확대 · 축소</b><span>핀치나 <kbd>⌘</kbd><kbd>+</kbd> <kbd>⌘</kbd><kbd>−</kbd>. 프리뷰, 편집기, PDF 어디서나 같은 방법입니다.</span></li>
+        </ul>
+      </div>
+      <aside class="note">
+        <p>한글·일본어·중국어 문서에 맞춰 글자 간격과 줄 간격을 다듬었습니다. 단어가 줄 끝에서 잘리지 않습니다.</p>
+        <hr>
+        <p>이 페이지가 쓰는 설정은 한눈의 <span class="mark">설정 › 프리뷰</span>에 있는 것과 같습니다.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ⑤ 고치기 ─────────────────────────────────────────────────────── -->
+  <section class="sec" id="edit" data-run="편집">
+    <div class="wrap grid">
+      <div class="num sec__num">4<span>편집</span></div>
+      <div class="main prose">
+        <h2>보다가 바로 고칠 수 있습니다</h2>
+        <p><kbd>⌘</kbd><kbd>/</kbd> 하나로 프리뷰, 분할 화면, 편집을 오갑니다. 분할 화면에서는 양쪽 스크롤이 함께 움직입니다.</p>
+        <p>문법을 외울 필요도 없습니다. <kbd>⌥</kbd>를 누르고 있으면 키보드 배열 그대로 놓인 문법 팔레트가 나타납니다. 같은 키를 한 번 더 누르면 해제됩니다.</p>
+        <div class="keys" id="keys" aria-label="문법 팔레트 배치 — ⌥ 를 누르고 있으면 기능이 보입니다">
+          <div class="keys__row">
+            <span class="cap" data-k="Digit1"><b>1</b><span>제목 1</span></span>
+            <span class="cap" data-k="Digit2"><b>2</b><span>제목 2</span></span>
+            <span class="cap" data-k="Digit3"><b>3</b><span>제목 3</span></span>
+            <span class="cap" data-k="Digit4"><b>4</b><span>제목 4</span></span>
+            <span class="cap" data-k="Digit5"><b>5</b><span>제목 5</span></span>
+            <span class="cap" data-k="Digit6"><b>6</b><span>제목 6</span></span>
+            <span class="cap is-blank"><b>7</b></span>
+            <span class="cap is-blank"><b>8</b></span>
+            <span class="cap is-blank"><b>9</b></span>
+            <span class="cap" data-k="Digit0"><b>0</b><span>본문</span></span>
+          </div>
+          <div class="keys__row keys__row--2">
+            <span class="cap" data-k="KeyA"><b>A</b><span>제목 순환</span></span>
+            <span class="cap" data-k="KeyS"><b>S</b><span>굵게</span></span>
+            <span class="cap" data-k="KeyD"><b>D</b><span>기울임</span></span>
+            <span class="cap" data-k="KeyF"><b>F</b><span>취소선</span></span>
+            <span class="cap" data-k="KeyG"><b>G</b><span>인라인 코드</span></span>
+            <span class="cap" data-k="KeyH"><b>H</b><span>불릿</span></span>
+            <span class="cap" data-k="KeyJ"><b>J</b><span>번호 목록</span></span>
+            <span class="cap" data-k="KeyK"><b>K</b><span>체크박스</span></span>
+            <span class="cap" data-k="KeyL"><b>L</b><span>인용</span></span>
+          </div>
+          <div class="keys__row keys__row--3">
+            <span class="cap is-mod" data-k="Alt"><b>⌥</b><span>누르고 있기</span></span>
+            <span class="cap" data-k="KeyZ"><b>Z</b><span>링크</span></span>
+            <span class="cap" data-k="KeyX"><b>X</b><span>이미지</span></span>
+            <span class="cap" data-k="KeyC"><b>C</b><span>코드 블록</span></span>
+            <span class="cap" data-k="KeyV"><b>V</b><span>표</span></span>
+            <span class="cap" data-k="KeyB"><b>B</b><span>수평선</span></span>
+          </div>
+          <div class="keys__out" id="keysOut"><span>키보드의 <kbd>⌥</kbd>를 눌러 보세요.</span></div>
+        </div>
+        <ul class="feats">
+          <li><b>한글 입력</b><span>한글·일본어·중국어를 입력하는 도중에 글자가 꼬이지 않습니다. 멋대로 서식을 바꾸지도 않습니다.</span></li>
+          <li><b>새 문서</b><span><kbd>⌘</kbd><kbd>N</kbd>으로 바로 새 문서를 씁니다. 저장하지 않아도 앱을 다시 켜면 그대로 남아 있습니다.</span></li>
+          <li><b>찾기 · 바꾸기</b><span>프리뷰, 편집기, PDF 어디서든 같은 방식으로 찾고 바꿉니다.</span></li>
+        </ul>
+      </div>
+      <aside class="note">
+        <p><kbd>⌥</kbd> 키로 여는 방식은 Mac 전용입니다. iPad와 iPhone에서는 편집 화면 오른쪽 아래 버튼으로 엽니다.</p>
+        <hr>
+        <p>위 미리 써 보기 화면에서 <kbd>⌘</kbd><kbd>/</kbd>로 편집 모드로 바꾼 뒤 <kbd>⌥</kbd>를 누르고 있으면 실제로 동작합니다.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ⑥ 다른 형식 ───────────────────────────────────────────────── -->
+  <section class="sec" id="data" data-run="다른 형식">
+    <div class="wrap grid">
+      <div class="num sec__num">5<span>다른 형식</span></div>
+      <div class="main prose">
+        <h2>JSON, XML, PDF도 엽니다</h2>
+        <p>데이터 파일은 접고 펴면서 읽습니다. 처음에는 편집기와 같은 모양의 <strong>원문</strong>으로 열리고, 이름과 값만 남긴 <strong>트리</strong>, 키 · 형식 · 값으로 나눈 <strong>목록</strong>으로 바꿔 볼 수 있습니다. 트리에서는 같은 모양의 항목이 줄지어 있으면 표로 정리됩니다. 어느 방식으로 보든 숫자와 값은 파일에 적힌 그대로 보여 줍니다.</p>
+        <p>아래 화면 위쪽의 버튼으로 직접 바꿔 보세요.</p>
+      </div>
+      <aside class="note">
+        <p>YAML은 원문과 들여쓰기 접기로 봅니다.</p>
+        <hr>
+        <p>PDF는 페이지 썸네일과 함께 봅니다. 마크다운은 PDF로 내보낼 수 있고, 한글이 그림이 아닌 글자로 들어가 검색과 복사가 됩니다.</p>
+      </aside>
+      <div class="band datacard">
+        <div class="hn-app" id="datademo" tabindex="-1" aria-label="데이터 문서 보기 미리 써 보기" data-mode="preview" data-theme="light"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑦ 기기 ───────────────────────────────────────────────────────── -->
+  <section class="sec" id="devices" data-run="지원 기기">
+    <div class="wrap grid">
+      <div class="num sec__num">6<span>지원 기기</span></div>
+      <div class="main prose">
+        <h2>Mac, iPad, iPhone에서 모두</h2>
+        <p>Mac에서는 Finder에서 더블클릭하면 되고, iPad와 iPhone에서는 파일 앱에 있는 문서를 바로 엽니다. 고친 내용은 원본 파일에 저장됩니다.</p>
+        <p>라이트 모드와 다크 모드는 시스템 설정을 따릅니다. 아래 화면의 가운데 선을 좌우로 끌어 비교해 보세요.</p>
+      </div>
+      <div class="band devices">
+        <figure class="fig">
+          <div class="fig__img" style="--ar: 16 / 10" data-missing="Mac 화면 준비 중"><img src="../assets/hannun/mac/preview-light.png" alt="Mac에서 연 한눈 — 옥상 텃밭 관측 문서의 프리뷰"><img class="fig__dark" src="../assets/hannun/mac/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="라이트와 다크 비교 — 끌어서 경계를 옮깁니다"></div>
+          <figcaption><b>Mac</b>Finder에서 더블클릭, 스페이스바로 미리보기</figcaption>
+        </figure>
+        <figure class="fig">
+          <div class="fig__img" style="--ar: 3 / 4" data-missing="iPad 화면 준비 중"><img src="../assets/hannun/ipad/preview-light.png" alt="iPad에서 연 한눈 — 목차 패널과 프리뷰"><img class="fig__dark" src="../assets/hannun/ipad/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="라이트와 다크 비교 — 끌어서 경계를 옮깁니다"></div>
+          <figcaption><b>iPad</b>목차를 옆에 띄워 두고 읽기</figcaption>
+        </figure>
+        <figure class="fig">
+          <div class="fig__img" style="--ar: 9 / 19.5" data-missing="iPhone 화면 준비 중"><img src="../assets/hannun/iphone/preview-light.png" alt="iPhone에서 연 한눈 — 프리뷰"><img class="fig__dark" src="../assets/hannun/iphone/preview-dark.png" alt="" aria-hidden="true"><input class="fig__cut" type="range" min="0" max="100" value="50" aria-label="라이트와 다크 비교 — 끌어서 경계를 옮깁니다"></div>
+          <figcaption><b>iPhone</b>공유받은 문서도 바로 열기</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑧ 기능 목록 ─────────────────────────────────────────────────── -->
+  <section class="sec" id="inv" data-run="기능 목록">
+    <div class="wrap grid">
+      <div class="num sec__num">7<span>기능 목록</span></div>
+      <div class="main">
+        <h2>필요한 기능은 다 있습니다</h2>
+        <div class="inv">
+          <section><h4>문서</h4><ul>
+            <li>GFM 표 · 체크박스 · 취소선</li>
+            <li>코드 구문 강조</li>
+            <li>KaTeX 수식</li>
+            <li>Mermaid 다이어그램 <small>22종</small></li>
+            <li>YAML 프런트매터 카드</li>
+            <li>문서 간 링크 <small>새 탭</small></li>
+          </ul></section>
+          <section><h4>읽기</h4><ul>
+            <li>본문 너비 4단계</li>
+            <li>본문 · 제목 글꼴 따로 선택</li>
+            <li>목차 패널</li>
+            <li>그림 · 다이어그램 확대</li>
+            <li>라이트 · 다크 · 자동</li>
+          </ul></section>
+          <section><h4>편집</h4><ul>
+            <li>프리뷰 · 분할 · 편집</li>
+            <li>스크롤 동기화</li>
+            <li>문법 팔레트 <small>Mac</small></li>
+            <li>편집기 구문 강조</li>
+            <li>임시 문서 자동 백업</li>
+          </ul></section>
+          <section><h4>파일</h4><ul>
+            <li>바이트 보존 저장</li>
+            <li>탭 · 세션 복원</li>
+            <li>외부 변경 감지</li>
+            <li>Quick Look 미리보기 <small>Mac</small></li>
+          </ul></section>
+          <section><h4>다른 형식</h4><ul>
+            <li>JSON · XML <small>원문 · 트리 · 목록</small></li>
+            <li>YAML <small>원문 · 접기</small></li>
+            <li>PDF 보기 · 내보내기</li>
+            <li>.txt 편집</li>
+          </ul></section>
+          <section><h4>언어</h4><ul>
+            <li>한국어 · English</li>
+            <li>日本語 · 简体中文</li>
+          </ul></section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑨ 기본 앱 ────────────────────────────────────────────────────── -->
+  <section class="sec" id="default" data-run="기본 앱">
+    <div class="wrap grid">
+      <div class="num sec__num">8<span>기본 앱</span></div>
+      <div class="main prose">
+        <h2>더블클릭하면 한눈으로 열리게</h2>
+        <p>Mac은 처음에 <code>.md</code> 파일을 다른 앱으로 엽니다. 한눈의 <strong>설정 › 일반 › 기본 앱</strong>에서 한 번만 설정하면, 그다음부터는 더블클릭만으로 한눈에서 열립니다.</p>
+        <div class="prefs" id="prefs">
+          <div class="prefs__bar"><i></i><i></i><i></i><span>일반</span></div>
+          <div class="prefs__body">
+            <h5>기본 앱</h5>
+            <div class="prefs__group">
+              <div class="prefs__row"><span>마크다운<small>.md .markdown</small></span><button type="button">기본 앱으로 설정</button></div>
+              <div class="prefs__row"><span>텍스트<small>.txt</small></span><button type="button">기본 앱으로 설정</button></div>
+              <div class="prefs__row"><span>데이터 문서<small>.json .xml .yaml</small></span><button type="button">기본 앱으로 설정</button></div>
+              <div class="prefs__row"><span>PDF<small>.pdf</small></span><button type="button">기본 앱으로 설정</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class="note">
+        <p>파일 형식마다 따로 설정합니다. PDF는 기존 미리보기 앱으로 두고 마크다운만 한눈으로 열 수도 있습니다.</p>
+        <hr>
+        <p>이미 기본 앱인 형식에는 버튼 대신 <span class="mark">기본 앱으로 설정됨</span>이 보입니다.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ⑩ 개인정보 ─────────────────────────────────────────────────────── -->
+  <section class="plate" id="privacy" data-run="개인정보">
+    <div class="wrap grid">
+      <div class="num sec__num">9<span>개인정보</span></div>
+      <div class="main">
+        <h2>문서는 기기를<br>떠나지 않습니다.</h2>
+      </div>
+      <div class="main prose">
+        <p class="sub" style="margin-top:28px">계정도, 로그인도, 광고도 없습니다. 분석 도구도 크래시 리포트도 넣지 않았습니다. 미리보기는 외부 접속이 막혀 있어서, 문서 속 외부 이미지가 몰래 불러와지는 일도 없습니다.</p>
+        <p class="gap"><a href="privacy/">개인정보처리방침 보기</a></p>
+      </div>
+      <aside class="note">
+        <p>홈페이지에서 받은 무료 버전(Mac)은 새 버전이 나왔는지 확인할 때만 인터넷에 접속합니다. <span class="mark">설정 › 일반</span>에서 끌 수 있습니다.</p>
+        <hr>
+        <p>개발자 서명과 Apple 공증을 마친 앱입니다.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ⑪ 다운로드 ───────────────────────────────────────────────────────── -->
+  <section class="sec" id="get" data-run="다운로드">
+    <div class="wrap grid">
+      <div class="num sec__num">10<span>다운로드</span></div>
+      <div class="main">
+        <h2>두 가지로 받을 수 있습니다</h2>
+        <div class="get">
+          <div>
+            <h3>홈페이지</h3>
+            <p class="price"><b>무료</b>Mac 전용</p>
+            <ul>
+              <li>모든 기능</li>
+              <li>앱 안에서 업데이트 알림 · 설치</li>
+              <li class="off">iPad · iPhone 앱</li>
+              <li class="off">가족 공유</li>
+            </ul>
+            <a class="btn btn--seal" href="https://github.com/putchamoe/hannun-releases/releases/latest">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M5.5 8.5 10 13l4.5-4.5M4 16.5h12"/></svg>
+              .dmg 다운로드
+            </a>
+          </div>
+          <div>
+            <h3>App Store</h3>
+            <p class="price"><b id="price">유료</b>한 번 구매로 모든 기기에서</p>
+            <ul>
+              <li>모든 기능</li>
+              <li>Mac · iPad · iPhone</li>
+              <li>가족 공유 <small>(최대 6명)</small></li>
+              <li>App Store 자동 업데이트</li>
+            </ul>
+            <a class="btn btn--line is-soon" href="#get" aria-disabled="true">App Store <small>출시 예정</small></a>
+          </div>
+        </div>
+        <p class="frank"><strong>미리 말씀드리면, 두 버전의 기능은 똑같습니다.</strong> App Store 구매에는 iPhone · iPad 앱과 가족 공유가 포함되고, 한눈 개발을 이어 가는 데 큰 힘이 됩니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑫ 자주 묻는 질문 ─────────────────────────────────────────────────── -->
+  <section class="sec" id="faq" data-run="자주 묻는 질문">
+    <div class="wrap grid">
+      <div class="num sec__num">11<span>FAQ</span></div>
+      <div class="main">
+        <h2>자주 묻는 질문</h2>
+        <div class="faq">
+          <details><summary>인터넷 연결이 필요한가요?</summary><div>
+            <p>아니요. 문서를 열고 읽고 고치는 데 인터넷은 쓰지 않습니다. 수식, 다이어그램, 글꼴이 모두 앱 안에 들어 있습니다.</p>
+            <p>홈페이지에서 받은 무료 버전(Mac)만 새 버전 확인을 위해 접속하며, 설정에서 끌 수 있습니다.</p>
+          </div></details>
+          <details><summary>문서 속 그림이 안 보여요.</summary><div>
+            <p>macOS 보안 정책 때문에 문서가 있는 폴더의 그림을 읽으려면 한 번 허용해야 합니다. 위쪽 안내 막대의 <strong>폴더 허용</strong>을 누르세요.</p>
+            <p>인터넷 주소로 걸린 그림은 불러오지 않습니다. 읽는 사람을 추적하는 데 쓰일 수 있어서입니다.</p>
+          </div></details>
+          <details><summary>파일이 바뀌거나 망가지지 않나요?</summary><div>
+            <p>한눈은 파일을 열었을 때의 형식 그대로 저장합니다. 인코딩, BOM, 줄바꿈 형식을 바꾸지 않습니다.</p>
+            <p>다른 앱이 같은 파일을 바꾸면 한눈이 다시 읽어 옵니다. 한눈에서 고치던 중이었다면 어느 쪽을 남길지 먼저 묻습니다.</p>
+          </div></details>
+          <details><summary>Intel Mac에서도 쓸 수 있나요?</summary><div>
+            <p>아니요. macOS 26 이상이 설치된 Apple 실리콘(M1 이후) Mac에서 쓸 수 있습니다.</p>
+          </div></details>
+        </div>
+      </div>
+      <aside class="note">
+        <p>쓰는 법은 <a href="help/">도움말</a>에, 문제 해결과 문의는 <a href="support/">지원</a>에 있습니다. 보내 주신 메일은 개발자가 직접 읽고 답장드립니다.</p>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<!-- 판권 ──────────────────────────────────────────────────────────── -->
+<footer class="colophon" data-run="정보">
+  <div class="wrap grid">
+    <div class="num"></div>
+    <div class="main">
+      <dl class="box">
+        <div class="t">한눈</div>
+        <dt>버전</dt><dd id="colVer">1.0</dd>
+        <dt>만든 곳</dt><dd>풋참외</dd>
+        <dt>문의</dt><dd><a href="mailto:hannun@putchamoe.com">hannun@putchamoe.com</a></dd>
+        <dt>글꼴</dt><dd>본명조 · Noto Serif KR (SIL OFL)</dd>
+        <dt>이 페이지</dt><dd>광고, 쿠키, 분석 도구 없음</dd>
+      </dl>
+      <p class="links"><a href="help/">도움말</a><a href="support/">지원</a><a href="privacy/">개인정보처리방침</a><a href="https://github.com/putchamoe/hannun-releases/releases">릴리즈 노트</a><a href="../">풋참외</a></p>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="js/page.js"></script>
+</body>
+</html>

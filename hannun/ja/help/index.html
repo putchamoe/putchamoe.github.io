@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hannun 使い方ガイド — Hannun</title>
+<meta name="theme-color" content="#fbfaf7">
+<link rel="alternate" hreflang="ko" href="https://putchamoe.com/hannun/help/">
+<link rel="alternate" hreflang="en" href="https://putchamoe.com/hannun/en/help/">
+<link rel="alternate" hreflang="ja" href="https://putchamoe.com/hannun/ja/help/">
+<link rel="alternate" hreflang="zh-Hans" href="https://putchamoe.com/hannun/zh/help/">
+<link rel="icon" href="/hannun/img/icon-128.png">
+<link rel="apple-touch-icon" href="/hannun/img/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&display=swap">
+<link rel="stylesheet" href="/hannun/hannun.css">
+</head>
+<body class="docpage">
+<header class="head">
+  <div class="wrap">
+    <a class="head__brand" href="/hannun/ja/"><img src="/hannun/img/icon-128.png" alt="">Hannun</a>
+    <div class="head__run"><b>ヘルプ</b></div>
+    <details class="head__lang">
+      <summary aria-label="言語を選択">日本語</summary>
+      <nav aria-label="言語">
+        <a href="/hannun/help/" lang="ko" hreflang="ko">한국어</a>
+        <a href="/hannun/en/help/" lang="en" hreflang="en">English</a>
+        <a href="/hannun/ja/help/" lang="ja" hreflang="ja" aria-current="page">日本語</a>
+        <a href="/hannun/zh/help/" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
+      </nav>
+    </details>
+    <a class="head__get" href="/hannun/ja/#get">ダウンロード</a>
+  </div>
+</header>
+<main>
+  <section class="doc-hero">
+    <div class="wrap grid">
+      <div class="num sec__num">ヘルプ</div>
+      <div class="main">
+        <h1>Hannun 使い方ガイド</h1>
+        <p class="doc-lede">ファイルの開き方、ショートカット、データファイルの表示などをまとめました。困ったときは<a href="../support/">サポート</a>をご覧ください。</p>
+        
+      </div>
+    </div>
+  </section>
+  <div class="wrap grid doc-body">
+    <div class="num"></div>
+    <article class="main doc">
+<h2 id="はじめに">はじめに</h2>
+<ul>
+<li><strong>ファイルを開く</strong>: Finder でダブルクリック（デフォルトApp に設定している場合）、<kbd>⌘O</kbd>、ウインドウへのドラッグ、時計（⏱）メニューの最近の書類</li>
+<li><strong>新規書類</strong>: <kbd>⌘N</kbd> またはタブバーの <code>+</code> — 保存先を聞かずに<strong>下書き</strong>がすぐ開きます。内容は自動でバックアップされ、アプリを終了して開き直してもそのまま残ります。<kbd>⌘S</kbd> で保存すると通常のファイルになります。</li>
+<li><strong>デフォルトApp の設定</strong>: 設定 › 一般 › デフォルトApp で、Markdown・テキスト・PDF・データ文書をそれぞれ登録できます。</li>
+</ul>
+<h2 id="画面の構成（mac）">画面の構成（Mac）</h2>
+<table>
+<thead>
+<tr>
+<th>場所</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>タイトルバー</td>
+<td>左に文書の状態 · 右に 3 つのボタングループ — <strong>移動</strong>（時計: タブ・最近の書類 / 場所: Finder で表示）· <strong>表示</strong>（本文の幅 / 目次 / 表示の切り替え）· <strong>書き出し・アプリ</strong>（共有 / 設定）</td>
+</tr>
+<tr>
+<td>タブバー</td>
+<td>開いている文書（種類のアイコン + 名前）· <code>+</code> 新規書類 · タブが 2 つ以上あると右側にタブの数</td>
+</tr>
+<tr>
+<td>ステータスバー</td>
+<td>編集中のみ — 行:列 · 文字コード（クリックで読み直し）· 改行コード</td>
+</tr>
+</tbody></table>
+<p>タブが多いときは左右にスクロールできます（トラックパッドの横スワイプ、マウスホイールのどちらでも）。</p>
+<h2 id="表示モード-⌘/">表示モード — <kbd>⌘/</kbd></h2>
+<p><strong>プレビュー → 分割表示 → 編集</strong> の順に切り替わります。</p>
+<ul>
+<li><strong>プレビュー</strong>: 整形した文書を全体に表示。Markdown ファイルの標準</li>
+<li><strong>分割表示</strong>: 左にエディタ、右にプレビュー。境界線はドラッグで調整でき、タブごとに記憶されます。左右のスクロールは自動で連動します</li>
+<li><strong>編集</strong>: エディタを全体に表示。<code>.txt</code> の標準</li>
+<li>データ文書（<code>.json</code> <code>.xml</code> <code>.yaml</code>）には分割表示がなく、<strong>プレビュー ⇄ 編集</strong> だけを切り替えます — 下の「データ文書の表示」を参照</li>
+</ul>
+<h2 id="拡大・縮小">拡大・縮小</h2>
+<p>どこでも同じ操作です: <strong>トラックパッドでピンチ</strong>、または <strong>⌘ + スクロール</strong>。</p>
+<ul>
+<li>プレビュー: 表示倍率（縮小すると縦により多くの内容が見えます）</li>
+<li>エディタ: 文字サイズ（11〜24pt）</li>
+<li>PDF: ページの倍率</li>
+<li>画像・図の拡大表示の中でも同じ</li>
+<li>メニューからは: <kbd>⌘ +</kbd> / <kbd>⌘ −</kbd> / <kbd>⌘ 0</kbd>（プレビューとエディタで別々に記憶）</li>
+</ul>
+<h2 id="記法パレット-⌥-を押したまま（mac）">記法パレット — <kbd>⌥</kbd> を押したまま（Mac）</h2>
+<p>編集中に <kbd>⌥</kbd>（option）を押したままにすると、右下にパレットが開きます。キーボードと同じ位置に並んでいて、押している間は対応するキーで書式を入れられます。<strong>書式はすべてオン・オフの切り替え</strong>です — 同じキーをもう一度押すと解除されます。</p>
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>機能</th>
+<th>キー</th>
+<th>機能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1〜6, 0</td>
+<td>見出し 1〜6 · 本文</td>
+<td>A</td>
+<td>見出しの切り替え</td>
+</tr>
+<tr>
+<td>S</td>
+<td>太字（<kbd>⌘B</kbd>）</td>
+<td>D</td>
+<td>斜体（<kbd>⌘I</kbd>）</td>
+</tr>
+<tr>
+<td>F</td>
+<td>取り消し線</td>
+<td>G</td>
+<td>インラインコード</td>
+</tr>
+<tr>
+<td>H</td>
+<td>箇条書き</td>
+<td>J</td>
+<td>番号付きリスト</td>
+</tr>
+<tr>
+<td>K</td>
+<td>チェックボックス</td>
+<td>L</td>
+<td>引用</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>リンク（<kbd>⌘K</kbd>）</td>
+<td>X</td>
+<td>画像</td>
+</tr>
+<tr>
+<td>C</td>
+<td>コードブロック（<kbd>⌘⇧K</kbd>）</td>
+<td>V</td>
+<td>表</td>
+</tr>
+<tr>
+<td>B</td>
+<td>区切り線</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="おもなショートカット">おもなショートカット</h2>
+<table>
+<thead>
+<tr>
+<th>ショートカット</th>
+<th>機能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><kbd>⌘O</kbd> / <kbd>⌘N</kbd> / <kbd>⌘S</kbd> / <kbd>⌘W</kbd></td>
+<td>開く / 新規書類 / 保存 / タブを閉じる</td>
+</tr>
+<tr>
+<td><kbd>⌘/</kbd></td>
+<td>表示 ⇄ 編集の切り替え</td>
+</tr>
+<tr>
+<td><kbd>⌘F</kbd></td>
+<td>検索（プレビューとエディタそれぞれ）</td>
+</tr>
+<tr>
+<td><kbd>⌘⇧T</kbd></td>
+<td>目次パネル</td>
+</tr>
+<tr>
+<td><kbd>⌘1〜9</kbd></td>
+<td>n 番目のタブへ</td>
+</tr>
+<tr>
+<td><kbd>⌘⇧[</kbd> / <kbd>⌘⇧]</kbd></td>
+<td>前 / 次のタブ</td>
+</tr>
+<tr>
+<td><kbd>⌘,</kbd></td>
+<td>設定</td>
+</tr>
+</tbody></table>
+<h2 id="プレビューの機能">プレビューの機能</h2>
+<ul>
+<li><strong>目次</strong>: <kbd>⌘⇧T</kbd> または目次アイコン — 左側のパネル。幅はドラッグで調整できます。項目をクリックすると移動します</li>
+<li><strong>本文の幅</strong>: 全幅 / 広い / 標準 / 狭い（左右矢印のアイコン）</li>
+<li><strong>画像・図の拡大</strong>: クリックすると大きく表示されます。ドラッグ = 移動、ピンチ・⌘ + スクロール = 拡大、ダブルクリック = 画面に合わせる ⇄ 100%、<code>Esc</code> = 閉じる</li>
+<li><strong>文書間のリンク</strong>: <code>[文書](./別の文書.md)</code> をクリック → 新しいタブで開きます（<code>文書.md#セクション</code> はその見出しへ移動）。Web のリンクはブラウザで開きます</li>
+<li><strong>Mermaid の図・数式（KaTeX）・フロントマター</strong> に対応</li>
+</ul>
+<h2 id="編集の機能">編集の機能</h2>
+<ul>
+<li>日本語・韓国語・中国語の入力（IME）に完全対応 — 変換中に書式が割り込むことはありません</li>
+<li>Markdown のシンタックスハイライト、行番号、現在行のハイライト</li>
+<li>保存は<strong>バイト単位でそのまま</strong> — 文字コード・BOM・改行コードは元のまま保たれます</li>
+<li>文字化けしているときは、ステータスバーの文字コードをクリックして別の文字コードで読み直せます</li>
+</ul>
+<h2 id="ファイルの管理">ファイルの管理</h2>
+<ul>
+<li><strong>外部での変更の検知</strong>: ほかのアプリが開いているファイルを変更すると、自動で読み直します。編集中だった場合はバナーで確認します</li>
+<li><strong>セッションの復元</strong>: アプリを終了して開き直しても、タブ・表示モード・スクロール位置までそのまま</li>
+<li><strong>画像フォルダの許可</strong>: 文書の画像が表示されないときは、上部バナーの「フォルダを許可」でアクセスを許可してください（macOS のセキュリティの仕組みによるものです）</li>
+</ul>
+<h2 id="pdf">PDF</h2>
+<ul>
+<li>PDF ファイルはビューアで開きます（ページの位置を記憶）</li>
+<li><strong>Markdown → PDF の書き出し</strong>: ファイルメニュー → PDFとして書き出す。保存ダイアログで<strong>形式</strong>（連続 1 ページ / A4 ページ）· <strong>倍率</strong> · <strong>幅広の表・図を幅に合わせる</strong>を選べます</li>
+</ul>
+<h2 id="設定（⌘,）">設定（<kbd>⌘,</kbd>）</h2>
+<ul>
+<li><strong>一般</strong>: テーマ（自動 / ライト / ダーク）· 言語（韓国語 / 英語 / 日本語 / 中国語、再起動後に適用）· 外部での変更の検知 · デフォルトApp · アップデートを自動的に確認（公式サイトからダウンロードした Mac 版のみ）<ul>
+<li>デフォルトApp — すでに Hannun がデフォルトになっている種類には、ボタンの代わりに**「デフォルトに設定済み」**と表示されます</li>
+</ul>
+</li>
+<li><strong>プレビュー</strong>: 本文の幅 · 本文の書体（セリフ / サンセリフ）· 見出しの書体 · 文字サイズ · <strong>データ文書の表示</strong>（ソース / ツリー / リスト）</li>
+<li><strong>エディタ</strong>: 等幅フォント · 文字サイズ</li>
+</ul>
+<h2 id="対応ファイル">対応ファイル</h2>
+<table>
+<thead>
+<tr>
+<th>種類</th>
+<th>拡張子</th>
+<th>プレビュー（表示）</th>
+<th>編集</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Markdown</td>
+<td><code>.md</code> <code>.markdown</code> <code>.mdown</code> <code>.mkd</code></td>
+<td>整形して表示</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>テキスト</td>
+<td><code>.txt</code></td>
+<td>—（エディタで開く）</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>JSON · XML</td>
+<td><code>.json</code> <code>.xml</code></td>
+<td>ソース · ツリー · リストのうち設定した表示</td>
+<td>✅ ハイライト付き</td>
+</tr>
+<tr>
+<td>YAML</td>
+<td><code>.yaml</code> <code>.yml</code></td>
+<td>ソース + 折りたたみ</td>
+<td>✅ ハイライト付き</td>
+</tr>
+<tr>
+<td>PDF</td>
+<td><code>.pdf</code></td>
+<td>専用ビューア</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<ul>
+<li>どの形式も開き方は同じです — <kbd>⌘O</kbd>、Finder からのドラッグ、場所ボタン（Mac）、ファイルボタン（iPhone・iPad）、文書内のリンク</li>
+<li>文書の中の <code>[別の文書](./別の文書.md)</code> のようなリンクも、上の拡張子なら Hannun の新しいタブで開きます</li>
+</ul>
+<h3 id="データ文書の表示（json-xml-yaml）">データ文書の表示（JSON · XML · YAML）</h3>
+<p>データ文書はプレビューで<strong>折りたたんだり展開したり</strong>しながら読みます。表示のしかたは<strong>設定 › プレビュー › データ文書の表示</strong>で選びます。文書を開いたまま変えると、その場で表示し直されます。</p>
+<table>
+<thead>
+<tr>
+<th>表示</th>
+<th>見た目</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>ソース</strong>（標準）</td>
+<td>ファイルに書かれたとおりに表示し、括弧の単位で折りたたみます。VS Code などのエディタと同じ見た目です。折りたたんだ行は <code>{ … },</code> のように表示されます</td>
+</tr>
+<tr>
+<td><strong>ツリー</strong></td>
+<td>引用符や括弧を外し、名前と値だけを表示します。折りたたんだ行の横の小さな数字は、中に入っている数です。同じ形の項目が並んでいると<strong>表</strong>にまとめ、200 行ずつ表示して「残り N 行を表示」で続きを見られます</td>
+</tr>
+<tr>
+<td><strong>リスト</strong></td>
+<td>キー · 型 · 値を 3 列に分けて表示します。Xcode のプロパティリストと同じ見た目です</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>YAML</strong> はソース表示のみで、<strong>インデント単位で</strong>折りたたみます。ツリー・リスト表示は今後のアップデートで追加する予定です</li>
+<li>大きなファイル（ノードが 1,000 を超えるもの）は、<strong>2 階層まで</strong>展開した状態で開きます</li>
+<li>拡大・縮小、検索、PDF の書き出し、テーマ、本文の幅は Markdown と同じように使えます</li>
+<li><strong>折りたたんだ行の中の文字は検索にかかりません</strong> — 画面に表示されていない文字だからです。先に展開してから検索してください</li>
+<li>プレビューでは値を直せません。直すときは <kbd>⌘/</kbd> で編集モードに切り替え、そこで直して <kbd>⌘S</kbd> で保存します</li>
+</ul>
+<h2 id="ipad-iphone">iPad · iPhone</h2>
+<ul>
+<li><strong>ファイルを開く</strong>: ファイルボタンを押して、「ファイル」App にある文書を選びます。文書はその場で開き、直した内容は元のファイルに保存されます</li>
+<li><strong>記法パレット</strong>: 編集画面の右下のボタンから開きます</li>
+<li><strong>検索 · 置換</strong>: iPad ではメニューバーから使います</li>
+<li><strong>拡大 · 縮小</strong>: 2 本指で広げたり狭めたりします</li>
+</ul>
+
+    </article>
+    <aside class="note doc-toc"><nav aria-label="目次"><h4>目次</h4><a href="#はじめに">はじめに</a><a href="#画面の構成（mac）">画面の構成（Mac）</a><a href="#表示モード-⌘/">表示モード — ⌘/</a><a href="#拡大・縮小">拡大・縮小</a><a href="#記法パレット-⌥-を押したまま（mac）">記法パレット — ⌥ を押したまま（Mac）</a><a href="#おもなショートカット">おもなショートカット</a><a href="#プレビューの機能">プレビューの機能</a><a href="#編集の機能">編集の機能</a><a href="#ファイルの管理">ファイルの管理</a><a href="#pdf">PDF</a><a href="#設定（⌘,）">設定（⌘,）</a><a href="#対応ファイル">対応ファイル</a><a href="#ipad-iphone">iPad · iPhone</a></nav></aside>
+  </div>
+</main>
+<footer class="colophon">
+  <div class="wrap grid">
+    <div class="num"></div>
+    <div class="main">
+      <dl class="box">
+        <div class="t">Hannun</div>
+        <dt>制作</dt><dd>プッチャメ</dd>
+        <dt>お問い合わせ</dt><dd><a href="mailto:hannun@putchamoe.com">hannun@putchamoe.com</a></dd>
+        <dt>プライバシー</dt><dd><a href="mailto:privacy@putchamoe.com">privacy@putchamoe.com</a></dd>
+      </dl>
+      <p class="links"><a href="/hannun/ja/">Hannun</a><a href="/hannun/ja/help/">ヘルプ</a><a href="/hannun/ja/support/">サポート</a><a href="/hannun/ja/privacy/">プライバシーポリシー</a><a href="/">プッチャメ</a></p>
+    </div>
+  </div>
+</footer>
+<script>document.addEventListener('click',function(e){var d=document.querySelector('.head__lang');if(d&&d.open&&!d.contains(e.target))d.open=false})</script>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>한눈 사용 설명서 — 한눈</title>
+<meta name="theme-color" content="#fbfaf7">
+<link rel="alternate" hreflang="ko" href="https://putchamoe.com/hannun/help/">
+<link rel="alternate" hreflang="en" href="https://putchamoe.com/hannun/en/help/">
+<link rel="alternate" hreflang="ja" href="https://putchamoe.com/hannun/ja/help/">
+<link rel="alternate" hreflang="zh-Hans" href="https://putchamoe.com/hannun/zh/help/">
+<link rel="icon" href="/hannun/img/icon-128.png">
+<link rel="apple-touch-icon" href="/hannun/img/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&display=swap">
+<link rel="stylesheet" href="/hannun/hannun.css">
+</head>
+<body class="docpage">
+<header class="head">
+  <div class="wrap">
+    <a class="head__brand" href="/hannun/"><img src="/hannun/img/icon-128.png" alt="">한눈</a>
+    <div class="head__run"><b>도움말</b></div>
+    <details class="head__lang">
+      <summary aria-label="언어 선택">한국어</summary>
+      <nav aria-label="언어">
+        <a href="/hannun/help/" lang="ko" hreflang="ko" aria-current="page">한국어</a>
+        <a href="/hannun/en/help/" lang="en" hreflang="en">English</a>
+        <a href="/hannun/ja/help/" lang="ja" hreflang="ja">日本語</a>
+        <a href="/hannun/zh/help/" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
+      </nav>
+    </details>
+    <a class="head__get" href="/hannun/#get">다운로드</a>
+  </div>
+</header>
+<main>
+  <section class="doc-hero">
+    <div class="wrap grid">
+      <div class="num sec__num">도움말</div>
+      <div class="main">
+        <h1>한눈 사용 설명서</h1>
+        <p class="doc-lede">파일을 여는 법부터 단축키, 문법 팔레트, 데이터 문서 보기까지. 문제가 생겼다면 <a href="../support/">지원</a> 페이지를 보세요.</p>
+        
+      </div>
+    </div>
+  </section>
+  <div class="wrap grid doc-body">
+    <div class="num"></div>
+    <article class="main doc">
+<h2 id="시작하기">시작하기</h2>
+<ul>
+<li><strong>파일 열기</strong>: 파인더 더블클릭(기본 앱 설정 시), <kbd>⌘O</kbd>, 창에 파일 드래그, 시계(⏱) 메뉴의 최근 문서</li>
+<li><strong>새 문서</strong>: <kbd>⌘N</kbd> 또는 탭 줄의 <code>+</code> — 저장 위치를 묻지 않는 <strong>임시 문서</strong>가 바로 열립니다. 내용은 자동 백업되고, 앱을 껐다 켜도 그대로 남습니다. <kbd>⌘S</kbd> 로 저장하면 일반 파일이 됩니다.</li>
+<li><strong>기본 앱 설정</strong>: 설정 &gt; 일반 &gt; 기본 앱에서 마크다운·텍스트·PDF·데이터 문서를 각각 등록할 수 있습니다.</li>
+</ul>
+<h2 id="화면-구성-mac">화면 구성 (Mac)</h2>
+<table>
+<thead>
+<tr>
+<th>위치</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>타이틀 줄</td>
+<td>왼쪽에 문서 상태 문구 · 오른쪽에 버튼 세 묶음 — <strong>이동</strong>(시계: 탭·최근 문서 / 위치: 파인더에서 보기) · <strong>보기</strong>(본문 너비 / 목차 / 보기 전환) · <strong>내보내기·앱</strong>(공유 / 설정)</td>
+</tr>
+<tr>
+<td>탭 줄</td>
+<td>열린 문서들(타입 아이콘 + 이름) · <code>+</code> 새 문서 · 탭이 2개 이상이면 오른쪽에 탭 개수</td>
+</tr>
+<tr>
+<td>상태 표시줄</td>
+<td>편집 중일 때만 — 줄:칸 · 인코딩(클릭해 재해석) · 줄바꿈 형식</td>
+</tr>
+</tbody></table>
+<p>탭이 넘치면 좌우로 스크롤됩니다 (트랙패드 가로 제스처, 마우스 휠 모두).</p>
+<h2 id="보기-모드-⌘/">보기 모드 — <kbd>⌘/</kbd></h2>
+<p><strong>프리뷰 → 스플릿 → 편집</strong>을 순환합니다.</p>
+<ul>
+<li><strong>프리뷰</strong>: 렌더된 문서 전면. 마크다운 파일의 기본</li>
+<li><strong>스플릿</strong>: 좌 편집기 / 우 프리뷰. 분할선은 드래그로 조절되고 탭별로 기억됩니다. 양쪽 스크롤은 자동으로 맞춰집니다</li>
+<li><strong>편집</strong>: 편집기 전면. <code>.txt</code> 의 기본</li>
+<li>데이터 문서(<code>.json</code> <code>.xml</code> <code>.yaml</code>)는 스플릿이 없고 <strong>프리뷰 ⇄ 편집</strong>만 오갑니다 — 아래 &quot;데이터 문서 보기&quot; 참고</li>
+</ul>
+<h2 id="확대-축소">확대·축소</h2>
+<p>어디서나 같은 방법: <strong>트랙패드 핀치</strong> 또는 <strong>⌘+스크롤</strong>.</p>
+<ul>
+<li>프리뷰: 화면 배율 (축소하면 세로로 더 많은 내용이 보입니다)</li>
+<li>편집기: 글자 크기 (11~24pt)</li>
+<li>PDF: 페이지 배율</li>
+<li>이미지·다이어그램 확대 팝업 안에서도 동일</li>
+<li>메뉴 방식: <kbd>⌘ +</kbd> / <kbd>⌘ −</kbd> / <kbd>⌘ 0</kbd> (프리뷰·편집기 각각 기억)</li>
+</ul>
+<h2 id="문법-팔레트-⌥-길게-누르기-mac">문법 팔레트 — <kbd>⌥</kbd> 길게 누르기 (Mac)</h2>
+<p>편집 중 <kbd>⌥</kbd>(옵션)를 누르고 있으면 우하단에 팔레트가 열립니다. 키보드 위치 그대로 배열되어 있고, 누르고 있는 동안 해당 키로 서식을 넣습니다. <strong>모든 서식은 토글</strong> — 같은 키를 다시 누르면 해제됩니다.</p>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>기능</th>
+<th>키</th>
+<th>기능</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1~6, 0</td>
+<td>제목 1~6 · 본문</td>
+<td>A</td>
+<td>제목 순환</td>
+</tr>
+<tr>
+<td>S</td>
+<td>굵게 (<kbd>⌘B</kbd>)</td>
+<td>D</td>
+<td>기울임 (<kbd>⌘I</kbd>)</td>
+</tr>
+<tr>
+<td>F</td>
+<td>취소선</td>
+<td>G</td>
+<td>인라인 코드</td>
+</tr>
+<tr>
+<td>H</td>
+<td>불릿</td>
+<td>J</td>
+<td>번호 목록</td>
+</tr>
+<tr>
+<td>K</td>
+<td>체크박스</td>
+<td>L</td>
+<td>인용</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>링크 (<kbd>⌘K</kbd>)</td>
+<td>X</td>
+<td>이미지</td>
+</tr>
+<tr>
+<td>C</td>
+<td>코드블록 (<kbd>⌘⇧K</kbd>)</td>
+<td>V</td>
+<td>표</td>
+</tr>
+<tr>
+<td>B</td>
+<td>수평선</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="주요-단축키">주요 단축키</h2>
+<table>
+<thead>
+<tr>
+<th>단축키</th>
+<th>기능</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><kbd>⌘O</kbd> / <kbd>⌘N</kbd> / <kbd>⌘S</kbd> / <kbd>⌘W</kbd></td>
+<td>열기 / 새 문서 / 저장 / 탭 닫기</td>
+</tr>
+<tr>
+<td><kbd>⌘/</kbd></td>
+<td>보기 ⇄ 편집 전환</td>
+</tr>
+<tr>
+<td><kbd>⌘F</kbd></td>
+<td>찾기 (프리뷰·편집기 각각)</td>
+</tr>
+<tr>
+<td><kbd>⌘⇧T</kbd></td>
+<td>목차 패널</td>
+</tr>
+<tr>
+<td><kbd>⌘1~9</kbd></td>
+<td>n번째 탭으로</td>
+</tr>
+<tr>
+<td><kbd>⌘⇧[</kbd> / <kbd>⌘⇧]</kbd></td>
+<td>이전 / 다음 탭</td>
+</tr>
+<tr>
+<td><kbd>⌘,</kbd></td>
+<td>설정</td>
+</tr>
+</tbody></table>
+<h2 id="프리뷰-기능">프리뷰 기능</h2>
+<ul>
+<li><strong>목차</strong>: <kbd>⌘⇧T</kbd> 또는 목차 아이콘 — 왼편 패널, 폭 드래그 조절. 항목 클릭으로 이동</li>
+<li><strong>본문 너비</strong>: 전체 / 넓게 / 보통 / 좁게 (좌우 화살표 아이콘)</li>
+<li><strong>이미지·다이어그램 확대</strong>: 클릭하면 팝업으로 커집니다. 드래그 = 이동, 핀치·⌘+스크롤 = 확대, 더블클릭 = 맞춤⇄100%, <code>Esc</code> = 닫기</li>
+<li><strong>문서 간 링크</strong>: <code>[문서](./다른문서.md)</code> 클릭 → 새 탭으로 열림 (<code>문서.md#섹션</code> 은 해당 제목으로 이동). 웹 링크는 브라우저로</li>
+<li><strong>Mermaid 다이어그램·수식(KaTeX)·frontmatter 카드</strong> 지원</li>
+</ul>
+<h2 id="편집-기능">편집 기능</h2>
+<ul>
+<li>한글·일본어·중국어 입력(IME) 완전 지원 — 조합 중 서식이 개입하지 않습니다</li>
+<li>마크다운 구문 강조, 줄 번호, 현재 줄 강조</li>
+<li>저장은 <strong>바이트 보존</strong> — 인코딩·BOM·줄바꿈이 원본 그대로 유지됩니다</li>
+<li>인코딩이 깨져 보이면 상태 표시줄의 인코딩을 클릭해 다른 인코딩으로 재해석</li>
+</ul>
+<h2 id="파일-관리">파일 관리</h2>
+<ul>
+<li><strong>외부 변경 감지</strong>: 다른 앱이 열린 파일을 바꾸면 자동으로 다시 읽습니다. 편집 중이었다면 배너로 물어봅니다</li>
+<li><strong>세션 복원</strong>: 앱을 껐다 켜면 탭·보기 모드·스크롤 위치까지 그대로</li>
+<li><strong>이미지 폴더 허용</strong>: 문서의 이미지가 안 보이면 상단 배너의 &quot;폴더 허용&quot;으로 접근을 허용하세요 (macOS 보안 규칙)</li>
+</ul>
+<h2 id="pdf">PDF</h2>
+<ul>
+<li>PDF 파일은 뷰어로 열립니다 (페이지 위치 기억)</li>
+<li><strong>마크다운 → PDF 내보내기</strong>: 파일 메뉴 → PDF로 내보내기. 저장 창에서 <strong>형식</strong>(연속 한 장 / A4 페이지) · <strong>배율</strong> · <strong>넓은 표·다이어그램 너비 맞춤</strong>을 고를 수 있습니다</li>
+</ul>
+<h2 id="설정-⌘,">설정 (<kbd>⌘,</kbd>)</h2>
+<ul>
+<li><strong>일반</strong>: 테마(자동/라이트/다크) · 언어(한국어/영어/일본어/중국어, 재시작 적용) · 외부 변경 감지 · 기본 앱 · 자동으로 업데이트 확인(홈페이지에서 받은 Mac 무료 버전만)<ul>
+<li>기본 앱 — 한눈이 이미 기본 앱인 형식은 버튼 대신 <strong>&quot;기본 앱으로 설정됨&quot;</strong> 이 보입니다</li>
+</ul>
+</li>
+<li><strong>프리뷰</strong>: 본문 너비 · 본문 계열(세리프/산세리프) · 제목 계열 · 글자 크기 · <strong>데이터 문서 보기</strong>(원문/트리/목록)</li>
+<li><strong>편집기</strong>: 고정폭 폰트 · 글자 크기</li>
+</ul>
+<h2 id="지원-파일">지원 파일</h2>
+<table>
+<thead>
+<tr>
+<th>종류</th>
+<th>확장자</th>
+<th>프리뷰(보기)</th>
+<th>편집</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>마크다운</td>
+<td><code>.md</code> <code>.markdown</code> <code>.mdown</code> <code>.mkd</code></td>
+<td>렌더</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>일반 텍스트</td>
+<td><code>.txt</code></td>
+<td>— (편집기로 열림)</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>JSON · XML</td>
+<td><code>.json</code> <code>.xml</code></td>
+<td>원문 · 트리 · 목록 중 설정한 방식</td>
+<td>✅ 구문 강조</td>
+</tr>
+<tr>
+<td>YAML</td>
+<td><code>.yaml</code> <code>.yml</code></td>
+<td>원문 + 접기</td>
+<td>✅ 구문 강조</td>
+</tr>
+<tr>
+<td>PDF</td>
+<td><code>.pdf</code></td>
+<td>전용 뷰어</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<ul>
+<li>여는 길은 어느 형식이든 같습니다 — <kbd>⌘O</kbd>, Finder에서 끌어다 놓기, 위치 버튼(Mac), 파일 버튼(iPhone·iPad), 문서 안의 링크</li>
+<li>문서 안에서 <code>[다른 문서](./다른문서.md)</code> 처럼 걸어 둔 링크도 위 확장자면 한눈 안에서 새 탭으로 열립니다</li>
+</ul>
+<h3 id="데이터-문서-보기-json-xml-yaml">데이터 문서 보기 (JSON · XML · YAML)</h3>
+<p>데이터 문서는 프리뷰에서 <strong>접고 펴며</strong> 읽습니다. 보는 방식은 <strong>설정 › 프리뷰 › 데이터 문서 보기</strong>에서 고릅니다. 문서를 연 채로 바꾸면 그 자리에서 다시 그려집니다.</p>
+<table>
+<thead>
+<tr>
+<th>방식</th>
+<th>모양</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>원문</strong> (기본)</td>
+<td>파일에 적힌 그대로 보고, 괄호 단위로 접습니다. VS Code 같은 편집기와 같은 모양입니다. 접힌 줄은 <code>{ … },</code> 로 보입니다</td>
+</tr>
+<tr>
+<td><strong>트리</strong></td>
+<td>따옴표와 괄호를 빼고 이름과 값만 보여 줍니다. 접힌 줄 옆 작은 숫자는 그 안에 든 개수입니다. 같은 모양의 항목이 줄지어 있으면 <strong>표</strong>로 정리하고, 200행씩 보여 주며 &quot;나머지 N행 더 보기&quot;로 이어 봅니다</td>
+</tr>
+<tr>
+<td><strong>목록</strong></td>
+<td>키 · 형식 · 값을 세 칸으로 나눠 보여 줍니다. Xcode 속성 목록과 같은 모양입니다</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>YAML</strong> 은 원문으로만 보이며 <strong>들여쓰기 단위로</strong> 접힙니다. 트리·목록 보기는 업데이트로 추가될 예정입니다</li>
+<li>큰 파일(노드 1,000개 초과)은 <strong>2단계까지만</strong> 펼친 채로 시작합니다</li>
+<li>확대·축소, 찾기, PDF 내보내기, 테마, 본문 너비가 마크다운과 똑같이 듣습니다</li>
+<li><strong>접힌 줄 안의 글자는 찾기에 걸리지 않습니다</strong> — 화면에 없는 글자이기 때문입니다. 먼저 펼친 뒤 찾으세요</li>
+<li>프리뷰에서는 값을 고칠 수 없습니다. 고치려면 <kbd>⌘/</kbd> 로 편집 모드로 넘어가세요 — 거기서 고치고 <kbd>⌘S</kbd> 로 저장합니다</li>
+</ul>
+<h2 id="ipad-iphone">iPad · iPhone</h2>
+<ul>
+<li><strong>파일 열기</strong>: 파일 버튼을 눌러 파일 앱에 있는 문서를 고릅니다. 문서는 제자리에서 열리고, 고친 내용은 원본에 저장됩니다</li>
+<li><strong>문법 팔레트</strong>: 편집 화면 오른쪽 아래의 버튼으로 엽니다</li>
+<li><strong>찾기 · 바꾸기</strong>: 아이패드는 메뉴 막대에서 씁니다</li>
+<li><strong>확대 · 축소</strong>: 두 손가락으로 벌리고 오므립니다</li>
+</ul>
+
+    </article>
+    <aside class="note doc-toc"><nav aria-label="차례"><h4>차례</h4><a href="#시작하기">시작하기</a><a href="#화면-구성-mac">화면 구성 (Mac)</a><a href="#보기-모드-⌘/">보기 모드 — ⌘/</a><a href="#확대-축소">확대·축소</a><a href="#문법-팔레트-⌥-길게-누르기-mac">문법 팔레트 — ⌥ 길게 누르기 (Mac)</a><a href="#주요-단축키">주요 단축키</a><a href="#프리뷰-기능">프리뷰 기능</a><a href="#편집-기능">편집 기능</a><a href="#파일-관리">파일 관리</a><a href="#pdf">PDF</a><a href="#설정-⌘,">설정 (⌘,)</a><a href="#지원-파일">지원 파일</a><a href="#ipad-iphone">iPad · iPhone</a></nav></aside>
+  </div>
+</main>
+<footer class="colophon">
+  <div class="wrap grid">
+    <div class="num"></div>
+    <div class="main">
+      <dl class="box">
+        <div class="t">한눈</div>
+        <dt>만든 곳</dt><dd>풋참외</dd>
+        <dt>문의</dt><dd><a href="mailto:hannun@putchamoe.com">hannun@putchamoe.com</a></dd>
+        <dt>개인정보</dt><dd><a href="mailto:privacy@putchamoe.com">privacy@putchamoe.com</a></dd>
+      </dl>
+      <p class="links"><a href="/hannun/">한눈</a><a href="/hannun/help/">도움말</a><a href="/hannun/support/">지원</a><a href="/hannun/privacy/">개인정보처리방침</a><a href="/">풋참외</a></p>
+    </div>
+  </div>
+</footer>
+<script>document.addEventListener('click',function(e){var d=document.querySelector('.head__lang');if(d&&d.open&&!d.contains(e.target))d.open=false})</script>
+</body>
+</html>
