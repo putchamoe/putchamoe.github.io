@@ -107,6 +107,10 @@ export function createApp(root, config) {
     pinned: false,
   }
   const tab = () => state.tabs.find(t => t.id === state.active)
+  // 자동 = 시스템 설정을 따른다
+  const dark = matchMedia('(prefers-color-scheme: dark)')
+  const shownTheme = () => (state.theme === 'auto' ? (dark.matches ? 'dark' : 'light') : state.theme)
+  dark.addEventListener('change', () => { if (state.theme === 'auto') { drawChrome(); clearDiagramCache(); drawPreview() } })
   const idPrefix = root.id + '-'
 
   root.innerHTML = `
@@ -120,7 +124,7 @@ export function createApp(root, config) {
         </div>
         <div class="hn-group">
           <button class="hn-tool" type="button" data-pop="width" aria-expanded="false" title="${T.width}" aria-label="${T.width}">${ICON.width}</button>
-          <button class="hn-tool" type="button" data-pop="type" aria-expanded="false" title="${T.typeTheme}" aria-label="${T.typeTheme}">${ICON.type}</button>
+          <button class="hn-tool" type="button" data-pop="type" aria-expanded="false" title="${T.typeTheme}" aria-label="${T.typeTheme}"><span class="hn-tool__glyph">${T.fontIcon}</span></button>
         </div>
         <div class="hn-group" role="group" aria-label="${T.shortcutMode}">
           ${MODES.map(m => `<button class="hn-tool" type="button" data-mode="${m}" aria-pressed="false" title="${MODE_LABEL[m]} (⌘/)" aria-label="${MODE_LABEL[m]}">${ICON[m]}</button>`).join('')}
@@ -168,7 +172,7 @@ export function createApp(root, config) {
     R.popType.innerHTML =
       `<h5>${T.bodyFont}</h5>${seg('bodyFont', [['serif', T.serif], ['sans', T.sans]], state.bodyFont)}` +
       `<h5>${T.headFont}</h5>${seg('headFont', [['serif', T.serif], ['sans', T.sans]], state.headFont)}` +
-      `<h5>${T.theme}</h5>${seg('theme', [['light', T.light], ['dark', T.dark]], state.theme)}`
+      `<h5>${T.theme}</h5>${seg('theme', [['auto', T.auto], ['light', T.light], ['dark', T.dark]], state.theme)}`
   }
   function closePops(except) {
     for (const [name, el] of [['width', R.popWidth], ['type', R.popType]]) {
@@ -190,7 +194,7 @@ export function createApp(root, config) {
     const t = tab()
     if (t.kind === 'json' && state.mode === 'split') state.mode = 'edit'
     root.dataset.mode = state.mode
-    root.dataset.theme = state.theme
+    root.dataset.theme = shownTheme()
     root.dataset.contentWidth = state.width
     root.dataset.bodyFont = state.bodyFont
     root.dataset.headingFont = state.headFont
@@ -246,7 +250,7 @@ export function createApp(root, config) {
     } else {
       const holder = document.createElement('div')
       try {
-        await renderMarkdown(t.text, holder, { base: t.base, theme: state.theme, idPrefix })
+        await renderMarkdown(t.text, holder, { base: t.base, theme: shownTheme(), idPrefix })
       } catch (err) {
         holder.innerHTML = `<p style="color:var(--hn-danger)">${esc(T.loadFail)}</p>`
         console.error(err)
@@ -254,7 +258,7 @@ export function createApp(root, config) {
       if (seq !== renderSeq) return
       R.content.replaceChildren(...holder.childNodes)
       drawToc()
-      renderDiagrams(R.content, state.theme).catch(err => console.error(err))
+      renderDiagrams(R.content, shownTheme()).catch(err => console.error(err))
     }
     R.prevScroll.scrollTop = keep
   }

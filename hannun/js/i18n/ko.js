@@ -84,4 +84,8 @@ export default {
 
   // 원본 보존 — diff 비교에 처음 들어 있는 글 (Windows 에서 만든 회의록처럼 BOM + CRLF 로 다룬다)
   diffDoc: '# 주간 회의\n\n| 항목 | 담당 |\n|---|---|\n| 출시 준비 | 하늘 |\n| 캡처 | 도윤 |\n\n* 도움말 정리\n* 번역 확인\n',
+
+  // 글꼴 빠른 전환 버튼 — 앱과 같은 모양(애플 textformat 이 언어마다 다르게 그린다)
+  fontIcon: '가가',
+  auto: '자동',
 }

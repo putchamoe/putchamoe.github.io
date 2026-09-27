@@ -75,4 +75,8 @@ export default {
 
   // 원본 보존 — diff 비교에 처음 들어 있는 글 (Windows 에서 만든 회의록처럼 BOM + CRLF 로 다룬다)
   diffDoc: '# 周会\n\n| 事项 | 负责人 |\n|---|---|\n| 发布准备 | 天天 |\n| 截图 | 小雨 |\n\n* 整理帮助文档\n* 检查翻译\n',
+
+  // 글꼴 빠른 전환 버튼 — 앱과 같은 모양(애플 textformat 이 언어마다 다르게 그린다)
+  fontIcon: '格式',
+  auto: '自动',
 }

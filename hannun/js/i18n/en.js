@@ -76,4 +76,8 @@ export default {
 
   // 원본 보존 — diff 비교에 처음 들어 있는 글 (Windows 에서 만든 회의록처럼 BOM + CRLF 로 다룬다)
   diffDoc: '# Weekly sync\n\n| Task | Owner |\n|---|---|\n| Release prep | Sky |\n| Screenshots | Doyun |\n\n* Tidy up the help pages\n* Check translations\n',
+
+  // 글꼴 빠른 전환 버튼 — 앱과 같은 모양(애플 textformat 이 언어마다 다르게 그린다)
+  fontIcon: 'Aa',
+  auto: 'Auto',
 }

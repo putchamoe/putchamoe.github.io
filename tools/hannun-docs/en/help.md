@@ -62,6 +62,7 @@ While editing, hold `⌥` (Option) and the palette opens at the bottom right. It
 
 ## Preview features
 
+- **Change fonts quickly**: Click the "Aa" button in the toolbar to switch the body and heading fonts (serif or sans-serif) and the theme (automatic, light, or dark). It changes the same values as Settings › Preview, so your choice applies to every document and stays the next time you open Hannun.
 - **Table of contents**: `⌘⇧T` or the table of contents button — a sidebar on the left; drag to resize. Click an entry to jump to it
 - **Content width**: Full / Wide / Medium / Narrow (the left-right arrow button)
 - **Zoom into images and diagrams**: click to open a larger view. Drag to move, pinch or ⌘ + scroll to zoom, double-click to toggle fit ⇄ 100%, `Esc` to close
