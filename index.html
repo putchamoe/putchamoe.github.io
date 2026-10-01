@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>풋참외</title>
+<meta name="description" content="아직 덜 익은 것들. 혼자 만드는 앱을 상자에 담아 내보내는 곳 — 한눈, 한때, 한동안.">
+<meta name="theme-color" content="#dcd4c6">
+<meta property="og:title" content="풋참외">
+<meta property="og:description" content="아직 덜 익은 것들. 혼자 만드는 앱을 상자에 담아 내보냅니다.">
+<meta property="og:url" content="https://putchamoe.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="풋참외">
+<meta property="og:image" content="https://putchamoe.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="골판지 상자 정면에 크게 찍힌 풋참외, 아직 덜 익은 것들.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@500;600&family=Nanum+Pen+Script&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+<svg class="defs" aria-hidden="true" focusable="false">
+  <filter id="stamp" x="-4%" y="-4%" width="108%" height="108%">
+    <feTurbulence type="fractalNoise" baseFrequency=".06" numOctaves="3" seed="3" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="2" xChannelSelector="R" yChannelSelector="B"/>
+  </filter>
+</svg>
+
+<div class="track" id="top">
+
+  <!-- ① 상자 — 바닥에 놓인 참외 상자. 올리면 위에서 내려다본다 ─────────── -->
+  <header class="hero scene" id="hero">
+    <div class="stage" id="stage">
+      <div class="crate" id="crate">
+        <div class="ground" aria-hidden="true"></div>
+
+        <!-- 속 — 바닥과 안쪽 벽 -->
+        <div class="floor" aria-hidden="true">
+          <span class="straw straw--1"></span><span class="straw straw--2"></span><span class="straw straw--3"></span><span class="straw straw--4"></span>
+        </div>
+        <div class="wall wall--back" aria-hidden="true"></div>
+        <div class="wall wall--left" aria-hidden="true"></div>
+        <div class="wall wall--right" aria-hidden="true"></div>
+        <div class="wall wall--front" aria-hidden="true"></div>
+
+        <ul class="minis" id="minis" aria-label="상자 속 앱">
+          <li class="mini mini--link" style="--i:0">
+            <a class="mini__box" href="/hannun/" aria-label="한눈 페이지로">
+            <span class="mini__top"><span class="mini__label"><svg viewBox="0 0 76 100" role="img" aria-label="참외 — 출하됨"><ellipse cx="38" cy="50" rx="38" ry="50" fill="#F2C230"/><path d="M38 3 L38 97" stroke="#FBFAF7" stroke-width="7.2" stroke-linecap="round" fill="none"/><path d="M19 10 Q15 50 19 90" stroke="#FBFAF7" stroke-width="7.2" stroke-linecap="round" fill="none"/><path d="M57 10 Q61 50 57 90" stroke="#FBFAF7" stroke-width="7.2" stroke-linecap="round" fill="none"/></svg><b>한눈</b><small>마크다운 뷰어 <i aria-hidden="true">→</i></small></span></span>
+            <span class="mini__front"></span><span class="mini__side"></span>
+            </a>
+          </li>
+          <li class="mini" style="--i:1">
+            <span class="mini__box">
+            <span class="mini__top"><span class="mini__label"><svg viewBox="0 0 100 100" role="img" aria-label="풋참외 — 여무는 중"><rect width="100" height="100" rx="31" fill="#C8DA2E"/><path d="M50 19 L50 81" stroke="#FBFAF7" stroke-width="9.4" stroke-linecap="round" fill="none"/><path d="M31 24 Q26 50 31 76" stroke="#FBFAF7" stroke-width="9.4" stroke-linecap="round" fill="none"/><path d="M69 24 Q74 50 69 76" stroke="#FBFAF7" stroke-width="9.4" stroke-linecap="round" fill="none"/></svg><b>한때</b><small>사진 기록</small></span></span>
+            <span class="mini__front"></span><span class="mini__side"></span>
+            </span>
+          </li>
+          <li class="mini mini--blank" style="--i:2">
+            <span class="mini__box">
+            <span class="mini__top"><span class="mini__label" aria-label="상자 — 준비중"><i></i><b>한동안</b><small>창밖 풍경</small></span></span>
+            <span class="mini__front"></span><span class="mini__side"></span>
+            </span>
+          </li>
+        </ul>
+
+        <!-- 겉면 -->
+        <div class="face face--left" aria-hidden="true"></div>
+        <div class="face face--right" aria-hidden="true">
+          <div class="side-print">
+            <span class="side-print__up">
+              <svg viewBox="0 0 64 64"><path d="M20 58V26h-9l21-22 21 22h-9v32z" fill="currentColor"/><path d="M6 60h52" stroke="currentColor" stroke-width="4"/></svg>
+              <svg viewBox="0 0 64 64"><path d="M20 58V26h-9l21-22 21 22h-9v32z" fill="currentColor"/><path d="M6 60h52" stroke="currentColor" stroke-width="4"/></svg>
+            </span>
+            <span class="side-print__txt">이쪽이 위 <small>This way up</small></span>
+            <em>Putchamoe</em>
+          </div>
+        </div>
+        <div class="face face--front">
+          <div class="front">
+
+            <div class="strip">
+              <span>대한민국산 <small>PRODUCT OF KOREA</small></span>
+              <span class="strip__mid">앱 · 3상자 <small>APPS · 3 BOXES</small></span>
+              <span>1인 재배 <small>SINGLE GROWER</small></span>
+            </div>
+
+            <div class="name">
+              <svg class="name__mark" viewBox="0 0 100 100" role="img" aria-label="풋참외 마크">
+                <rect width="100" height="100" rx="31" fill="#C8DA2E"/>
+                <path d="M50 19 L50 81" stroke="#FBFAF7" stroke-width="9.4" stroke-linecap="round" fill="none"/>
+                <path d="M31 24 Q26 50 31 76" stroke="#FBFAF7" stroke-width="9.4" stroke-linecap="round" fill="none"/>
+                <path d="M69 24 Q74 50 69 76" stroke="#FBFAF7" stroke-width="9.4" stroke-linecap="round" fill="none"/>
+              </svg>
+              <div class="name__title">
+                <h1 class="print">풋참외</h1>
+                <p class="name__latin print">Putchamoe <i>—</i> Unripe Melon</p>
+              </div>
+              <div class="grade print" aria-label="등급 풋">
+                <small>등급 <span>Grade</span></small>
+                <b>풋</b>
+              </div>
+            </div>
+
+            <div class="body">
+              <div class="lead">
+                <p class="tag print">아직 덜 익은 것들.</p>
+                <p class="sub">혼자 만드는 앱을 상자에 담아 내보냅니다. <br>다 익기를 기다리지 않습니다. 내보낸 뒤에도 계속 여뭅니다.</p>
+              </div>
+              <dl class="spec print">
+                <div><dt>품목 <span>Item</span></dt><dd>앱</dd></div>
+                <div><dt>내용 <span>Contents</span></dt><dd>3 상자</dd></div>
+                <div><dt>산지 <span>Origin</span></dt><dd>대한민국</dd></div>
+                <div><dt>포장 <span>Packed</span></dt><dd>2026. 09</dd></div>
+                <div><dt>Lot</dt><dd class="mono">DB1621D</dd></div>
+                <div><dt>규격 <span>Size</span></dt><dd>Mac · iPad · iPhone</dd></div>
+              </dl>
+            </div>
+
+            <div class="foot">
+              <ul class="marks print" aria-label="취급 주의 표시">
+                <li>
+                  <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 6h36l-4 26c-1 8-6 12-14 12s-13-4-14-12zM32 44v12M20 58h24" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><path d="M28 6l6 12-6 8 6 10" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+                  <span>덜 익음 · 살살 <small>Handle with care</small></span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 32a24 24 0 0 1 48 0z" fill="currentColor"/><path d="M32 32v20a5 5 0 0 1-10 0" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M14 44v6M50 44v6M44 52v6M20 52v6" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+                  <span>습기 주의 <small>Keep dry</small></span>
+                </li>
+              </ul>
+              <div class="code print">
+                <svg class="code__bars" viewBox="0 0 220 44" preserveAspectRatio="none" aria-hidden="true"><g fill="currentColor"><rect x="0" width="3" height="44"/><rect x="5" width="1.5" height="44"/><rect x="9" width="4" height="44"/><rect x="15" width="1.5" height="44"/><rect x="19" width="2" height="44"/><rect x="24" width="5" height="44"/><rect x="31" width="1.5" height="44"/><rect x="35" width="3" height="44"/><rect x="41" width="1.5" height="44"/><rect x="44" width="4" height="44"/><rect x="51" width="2" height="44"/><rect x="55" width="1.5" height="44"/><rect x="59" width="5" height="44"/><rect x="66" width="2" height="44"/><rect x="70" width="1.5" height="44"/><rect x="74" width="3" height="44"/><rect x="80" width="4" height="44"/><rect x="86" width="1.5" height="44"/><rect x="90" width="2" height="44"/><rect x="95" width="5" height="44"/><rect x="102" width="1.5" height="44"/><rect x="106" width="3" height="44"/><rect x="111" width="1.5" height="44"/><rect x="115" width="4" height="44"/><rect x="121" width="2" height="44"/><rect x="126" width="1.5" height="44"/><rect x="130" width="5" height="44"/><rect x="137" width="1.5" height="44"/><rect x="141" width="3" height="44"/><rect x="146" width="2" height="44"/><rect x="151" width="4" height="44"/><rect x="157" width="1.5" height="44"/><rect x="161" width="2" height="44"/><rect x="166" width="5" height="44"/><rect x="173" width="1.5" height="44"/><rect x="177" width="3" height="44"/><rect x="182" width="1.5" height="44"/><rect x="186" width="4" height="44"/><rect x="192" width="2" height="44"/><rect x="197" width="1.5" height="44"/><rect x="201" width="5" height="44"/><rect x="208" width="1.5" height="44"/><rect x="212" width="3" height="44"/><rect x="217" width="3" height="44"/></g></svg>
+                <span class="mono">putchamoe.com</span>
+              </div>
+
+              <!-- 서류 봉투 — 여기서 전표가 나온다 -->
+              <a class="pouch" id="pouch" href="#manifest" aria-label="출하 전표 꺼내 보기">
+                <span class="pouch__print print">
+                  <b>서류 재중</b>
+                  <small>Packing list enclosed</small>
+                </span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 뚜껑 — 앞뒤 두 날개. 올리면 열린다 -->
+        <div class="lid" aria-hidden="true">
+          <div class="flap flap--back"><span class="tape"></span><span class="flap__inner"></span></div>
+          <div class="flap flap--front">
+            <span class="tape"></span>
+            <span class="open-here"><svg viewBox="0 0 24 24"><path d="M6 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM20 4 8.6 15.4M20 20 8.6 8.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> 여기를 여세요 <small>Open here</small></span>
+            <span class="flute"></span>
+            <span class="flap__inner"><span>내리면 닫힙니다 <small>Scroll down to close</small></span></span>
+          </div>
+        </div>
+        <button class="lid-btn" id="lid" type="button" aria-controls="minis">상자 속 보기</button>
+      </div>
+    </div>
+    <p class="hint"><span class="hint__up"><i aria-hidden="true">↑</i>올리면 상자 속</span><span class="hint__down">내리면 출하 전표<i aria-hidden="true">↓</i></span></p>
+  </header>
+  <div class="above" id="above" aria-hidden="true"></div>
+
+  <!-- 봉투 앞면 비닐 — 전표 위에 겹쳐 보이는 층 -->
+  <div class="sleeve" id="sleeve" aria-hidden="true"><span class="sleeve__print"><b>서류 재중</b><small>Packing list enclosed</small></span></div>
+
+  <!-- ② 출하 전표 ─────────────────────────────────────────────────── -->
+  <article class="sheet" id="manifest" aria-labelledby="manifest-title">
+    <header class="sheet__head">
+      <div>
+        <h2 id="manifest-title">출하 전표 <small>Shipping manifest</small></h2>
+        <p class="sheet__from">출하자 <b>풋참외</b> <span>·</span> 산지 <b>대한민국</b></p>
+      </div>
+      <dl class="sheet__meta">
+        <div><dt>No.</dt><dd class="mono">0001</dd></div>
+        <div><dt>작성일</dt><dd class="mono">2026. 09. 29</dd></div>
+      </dl>
+    </header>
+
+    <table class="ledger">
+      <colgroup><col class="c-no"><col class="c-name"><col class="c-desc"><col class="c-size"><col class="c-state"></colgroup>
+      <thead>
+        <tr>
+          <th scope="col">번호 <small>No.</small></th>
+          <th scope="col">품목 <small>Item</small></th>
+          <th scope="col">내용 <small>Description</small></th>
+          <th scope="col">규격 <small>Size</small></th>
+          <th scope="col">상태 <small>Status</small></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row">
+          <td class="mono">01</td>
+          <td class="name-cell"><a href="/hannun/">한눈<span class="name-cell__en">Hannun</span></a></td>
+          <td>마크다운 뷰어</td>
+          <td>Mac · iPad · iPhone</td>
+          <td class="state">
+            <span class="stamp stamp--red" role="img" aria-label="출하됨">
+              <small>Putchamoe</small><b>출하됨</b><small>2026.09</small>
+            </span>
+          </td>
+        </tr>
+        <tr class="row">
+          <td class="mono">02</td>
+          <td class="name-cell">한때<span class="name-cell__en">Hantte</span></td>
+          <td>사진 기록</td>
+          <td>iPhone</td>
+          <td class="state">
+            <span class="stamp stamp--blue" role="img" aria-label="여무는 중">
+              <b>여무는 중</b><small>Ripening</small>
+            </span>
+          </td>
+        </tr>
+        <tr class="row">
+          <td class="mono">03</td>
+          <td class="name-cell">한동안<span class="name-cell__en">Handongan</span></td>
+          <td>창밖 풍경</td>
+          <td>Mac</td>
+          <td class="state"><span class="pen">상자 짜둠</span></td>
+        </tr>
+        <tr class="row row--empty" aria-hidden="true"><td class="mono">04</td><td></td><td></td><td></td><td></td></tr>
+        <tr class="row row--empty" aria-hidden="true"><td class="mono">05</td><td></td><td></td><td></td><td></td></tr>
+        <tr class="row row--empty" aria-hidden="true"><td class="mono">06</td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <footer class="sheet__foot">
+      <div class="sheet__note">
+        <dt>비고 <small>Remarks</small></dt>
+        <dd>세 상자 모두 한 사람이 심고 거둡니다. 광고도 계정도 넣지 않았습니다.</dd>
+      </div>
+      <div class="sheet__sign">
+        <span>확인 <small>Checked</small></span>
+        <svg class="sheet__seal" viewBox="0 0 100 100" role="img" aria-label="풋참외 확인 도장">
+          <rect width="100" height="100" rx="31" fill="none" stroke="currentColor" stroke-width="7"/>
+          <path d="M50 22 L50 78" stroke="currentColor" stroke-width="9.4" stroke-linecap="round" fill="none"/>
+          <path d="M32 27 Q27 50 32 73" stroke="currentColor" stroke-width="9.4" stroke-linecap="round" fill="none"/>
+          <path d="M68 27 Q73 50 68 73" stroke="currentColor" stroke-width="9.4" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+    </footer>
+  </article>
+
+</div><!-- /track -->
+
+<!-- ③ 상자를 돌려 본 옆면 ─────────────────────────────────────────── -->
+<section class="turn scene" id="about" aria-labelledby="about-title">
+  <div class="stage stage--side">
+    <div class="crate crate--side">
+      <div class="ground" aria-hidden="true"></div>
+      <div class="face face--left" aria-hidden="true"></div>
+      <div class="face face--front face--ghost" aria-hidden="true"><div class="ghost">풋참외</div></div>
+      <div class="face face--right face--about">
+        <div class="side">
+          <h2 id="about-title">이 상자는 <small>This box</small></h2>
+          <ul class="none">
+            <li>
+              <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M10 26v12h8l22 12V14L18 26z" fill="currentColor"/><path d="M46 24a10 10 0 0 1 0 16" fill="none" stroke="currentColor" stroke-width="4"/><path d="M6 58 58 6" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
+              <span>광고 없음 <small>No ads</small></span>
+            </li>
+            <li>
+              <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="20" r="11" fill="currentColor"/><path d="M10 56c0-13 10-20 22-20s22 7 22 20z" fill="currentColor"/><path d="M6 58 58 6" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
+              <span>계정 없음 <small>No accounts</small></span>
+            </li>
+            <li>
+              <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M4 32q28-30 56 0-28 30-56 0z" fill="currentColor"/><circle cx="32" cy="32" r="8" class="eye-hole"/><path d="M6 58 58 6" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
+              <span>추적 없음 <small>No tracking</small></span>
+            </li>
+            <li>
+              <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="14" r="9" fill="currentColor"/><path d="M22 26h20l6 22h-8v12H24V48h-8z" fill="currentColor"/></svg>
+              <span>한 사람이 만듭니다 <small>One grower</small></span>
+            </li>
+          </ul>
+          <dl class="info">
+            <div><dt>만든 곳</dt><dd>풋참외</dd></div>
+            <div><dt>문의</dt><dd><a href="mailto:hello@putchamoe.com">hello@putchamoe.com</a></dd></div>
+            <div><dt>글꼴</dt><dd>Pretendard · Barlow Condensed · IBM Plex Mono · 나눔손글씨 펜 <small>(SIL OFL)</small></dd></div>
+            <div><dt>이 페이지</dt><dd>광고 · 쿠키 · 분석 도구 없음</dd></div>
+          </dl>
+        </div>
+      </div>
+      <div class="lid lid--static" aria-hidden="true"><div class="flap flap--back"><span class="tape"></span></div><div class="flap flap--front"><span class="tape"></span><span class="flute"></span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ④ 전표철 — 첫 갱신 때 hidden 을 빼고, 물러난 전표를 file__list 에 넣는다 ─────── -->
+<section class="file" id="file" aria-labelledby="file-title" hidden>
+  <div class="wrap">
+    <header class="file__head">
+      <h2 id="file-title">전표철 <small>Manifest file</small></h2>
+      <p class="file__lede">전표는 상자에 지금 무엇이 들었는지 적는 종이입니다. 도장이 바뀌거나 줄이 늘면 새 번호로 다시 쓰고, 지난 것은 여기 철해 둡니다.</p>
+    </header>
+    <ol class="file__list">
+      <li class="file__item file__item--slot" aria-hidden="true">
+        <p class="file__cap"><b class="mono">No. 0002</b><span>다음 전표 자리</span></p>
+        <div class="file__slot"></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<footer class="floor">
+  <div class="wrap">
+    <p class="floor__copy">© 2026 풋참외</p>
+    <p class="floor__links"><a href="/hannun/">한눈</a><a href="mailto:hello@putchamoe.com">문의</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+  var above = document.getElementById('above');
+  var hero = document.getElementById('hero');
+  var stage = document.getElementById('stage');
+  var crate = document.getElementById('crate');
+  var sheet = document.getElementById('manifest');
+  var pouch = document.getElementById('pouch');
+  var sleeve = document.getElementById('sleeve');
+  var lid = document.getElementById('lid');
+  var flapFront = crate && crate.querySelector('.flap--front');
+  if (!above || !hero || !stage || !crate || !sheet || !pouch || !sleeve) { root.classList.add('no-pull'); return; }
+  root.classList.add(reduce ? 'no-pull' : 'pull');
+  var SDA = !reduce && window.CSS && CSS.supports && CSS.supports('animation-timeline: scroll()');
+  if (SDA) { root.classList.add('sda'); }
+
+  var H = 0, ticking = false, crateTop = 0, pouchBox = null, heroH = 0, sheetTop = 0;
+  var TILT = 78;                 // 위에서 볼 때 기울기(도)
+  function ease(t) { return 1 - Math.pow(1 - t, 3); }
+  function clamp(v) { return Math.min(1, Math.max(0, v)); }
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  // 치수는 리사이즈 때만 잰다. 스크롤 중에는 레이아웃을 읽지 않는다
+  function measure() {
+    H = above.offsetHeight;
+    heroH = hero.offsetHeight;
+    sheetTop = sheet.offsetTop;
+    var s = stage.getBoundingClientRect(), c = crate.getBoundingClientRect(), p = pouch.getBoundingClientRect(), h = hero.getBoundingClientRect();
+    crateTop = c.top - h.top;                                // 히어로 안에서 상자 윗변 위치
+    crate.style.setProperty('--crate-top', crateTop.toFixed(1) + 'px');
+    pouchBox = { left: p.left, top: p.top - h.top, width: p.width, height: p.height };
+  }
+
+  function update() {
+    ticking = false;
+    var y = window.scrollY, vh = window.innerHeight;
+
+    // ── 위쪽 구간: 올릴수록 카메라가 위로 넘어가 상자 속을 본다
+    var u = H > 0 ? clamp(1 - y / H) : 0;
+    var e = ease(u);
+    var heroShift = y < H ? (y - H) : 0;
+    if (!SDA) {
+      crate.style.setProperty('--u', u.toFixed(4));
+      crate.style.transform = 'translate3d(0,' + (e * (vh * 0.46 - crateTop)).toFixed(1) + 'px,0) rotateX(' + (-TILT * e).toFixed(2) + 'deg)';
+      stage.style.perspectiveOrigin = lerp(112, 50, e).toFixed(1) + '% ' + lerp(-40, 40, e).toFixed(1) + '%';
+    }
+    root.classList.toggle('is-inside', u > .5);
+
+    if (reduce) return;
+    // ── 아래쪽 구간: 내릴수록 전표가 봉투에서 나온다
+    var natTop = sheetTop - y;
+    var t = clamp((vh - natTop) / (vh * 0.85));
+    var k = ease(t);
+    var heroTop = Math.min(0, Math.max(heroShift, (sheetTop - heroH) - y + 0)); // 히어로 윗변의 화면 위치
+    // 트랙이 끝나 히어로가 올라가기 시작하면 봉투도 같이 올라간다
+    var trackEnd = above.parentNode.offsetTop + above.parentNode.offsetHeight;
+    var stuckTop = Math.min(0, trackEnd - heroH - y);
+    var pl = pouchBox.left, pt = stuckTop + pouchBox.top, pw = pouchBox.width, ph = pouchBox.height;
+    var sw = sheet.offsetWidth, sh = sheet.offsetHeight;
+    var cx = sheet.offsetLeft + sw / 2, cy = natTop + sh / 2;
+    var s0 = Math.min(0.5, (pw * 0.9) / sw);
+    var s = s0 + (1 - s0) * k;
+    var px = pl + pw / 2, py = pt + (sh * s0) / 2 - ph * 0.14;
+    var dx = (px - cx) * (1 - k), dy = (py - cy) * (1 - k);
+    var rot = -4 + 3.4 * k;
+    sheet.style.transform = 'translate3d(' + dx.toFixed(1) + 'px,' + dy.toFixed(1) + 'px,0) rotate(' + rot.toFixed(2) + 'deg) scale(' + s.toFixed(4) + ')';
+    sleeve.style.transform = 'translate3d(' + pl.toFixed(1) + 'px,' + pt.toFixed(1) + 'px,0)';
+    sleeve.style.width = pw + 'px'; sleeve.style.height = ph + 'px';
+    sleeve.style.opacity = String(clamp(1 - Math.max(0, (t - 0.12) / 0.3)) * (u < .05 ? 1 : 0));
+    pouch.classList.toggle('is-empty', t > 0.45);
+  }
+  function onScroll() {
+    if (H > 0) { root.classList.toggle('is-inside', window.scrollY < H * .5); }
+    if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+  }
+  function onResize() { measure(); onScroll(); }
+
+  // 파일로 열어 볼 때(file://) 사이트 주소 /hannun/ 이 컴퓨터 맨 위 폴더를 가리키지 않도록 고친다
+  if (location.protocol === 'file:') {
+    document.querySelectorAll('a[href^="/"]').forEach(function (el) {
+      var p = el.getAttribute('href').replace(/^\//, '');
+      el.setAttribute('href', (p === '' ? '' : p) + (p === '' || p.slice(-1) === '/' ? 'index.html' : ''));
+    });
+  }
+  // 흔들리는 중에도 확실히 이동하도록 누르는 순간 흔들림을 멈춘다
+  document.querySelectorAll('a.mini__box').forEach(function (el) {
+    el.addEventListener('pointerdown', function () { el.classList.add('is-pressed'); });
+  });
+
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  H = above.offsetHeight;
+  if (!location.hash && window.scrollY < H) {
+    root.style.scrollBehavior = 'auto';
+    window.scrollTo(0, H);
+    root.style.scrollBehavior = '';
+  }
+  measure();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onResize);
+  window.addEventListener('load', onResize);
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(onResize); }
+  update();
+
+  if (lid) { lid.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); }); }
+  if (flapFront) { flapFront.addEventListener('click', function () { window.scrollTo({ top: H, behavior: reduce ? 'auto' : 'smooth' }); }); }
+  var up = document.querySelector('.hint__up');
+  if (up) { up.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); }); }
+
+  var turn = document.querySelector('.turn');
+  if (turn && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (en.isIntersecting) { turn.classList.add('is-in'); io.disconnect(); } });
+    }, { threshold: 0.25 });
+    io.observe(turn);
+  } else if (turn) { turn.classList.add('is-in'); }
+})();
+</script>
+</body>
+</html>
