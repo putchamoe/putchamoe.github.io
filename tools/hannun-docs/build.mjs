@@ -137,7 +137,7 @@ ${html}
     <div class="main">
       <dl class="box">
         <div class="t">${L.app}</div>
-        <dt>${L.madeBy}</dt><dd>${L.maker}</dd>
+        <dt>${L.madeBy}</dt><dd><a class="maker" href="/"><img src="/assets/brand/mark.svg" alt="" width="18" height="18">${L.maker}</a></dd>
         <dt>${L.contact}</dt><dd><a href="mailto:hannun@putchamoe.com">hannun@putchamoe.com</a></dd>
         <dt>${L.privacyDt}</dt><dd><a href="mailto:privacy@putchamoe.com">privacy@putchamoe.com</a></dd>
       </dl>

@@ -1259,3 +1259,8 @@ kbd, .kbd {
 
 /* 항목 이름(목차 · 확대 …)도 제목이다 — 제목 글꼴을 따른다 */
 .feats li > b, .get h3, .entry dt { font-family: var(--head-font); }
+
+/* 판권 — 펴낸 곳: 풋참외 마크와 함께, 누르면 풋참외 홈으로 */
+.colophon .maker { display: inline-flex; align-items: center; gap: 7px; color: var(--ink); }
+.colophon .maker img { width: 18px; height: 18px; border-radius: 5px; flex: none; }
+.colophon .maker:hover { color: var(--seal); }
