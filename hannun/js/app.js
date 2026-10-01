@@ -170,8 +170,9 @@ export function createApp(root, config) {
   function drawPops() {
     R.popWidth.innerHTML = `<h5>${T.width}</h5>${seg('width', WIDTHS, state.width)}`
     R.popType.innerHTML =
-      `<h5>${T.bodyFont}</h5>${seg('bodyFont', [['serif', T.serif], ['sans', T.sans]], state.bodyFont)}` +
+      // 앱과 같은 순서 — 제목 → 본문 → 테마 (화면정의서 v3.17 §3.14)
       `<h5>${T.headFont}</h5>${seg('headFont', [['serif', T.serif], ['sans', T.sans]], state.headFont)}` +
+      `<h5>${T.bodyFont}</h5>${seg('bodyFont', [['serif', T.serif], ['sans', T.sans]], state.bodyFont)}` +
       `<h5>${T.theme}</h5>${seg('theme', [['auto', T.auto], ['light', T.light], ['dark', T.dark]], state.theme)}`
   }
   function closePops(except) {

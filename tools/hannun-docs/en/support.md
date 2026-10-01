@@ -37,6 +37,10 @@ On iPhone and iPad, Hannun may need permission to access the folder the linked d
 
 Make sure **Settings › General › Automatically check for updates** is turned on. You can also check right away from the menu bar with <strong>Hannun › Check for Updates…</strong>. The App Store version is updated through the App Store.
 
+### I can't edit a document someone shared with me (iPhone · iPad)
+
+Files you receive through Mail or a messaging app come into Hannun as copies, so they open read-only. To edit one, save it to the Files app first, then open that file in Hannun — your changes will be saved to it.
+
 ## Coming soon
 
 | Feature | Status |

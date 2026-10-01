@@ -1,4 +1,4 @@
-**Effective date: September 26, 2026**
+**Effective date: October 1, 2026**
 
 Hannun collects no information about you.
 
@@ -21,7 +21,7 @@ The following is kept **only in the app's storage on your device** because the a
 |---|---|
 | Settings | Theme, fonts, content width, language |
 | Session | Open tabs, scroll positions, view modes |
-| Scratch documents | Automatic backup of unsaved writing |
+| Scratch documents · files being edited | Automatic backup of writing and edits not yet saved |
 | Recent documents | Recently opened files and the access needed to reopen them |
 | Folder access | Scope you granted so images in a document's folder can display |
 

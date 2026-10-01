@@ -28,7 +28,7 @@ Cycles through **Preview → Split → Editor**.
 Same everywhere: **pinch on the trackpad** or **⌘ + scroll**.
 
 - Preview: page scale (zoom out to see more of the document at once)
-- Editor: font size (11–24 pt)
+- Editor: font size (10–24 pt)
 - PDF: page scale
 - Also works inside the image and diagram zoom window
 - From the menu: `⌘ +` / `⌘ −` / `⌘ 0` (remembered separately for preview and editor)
@@ -58,6 +58,7 @@ While editing, hold `⌥` (Option) and the palette opens at the bottom right. It
 | `⌘⇧T` | Table of contents |
 | `⌘1–9` | Go to tab 1–9 |
 | `⌘⇧[` / `⌘⇧]` | Previous / next tab |
+| `⌘B` / `⌘I` / `⌘K` / `⌘⇧K` | Bold / italic / link / code block (while editing) |
 | `⌘,` | Settings |
 
 ## Preview features
@@ -79,11 +80,13 @@ While editing, hold `⌥` (Option) and the palette opens at the bottom right. It
 ## Managing files
 
 - **Outside changes**: when another app changes an open file, Hannun reloads it automatically. If you were editing, a banner asks what to do
+- **Unsaved edits are kept**: if the app quits before you save, your edits come back — marked with ● — the next time you open it. Closing a tab with unsaved edits asks first
 - **Session restore**: quit and reopen, and your tabs, view modes, and scroll positions are right where you left them
 - **Allow access to image folders**: if a document's images don't show, click "Allow Folder…" in the banner at the top (a macOS security requirement)
 
 ## PDF
 
+- **Page list**: click the table of contents button to open page thumbnails — a left panel on Mac and iPad, a sheet on iPhone
 - PDF files open in the built-in viewer (it remembers your page)
 - **Export Markdown to PDF**: choose File › **Export as PDF…**, then in the save dialog, choose the **format** (one continuous page / A4 pages), **scale**, and whether to **fit wide tables and diagrams** to the page
 
@@ -126,6 +129,9 @@ Data documents are read in the preview with **collapsible sections**. Choose how
 ## iPad · iPhone
 
 - **Open a file**: tap the Files button and pick a document from the Files app. It opens in place, and your edits are saved to the original
+- **Documents shared to you**: files you receive through Mail or a messaging app arrive as copies and open read-only. To edit one, save it to the Files app first and open that file
 - **Syntax Palette**: tap the button at the bottom right of the editor
+- **Split View (iPad)**: editor and preview side by side — drag the divider to resize. Both sides scroll together
+- **Table of contents (iPhone)**: at the bottom right, above the Files button
 - **Find & Replace**: on iPad, use the menu bar
 - **Zoom**: pinch with two fingers

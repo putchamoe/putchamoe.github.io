@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>App Store slide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+/* App Store 스크린샷 틀 — 책 속 도판
+   ?lang=ko&device=iphone&n=1  → slides.json 의 한 장을 그린다
+   기기별 크기: iphone 1320×2868 · ipad 2064×2752 · mac 2880×1800
+   빛은 왼쪽 위. 곁주석은 번호 + 짧은 글, 가는 수평선으로 화면을 짚는다 */
+:root {
+  --paper: #fbfaf7;
+  --ink: #1a1917;
+  --ink-2: #6b6862;
+  --seal: #8c5a3c;
+  --sans: -apple-system, 'Apple SD Gothic Neo', 'Hiragino Sans', 'PingFang SC', sans-serif;
+  --mono: 'SF Mono', ui-monospace, Menlo, monospace;
+}
+:root[lang='ko'] { --serif: 'Noto Serif KR', serif; }
+:root[lang='en'] { --serif: 'Newsreader', 'New York', Georgia, serif; }
+:root[lang='ja'] { --serif: 'Noto Serif JP', serif; }
+:root[lang='zh-Hans'] { --serif: 'Noto Serif SC', serif; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  position: relative;
+  overflow: hidden;
+  width: var(--W);
+  height: var(--H);
+  background:
+    radial-gradient(calc(var(--W) * 1.05) calc(var(--H) * 0.4) at 8% 4%, rgb(255 253 246 / 95%), transparent 70%),
+    radial-gradient(calc(var(--W) * 0.9) calc(var(--H) * 0.5) at 100% 100%, rgb(214 204 184 / 38%), transparent 70%),
+    var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  -webkit-font-smoothing: antialiased;
+}
+:root[lang='ko'] body { word-break: keep-all; }
+:root[lang='ja'] body, :root[lang='zh-Hans'] body { line-break: strict; }
+body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.9;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .36 0 0 0 0 .28 0 0 0 .085 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* ── 공통 글 ── */
+.run {
+  position: absolute;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--ink);
+  z-index: 3;
+}
+.run i { font-style: italic; color: var(--ink-2); }
+.run b { font-weight: 400; font-variant-numeric: oldstyle-nums; }
+.kicker { position: absolute; margin: 0; font-family: var(--sans); letter-spacing: 0.02em; color: var(--ink-2); z-index: 3; }
+h1 { position: absolute; margin: 0; font-weight: 400; line-height: 1.12; letter-spacing: -0.04em; z-index: 3; }
+h1 .soft { color: var(--ink-2); }
+.lede { position: absolute; margin: 0; line-height: 1.6; z-index: 3; }
+.lede em { font-style: normal; color: var(--ink-2); }
+
+.fig { position: absolute; margin: 0; z-index: 1; }
+.fig img { display: block; width: 100%; }
+.fig.split { overflow: hidden; }
+.fig.split img + img { position: absolute; inset: 0; clip-path: polygon(58% 0, 100% 0, 100% 100%, 38% 100%); }
+
+.notes { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
+.note { position: absolute; font-family: var(--sans); line-height: 1.45; color: var(--ink); }
+.note b { float: left; font-family: var(--serif); font-weight: 400; line-height: 1; color: var(--seal); }
+.note span, .note small { display: block; }
+.note small { color: var(--ink-2); }
+svg.leaders { position: absolute; inset: 0; width: 100%; height: 100%; }
+svg.leaders path { fill: none; stroke: var(--ink); stroke-width: 2; }
+svg.leaders circle { fill: var(--seal); stroke: #fff; stroke-width: 3; }
+
+/* git diff 도판 (사진 대신) */
+.diff { position: absolute; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; background: #fff; border: 1.5px solid #e2ddd2; border-radius: 10px; overflow: hidden;
+  box-shadow: 30px 50px 60px -10px rgb(60 40 20 / 20%), 70px 120px 160px -30px rgb(60 40 20 / 22%); }
+.diff > div { padding: 34px 0 30px; background: #fcfbf8; }
+.diff > div + div { border-left: 1.5px solid #e2ddd2; }
+.diff h3 { display: flex; justify-content: space-between; margin: 0 34px 20px; font-family: var(--sans); font-size: 30px; }
+.diff h3 b { color: var(--seal); }
+.diff h3 b.good { color: #1f6b3a; }
+.diff pre { margin: 0; padding: 0 20px; font-family: var(--mono); font-size: 25px; line-height: 1.75; white-space: pre; }
+.diff pre span { display: block; padding: 0 12px; border-radius: 3px; }
+.diff .ctx { color: var(--ink-2); }
+.diff .add { background: rgb(40 140 70 / 11%); color: #1f6b3a; }
+.diff .del { background: rgb(190 50 40 / 10%); color: #9a2f25; }
+.diff i { font-style: normal; opacity: 0.5; }
+
+/* ── iPhone 1320×2868 ── */
+.iphone .run { left: 110px; right: 110px; top: 118px; padding-bottom: 22px; font-size: 34px; }
+.iphone .run i { font-size: 30px; }
+.iphone .kicker { left: 110px; top: 262px; font-size: 32px; }
+.iphone h1 { left: 102px; top: 330px; font-size: 150px; }
+.iphone .lede { left: 110px; top: 740px; width: 1100px; font-size: 44px; }
+.iphone .fig { left: 500px; top: 1000px; width: 1010px; }
+.iphone .fig img, .iphone .fig.split { border-radius: 150px; }
+.iphone .fig img:first-child, .iphone .fig.split {
+  box-shadow: 0 0 0 2px rgb(0 0 0 / 7%), 0 0 0 14px #1d1d1f, 0 0 0 16px rgb(0 0 0 / 30%),
+    30px 50px 60px -10px rgb(60 40 20 / 28%), 70px 120px 160px -30px rgb(60 40 20 / 30%);
+}
+.iphone .note { left: 110px; width: 320px; font-size: 30px; }
+.iphone .note b { width: 52px; margin-top: -6px; font-size: 44px; }
+.iphone .note span, .iphone .note small { margin-left: 52px; }
+.iphone .note small { margin-top: 6px; font-size: 25px; }
+.iphone .diff { left: 110px; right: 110px; top: 1080px; grid-template-columns: 1fr; }
+.iphone .diff > div + div { border-left: 0; border-top: 1.5px solid #e2ddd2; }
+
+/* ── iPad 2064×2752 ── */
+.ipad .run { left: 150px; right: 150px; top: 130px; padding-bottom: 24px; font-size: 38px; }
+.ipad .run i { font-size: 34px; }
+.ipad .kicker { left: 150px; top: 280px; font-size: 36px; }
+.ipad h1 { left: 140px; top: 350px; font-size: 168px; }
+.ipad .lede { left: 150px; top: 790px; width: 1500px; font-size: 50px; }
+.ipad .fig { left: 640px; top: 1080px; width: 1560px; }
+.ipad .fig img, .ipad .fig.split { border-radius: 56px; }
+.ipad .fig img:first-child, .ipad .fig.split {
+  box-shadow: 0 0 0 2px rgb(0 0 0 / 7%), 0 0 0 26px #1d1d1f, 0 0 0 28px rgb(0 0 0 / 30%),
+    40px 60px 70px -10px rgb(60 40 20 / 26%), 90px 150px 200px -30px rgb(60 40 20 / 28%);
+}
+.ipad .note { left: 150px; width: 400px; font-size: 36px; }
+.ipad .note b { width: 60px; margin-top: -6px; font-size: 52px; }
+.ipad .note span, .ipad .note small { margin-left: 60px; }
+.ipad .note small { margin-top: 8px; font-size: 29px; }
+.ipad .diff { left: 150px; right: 150px; top: 1120px; }
+
+/* ── Mac 2880×1800 — 글은 왼쪽 단, 창은 오른쪽으로 잘려 나간다 ── */
+.mac .run { left: 140px; right: 140px; top: 110px; padding-bottom: 20px; font-size: 32px; }
+.mac .run i { font-size: 28px; }
+.mac .kicker { left: 140px; top: 250px; font-size: 30px; }
+.mac h1 { left: 132px; top: 310px; width: 1100px; font-size: 118px; }
+.mac .lede { left: 140px; top: 640px; width: 900px; font-size: 38px; }
+.mac .fig { left: 1180px; top: 860px; width: 2000px; }
+.mac .fig img, .mac .fig.split { border-radius: 22px; }
+.mac .fig img:first-child, .mac .fig.split {
+  box-shadow: 0 0 0 1.5px rgb(0 0 0 / 18%), 30px 40px 50px -10px rgb(60 40 20 / 24%), 80px 120px 160px -30px rgb(60 40 20 / 30%);
+}
+.mac .note { left: 140px; width: 860px; font-size: 32px; }
+.mac .note b { width: 56px; margin-top: -6px; font-size: 46px; }
+.mac .note span, .mac .note small { margin-left: 56px; }
+.mac .note small { margin-top: 6px; font-size: 26px; }
+.mac .diff { left: 1180px; top: 330px; width: 1560px; }
+</style>
+</head>
+<body>
+<div class="run"><span data-k="app"></span><i data-k="kind"></i><b data-k="page"></b></div>
+<p class="kicker" data-k="kicker"></p>
+<h1 data-k="headline"></h1>
+<p class="lede" data-k="lede"></p>
+<figure class="fig" id="fig"></figure>
+<div class="notes"><svg class="leaders" id="leaders"></svg></div>
+<script type="module">
+const q = new URLSearchParams(location.search)
+const lang = q.get('lang') || 'ko', device = q.get('device') || 'iphone', n = +(q.get('n') || 1)
+const SIZE = { iphone: [1320, 2868], ipad: [2064, 2752], mac: [2880, 1800] }
+const FONT = { ko: 'Noto+Serif+KR', en: 'Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400', ja: 'Noto+Serif+JP', zh: 'Noto+Serif+SC' }
+const HTML_LANG = { ko: 'ko', en: 'en', ja: 'ja', zh: 'zh-Hans' }
+document.documentElement.lang = HTML_LANG[lang]
+document.body.className = device
+document.body.style.setProperty('--W', SIZE[device][0] + 'px')
+document.body.style.setProperty('--H', SIZE[device][1] + 'px')
+const link = document.createElement('link')
+link.rel = 'stylesheet'
+link.href = `https://fonts.googleapis.com/css2?family=${FONT[lang].includes(':') ? FONT[lang] : FONT[lang] + ':wght@400;600'}&display=block`
+document.head.append(link)
+
+const all = await (await fetch('slides.json')).json()
+const common = all[lang].common
+const s = all[lang][device][n - 1]
+const set = (k, v) => { for (const el of document.querySelectorAll(`[data-k="${k}"]`)) el.innerHTML = v ?? '' }
+set('app', common.app); set('kind', common.kind); set('page', String(n))
+set('kicker', s.kicker ?? common.kicker[device]); set('headline', s.headline); set('lede', s.lede)
+
+// 캡처 경로 — {lang} 을 그 언어 폴더로 (한국어는 폴더 없이)
+const asset = p => '../../' + p.replace('{lang}/', lang === 'ko' ? '' : lang + '/').replace('{langdir}', lang)
+const fig = document.getElementById('fig')
+if (s.type === 'diff') {
+  fig.remove()
+  const d = document.createElement('div')
+  d.className = 'diff'
+  d.innerHTML = s.diff.map(c => `<div><h3><span>${c.title}</span><b class="${c.good ? 'good' : ''}">${c.count}</b></h3><pre>${c.lines.map(l => `<span class="${{ ' ': 'ctx', '+': 'add', '-': 'del' }[l[0]]}">${l.replace(/[&<>]/g, x => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[x]).replace(/\^M/g, '<i>^M</i>').replace(/&lt;BOM&gt;/g, '<i>&lt;BOM&gt;</i>')}</span>`).join('')}</pre></div>`).join('')
+  document.body.append(d)
+} else {
+  if (s.type === 'split') fig.classList.add('split')
+  for (const src of [].concat(s.img)) {
+    const im = new Image()
+    im.src = asset(src)
+    fig.append(im)
+  }
+  await Promise.all([...fig.querySelectorAll('img')].map(im => im.decode()))
+}
+await document.fonts.ready
+
+// 곁주석 — 화면 속 높이(y: 0~1)에 맞춰 서고, 선은 수평으로 곧게
+const notes = document.querySelector('.notes')
+const svg = document.getElementById('leaders')
+const box = (document.querySelector('.fig img') || document.querySelector('.diff'))?.getBoundingClientRect()
+let paths = ''
+for (const [i, nt] of (s.notes || []).entries()) {
+  const el = document.createElement('div')
+  el.className = 'note'
+  el.innerHTML = `<b>${i + 1}</b><span>${nt.t}</span>${nt.s ? `<small>${nt.s}</small>` : ''}`
+  notes.append(el)
+  const ty = box.top + box.height * nt.y
+  el.style.top = ty - 26 + 'px'
+  const r = el.getBoundingClientRect()
+  const tx = box.left + box.width * (nt.x ?? 0.017)
+  paths += `<path d="M${r.right + 14} ${ty} H${tx}"/><circle cx="${tx}" cy="${ty}" r="${device === 'iphone' ? 8 : 10}"/>`
+}
+svg.innerHTML = paths
+document.body.dataset.ready = '1'
+</script>
+</body>
+</html>

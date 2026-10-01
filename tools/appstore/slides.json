@@ -1,0 +1,226 @@
+{
+ "ko": {
+  "common": {
+   "app": "한눈",
+   "kind": "마크다운 뷰어",
+   "kicker": {
+    "mac": "Mac",
+    "ipad": "iPad",
+    "iphone": "iPhone"
+   }
+  },
+  "mac": [
+   {
+    "headline": "마크다운 파일,<br><span class=\"soft\">더블클릭하면</span> 끝.",
+    "lede": "앱을 켜고 파일을 찾아 들어갈 필요 없이,<br><em>파일을 열면 바로 이 화면입니다.</em>",
+    "img": "assets/hannun/{lang}/mac/preview-light.png",
+    "notes": [
+     {
+      "t": "더블클릭하면 이 창이 바로",
+      "s": "기본 앱으로 한 번만 지정해 두면",
+      "y": 0.018
+     },
+     {
+      "t": "머리말은 카드로 정리",
+      "s": "날짜 · 작성자 · 태그",
+      "y": 0.14
+     },
+     {
+      "t": "본문은 명조로",
+      "s": "가가 버튼으로 고딕도 바로",
+      "y": 0.29
+     }
+    ]
+   },
+   {
+    "headline": "보던 작업에<br>끼어들지 않습니다",
+    "lede": "상관없는 마크다운 하나 보려고<br>프로젝트나 브라우저를 어지럽히지 마세요.<br><em>따로 열리고, 닫으면 끝.</em>",
+    "img": "assets/hannun/{lang}/mac/preview-light.png",
+    "notes": [
+     {
+      "t": "편집기 창과 섞이지 않는 따로 뜨는 창",
+      "y": 0.018
+     },
+     {
+      "t": "보관함 · 작업 공간 설정 없음",
+      "s": "파일이 있는 그 자리에서 엽니다",
+      "y": 0.06
+     }
+    ]
+   },
+   {
+    "headline": "표 · 수식 · 다이어그램,<br><span class=\"soft\">그대로.</span>",
+    "lede": "GFM 표와 체크박스, KaTeX 수식,<br>Mermaid 다이어그램까지 깔끔하게.",
+    "img": "assets/hannun/store/{langdir}/mac-table.png",
+    "notes": []
+   },
+   {
+    "headline": "스페이스바로<br>미리보기",
+    "lede": "Finder에서 파일을 고르고 스페이스바.<br><em>열지 않고도 정리된 모습으로 봅니다.</em>",
+    "img": "assets/hannun/store/{langdir}/mac-quicklook.png",
+    "notes": []
+   },
+   {
+    "headline": "JSON · YAML도<br><span class=\"soft\">접고 펴며</span>",
+    "lede": "데이터 파일은 원문 · 트리 · 목록으로.<br><em>같은 모양의 항목은 표로 정리됩니다.</em>",
+    "img": "assets/hannun/store/{langdir}/mac-json.png",
+    "notes": []
+   },
+   {
+    "type": "diff",
+    "headline": "고친 줄만,<br><span class=\"soft\">diff에 남습니다.</span>",
+    "lede": "인코딩 · BOM · 줄바꿈을 바꾸지 않고 저장합니다.<br><em>Git으로 관리하는 문서라면 이 차이가 큽니다.</em>",
+    "diff": [
+     {
+      "title": "일반 편집기로 저장",
+      "count": "9줄 바뀜",
+      "lines": [
+       "- <BOM># 주간 회의^M",
+       "- ^M",
+       "- | 항목 | 담당 |^M",
+       "- |---|---|^M",
+       "- | 출시 준비 | 하늘 |^M",
+       "- | 캡처 | 도윤 |^M",
+       "- ^M",
+       "- * 도움말 정리^M",
+       "- * 번역 확인^M",
+       "+ # 주간 회의",
+       "+ ",
+       "+ | 항목      | 담당   |",
+       "+ | --------- | ------ |",
+       "+ | 출시 준비 | 하늘   |",
+       "+ | 캡처      | 도윤님 |",
+       "+ ",
+       "+ - 도움말 정리",
+       "+ - 번역 확인"
+      ]
+     },
+     {
+      "title": "한눈으로 저장",
+      "count": "1줄 바뀜",
+      "good": true,
+      "lines": [
+       "  <BOM># 주간 회의^M",
+       "  ^M",
+       "  | 항목 | 담당 |^M",
+       "  |---|---|^M",
+       "  | 출시 준비 | 하늘 |^M",
+       "- | 캡처 | 도윤 |^M",
+       "+ | 캡처 | 도윤님 |^M",
+       "  ^M",
+       "  * 도움말 정리^M",
+       "  * 번역 확인^M"
+      ]
+     }
+    ]
+   },
+   {
+    "headline": "⌥를 누르면<br>문법이 보입니다",
+    "lede": "키보드 배열 그대로 놓인 문법 팔레트.<br><em>같은 키를 한 번 더 누르면 풀립니다.</em>",
+    "img": "assets/hannun/store/{langdir}/mac-palette.png",
+    "notes": []
+   },
+   {
+    "headline": "메모장처럼 쓰고,<br><span class=\"soft\">닫아도 남습니다.</span>",
+    "lede": "⌘N으로 바로 쓰고, 저장은 원할 때만.<br><em>.md 또는 .txt로 저장합니다.</em>",
+    "img": "assets/hannun/store/{langdir}/mac-scratch.png",
+    "notes": []
+   }
+  ],
+  "ipad": [
+   {
+    "headline": "표 · 수식 · 다이어그램,<br><span class=\"soft\">그대로.</span>",
+    "lede": "목차를 옆에 두고, 긴 문서도 편하게 읽습니다.",
+    "img": "assets/hannun/store/{langdir}/ipad-table.png",
+    "notes": []
+   },
+   {
+    "headline": "JSON · YAML도<br><span class=\"soft\">접고 펴며</span>",
+    "lede": "데이터 파일은 원문 · 트리 · 목록으로.<br><em>같은 모양의 항목은 표로 정리됩니다.</em>",
+    "img": "assets/hannun/store/{langdir}/ipad-json.png",
+    "notes": []
+   },
+   {
+    "headline": "보면서<br>고칩니다",
+    "lede": "왼쪽에서 고치면 오른쪽에 바로.<br><em>양쪽 스크롤이 함께 움직입니다.</em>",
+    "img": "assets/hannun/store/{langdir}/ipad-split.png",
+    "notes": []
+   },
+   {
+    "headline": "가가 한 번에,<br><span class=\"soft\">명조와 고딕</span>",
+    "lede": "본문과 제목 글꼴, 테마를<br>설정에 가지 않고 바로 바꿉니다.",
+    "img": "assets/hannun/store/{langdir}/ipad-font.png",
+    "notes": []
+   },
+   {
+    "headline": "파일 앱의 문서를<br><span class=\"soft\">그 자리에서</span>",
+    "lede": "가져오기도 복사도 없이 엽니다.<br><em>고친 내용은 원본에 저장됩니다.</em>",
+    "img": "assets/hannun/{lang}/ipad/preview-light.png",
+    "notes": [
+     {
+      "t": "목차를 옆에",
+      "s": "너비는 끌어서 조절",
+      "y": 0.1
+     },
+     {
+      "t": "머리말은 카드로",
+      "y": 0.12,
+      "x": 0.3
+     }
+    ]
+   },
+   {
+    "type": "split",
+    "headline": "밤에는<br><span class=\"soft\">다크로.</span>",
+    "lede": "라이트 · 다크 · 시스템 설정 따라가기.",
+    "img": [
+     "assets/hannun/{lang}/ipad/preview-light.png",
+     "assets/hannun/{lang}/ipad/preview-dark.png"
+    ],
+    "notes": []
+   }
+  ],
+  "iphone": [
+   {
+    "headline": "받은 마크다운,<br><span class=\"soft\">바로 읽기</span>",
+    "lede": "메일이나 메신저로 받은 .md 파일,<br><em>공유 버튼에서 한눈으로 열면 됩니다.</em>",
+    "img": "assets/hannun/store/{langdir}/iphone-share.png",
+    "notes": []
+   },
+   {
+    "headline": "폰에서도<br><span class=\"soft\">표 · 수식 그대로</span>",
+    "lede": "작은 화면에서도 깔끔하게.<br><em>그림과 다이어그램은 눌러서 크게.</em>",
+    "img": "assets/hannun/store/{langdir}/iphone-table.png",
+    "notes": []
+   },
+   {
+    "headline": "JSON · YAML도<br><span class=\"soft\">접고 펴며</span>",
+    "lede": "데이터 파일도 폰에서 읽기 좋게.",
+    "img": "assets/hannun/store/{langdir}/iphone-json.png",
+    "notes": []
+   },
+   {
+    "headline": "가가 한 번에,<br><span class=\"soft\">명조와 고딕</span>",
+    "lede": "본문과 제목 글꼴, 테마를<br>설정에 가지 않고 바로 바꿉니다.",
+    "img": "assets/hannun/store/{langdir}/iphone-font.png",
+    "notes": []
+   },
+   {
+    "type": "split",
+    "headline": "밤에는<br><span class=\"soft\">다크로.</span>",
+    "lede": "라이트 · 다크 · 시스템 설정 따라가기.",
+    "img": [
+     "assets/hannun/{lang}/iphone/preview-light.png",
+     "assets/hannun/{lang}/iphone/preview-dark.png"
+    ],
+    "notes": []
+   },
+   {
+    "headline": "고치면<br><span class=\"soft\">원본에 저장</span>",
+    "lede": "파일 앱의 문서를 그 자리에서 고칩니다.<br><em>인코딩과 줄바꿈은 그대로.</em>",
+    "img": "assets/hannun/store/{langdir}/iphone-edit.png",
+    "notes": []
+   }
+  ]
+ }
+}
