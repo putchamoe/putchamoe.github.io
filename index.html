@@ -373,8 +373,14 @@
       var ioS = new IntersectionObserver(function (es) {
         es.forEach(function (en) {
           if (en.isIntersecting) {
+            // 내려와서 전표 자리에 닿으면 봉투에서 나온다
             sheet.classList.remove('in-pouch'); sheet.classList.add('popped');
-            sheet.style.transform = ''; sheet.style.clipPath = 'inset(0 0 0 0)'; pouch.classList.add('is-empty'); ioS.disconnect();
+            sheet.style.transform = ''; sheet.style.clipPath = 'inset(0 0 0 0)'; pouch.classList.add('is-empty');
+          } else if (en.boundingClientRect.top > (en.rootBounds ? en.rootBounds.bottom : window.innerHeight * .65)) {
+            // 다시 위로 올리면 봉투 속으로 돌아간다
+            sheet.classList.add('popped'); pocket(); sheet.classList.add('in-pouch-anim');
+            pouch.classList.remove('is-empty');
+            setTimeout(function () { if (!pouch.classList.contains('is-empty')) { sheet.classList.add('in-pouch'); } sheet.classList.remove('in-pouch-anim'); }, 900);
           }
         });
       }, { threshold: 0, rootMargin: '0px 0px -35% 0px' });

@@ -750,7 +750,7 @@ a:focus-visible { outline: 3px solid var(--seal); outline-offset: 4px; }
   .pull .pouch__print, .mobile .pouch__print { display: grid; }
   .mobile .sleeve { display: none; }
   .mobile .sheet { margin-top: 28px; transform: rotate(-.4deg); transform-origin: 50% 50%; }
-  .mobile .sheet.in-pouch { transition: none; }
+  .mobile .sheet.in-pouch:not(.popped) { transition: none; }
   .sheet-mark { height: 1px; margin-bottom: -1px; }
   .mobile .sheet.popped { transition: transform .9s cubic-bezier(.2,.8,.2,1), clip-path .9s cubic-bezier(.2,.8,.2,1); }
   .mobile .pouch.is-empty .pouch__print { opacity: .35; }
