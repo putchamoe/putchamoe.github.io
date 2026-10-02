@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ハンテ — 歩いた道と写真で残す、一日</title>
+<meta name="description" content="今日たどった道が地図に残り、写真は撮ったその場所にそっと置かれます。旅した日々はひとつにまとめて、いつでも開けます。iPhone 用、まもなく公開。アカウントも広告もありません。">
+<meta name="theme-color" content="#fbfaf5">
+<meta property="og:title" content="ハンテ — 歩いた道と写真で残す、一日">
+<meta property="og:description" content="たどった道の上に、その日の写真を。">
+<meta property="og:image" content="https://putchamoe.com/hantte/img/icon-512.png">
+<meta property="og:url" content="https://putchamoe.com/hantte/ja/">
+<link rel="alternate" hreflang="ko" href="https://putchamoe.com/hantte/">
+<link rel="alternate" hreflang="en" href="https://putchamoe.com/hantte/en/">
+<link rel="alternate" hreflang="ja" href="https://putchamoe.com/hantte/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://putchamoe.com/hantte/zh/">
+<link rel="alternate" hreflang="x-default" href="https://putchamoe.com/hantte/en/">
+<link rel="icon" href="../img/icon-128.png">
+<link rel="apple-touch-icon" href="../img/icon-512.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-jp-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../hantte.css">
+</head>
+<body>
+
+<header class="head">
+  <a class="head__brand" href="#top"><img src="../img/icon-128.png" alt="">ハンテ</a>
+  <span class="head__run" id="run" aria-hidden="true">出発</span>
+  <nav class="head__nav" aria-label="ページ内リンク">
+    <a href="#privacy">プライバシー</a>
+    <a href="#faq">よくある質問</a>
+  </nav>
+  <details class="head__lang">
+    <summary aria-label="言語を選択">日本語</summary>
+    <nav aria-label="言語">
+      <a href="/hantte/" lang="ko" hreflang="ko">한국어</a>
+      <a href="/hantte/en/" lang="en" hreflang="en">English</a>
+      <a href="/hantte/ja/" lang="ja" hreflang="ja" aria-current="page">日本語</a>
+      <a href="/hantte/zh/" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
+    </nav>
+  </details>
+  <a class="head__get" href="#get">まもなく公開</a>
+</header>
+
+<!-- 길 — 스크롤한 만큼 그려진다 -->
+<svg class="spine" id="spine" aria-hidden="true"><path class="spine__case"/><path class="spine__line"/></svg>
+<img class="rider" id="rider" src="../img/balloon.svg" alt="" aria-hidden="true">
+
+<main id="top">
+
+  <!-- 첫 화면 ───────────────────────────────────────────────────── -->
+  <section class="hero" data-run="出発">
+    <div class="hero__wash" aria-hidden="true"></div>
+    <div class="wrap hero__grid">
+      <div class="hero__text">
+        <p class="hero__logo rise"><span>[</span>HANTTE : 한때<span>]</span></p>
+        <h1 class="rise d1"><span style="white-space:nowrap">楽しいひとときを、</span><br>地図の上に。</h1>
+        <p class="hero__lede rise d2">今日たどった道は一本の線になって地図に残り、その道のどこかで撮った写真は、撮ったその場所にそっと置かれます。旅した日々はひとつにまとめておいて、思い出したときにまた開いてみてください。</p>
+        <div class="cta rise d3">
+          <a class="btn is-soon" href="#get" aria-disabled="true">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M13.6 10.6c0-1.6 1.3-2.4 1.4-2.4-.8-1.1-2-1.3-2.4-1.3-1-.1-2 .6-2.5.6s-1.3-.6-2.2-.6c-1.1 0-2.2.7-2.8 1.7-1.2 2.1-.3 5.1.9 6.8.6.8 1.2 1.7 2.1 1.7.8 0 1.2-.5 2.2-.5s1.3.5 2.2.5 1.5-.8 2-1.7c.6-.9.9-1.8.9-1.9 0 0-1.8-.7-1.8-2.9ZM12 5.6c.5-.6.8-1.4.7-2.2-.7 0-1.5.5-2 1.1-.4.5-.8 1.3-.7 2.1.8 0 1.5-.4 2-1Z"/></svg>
+            App Store <small>まもなく公開</small>
+          </a>
+          <span class="cta__meta">iPhone · iOS 26 以降</span>
+        </div>
+      </div>
+
+      <div class="hero__pile rise d2" aria-label="ひとときの例 — 春、南の海">
+        <figure class="snap snap--a"><img src="../photos/323.jpg" alt="崖の下に広がる青い海" width="1200" height="800"><figcaption>4月18日 · 崖の道</figcaption></figure>
+        <figure class="snap snap--b"><img src="../photos/106.jpg" alt="青空の下のピンクの花" width="1200" height="800"><figcaption>4月18日 · 花の道</figcaption></figure>
+        <figure class="snap snap--c"><img src="../photos/16.jpg" alt="展望台から見下ろした海辺" width="1200" height="800"><figcaption>4月17日 · 展望台</figcaption></figure>
+        <dl class="entry">
+          <img src="../img/icon-512.png" alt="ハンテのアプリアイコン" width="72" height="72">
+          <dt>한때 <small>ハンテ · 韓国語</small></dt>
+          <dd>ある一時期。ひととき。</dd>
+          <dd class="ex">즐거운 한때를 보내다 — 楽しいひとときを過ごす。</dd>
+        </dl>
+      </div>
+    </div>
+    <p class="wrap hero__hint rise d4"><span class="stop" data-stop></span>ゆっくりスクロールしてみてください。道が描かれていきます。このページも、ひとつのひとときの例です。</p>
+  </section>
+
+  <!-- 1 오늘 ─────────────────────────────────────────────────────── -->
+  <section class="sec" id="today" data-run="今日">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>今日</b></div>
+      <div class="main prose">
+        <h2>たどった道が、<br>そのまま残ります</h2>
+        <p>アプリを開いておく必要はありません。ポケットに入れて歩くだけで、今日の道が地図の上につながっていき、写真は撮ったその場所に置かれます。</p>
+        <p>ふと浮かんだ気持ちは<strong>ひとこと</strong>で残して。絵文字ひとつと短い一行で、じゅうぶんです。</p>
+        <ul class="legend" aria-label="道を描く三つの線">
+          <li><i class="ln ln--sure"></i><b>実線</b><span>この道を通りました</span></li>
+          <li><i class="ln ln--near"></i><b>破線</b><span>このあたりを通りました</span></li>
+          <li><i class="ln ln--gap"></i><b>点線</b><span>ここはハンテにもわかりません</span></li>
+        </ul>
+        <p class="gap">記録が途切れたところを、それらしくつなぎ合わせたりはしません。<strong>わからない道は、わからないと描きます。</strong></p>
+      </div>
+      <div class="side">
+        <div class="phone" id="todayPhone" aria-label="今日の画面の例">
+          <div class="phone__map" data-map="today"></div>
+          <div class="glass phone__top"><span>4月18日 土曜日</span><b>今日</b></div>
+          <div class="glass card">
+            <div><b>12,406</b><small>歩数</small></div>
+            <div><b>8.3<i>km</i></b><small>歩いた距離</small></div>
+            <div><b>6<i>か所</i></b><small>立ち寄った場所</small></div>
+            <div><b>41<i>km</i></b><small>家からいちばん遠く</small></div>
+          </div>
+          <div class="glass tabs" aria-hidden="true"><span class="on">今日</span><span>日々</span><span>ひととき</span><span>検索</span></div>
+        </div>
+        <p class="cap">画面の例です。実際のアプリは Apple のマップの上に描きます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 날들 ─────────────────────────────────────────────────────── -->
+  <section class="sec" id="days" data-run="日々">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>日々</b></div>
+      <div class="main prose">
+        <h2>過ぎた日々が、<br>一枚に収まります</h2>
+        <p>写真アプリのように一日ずつめくりながら、指をつまんでみてください。写真がだんだん小さくなって、いつのまにか一年が一枚に集まります。</p>
+        <p>心に残った日々を選んで、その場でひとときにまとめられます。</p>
+      </div>
+      <aside class="note">
+        <p>下で実際に切り替えてみてください。アプリでは二本の指でつまんだり広げたりするだけです。</p>
+      </aside>
+      <div class="band days">
+        <div class="days__bar">
+          <div class="seg" role="group" aria-label="一列に並べる写真の数" id="daysSeg">
+            <button type="button" data-v="3" aria-pressed="false">3</button>
+            <button type="button" data-v="5" aria-pressed="true">5</button>
+            <button type="button" data-v="15" aria-pressed="false">15</button>
+            <button type="button" data-v="31" aria-pressed="false">31</button>
+          </div>
+          <span class="days__cap" id="daysCap" aria-live="polite"></span>
+        </div>
+        <div class="days__grid" id="daysGrid" style="--cols:5"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 한때 ─────────────────────────────────────────────────────── -->
+  <section class="sec" id="trips" data-run="ひととき">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>ひととき</b></div>
+      <div class="main prose">
+        <h2>旅した日々を、<br>もう一度歩く</h2>
+        <p>遠くまで出かけた日、いつもより写真をたくさん撮った日を見つけて、<q>この日々、ひとときとして残しますか？</q>とそっとたずねます。<strong>残す</strong>を押したときだけ、ひとときになります。勝手に作っておくことはありません。</p>
+        <p>残したひとときは<strong>リプレイ</strong>で、もう一度。その日の道をたどっていくと、立ち寄った場所ごとに、そのとき撮った写真がひとつずつ浮かび上がります。</p>
+      </div>
+      <aside class="note">
+        <p>道をたどるキャラクターは、新芽の熱気球とタンポポの綿毛から選べます。キャラクターなしで、点だけを動かすこともできます。</p>
+        <img class="note__char" src="../img/dandelion.svg" alt="タンポポの綿毛のキャラクター" width="110" height="140">
+      </aside>
+      <div class="band replay" id="replay">
+        <div class="replay__stage">
+          <div class="replay__map" data-map="trip"></div>
+          <div class="glass replay__title"><b>春、南の海</b><span>2026年4月17日 – 19日</span></div>
+          <div class="replay__pop" id="replayPop" hidden><img alt=""><img alt=""><p></p></div>
+        </div>
+        <div class="replay__bar">
+          <button type="button" class="play" id="replayPlay" aria-label="リプレイを再生"><svg viewBox="0 0 20 20" aria-hidden="true"><path class="i-play" d="M6 3.8v12.4L16.5 10Z"/><path class="i-pause" d="M5.5 4h3v12h-3zM11.5 4h3v12h-3z"/></svg></button>
+          <span class="replay__time" id="replayTime"></span>
+          <input type="range" id="replayScrub" min="0" max="1000" value="0" aria-label="リプレイの位置">
+        </div>
+        <p class="cap">録画ではありません。このページの上で実際に動いています。再生を押すか、バーをドラッグしてみてください。写真と地名は例です。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 액자 ─────────────────────────────────────────────────────── -->
+  <section class="sec" id="frame" data-run="フォトフレーム">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>フォトフレーム</b></div>
+      <div class="main prose">
+        <h2>立てかければ、<br>フォトフレームに</h2>
+        <p>ひとときの写真を一枚ずつ、ゆっくりとめくっていきます。写真のそばには、撮った場所の小さな地図と、そのときの時刻、残しておいたひとことが浮かびます。</p>
+        <p>表示しているあいだ、画面は消えません。充電器に立てかけて、のんびり眺めてください。</p>
+      </div>
+      <div class="band frame" id="frame-demo">
+        <div class="frame__screen">
+          <img class="frame__img is-on" alt="">
+          <img class="frame__img" alt="">
+          <div class="glass frame__tag">
+            <svg viewBox="0 0 56 56" aria-hidden="true"><rect width="56" height="56" rx="10" fill="#EAF3E2"/><path d="M0 40 Q18 30 30 38 T56 30 V56 H0Z" fill="#AEDCF2"/><path d="M6 14 Q22 22 28 30" stroke="#fff" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M6 14 Q22 22 28 30" stroke="#67B825" stroke-width="2.6" stroke-linecap="round" fill="none"/><circle cx="28" cy="30" r="5.5" fill="#67B825" stroke="#fff" stroke-width="2.5"/></svg>
+            <div><b data-k="place"></b><span data-k="when"></span><em data-k="word"></em></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 공유 ─────────────────────────────────────────────────────── -->
+  <section class="sec" id="share" data-run="共有">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>共有</b></div>
+      <div class="main prose">
+        <h2>一枚にまとめて、<br>手渡す</h2>
+        <p>ひとつのひとときが、一枚のポスターになります。代表の写真とたどった道、タイトルと期間、歩数と距離をのせて。ポラロイド、複数枚、ストーリー、正方形から選べます。</p>
+        <p><strong>家と職場のまわりの道は、自動で隠します。</strong>道は住んでいる場所を語ってしまうから。何も手を加える必要はありません。</p>
+      </div>
+      <div class="side side--poster">
+        <figure class="poster">
+          <img src="../photos/77.jpg" alt="海へのびる木の桟橋" width="1200" height="800" loading="lazy">
+          <figcaption>
+            <svg viewBox="0 0 120 44" aria-hidden="true"><circle cx="12" cy="30" r="9" fill="none" stroke="#b9bfb0" stroke-width="1.2" stroke-dasharray="2 3"/><path d="M22 26 C34 10 44 36 58 22 S84 8 96 20 108 30 112 14" fill="none" stroke="#67B825" stroke-width="3" stroke-linecap="round"/><circle cx="112" cy="14" r="3.6" fill="#67B825"/></svg>
+            <b>春、南の海</b>
+            <span>2026年4月17日 – 19日</span>
+            <span class="poster__nums">31,902歩 · 142km · 立ち寄った場所 13</span>
+            <small>ハンテでつくりました</small>
+          </figcaption>
+        </figure>
+        <p class="cap">点線の円が、隠された家のまわりです。元の写真は含まれず、道とタイトル · 期間 · 数字だけが外に出ます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 한 주 정리 ───────────────────────────────────────────────── -->
+  <section class="sec" id="week" data-run="一週間のふりかえり">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>ふりかえり</b></div>
+      <div class="main prose">
+        <h2>日曜の夜、<br>一週間をふりかえる</h2>
+        <p>今週はどれくらい歩いたか、どこに立ち寄ったか、いちばん長くいたのはどこか。その週に撮った写真を何枚か添えてお見せします。数年前の、ちょうどこのころの写真も一緒に。</p>
+        <p>受け取ると決めた方にだけ、日曜の夜9時に、通知を一度だけお届けします。</p>
+      </div>
+      <div class="side">
+        <div class="notice glass">
+          <img src="../img/icon-128.png" alt="" width="38" height="38">
+          <div><b>今週のふりかえりができました</b><span>日曜日 21:00</span></div>
+        </div>
+        <div class="week glass">
+          <div class="week__bars" aria-hidden="true"><i style="--h:34%"></i><i style="--h:52%"></i><i style="--h:28%"></i><i style="--h:40%"></i><i style="--h:71%"></i><i style="--h:100%" class="on"></i><i style="--h:86%" class="on"></i></div>
+          <div class="week__days" aria-hidden="true"><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span><span>日</span></div>
+          <dl><div><dt>歩数</dt><dd>58,214</dd></div><div><dt>立ち寄った場所</dt><dd>17か所</dd></div><div><dt>いちばん長くいた場所</dt><dd>海辺の茶屋</dd></div></dl>
+          <div class="week__pics"><img src="../photos/s/323.jpg" alt="" loading="lazy"><img src="../photos/s/106.jpg" alt="" loading="lazy"><img src="../photos/s/77.jpg" alt="" loading="lazy"><img src="../photos/s/385.jpg" alt="" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 배터리 ───────────────────────────────────────────────────── -->
+  <section class="sec" id="battery" data-run="バッテリー">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>バッテリー</b></div>
+      <div class="main prose">
+        <h2>家と職場では、<br>ひと休み</h2>
+        <p>いつも過ごす場所を<strong>わたしの場所</strong>に登録しておけば、その中にいるあいだは位置を測りません。一日の大半を休んでいるようなものなので、バッテリーも長持ちします。ドアを出たら、そこからまた道をつないでいきます。</p>
+        <p>旅のように道を細かく残したい日は、<strong>旅の記録</strong>をオンにしてみてください。その日の真夜中になると自動でオフになり、バッテリーが少なくなると自分で止まります。オンにするのは、いつもあなた自身です。</p>
+        <div class="rest" aria-label="わたしの場所の中では休み、外でだけ記録します">
+          <span class="rest__hub">家<small>休憩中</small></span>
+          <span class="rest__way"><i></i><small>記録中</small></span>
+          <span class="rest__hub">職場<small>休憩中</small></span>
+        </div>
+      </div>
+      <aside class="note">
+        <p>旅の記録がオンのあいだは、ロック画面とダイナミックアイランドで、経過時間と移動距離を確かめられます。</p>
+        <hr>
+        <p>権限は最初にまとめてたずねません。写真は「日々」をはじめて開くとき、ヘルスケアは歩数の連携をオンにするときのように、その機能を使う瞬間にたずねます。</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 8 개인정보 ─────────────────────────────────────────────────── -->
+  <section class="plate" id="privacy" data-run="プライバシー">
+    <div class="plate__wash" aria-hidden="true"></div>
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>プライバシー</b></div>
+      <div class="main">
+        <h2>どこへ行ったかは、<br>あなただけが知っています。</h2>
+        <p class="sub">記録はあなたの iPhone と、あなたの iCloud にだけ残ります。ハンテにはサーバーがないので、作った人ものぞく方法がありません。</p>
+        <p class="sub">アカウントも、ログインも、広告もありません。分析ツールも入れていません。</p>
+        <p class="gap"><a href="privacy/">プライバシーポリシーを見る</a></p>
+      </div>
+      <aside class="note">
+        <p>地図を描くときと、住所を場所の名前に変えるときは Apple のマップサービスを使います。デバイス間の同期は、あなたの iCloud で行います。</p>
+        <hr>
+        <p>記録は設定からファイルに書き出して、また読み込むことができます。</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 9 기능 목록 ────────────────────────────────────────────────── -->
+  <section class="sec" id="inv" data-run="機能">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>機能</b></div>
+      <div class="main main--wide">
+        <h2>入っている機能</h2>
+        <div class="inv">
+          <section><h3>今日</h3><ul>
+            <li>たどった道を自動で記録</li>
+            <li>写真とひとことを撮った場所に</li>
+            <li>歩数 · 距離 · 立ち寄った場所</li>
+            <li>3D マップ · 航空写真</li>
+          </ul></section>
+          <section><h3>日々</h3><ul>
+            <li>日付ごとの写真 <small>3 · 5 · 15 · 31列</small></li>
+            <li>カレンダーから移動</li>
+            <li>一日のまとめ地図</li>
+            <li>位置のない写真に位置を追加</li>
+          </ul></section>
+          <section><h3>ひととき</h3><ul>
+            <li>自分で作る · おすすめを受け取る</li>
+            <li>リプレイ</li>
+            <li>フォトフレーム</li>
+            <li>ポスターで共有 <small>4種類</small></li>
+            <li>検索</li>
+          </ul></section>
+          <section><h3>通知</h3><ul>
+            <li>一週間のふりかえり <small>日曜の夜</small></li>
+            <li>出かけたあとのおすすめ</li>
+            <li>旅の記録のリアルタイム表示</li>
+          </ul></section>
+          <section><h3>記録</h3><ul>
+            <li>わたしの場所 <small>家 · 職場</small></li>
+            <li>旅の記録</li>
+            <li>ヘルスケアの歩数と連携</li>
+            <li>iCloud 同期</li>
+            <li>書き出し · 読み込み</li>
+          </ul></section>
+          <section><h3>かざり</h3><ul>
+            <li>ライト · ダーク · 自動</li>
+            <li>道をたどるキャラクター</li>
+            <li>木の葉 · タンポポ · 紅葉の演出</li>
+          </ul></section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 출시 ────────────────────────────────────────────────────── -->
+  <section class="sec" id="get" data-run="公開のお知らせ">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>お知らせ</b></div>
+      <div class="main prose">
+        <h2>もうすぐ App Store で<br>会えます</h2>
+        <p>いまは公開前の最後の確認をしています。iOS 26 以降の iPhone で使え、iPad と Mac はそのあとに準備します。</p>
+        <div class="cta">
+          <a class="btn is-soon" href="#get" aria-disabled="true">App Store <small>まもなく公開</small></a>
+          <a class="btn btn--line" href="mailto:hello@putchamoe.com?subject=%E3%83%8F%E3%83%B3%E3%83%86">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 자주 묻는 질문 ──────────────────────────────────────────── -->
+  <section class="sec" id="faq" data-run="よくある質問">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>FAQ</b></div>
+      <div class="main">
+        <h2>よくある質問</h2>
+        <div class="faq">
+          <details><summary>バッテリーをたくさん使いませんか？</summary><div>
+            <p>家や職場など、登録したわたしの場所の中では位置を測りません。外にいるときも、ふだんは電力をあまり使わない方法で、大きな移動だけを残します。</p>
+            <p>道を細かく残す旅の記録は、自分でオンにしたときだけ動き、その日の真夜中にオフになります。</p>
+          </div></details>
+          <details><summary>位置情報をなぜ<q>常に許可</q>にする必要があるのですか？</summary><div>
+            <p>アプリを閉じているあいだも道をつなぐために必要です。<q>アプリの使用中は許可</q>でも使えますが、その場合はアプリを開いていたあいだの道だけが残ります。</p>
+          </div></details>
+          <details><summary>自分の位置の記録を、ほかの人が見ることはできますか？</summary><div>
+            <p>いいえ。記録はあなたの iPhone と iCloud にだけ保存され、開発者を含め、誰にも送りません。外に出るのは自分でポスターを作って共有するときだけで、そのときも家と職場のまわりの道は隠されます。</p>
+          </div></details>
+          <details><summary>写真をアップロードしたり、移したりする必要はありますか？</summary><div>
+            <p>いいえ。写真アプリにある写真をそのまま読み込んで表示します。写真をコピーしておくことはなく、自分で位置を追加したり削除したりしない限り、写真を変えることもありません。</p>
+          </div></details>
+          <details><summary>インストールする前の日々も見られますか？</summary><div>
+            <p>写真は見られます。位置情報のある写真なら撮った場所に置かれ、その写真で過去の旅をひとときにまとめることもできます。道は、使いはじめた日から残ります。</p>
+          </div></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot" data-run="到着">
+  <div class="wrap grid">
+    <div class="gut"><span class="stop stop--end" data-stop></span><b>到着</b></div>
+    <div class="main">
+      <dl class="box">
+        <div class="t"><img src="../img/icon-128.png" alt="" width="28" height="28">ハンテ</div>
+        <dt>対応デバイス</dt><dd>iPhone · iOS 26 以降</dd>
+        <dt>制作</dt><dd><a class="maker" href="/"><img src="/assets/brand/mark.svg" alt="" width="18" height="18">プッチャメ</a></dd>
+        <dt>お問い合わせ</dt><dd><a href="mailto:hello@putchamoe.com">hello@putchamoe.com</a></dd>
+        <dt>フォント</dt><dd>Pretendard JP (SIL OFL)</dd>
+        <dt>このページ</dt><dd>広告、Cookie、分析ツールなし</dd>
+      </dl>
+      <p class="links"><a href="privacy/">プライバシーポリシー</a><a href="/">プッチャメ</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../hantte.js" defer></script>
+</body>
+</html>

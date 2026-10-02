@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-12 -8 124 160">
+<style>
+.float{animation:float 3.14s ease-in-out infinite alternate}
+.sway{transform-origin:50px 49px;animation:sway 2.1s ease-in-out infinite alternate}
+.basket{transform-origin:50px 96px;animation:swing 2.1s ease-in-out -.35s infinite alternate}
+.fire{transform-origin:50px 104px;animation:flick .22s ease-in-out infinite alternate}
+@keyframes float{from{transform:translateY(3px)}to{transform:translateY(-3px)}}
+@keyframes sway{from{transform:translateX(-4px) rotate(5deg)}to{transform:translateX(4px) rotate(-5deg)}}
+@keyframes swing{from{transform:rotate(11deg)}to{transform:rotate(-11deg)}}
+@keyframes flick{from{transform:scale(1,1)}to{transform:scale(1.08,1.18)}}
+@media (prefers-reduced-motion:reduce){.float,.sway,.basket,.fire{animation:none}}
+</style>
+<g class="float"><g class="sway">
+  <g class="basket">
+    <g stroke="#80664d" stroke-width="1" fill="none"><path d="M41 96L40 122M44.5 96L43.5 122M55.5 96L56.5 122M59 96L60 122"/></g>
+    <g class="fire"><path d="M50 91Q56.25 97.5 54.25 104Q50 107 45.75 104Q43.75 97.5 50 91Z" fill="#f2801a" fill-opacity=".85"/><path d="M50 96.2Q53.75 100.1 52.55 104Q50 105.8 47.45 104Q46.25 100.1 50 96.2Z" fill="#fad933" fill-opacity=".92"/></g>
+    <g transform="translate(50 130)">
+      <path d="M-4.5-5.5L4.5-5.5L3.2-12L-3.2-12Z" fill="#73a6d9"/>
+      <circle cy="-14.5" r="3.3" fill="#fad1bf"/>
+      <path d="M-5.5-16Q0-18.5 5.5-16Q0-13.7-5.5-16Z" fill="#f2cc40"/>
+      <path d="M-2.8-17L2.8-17L.8-21Z" fill="#f2cc40"/>
+      <path d="M-11-7.5L11-7.5L9 7.5L-9 7.5Z" fill="#bf9966" stroke="#99734d" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M-10-2H10M-9 3H9" stroke="#99734d" stroke-width="1" fill="none"/>
+    </g>
+  </g>
+  <g transform="translate(50 49)">
+    <path d="M0 47C-15 42-43 15-43-10C-43-42-15-47 0-47C15-47 43-42 43-10C43 15 15 42 0 47Z" fill="#a6e040"/>
+    <path d="M0-47C15-47 43-42 43-10C43 15 15 42 0 47C10 10 10-20 0-47Z" fill="#80bf26"/>
+    <path d="M-28.7-15Q-25-25-15-39" fill="none" stroke="#bff259" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cy="46" rx="8" ry="3" fill="#33261a"/>
+    <path d="M-9 46H9" stroke="#996633" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</g></g>
+</svg>

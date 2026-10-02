@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>한때 — 다닌 길과 사진으로 남기는 하루</title>
+<meta name="description" content="오늘 지나온 길이 지도 위에 남고, 사진은 찍은 그 자리에 놓여요. 여행한 날들은 묶어 두었다가 다시 꺼내 보세요. iPhone용, 출시 준비 중. 계정도 광고도 없어요.">
+<meta name="theme-color" content="#fbfaf5">
+<meta property="og:title" content="한때 — 다닌 길과 사진으로 남기는 하루">
+<meta property="og:description" content="지나온 길 위에 그날의 사진을 놓아 드려요.">
+<meta property="og:image" content="https://putchamoe.com/hantte/img/icon-512.png">
+<meta property="og:url" content="https://putchamoe.com/hantte/">
+<link rel="alternate" hreflang="ko" href="https://putchamoe.com/hantte/">
+<link rel="alternate" hreflang="en" href="https://putchamoe.com/hantte/en/">
+<link rel="alternate" hreflang="ja" href="https://putchamoe.com/hantte/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://putchamoe.com/hantte/zh/">
+<link rel="alternate" hreflang="x-default" href="https://putchamoe.com/hantte/en/">
+<link rel="icon" href="img/icon-128.png">
+<link rel="apple-touch-icon" href="img/icon-512.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="hantte.css">
+</head>
+<body>
+
+<header class="head">
+  <a class="head__brand" href="#top"><img src="img/icon-128.png" alt="">한때</a>
+  <span class="head__run" id="run" aria-hidden="true">출발</span>
+  <nav class="head__nav" aria-label="바로 가기">
+    <a href="#privacy">개인정보</a>
+    <a href="#faq">자주 묻는 질문</a>
+  </nav>
+  <details class="head__lang">
+    <summary aria-label="언어 선택">한국어</summary>
+    <nav aria-label="언어">
+      <a href="/hantte/" lang="ko" hreflang="ko" aria-current="page">한국어</a>
+      <a href="/hantte/en/" lang="en" hreflang="en">English</a>
+      <a href="/hantte/ja/" lang="ja" hreflang="ja">日本語</a>
+      <a href="/hantte/zh/" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
+    </nav>
+  </details>
+  <a class="head__get" href="#get">출시 준비 중</a>
+</header>
+
+<!-- 길 — 스크롤한 만큼 그려진다 -->
+<svg class="spine" id="spine" aria-hidden="true"><path class="spine__case"/><path class="spine__line"/></svg>
+<img class="rider" id="rider" src="img/balloon.svg" alt="" aria-hidden="true">
+
+<main id="top">
+
+  <!-- 첫 화면 ───────────────────────────────────────────────────── -->
+  <section class="hero" data-run="출발">
+    <div class="hero__wash" aria-hidden="true"></div>
+    <div class="wrap hero__grid">
+      <div class="hero__text">
+        <p class="hero__logo rise"><span>[</span>HANTTE : 한때<span>]</span></p>
+        <h1 class="rise d1">즐거운 한때를<br>지도 위에 남겨요.</h1>
+        <p class="hero__lede rise d2">오늘 지나온 길이 지도 위에 선으로 남고, 그 길 어딘가에서 찍은 사진은 찍은 자리에 가만히 놓여요. 여행한 날들은 하나로 묶어 두었다가, 생각날 때 다시 꺼내 보세요.</p>
+        <div class="cta rise d3">
+          <a class="btn is-soon" href="#get" aria-disabled="true">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M13.6 10.6c0-1.6 1.3-2.4 1.4-2.4-.8-1.1-2-1.3-2.4-1.3-1-.1-2 .6-2.5.6s-1.3-.6-2.2-.6c-1.1 0-2.2.7-2.8 1.7-1.2 2.1-.3 5.1.9 6.8.6.8 1.2 1.7 2.1 1.7.8 0 1.2-.5 2.2-.5s1.3.5 2.2.5 1.5-.8 2-1.7c.6-.9.9-1.8.9-1.9 0 0-1.8-.7-1.8-2.9ZM12 5.6c.5-.6.8-1.4.7-2.2-.7 0-1.5.5-2 1.1-.4.5-.8 1.3-.7 2.1.8 0 1.5-.4 2-1Z"/></svg>
+            App Store <small>출시 준비 중</small>
+          </a>
+          <span class="cta__meta">iPhone · iOS 26 이상</span>
+        </div>
+      </div>
+
+      <div class="hero__pile rise d2" aria-label="예시 한때 — 봄, 남쪽 바다">
+        <figure class="snap snap--a"><img src="photos/323.jpg" alt="절벽 아래로 보이는 파란 바다" width="1200" height="800"><figcaption>4월 18일 · 절벽 길</figcaption></figure>
+        <figure class="snap snap--b"><img src="photos/106.jpg" alt="파란 하늘 아래 분홍 꽃" width="1200" height="800"><figcaption>4월 18일 · 꽃길</figcaption></figure>
+        <figure class="snap snap--c"><img src="photos/16.jpg" alt="전망대에서 내려다본 바닷가" width="1200" height="800"><figcaption>4월 17일 · 전망대</figcaption></figure>
+        <dl class="entry">
+          <img src="img/icon-512.png" alt="한때 앱 아이콘" width="72" height="72">
+          <dt>한때 <small>명사</small></dt>
+          <dd>어느 한 시기.</dd>
+          <dd class="ex">즐거운 한때를 보내다.</dd>
+        </dl>
+      </div>
+    </div>
+    <p class="wrap hero__hint rise d4"><span class="stop" data-stop></span>천천히 내려 보세요. 길이 따라 그려져요. 이 페이지도 예시로 만든 한때 하나예요.</p>
+  </section>
+
+  <!-- 1 오늘 ─────────────────────────────────────────────────────── -->
+  <section class="sec" id="today" data-run="오늘">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>오늘</b></div>
+      <div class="main prose">
+        <h2>지나온 길이<br>그대로 남아요</h2>
+        <p>앱을 켜 두지 않아도 괜찮아요. 주머니에 넣고 다니기만 하면 오늘 지나온 길이 지도 위에 이어지고, 사진은 찍은 그 자리에 놓여요.</p>
+        <p>문득 떠오른 말은 <strong>한마디</strong>로 남겨 두세요. 이모지 하나, 짧은 글 한 줄이면 충분해요.</p>
+        <ul class="legend" aria-label="길을 그리는 세 가지 선">
+          <li><i class="ln ln--sure"></i><b>실선</b><span>이 길로 갔어요</span></li>
+          <li><i class="ln ln--near"></i><b>점선</b><span>이 근처를 지났어요</span></li>
+          <li><i class="ln ln--gap"></i><b>성긴 점</b><span>여기는 한때도 몰라요</span></li>
+        </ul>
+        <p class="gap">기록이 끊긴 길을 그럴듯하게 이어 붙이지 않아요. <strong>모르는 길은 모른다고 그려요.</strong></p>
+      </div>
+      <div class="side">
+        <div class="phone" id="todayPhone" aria-label="오늘 화면 예시">
+          <div class="phone__map" data-map="today"></div>
+          <div class="glass phone__top"><span>4월 18일 토요일</span><b>오늘</b></div>
+          <div class="glass card">
+            <div><b>12,406</b><small>걸음</small></div>
+            <div><b>8.3<i>km</i></b><small>걸은 거리</small></div>
+            <div><b>6<i>곳</i></b><small>들른 곳</small></div>
+            <div><b>41<i>km</i></b><small>집에서 가장 멀리</small></div>
+          </div>
+          <div class="glass tabs" aria-hidden="true"><span class="on">오늘</span><span>날들</span><span>한때</span><span>검색</span></div>
+        </div>
+        <p class="cap">화면 예시예요. 실제 앱은 Apple 지도 위에 그려요.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 날들 ─────────────────────────────────────────────────────── -->
+  <section class="sec" id="days" data-run="날들">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>날들</b></div>
+      <div class="main prose">
+        <h2>지나온 날들이<br>한 장에 담겨요</h2>
+        <p>사진 앱처럼 하루하루 넘겨 보다가 손가락을 오므려 보세요. 사진이 점점 작아지더니, 어느새 한 해가 한 장에 모여요.</p>
+        <p>마음에 남는 날들을 골라 그 자리에서 한때로 묶을 수 있어요.</p>
+      </div>
+      <aside class="note">
+        <p>아래에서 직접 바꿔 보세요. 앱에서는 두 손가락으로 오므리고 벌리면 돼요.</p>
+      </aside>
+      <div class="band days">
+        <div class="days__bar">
+          <div class="seg" role="group" aria-label="한 줄에 놓는 사진 수" id="daysSeg">
+            <button type="button" data-v="3" aria-pressed="false">3</button>
+            <button type="button" data-v="5" aria-pressed="true">5</button>
+            <button type="button" data-v="15" aria-pressed="false">15</button>
+            <button type="button" data-v="31" aria-pressed="false">31</button>
+          </div>
+          <span class="days__cap" id="daysCap" aria-live="polite"></span>
+        </div>
+        <div class="days__grid" id="daysGrid" style="--cols:5"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 한때 ─────────────────────────────────────────────────────── -->
+  <section class="sec" id="trips" data-run="한때">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>한때</b></div>
+      <div class="main prose">
+        <h2>여행한 날들을<br>다시 걸어 봐요</h2>
+        <p>멀리 다녀온 날, 유난히 사진을 많이 찍은 날을 찾아서 <q>이 날들, 한때로 남길까요?</q> 하고 살며시 물어봐요. <strong>남기기</strong>를 눌러야 한때가 돼요. 마음대로 만들어 두지 않아요.</p>
+        <p>남겨 둔 한때는 <strong>리플레이</strong>로 다시 만나요. 그날의 길을 따라가다 보면, 들렀던 곳마다 그때 찍은 사진이 하나씩 떠올라요.</p>
+      </div>
+      <aside class="note">
+        <p>길을 따라가는 캐릭터는 새싹 열기구와 민들레 씨앗 중에서 골라요. 캐릭터 없이 점만 움직이게 할 수도 있어요.</p>
+        <img class="note__char" src="img/dandelion.svg" alt="민들레 씨앗 캐릭터" width="110" height="140">
+      </aside>
+      <div class="band replay" id="replay">
+        <div class="replay__stage">
+          <div class="replay__map" data-map="trip"></div>
+          <div class="glass replay__title"><b>봄, 남쪽 바다</b><span>2026. 4. 17 – 19</span></div>
+          <div class="replay__pop" id="replayPop" hidden><img alt=""><img alt=""><p></p></div>
+        </div>
+        <div class="replay__bar">
+          <button type="button" class="play" id="replayPlay" aria-label="리플레이 재생"><svg viewBox="0 0 20 20" aria-hidden="true"><path class="i-play" d="M6 3.8v12.4L16.5 10Z"/><path class="i-pause" d="M5.5 4h3v12h-3zM11.5 4h3v12h-3z"/></svg></button>
+          <span class="replay__time" id="replayTime">4월 17일 09:40</span>
+          <input type="range" id="replayScrub" min="0" max="1000" value="0" aria-label="리플레이 위치">
+        </div>
+        <p class="cap">캡처가 아니에요. 이 페이지에서 실제로 움직여요. 재생을 누르거나 막대를 끌어 보세요. 사진과 지명은 예시예요.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 액자 ─────────────────────────────────────────────────────── -->
+  <section class="sec" id="frame" data-run="액자">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>액자</b></div>
+      <div class="main prose">
+        <h2>세워 두면<br>액자가 돼요</h2>
+        <p>한때의 사진을 한 장씩, 천천히 넘겨 드려요. 사진 곁에는 찍은 곳의 작은 지도와 그때의 시간, 남겨 둔 한마디가 함께 떠요.</p>
+        <p>켜 둔 동안에는 화면이 꺼지지 않아요. 충전기에 세워 두고 오래 바라보세요.</p>
+      </div>
+      <div class="band frame" id="frame-demo">
+        <div class="frame__screen">
+          <img class="frame__img is-on" alt="">
+          <img class="frame__img" alt="">
+          <div class="glass frame__tag">
+            <svg viewBox="0 0 56 56" aria-hidden="true"><rect width="56" height="56" rx="10" fill="#EAF3E2"/><path d="M0 40 Q18 30 30 38 T56 30 V56 H0Z" fill="#AEDCF2"/><path d="M6 14 Q22 22 28 30" stroke="#fff" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M6 14 Q22 22 28 30" stroke="#67B825" stroke-width="2.6" stroke-linecap="round" fill="none"/><circle cx="28" cy="30" r="5.5" fill="#67B825" stroke="#fff" stroke-width="2.5"/></svg>
+            <div><b data-k="place"></b><span data-k="when"></span><em data-k="word"></em></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 공유 ─────────────────────────────────────────────────────── -->
+  <section class="sec" id="share" data-run="공유">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>공유</b></div>
+      <div class="main prose">
+        <h2>한 장에 담아<br>건네요</h2>
+        <p>한때 하나가 포스터 한 장이 돼요. 대표 사진과 지나온 길, 제목과 기간, 걸음 수와 거리가 담겨요. 폴라로이드, 여러 장, 스토리, 정사각형 중에서 골라 보세요.</p>
+        <p><strong>집과 회사 근처의 길은 알아서 가려 드려요.</strong> 길에는 사는 곳이 드러나니까요. 따로 손대지 않아도 돼요.</p>
+      </div>
+      <div class="side side--poster">
+        <figure class="poster">
+          <img src="photos/77.jpg" alt="바다로 뻗은 나무 방파제" width="1200" height="800" loading="lazy">
+          <figcaption>
+            <svg viewBox="0 0 120 44" aria-hidden="true"><circle cx="12" cy="30" r="9" fill="none" stroke="#b9bfb0" stroke-width="1.2" stroke-dasharray="2 3"/><path d="M22 26 C34 10 44 36 58 22 S84 8 96 20 108 30 112 14" fill="none" stroke="#67B825" stroke-width="3" stroke-linecap="round"/><circle cx="112" cy="14" r="3.6" fill="#67B825"/></svg>
+            <b>봄, 남쪽 바다</b>
+            <span>2026. 4. 17 – 19</span>
+            <span class="poster__nums">31,902걸음 · 142km · 들른 곳 13</span>
+            <small>한때로 만들었어요</small>
+          </figcaption>
+        </figure>
+        <p class="cap">점선 동그라미가 가려진 집 근처예요. 사진 원본은 담기지 않고, 길과 제목 · 기간 · 숫자만 나가요.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 한 주 정리 ───────────────────────────────────────────────── -->
+  <section class="sec" id="week" data-run="한 주 정리">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>한 주 정리</b></div>
+      <div class="main prose">
+        <h2>일요일 저녁,<br>한 주를 돌아봐요</h2>
+        <p>이번 주엔 얼마나 걸었는지, 어디에 들렀는지, 가장 오래 머문 곳은 어디였는지. 그 주에 찍은 사진 몇 장과 함께 보여 드려요. 몇 해 전 이맘때의 사진도 같이 꺼내 와요.</p>
+        <p>받겠다고 하신 분께만, 일요일 저녁 9시에 알림 한 번으로 알려 드려요.</p>
+      </div>
+      <div class="side">
+        <div class="notice glass">
+          <img src="img/icon-128.png" alt="" width="38" height="38">
+          <div><b>이번 주 정리가 준비됐어요</b><span>일요일 오후 9:00</span></div>
+        </div>
+        <div class="week glass">
+          <div class="week__bars" aria-hidden="true"><i style="--h:34%"></i><i style="--h:52%"></i><i style="--h:28%"></i><i style="--h:40%"></i><i style="--h:71%"></i><i style="--h:100%" class="on"></i><i style="--h:86%" class="on"></i></div>
+          <div class="week__days" aria-hidden="true"><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span><span>일</span></div>
+          <dl><div><dt>걸음</dt><dd>58,214</dd></div><div><dt>들른 곳</dt><dd>17곳</dd></div><div><dt>가장 오래 있던 곳</dt><dd>바닷가 찻집</dd></div></dl>
+          <div class="week__pics"><img src="photos/s/323.jpg" alt="" loading="lazy"><img src="photos/s/106.jpg" alt="" loading="lazy"><img src="photos/s/77.jpg" alt="" loading="lazy"><img src="photos/s/385.jpg" alt="" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 배터리 ───────────────────────────────────────────────────── -->
+  <section class="sec" id="battery" data-run="배터리">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>배터리</b></div>
+      <div class="main prose">
+        <h2>집과 회사에서는<br>쉬어 가요</h2>
+        <p>늘 머무는 곳을 <strong>내 장소</strong>로 등록해 두면, 그 안에 있는 동안에는 위치를 재지 않아요. 하루의 대부분을 쉬는 셈이라 배터리도 덜 닳아요. 문밖을 나서면 그때부터 다시 길을 이어요.</p>
+        <p>여행처럼 길을 촘촘히 남기고 싶은 날에는 <strong>여행 기록</strong>을 켜 보세요. 그날 자정이 되면 알아서 꺼지고, 배터리가 얼마 남지 않으면 스스로 멈춰요. 켜는 건 언제나 내 손으로 해요.</p>
+        <div class="rest" aria-label="내 장소 안에서는 쉬고, 밖에서만 기록해요">
+          <span class="rest__hub">집<small>쉬는 중</small></span>
+          <span class="rest__way"><i></i><small>기록 중</small></span>
+          <span class="rest__hub">회사<small>쉬는 중</small></span>
+        </div>
+      </div>
+      <aside class="note">
+        <p>여행 기록을 켜 둔 동안에는 잠금 화면과 다이내믹 아일랜드에서 지난 시간과 이동 거리를 볼 수 있어요.</p>
+        <hr>
+        <p>권한은 처음부터 한꺼번에 묻지 않아요. 사진은 날들을 처음 열 때, 건강 데이터는 걸음 수 연동을 켤 때처럼, 그 기능을 쓰는 순간에 물어봐요.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 8 개인정보 ─────────────────────────────────────────────────── -->
+  <section class="plate" id="privacy" data-run="개인정보">
+    <div class="plate__wash" aria-hidden="true"></div>
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>개인정보</b></div>
+      <div class="main">
+        <h2>어디를 다녔는지는<br>나만 알아요.</h2>
+        <p class="sub">기록은 내 아이폰과 내 iCloud에만 남아요. 한때에는 서버가 없어서, 만든 사람도 들여다볼 방법이 없어요.</p>
+        <p class="sub">계정도, 로그인도, 광고도 없어요. 분석 도구도 넣지 않았어요.</p>
+        <p class="gap"><a href="privacy/">개인정보처리방침 보기</a></p>
+      </div>
+      <aside class="note">
+        <p>지도를 그리고 주소를 장소 이름으로 바꿀 때는 Apple 지도 서비스를 써요. 기기 사이의 동기화는 내 iCloud로 해요.</p>
+        <hr>
+        <p>기록은 설정에서 파일로 내보내고 다시 가져올 수 있어요.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 9 기능 목록 ────────────────────────────────────────────────── -->
+  <section class="sec" id="inv" data-run="기능 목록">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>기능 목록</b></div>
+      <div class="main main--wide">
+        <h2>담겨 있는 기능</h2>
+        <div class="inv">
+          <section><h3>오늘</h3><ul>
+            <li>지나온 길 자동 기록</li>
+            <li>사진 · 한마디를 찍은 자리에</li>
+            <li>걸음 · 거리 · 들른 곳</li>
+            <li>지도 3D · 위성 사진</li>
+          </ul></section>
+          <section><h3>날들</h3><ul>
+            <li>날짜별 사진 <small>3 · 5 · 15 · 31열</small></li>
+            <li>달력으로 바로 가기</li>
+            <li>하루 요약 지도</li>
+            <li>위치 없는 사진에 위치 넣기</li>
+          </ul></section>
+          <section><h3>한때</h3><ul>
+            <li>직접 만들기 · 추천 받기</li>
+            <li>리플레이</li>
+            <li>액자</li>
+            <li>포스터 공유 <small>4가지</small></li>
+            <li>검색</li>
+          </ul></section>
+          <section><h3>알림</h3><ul>
+            <li>한 주 정리 <small>일요일 저녁</small></li>
+            <li>다녀온 뒤 한때 권하기</li>
+            <li>여행 기록 실시간 현황</li>
+          </ul></section>
+          <section><h3>기록</h3><ul>
+            <li>내 장소 <small>집 · 회사</small></li>
+            <li>여행 기록</li>
+            <li>건강 앱 걸음 수 연동</li>
+            <li>iCloud 동기화</li>
+            <li>내보내기 · 가져오기</li>
+          </ul></section>
+          <section><h3>꾸밈</h3><ul>
+            <li>라이트 · 다크 · 자동</li>
+            <li>길 위의 캐릭터</li>
+            <li>나뭇잎 · 민들레 · 단풍 효과</li>
+          </ul></section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 출시 ────────────────────────────────────────────────────── -->
+  <section class="sec" id="get" data-run="출시 안내">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>출시 안내</b></div>
+      <div class="main prose">
+        <h2>곧 App Store에서<br>만나요</h2>
+        <p>지금은 출시 전 마지막 점검을 하고 있어요. iOS 26 이상이 설치된 iPhone에서 쓸 수 있고, iPad와 Mac은 그다음에 준비할게요.</p>
+        <div class="cta">
+          <a class="btn is-soon" href="#get" aria-disabled="true">App Store <small>출시 준비 중</small></a>
+          <a class="btn btn--line" href="mailto:hello@putchamoe.com?subject=%ED%95%9C%EB%95%8C%20%EB%AC%B8%EC%9D%98">문의하기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 자주 묻는 질문 ──────────────────────────────────────────── -->
+  <section class="sec" id="faq" data-run="자주 묻는 질문">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>FAQ</b></div>
+      <div class="main">
+        <h2>자주 묻는 질문</h2>
+        <div class="faq">
+          <details><summary>배터리가 많이 닳지 않나요?</summary><div>
+            <p>집이나 회사처럼 등록해 둔 내 장소 안에서는 위치를 재지 않아요. 밖에서도 평소에는 전력을 적게 쓰는 방식으로 큰 이동만 남겨요.</p>
+            <p>길을 촘촘하게 남기는 여행 기록은 직접 켰을 때만 동작하고, 그날 자정에 꺼져요.</p>
+          </div></details>
+          <details><summary>위치 권한을 왜 <q>항상 허용</q>으로 해야 하나요?</summary><div>
+            <p>앱을 닫아 둔 동안에도 길을 이으려면 필요해요. <q>앱을 사용하는 동안</q>만 허용해도 쓸 수 있지만, 그때는 앱을 켜 둔 동안의 길만 남아요.</p>
+          </div></details>
+          <details><summary>내 위치 기록을 다른 사람이 볼 수 있나요?</summary><div>
+            <p>아니요. 기록은 내 아이폰과 내 iCloud에만 저장되고, 개발자를 포함해 누구에게도 보내지 않아요. 직접 포스터를 만들어 공유할 때만 밖으로 나가고, 그때도 집과 회사 근처의 길은 가려져요.</p>
+          </div></details>
+          <details><summary>사진을 따로 올리거나 옮겨야 하나요?</summary><div>
+            <p>아니요. 사진 앱에 있는 사진을 그대로 읽어서 보여 드려요. 사진을 복사해 두지 않고, 직접 위치를 넣거나 지우지 않는 한 사진을 바꾸지도 않아요.</p>
+          </div></details>
+          <details><summary>앱을 깔기 전의 날들도 볼 수 있나요?</summary><div>
+            <p>사진은 볼 수 있어요. 위치가 담긴 사진이라면 찍은 자리에 놓이고, 그 사진들로 지난 여행을 한때로 묶을 수도 있어요. 지나온 길은 앱을 쓰기 시작한 날부터 남아요.</p>
+          </div></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot" data-run="도착">
+  <div class="wrap grid">
+    <div class="gut"><span class="stop stop--end" data-stop></span><b>도착</b></div>
+    <div class="main">
+      <dl class="box">
+        <div class="t"><img src="img/icon-128.png" alt="" width="28" height="28">한때</div>
+        <dt>지원 기기</dt><dd>iPhone · iOS 26 이상</dd>
+        <dt>만든 곳</dt><dd><a class="maker" href="/"><img src="/assets/brand/mark.svg" alt="" width="18" height="18">풋참외</a></dd>
+        <dt>문의</dt><dd><a href="mailto:hello@putchamoe.com">hello@putchamoe.com</a></dd>
+        <dt>글꼴</dt><dd>Pretendard (SIL OFL)</dd>
+        <dt>이 페이지</dt><dd>광고, 쿠키, 분석 도구 없음</dd>
+      </dl>
+      <p class="links"><a href="privacy/">개인정보처리방침</a><a href="/">풋참외</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="hantte.js" defer></script>
+</body>
+</html>

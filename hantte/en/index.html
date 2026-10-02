@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hantte — Your days, kept on the map</title>
+<meta name="description" content="The path you walked today stays on the map, and every photo rests where you took it. Gather the days of a trip and open them again whenever you like. For iPhone, coming soon. No account, no ads.">
+<meta name="theme-color" content="#fbfaf5">
+<meta property="og:title" content="Hantte — Your days, kept on the map">
+<meta property="og:description" content="Your photos, laid along the path you took that day.">
+<meta property="og:image" content="https://putchamoe.com/hantte/img/icon-512.png">
+<meta property="og:url" content="https://putchamoe.com/hantte/en/">
+<link rel="alternate" hreflang="ko" href="https://putchamoe.com/hantte/">
+<link rel="alternate" hreflang="en" href="https://putchamoe.com/hantte/en/">
+<link rel="alternate" hreflang="ja" href="https://putchamoe.com/hantte/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://putchamoe.com/hantte/zh/">
+<link rel="alternate" hreflang="x-default" href="https://putchamoe.com/hantte/en/">
+<link rel="icon" href="../img/icon-128.png">
+<link rel="apple-touch-icon" href="../img/icon-512.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../hantte.css">
+</head>
+<body>
+
+<header class="head">
+  <a class="head__brand" href="#top"><img src="../img/icon-128.png" alt="">Hantte</a>
+  <span class="head__run" id="run" aria-hidden="true">Departure</span>
+  <nav class="head__nav" aria-label="Jump to">
+    <a href="#privacy">Privacy</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <details class="head__lang">
+    <summary aria-label="Choose language">English</summary>
+    <nav aria-label="Language">
+      <a href="/hantte/" lang="ko" hreflang="ko">한국어</a>
+      <a href="/hantte/en/" lang="en" hreflang="en" aria-current="page">English</a>
+      <a href="/hantte/ja/" lang="ja" hreflang="ja">日本語</a>
+      <a href="/hantte/zh/" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
+    </nav>
+  </details>
+  <a class="head__get" href="#get">Coming soon</a>
+</header>
+
+<!-- 길 — 스크롤한 만큼 그려진다 -->
+<svg class="spine" id="spine" aria-hidden="true"><path class="spine__case"/><path class="spine__line"/></svg>
+<img class="rider" id="rider" src="../img/balloon.svg" alt="" aria-hidden="true">
+
+<main id="top">
+
+  <!-- 첫 화면 ───────────────────────────────────────────────────── -->
+  <section class="hero" data-run="Departure">
+    <div class="hero__wash" aria-hidden="true"></div>
+    <div class="wrap hero__grid">
+      <div class="hero__text">
+        <p class="hero__logo rise"><span>[</span>HANTTE : 한때<span>]</span></p>
+        <h1 class="rise d1"><span style="white-space:nowrap">Keep the good days</span><br>on the map.</h1>
+        <p class="hero__lede rise d2">The path you walked today stays on the map as a single line, and every photo you took along the way rests quietly where you took it. Gather the days of a trip together, and open them again whenever they come back to you.</p>
+        <div class="cta rise d3">
+          <a class="btn is-soon" href="#get" aria-disabled="true">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M13.6 10.6c0-1.6 1.3-2.4 1.4-2.4-.8-1.1-2-1.3-2.4-1.3-1-.1-2 .6-2.5.6s-1.3-.6-2.2-.6c-1.1 0-2.2.7-2.8 1.7-1.2 2.1-.3 5.1.9 6.8.6.8 1.2 1.7 2.1 1.7.8 0 1.2-.5 2.2-.5s1.3.5 2.2.5 1.5-.8 2-1.7c.6-.9.9-1.8.9-1.9 0 0-1.8-.7-1.8-2.9ZM12 5.6c.5-.6.8-1.4.7-2.2-.7 0-1.5.5-2 1.1-.4.5-.8 1.3-.7 2.1.8 0 1.5-.4 2-1Z"/></svg>
+            App Store <small>Coming soon</small>
+          </a>
+          <span class="cta__meta">iPhone · iOS 26 or later</span>
+        </div>
+      </div>
+
+      <div class="hero__pile rise d2" aria-label="A sample moment — Spring, by the South Sea">
+        <figure class="snap snap--a"><img src="../photos/323.jpg" alt="Blue sea below a cliff" width="1200" height="800"><figcaption>Apr 18 · Cliff path</figcaption></figure>
+        <figure class="snap snap--b"><img src="../photos/106.jpg" alt="Pink flowers under a blue sky" width="1200" height="800"><figcaption>Apr 18 · Flower path</figcaption></figure>
+        <figure class="snap snap--c"><img src="../photos/16.jpg" alt="The shore seen from a lookout" width="1200" height="800"><figcaption>Apr 17 · Lookout</figcaption></figure>
+        <dl class="entry">
+          <img src="../img/icon-512.png" alt="Hantte app icon" width="72" height="72">
+          <dt>한때 <small>noun · han-ttae</small></dt>
+          <dd>Korean for “a time, once” — a stretch of days you look back on.</dd>
+          <dd class="ex">“We had a lovely time.”</dd>
+        </dl>
+      </div>
+    </div>
+    <p class="wrap hero__hint rise d4"><span class="stop" data-stop></span>Scroll slowly, and a path draws itself as you go. This page is a sample moment, too.</p>
+  </section>
+
+  <!-- 1 오늘 ─────────────────────────────────────────────────────── -->
+  <section class="sec" id="today" data-run="Today">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>Today</b></div>
+      <div class="main prose">
+        <h2>The way you came<br>stays with you</h2>
+        <p>No need to keep the app open. Just carry your iPhone, and today’s path keeps unrolling on the map, while each photo settles where you took it.</p>
+        <p>When a thought comes to you, leave it as <strong>a few words</strong> — one emoji and a short line are all it takes.</p>
+        <ul class="legend" aria-label="Three kinds of line">
+          <li><i class="ln ln--sure"></i><b>Solid</b><span>You went this way</span></li>
+          <li><i class="ln ln--near"></i><b>Dashed</b><span>You passed near here</span></li>
+          <li><i class="ln ln--gap"></i><b>Dotted</b><span>Even Hantte doesn’t know</span></li>
+        </ul>
+        <p class="gap">Where the record breaks off, Hantte doesn’t invent a neat road to fill the gap. <strong>What it doesn’t know, it draws as unknown.</strong></p>
+      </div>
+      <div class="side">
+        <div class="phone" id="todayPhone" aria-label="Sample Today screen">
+          <div class="phone__map" data-map="today"></div>
+          <div class="glass phone__top"><span>Saturday, April 18</span><b>Today</b></div>
+          <div class="glass card">
+            <div><b>12,406</b><small>Steps</small></div>
+            <div><b>8.3<i>km</i></b><small>Walked</small></div>
+            <div><b>6</b><small>Places visited</small></div>
+            <div><b>41<i>km</i></b><small>Farthest from home</small></div>
+          </div>
+          <div class="glass tabs" aria-hidden="true"><span class="on">Today</span><span>Days</span><span>Moments</span><span>Search</span></div>
+        </div>
+        <p class="cap">A sample screen. The app itself draws on Apple Maps.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 날들 ─────────────────────────────────────────────────────── -->
+  <section class="sec" id="days" data-run="Days">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>Days</b></div>
+      <div class="main prose">
+        <h2>All your days,<br>on a single page</h2>
+        <p>Leaf through them day by day, the way you would in Photos — then pinch. The pictures grow smaller and smaller, until a whole year fits on one page.</p>
+        <p>Pick the days that stayed with you and gather them into a moment, right there.</p>
+      </div>
+      <aside class="note">
+        <p>Try it below. In the app, just pinch in and out with two fingers.</p>
+      </aside>
+      <div class="band days">
+        <div class="days__bar">
+          <div class="seg" role="group" aria-label="Photos per row" id="daysSeg">
+            <button type="button" data-v="3" aria-pressed="false">3</button>
+            <button type="button" data-v="5" aria-pressed="true">5</button>
+            <button type="button" data-v="15" aria-pressed="false">15</button>
+            <button type="button" data-v="31" aria-pressed="false">31</button>
+          </div>
+          <span class="days__cap" id="daysCap" aria-live="polite"></span>
+        </div>
+        <div class="days__grid" id="daysGrid" style="--cols:5"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 한때 ─────────────────────────────────────────────────────── -->
+  <section class="sec" id="trips" data-run="Moments">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>Moments</b></div>
+      <div class="main prose">
+        <h2>Walk your travels<br>once more</h2>
+        <p>On the days you went far, or took more photos than usual, Hantte gently asks, <q>Shall we keep these days as a moment?</q> Only when you tap <strong>Keep</strong> does it become one. Nothing is made without you.</p>
+        <p>Meet your moments again in <strong>Replay</strong>. Follow that day’s path, and at every place you stopped, the photos you took there drift up one by one.</p>
+      </div>
+      <aside class="note">
+        <p>Choose who travels the path: a sprout-green hot-air balloon or a dandelion seed. Or let a simple dot do the walking.</p>
+        <img class="note__char" src="../img/dandelion.svg" alt="Dandelion seed character" width="110" height="140">
+      </aside>
+      <div class="band replay" id="replay">
+        <div class="replay__stage">
+          <div class="replay__map" data-map="trip"></div>
+          <div class="glass replay__title"><b>Spring, by the South Sea</b><span>Apr 17 – 19, 2026</span></div>
+          <div class="replay__pop" id="replayPop" hidden><img alt=""><img alt=""><p></p></div>
+        </div>
+        <div class="replay__bar">
+          <button type="button" class="play" id="replayPlay" aria-label="Play replay"><svg viewBox="0 0 20 20" aria-hidden="true"><path class="i-play" d="M6 3.8v12.4L16.5 10Z"/><path class="i-pause" d="M5.5 4h3v12h-3zM11.5 4h3v12h-3z"/></svg></button>
+          <span class="replay__time" id="replayTime"></span>
+          <input type="range" id="replayScrub" min="0" max="1000" value="0" aria-label="Replay position">
+        </div>
+        <p class="cap">Not a recording — it really moves, right here on this page. Press play or drag the bar. Photos and place names are examples.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 액자 ─────────────────────────────────────────────────────── -->
+  <section class="sec" id="frame" data-run="Frame">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>Frame</b></div>
+      <div class="main prose">
+        <h2>Stand it up,<br>and it becomes a frame</h2>
+        <p>Hantte turns the photos of a moment slowly, one at a time. Beside each one floats a tiny map of where it was taken, the time, and the few words you left there.</p>
+        <p>The screen stays awake while it plays. Rest your iPhone on its charger and let it linger.</p>
+      </div>
+      <div class="band frame" id="frame-demo">
+        <div class="frame__screen">
+          <img class="frame__img is-on" alt="">
+          <img class="frame__img" alt="">
+          <div class="glass frame__tag">
+            <svg viewBox="0 0 56 56" aria-hidden="true"><rect width="56" height="56" rx="10" fill="#EAF3E2"/><path d="M0 40 Q18 30 30 38 T56 30 V56 H0Z" fill="#AEDCF2"/><path d="M6 14 Q22 22 28 30" stroke="#fff" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M6 14 Q22 22 28 30" stroke="#67B825" stroke-width="2.6" stroke-linecap="round" fill="none"/><circle cx="28" cy="30" r="5.5" fill="#67B825" stroke="#fff" stroke-width="2.5"/></svg>
+            <div><b data-k="place"></b><span data-k="when"></span><em data-k="word"></em></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 공유 ─────────────────────────────────────────────────────── -->
+  <section class="sec" id="share" data-run="Share">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>Share</b></div>
+      <div class="main prose">
+        <h2>Fold it into one page,<br>and hand it over</h2>
+        <p>A moment becomes a single poster: a cover photo and the path you took, the title and the dates, your steps and the distance. Choose Polaroid, several photos, Story or square.</p>
+        <p><strong>The roads near your home and work are hidden for you.</strong> A path can tell people where you live — so you don’t have to touch a thing.</p>
+      </div>
+      <div class="side side--poster">
+        <figure class="poster">
+          <img src="../photos/77.jpg" alt="A wooden pier reaching out to sea" width="1200" height="800" loading="lazy">
+          <figcaption>
+            <svg viewBox="0 0 120 44" aria-hidden="true"><circle cx="12" cy="30" r="9" fill="none" stroke="#b9bfb0" stroke-width="1.2" stroke-dasharray="2 3"/><path d="M22 26 C34 10 44 36 58 22 S84 8 96 20 108 30 112 14" fill="none" stroke="#67B825" stroke-width="3" stroke-linecap="round"/><circle cx="112" cy="14" r="3.6" fill="#67B825"/></svg>
+            <b>Spring, by the South Sea</b>
+            <span>Apr 17 – 19, 2026</span>
+            <span class="poster__nums">31,902 steps · 142 km · 13 places</span>
+            <small>Made with Hantte</small>
+          </figcaption>
+        </figure>
+        <p class="cap">The dotted circle is the hidden area near home. Original photos aren’t included — only the path, title, dates and numbers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 한 주 정리 ───────────────────────────────────────────────── -->
+  <section class="sec" id="week" data-run="Weekly recap">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>Weekly recap</b></div>
+      <div class="main prose">
+        <h2>On Sunday evening,<br>look back on your week</h2>
+        <p>How far you walked this week, where you stopped, where you lingered longest — told alongside a handful of the photos you took. Hantte also brings back pictures from this same time, years ago.</p>
+        <p>Only if you’d like it: a single notification, Sunday at 9 in the evening.</p>
+      </div>
+      <div class="side">
+        <div class="notice glass">
+          <img src="../img/icon-128.png" alt="" width="38" height="38">
+          <div><b>Your week is ready</b><span>Sunday 9:00 PM</span></div>
+        </div>
+        <div class="week glass">
+          <div class="week__bars" aria-hidden="true"><i style="--h:34%"></i><i style="--h:52%"></i><i style="--h:28%"></i><i style="--h:40%"></i><i style="--h:71%"></i><i style="--h:100%" class="on"></i><i style="--h:86%" class="on"></i></div>
+          <div class="week__days" aria-hidden="true"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+          <dl><div><dt>Steps</dt><dd>58,214</dd></div><div><dt>Places visited</dt><dd>17</dd></div><div><dt>Where you stayed longest</dt><dd>Seaside tea house</dd></div></dl>
+          <div class="week__pics"><img src="../photos/s/323.jpg" alt="" loading="lazy"><img src="../photos/s/106.jpg" alt="" loading="lazy"><img src="../photos/s/77.jpg" alt="" loading="lazy"><img src="../photos/s/385.jpg" alt="" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 배터리 ───────────────────────────────────────────────────── -->
+  <section class="sec" id="battery" data-run="Battery">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>Battery</b></div>
+      <div class="main prose">
+        <h2>At home and at work,<br>it rests</h2>
+        <p>Save the places you spend your days as <strong>My Places</strong>, and while you’re inside them, Hantte stops measuring where you are. It rests for most of the day, so your battery lasts. Step out the door, and the path picks up again.</p>
+        <p>On days you want every turn recorded — like a trip — switch on <strong>Travel Log</strong>. It turns itself off at midnight, and stops on its own if your battery runs low. Turning it on is always up to you.</p>
+        <div class="rest" aria-label="Resting inside My Places, recording only outside">
+          <span class="rest__hub">Home<small>Resting</small></span>
+          <span class="rest__way"><i></i><small>Recording</small></span>
+          <span class="rest__hub">Work<small>Resting</small></span>
+        </div>
+      </div>
+      <aside class="note">
+        <p>While Travel Log is on, you can see the elapsed time and distance on the Lock Screen and in the Dynamic Island.</p>
+        <hr>
+        <p>Hantte doesn’t ask for every permission up front. It asks for Photos the first time you open Days, and for Health when you turn on step counts — right at the moment you use them.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 8 개인정보 ─────────────────────────────────────────────────── -->
+  <section class="plate" id="privacy" data-run="Privacy">
+    <div class="plate__wash" aria-hidden="true"></div>
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>Privacy</b></div>
+      <div class="main">
+        <h2>Where you’ve been<br>is yours alone.</h2>
+        <p class="sub">Your records stay only on your iPhone and in your iCloud. Hantte has no server, so even the person who made it has no way to look.</p>
+        <p class="sub">No account, no sign-in, no ads. No analytics, either.</p>
+        <p class="gap"><a href="privacy/">Read the privacy policy</a></p>
+      </div>
+      <aside class="note">
+        <p>Drawing maps and turning addresses into place names uses Apple Maps. Syncing between your devices happens through your own iCloud.</p>
+        <hr>
+        <p>You can export your records to a file in Settings and import them again.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 9 기능 목록 ────────────────────────────────────────────────── -->
+  <section class="sec" id="inv" data-run="Features">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>Features</b></div>
+      <div class="main main--wide">
+        <h2>What’s inside</h2>
+        <div class="inv">
+          <section><h3>Today</h3><ul>
+            <li>Automatic path recording</li>
+            <li>Photos and words where they happened</li>
+            <li>Steps · distance · places visited</li>
+            <li>3D maps · satellite</li>
+          </ul></section>
+          <section><h3>Days</h3><ul>
+            <li>Photos by day <small>3 · 5 · 15 · 31 per row</small></li>
+            <li>Jump to any date</li>
+            <li>Day summary map</li>
+            <li>Add a location to photos without one</li>
+          </ul></section>
+          <section><h3>Moments</h3><ul>
+            <li>Make your own · get suggestions</li>
+            <li>Replay</li>
+            <li>Frame</li>
+            <li>Poster sharing <small>4 styles</small></li>
+            <li>Search</li>
+          </ul></section>
+          <section><h3>Notifications</h3><ul>
+            <li>Weekly recap <small>Sunday evening</small></li>
+            <li>A gentle nudge after a trip</li>
+            <li>Live Travel Log status</li>
+          </ul></section>
+          <section><h3>Recording</h3><ul>
+            <li>My Places <small>home · work</small></li>
+            <li>Travel Log</li>
+            <li>Steps from the Health app</li>
+            <li>iCloud sync</li>
+            <li>Export · import</li>
+          </ul></section>
+          <section><h3>Style</h3><ul>
+            <li>Light · dark · automatic</li>
+            <li>A character on the path</li>
+            <li>Leaves · dandelions · autumn colors</li>
+          </ul></section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 출시 ────────────────────────────────────────────────────── -->
+  <section class="sec" id="get" data-run="Launch">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>Launch</b></div>
+      <div class="main prose">
+        <h2>See you soon<br>on the App Store</h2>
+        <p>We’re in the last round of checks before launch. Hantte will run on iPhone with iOS 26 or later; iPad and Mac will follow after that.</p>
+        <div class="cta">
+          <a class="btn is-soon" href="#get" aria-disabled="true">App Store <small>Coming soon</small></a>
+          <a class="btn btn--line" href="mailto:hello@putchamoe.com?subject=Hantte">Get in touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 자주 묻는 질문 ──────────────────────────────────────────── -->
+  <section class="sec" id="faq" data-run="FAQ">
+    <div class="wrap grid">
+      <div class="gut"><span class="stop" data-stop></span><b>FAQ</b></div>
+      <div class="main">
+        <h2>Questions</h2>
+        <div class="faq">
+          <details><summary>Won’t it drain my battery?</summary><div>
+            <p>Inside the My Places you’ve saved, such as home or work, Hantte doesn’t measure your location at all. Out and about, it normally records only larger movements, using a low-power method.</p>
+            <p>Travel Log, which records your path in fine detail, runs only when you switch it on, and turns off at midnight.</p>
+          </div></details>
+          <details><summary>Why does location need to be set to <q>Always</q>?</summary><div>
+            <p>It lets Hantte keep tracing your path while the app is closed. You can still use it with <q>While Using the App</q>, but then only the path from while the app was open will be kept.</p>
+          </div></details>
+          <details><summary>Can anyone else see where I’ve been?</summary><div>
+            <p>No. Your records are stored only on your iPhone and in your iCloud, and are never sent to anyone, including the developer. They leave your device only when you make and share a poster yourself — and even then, the roads near home and work are hidden.</p>
+          </div></details>
+          <details><summary>Do I need to upload or move my photos?</summary><div>
+            <p>No. Hantte reads the photos already in Photos and shows them as they are. It doesn’t make copies, and it doesn’t change your photos unless you choose to add a location or delete one.</p>
+          </div></details>
+          <details><summary>Can I see days from before I installed it?</summary><div>
+            <p>Your photos, yes. Photos with a location are placed where they were taken, and you can gather them into moments from past trips. Your path is recorded from the day you start using Hantte.</p>
+          </div></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot" data-run="Arrival">
+  <div class="wrap grid">
+    <div class="gut"><span class="stop stop--end" data-stop></span><b>Arrival</b></div>
+    <div class="main">
+      <dl class="box">
+        <div class="t"><img src="../img/icon-128.png" alt="" width="28" height="28">Hantte</div>
+        <dt>Devices</dt><dd>iPhone · iOS 26 or later</dd>
+        <dt>Made by</dt><dd><a class="maker" href="/"><img src="/assets/brand/mark.svg" alt="" width="18" height="18">Putchamoe</a></dd>
+        <dt>Contact</dt><dd><a href="mailto:hello@putchamoe.com">hello@putchamoe.com</a></dd>
+        <dt>Typeface</dt><dd>Pretendard (SIL OFL)</dd>
+        <dt>This page</dt><dd>No ads, cookies or analytics</dd>
+      </dl>
+      <p class="links"><a href="privacy/">Privacy Policy</a><a href="/">Putchamoe</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../hantte.js" defer></script>
+</body>
+</html>
