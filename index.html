@@ -370,6 +370,9 @@
       sheet.classList.add('in-pouch');
       pocket();
       window.addEventListener('resize', function () { if (sheet.classList.contains('in-pouch')) { pocket(); } });
+      var repocket = function () { if (!pouch.classList.contains('is-empty')) { sheet.classList.remove('popped'); pocket(); void sheet.offsetWidth; } };
+      window.addEventListener('load', repocket);
+      if (document.fonts && document.fonts.ready) { document.fonts.ready.then(repocket); }
       var ioS = new IntersectionObserver(function (es) {
         es.forEach(function (en) {
           if (en.isIntersecting) {

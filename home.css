@@ -731,7 +731,7 @@ a:focus-visible { outline: 3px solid var(--seal); outline-offset: 4px; }
   .mini__label b { font-size: 15px; }
   .hero:has(.crate.is-open) { padding-bottom: 0; }
 
-  .hint { justify-content: center; margin: 0 auto 14px; order: -1; }
+  .hint { justify-content: center; margin: 0 auto 30px; order: -1; }
   .stage { max-height: 4000px; transition: max-height .9s cubic-bezier(.2,.7,.2,1), perspective-origin .9s cubic-bezier(.2,.7,.2,1); }
   .hero:has(.crate.is-open) .stage { max-height: 56vh; }
   .hero:has(.crate.is-open) { padding-bottom: 12px; }
@@ -742,7 +742,7 @@ a:focus-visible { outline: 3px solid var(--seal); outline-offset: 4px; }
     background: var(--paper); color: var(--ink); font: 800 15px/1 var(--sans); letter-spacing: .02em;
     box-shadow: 0 2px 0 rgb(0 0 0 / 25%); cursor: pointer; -webkit-tap-highlight-color: transparent;
   }
-  .open-btn::before { content: '✂'; font-size: 16px; }
+  .open-btn::before { content: '✋'; font-size: 17px; }
   .open-btn[aria-pressed="true"]::before { content: '↩'; }
   .open-btn:active { transform: translateY(1px); box-shadow: 0 1px 0 rgb(0 0 0 / 25%); }
 
