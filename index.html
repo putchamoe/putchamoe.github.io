@@ -354,6 +354,32 @@
     }
     var turnM = document.querySelector('.turn');
     if (turnM) { turnM.classList.add('is-in'); }
+    // 전표: 봉투 속에 접혀 있다가 화면에 들어오면 한 번 튀어나온다
+    if (!reduce && 'IntersectionObserver' in window) {
+      var pocket = function () {
+        sheet.style.transform = ''; sheet.style.clipPath = '';   // 제자리 치수로 잰다
+        var pr = pouch.getBoundingClientRect(), sr = sheet.getBoundingClientRect();
+        var s0 = Math.min(0.5, (pr.width * 0.86) / sr.width);           // 폭을 봉투에 맞추고
+        var vis = Math.min(1, (pr.height * 0.9) / (sr.height * s0));     // 봉투 높이만큼만 보이고 나머지는 봉투 속
+        var dx = (pr.left + pr.width / 2) - (sr.left + sr.width / 2);
+        var dy = (pr.top + pr.height * 0.05) - (sr.top + sr.height / 2 - (sr.height * s0) / 2);
+        sheet.style.transform = 'translate3d(' + dx.toFixed(1) + 'px,' + dy.toFixed(1) + 'px,0) rotate(-2deg) scale(' + s0.toFixed(3) + ')';
+        sheet.style.clipPath = 'inset(0 0 ' + ((1 - vis) * 100).toFixed(1) + '% 0)';
+      };
+      var mark = document.createElement('div'); mark.className = 'sheet-mark'; sheet.parentNode.insertBefore(mark, sheet);
+      sheet.classList.add('in-pouch');
+      pocket();
+      window.addEventListener('resize', function () { if (sheet.classList.contains('in-pouch')) { pocket(); } });
+      var ioS = new IntersectionObserver(function (es) {
+        es.forEach(function (en) {
+          if (en.isIntersecting) {
+            sheet.classList.remove('in-pouch'); sheet.classList.add('popped');
+            sheet.style.transform = ''; sheet.style.clipPath = 'inset(0 0 0 0)'; pouch.classList.add('is-empty'); ioS.disconnect();
+          }
+        });
+      }, { threshold: 0, rootMargin: '0px 0px -35% 0px' });
+      ioS.observe(mark);
+    }
     return;
   }
   root.classList.add(reduce ? 'no-pull' : 'pull');

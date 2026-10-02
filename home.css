@@ -733,7 +733,7 @@ a:focus-visible { outline: 3px solid var(--seal); outline-offset: 4px; }
 
   .hint { justify-content: center; margin: 0 auto 14px; order: -1; }
   .stage { max-height: 4000px; transition: max-height .9s cubic-bezier(.2,.7,.2,1), perspective-origin .9s cubic-bezier(.2,.7,.2,1); }
-  .hero:has(.crate.is-open) .stage { max-height: 66vh; }
+  .hero:has(.crate.is-open) .stage { max-height: 56vh; }
   .hero:has(.crate.is-open) { padding-bottom: 12px; }
   .hint__up, .hint__down { display: none; }
   .open-btn {
@@ -746,10 +746,39 @@ a:focus-visible { outline: 3px solid var(--seal); outline-offset: 4px; }
   .open-btn[aria-pressed="true"]::before { content: '↩'; }
   .open-btn:active { transform: translateY(1px); box-shadow: 0 1px 0 rgb(0 0 0 / 25%); }
 
-  /* 전표 — 봉투 연출 없이 상자 아래에 바로 */
+  /* 전표 — 봉투 속에 접혀 있다가 화면에 들어오면 튀어나온다 */
   .pull .pouch__print, .mobile .pouch__print { display: grid; }
   .mobile .sleeve { display: none; }
-  .mobile .sheet { margin-top: 28px; transform: rotate(-.4deg); }
+  .mobile .sheet { margin-top: 28px; transform: rotate(-.4deg); transform-origin: 50% 50%; }
+  .mobile .sheet.in-pouch { transition: none; }
+  .sheet-mark { height: 1px; margin-bottom: -1px; }
+  .mobile .sheet.popped { transition: transform .9s cubic-bezier(.2,.8,.2,1), clip-path .9s cubic-bezier(.2,.8,.2,1); }
+  .mobile .pouch.is-empty .pouch__print { opacity: .35; }
+
+  /* 상자 높이 줄이기 — 폭의 1.5배 안쪽을 목표로 */
+  .front { padding: 12px 12px 14px; row-gap: 12px; }
+  .strip { padding: 6px 0; font-size: 11px; }
+  .name { column-gap: 12px; row-gap: 8px; }
+  .name__mark { width: 44px; }
+  .grade { width: 54px; border-width: 3px; padding: 3px; }
+  .grade small { font-size: 8px; } .grade small span { font-size: 8px; } .grade b { font-size: 30px; }
+  .name__title h1 { font-size: min(17cqw, 70px); }
+  .name__latin { margin-top: 4px; font-size: 11px; letter-spacing: .14em; }
+  .body { gap: 12px; }
+  .tag { font-size: min(9cqw, 38px); }
+  .sub { margin-top: 6px; font-size: 13.5px; line-height: 1.5; }
+  .spec { grid-template-columns: repeat(3, minmax(0, 1fr)); border-width: 2px; }
+  .spec > div { padding: 7px 8px 8px; border-width: 2px; }
+  .spec dt { font-size: 9px; letter-spacing: .08em; } .spec dt span { display: none; }
+  .spec dd { margin-top: 2px; font-size: 13px; }
+  .foot { grid-template-columns: 1fr auto; gap: 10px 12px; padding-top: 10px; align-items: end; }
+  .marks { flex-direction: column; gap: 8px; }
+  .marks li { gap: 8px; }
+  .marks svg { width: 26px; }
+  .marks span { font-size: 11px; } .marks small { font-size: 9px; }
+  .pouch { width: 40%; min-width: 128px; justify-self: end; }
+  .pouch__print { left: 6px; right: 6px; bottom: 5px; }
+  .pouch__print b { font-size: 12px; } .pouch__print small { font-size: 8px; }
   .mobile .track { padding-bottom: 40px; }
 
   /* 이 상자는 — 돌린 입체 대신 바닥에 놓인 골판지 패널 */
