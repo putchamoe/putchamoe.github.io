@@ -122,7 +122,7 @@
                 <div><dt>내용 <span>Contents</span></dt><dd>3 상자</dd></div>
                 <div><dt>산지 <span>Origin</span></dt><dd>대한민국</dd></div>
                 <div><dt>포장 <span>Packed</span></dt><dd>2026. 09</dd></div>
-                <div><dt>Lot</dt><dd class="mono">DB1621D</dd></div>
+                <div><dt>최근 손질 <span>Last tended</span></dt><dd class="mono" id="tended">2026. 10. 02</dd></div>
                 <div><dt>규격 <span>Size</span></dt><dd>Mac · iPad · iPhone</dd></div>
               </dl>
             </div>
@@ -319,6 +319,15 @@
 </footer>
 
 <script>
+(function () {
+  // 최근 손질 — 배포될 때 서버가 붙여 주는 수정 시각(Last-Modified)을 그대로 찍는다
+  var tended = document.getElementById('tended');
+  var lm = new Date(document.lastModified);
+  if (tended && location.protocol !== 'file:' && !isNaN(lm)) {
+    var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+    tended.textContent = lm.getFullYear() + '. ' + pad(lm.getMonth() + 1) + '. ' + pad(lm.getDate());
+  }
+})();
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var root = document.documentElement;
