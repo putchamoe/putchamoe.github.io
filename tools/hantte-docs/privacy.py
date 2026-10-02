@@ -114,7 +114,7 @@ T['en']=dict(title='Hantte — Privacy Policy',desc='Hantte collects no informat
     <p>If this policy changes, the new version will be posted on this page first, with an updated effective date.</p>
 
     <h2>Contact</h2>
-    <p><a href="mailto:hello@putchamoe.com">hello@putchamoe.com</a> — every email is read and answered by the person who made Hantte.</p>
+    <p><a href="mailto:hantte@putchamoe.com">hantte@putchamoe.com</a> — every email is read and answered by the person who made Hantte.</p>
 ''')
 
 T['ja']=dict(title='ハンテ — プライバシーポリシー',desc='ハンテは利用者の情報を収集しません。記録はあなたの iPhone と iCloud にだけ保存されます。',app='ハンテ',h1='プライバシーポリシー',pick='言語を選択',langLabel='言語',back='ハンテについて',brand='プッチャメ',body='''    <p class="doc__lede">ハンテは利用者の情報を収集しません。記録はあなたの iPhone とあなたの iCloud にだけ保存され、開発者にもほかの誰にも送られません。</p>
@@ -166,7 +166,7 @@ T['ja']=dict(title='ハンテ — プライバシーポリシー',desc='ハン�
     <p>内容が変わる場合は、まずこのページに掲載し、施行日を書き改めます。</p>
 
     <h2>お問い合わせ</h2>
-    <p><a href="mailto:hello@putchamoe.com">hello@putchamoe.com</a> — いただいたメールは、作った本人がすべて読み、お返事します。</p>
+    <p><a href="mailto:hantte@putchamoe.com">hantte@putchamoe.com</a> — いただいたメールは、作った本人がすべて読み、お返事します。</p>
 ''')
 
 T['zh']=dict(title='HANTTE — 隐私政策',desc='HANTTE 不收集你的任何信息。记录只保存在你的 iPhone 和你的 iCloud 中。',app='HANTTE',h1='隐私政策',pick='选择语言',langLabel='语言',back='关于 HANTTE',brand='Putchamoe',body='''    <p class="doc__lede">HANTTE 不收集你的任何信息。记录只保存在你的 iPhone 和你的 iCloud 中，不会发送给开发者或其他任何人。</p>
@@ -218,7 +218,7 @@ T['zh']=dict(title='HANTTE — 隐私政策',desc='HANTTE 不收集你的任何�
     <p>如有变更，会先在本页面公布，并更新生效日期。</p>
 
     <h2>联系我们</h2>
-    <p><a href="mailto:hello@putchamoe.com">hello@putchamoe.com</a> — 每封邮件都由开发者本人阅读并回复。</p>
+    <p><a href="mailto:hantte@putchamoe.com">hantte@putchamoe.com</a> — 每封邮件都由开发者本人阅读并回复。</p>
 ''')
 OUT={'ko':'privacy/index.html','en':'en/privacy/index.html','ja':'ja/privacy/index.html','zh':'zh/privacy/index.html'}
 for k in T:
