@@ -771,6 +771,7 @@ a:focus-visible { outline: 3px solid var(--seal); outline-offset: 4px; }
   .spec > div { padding: 7px 8px 8px; border-width: 2px; }
   .spec dt { font-size: 9px; letter-spacing: .08em; } .spec dt span { display: none; }
   .spec dd { margin-top: 2px; font-size: 13px; }
+  #tended { white-space: nowrap; letter-spacing: -.02em; font-size: 12px; }
   .foot { grid-template-columns: 1fr auto; gap: 10px 12px; padding-top: 10px; align-items: end; }
   .marks { flex-direction: column; gap: 8px; }
   .marks li { gap: 8px; }
