@@ -162,13 +162,13 @@
             <span class="tape"></span>
             <span class="open-here"><svg viewBox="0 0 24 24"><path d="M6 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM20 4 8.6 15.4M20 20 8.6 8.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> 여기를 여세요 <small>Open here</small></span>
             <span class="flute"></span>
-            <span class="flap__inner"><span>내리면 닫힙니다 <small>Scroll down to close</small></span></span>
+            <span class="flap__inner"><span>누르면 닫힙니다 <small>Tap to close</small></span></span>
           </div>
         </div>
         <button class="lid-btn" id="lid" type="button" aria-controls="minis">상자 속 보기</button>
       </div>
     </div>
-    <p class="hint"><span class="hint__up"><i aria-hidden="true">↑</i>올리면 상자 속</span><span class="hint__down">내리면 출하 전표<i aria-hidden="true">↓</i></span></p>
+    <p class="hint"><span class="hint__up"><i aria-hidden="true">↑</i>올리면 상자 속</span><button class="open-btn" id="openBtn" type="button" aria-pressed="false" aria-controls="minis">상자 열어 보기</button><span class="hint__down">내리면 출하 전표<i aria-hidden="true">↓</i></span></p>
   </header>
   <div class="above" id="above" aria-hidden="true"></div>
 
@@ -332,6 +332,30 @@
   var lid = document.getElementById('lid');
   var flapFront = crate && crate.querySelector('.flap--front');
   if (!above || !hero || !stage || !crate || !sheet || !pouch || !sleeve) { root.classList.add('no-pull'); return; }
+  var MOBILE = window.matchMedia('(max-width: 900px)').matches;
+  if (MOBILE) {
+    // 폰: 스크롤로 여닫는 연출 없이, 버튼으로 뚜껑을 열고 전표는 바로 보인다
+    root.classList.add('no-pull', 'mobile');
+    var openBtn = document.getElementById('openBtn');
+    var flapF = crate.querySelector('.flap--front');
+    function setOpen(v) {
+      crate.classList.toggle('is-open', v);
+      root.classList.toggle('is-inside', v);
+      if (openBtn) { openBtn.setAttribute('aria-pressed', String(v)); openBtn.textContent = v ? '상자 닫기' : '상자 열어 보기'; }
+    }
+    if (openBtn) { openBtn.addEventListener('click', function () { setOpen(!crate.classList.contains('is-open')); }); }
+    if (lid) { lid.addEventListener('click', function () { setOpen(true); }); }
+    if (flapF) { flapF.addEventListener('click', function () { setOpen(false); }); }
+    if (location.protocol === 'file:') {
+      document.querySelectorAll('a[href^="/"]').forEach(function (el) {
+        var p = el.getAttribute('href').replace(/^\//, '');
+        el.setAttribute('href', p + (p === '' || p.slice(-1) === '/' ? 'index.html' : ''));
+      });
+    }
+    var turnM = document.querySelector('.turn');
+    if (turnM) { turnM.classList.add('is-in'); }
+    return;
+  }
   root.classList.add(reduce ? 'no-pull' : 'pull');
   var SDA = !reduce && window.CSS && CSS.supports && CSS.supports('animation-timeline: scroll()');
   if (SDA) { root.classList.add('sda'); }
