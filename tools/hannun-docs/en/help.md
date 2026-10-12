@@ -12,7 +12,7 @@
 | Tab bar | Open documents (type icon + name) · `+` for a new document · a tab count on the right when two or more tabs are open |
 | Status bar | Only while editing — line:column · encoding (click to reopen with another encoding) · line ending style |
 
-When there are more tabs than fit, the tab bar scrolls sideways (trackpad swipe or mouse wheel).
+When there are more tabs than fit, the tab bar scrolls sideways (trackpad swipe or mouse wheel). Drag a tab to reorder it — the new order is kept the next time you open the app.
 
 ## View modes — `⌘/`
 
@@ -82,6 +82,7 @@ While editing, hold `⌥` (Option) and the palette opens at the bottom right. It
 - **Outside changes**: when another app changes an open file, Hannun reloads it automatically. If you were editing, a banner asks what to do
 - **Unsaved edits are kept**: if the app quits before you save, your edits come back — marked with ● — the next time you open it. Closing a tab with unsaved edits asks first
 - **Session restore**: quit and reopen, and your tabs, view modes, and scroll positions are right where you left them
+- **Reopen a closed window (Mac)**: if you closed the window with the red button, choose **Window › HANNUN** in the menu bar
 - **Allow access to image folders**: if a document's images don't show, click "Allow Folder…" in the banner at the top (a macOS security requirement)
 
 ## PDF
