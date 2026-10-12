@@ -2,7 +2,7 @@
 // 사용: node tools/appstore/render.mjs [언어] [기기]   (생략하면 전부)
 // 저장소 루트에서 로컬 서버(:8765)가 떠 있어야 한다. 결과: tools/appstore/out/{언어}/{기기}-{번호}.jpg
 // 캡처가 아직 없는 장면은 건너뛰고 목록으로 알려 준다.
-import { webkit } from '/Users/jdu/Documents/dev_workspace/00.personal project/HANNUN/web/node_modules/playwright/index.mjs'
+import { webkit } from '/Users/jdu/Developer/personal-project/HANNUN/web/node_modules/playwright/index.mjs'
 import { readFileSync, existsSync, mkdirSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 const ROOT = fileURLToPath(new URL('../../', import.meta.url))

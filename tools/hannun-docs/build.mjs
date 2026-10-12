@@ -3,7 +3,7 @@
 // 원고: tools/hannun-docs/{ko,en,ja,zh}/{help,support,privacy}.md
 // 결과: 한국어는 hannun/{help,support,privacy}/, 나머지는 hannun/{en,ja,zh}/{…}/
 // marked 는 HANNUN 저장소의 것을 빌려 쓴다 (앱과 같은 버전)
-import { marked } from '/Users/jdu/Documents/dev_workspace/00.personal project/HANNUN/web/node_modules/marked/lib/marked.esm.js'
+import { marked } from '/Users/jdu/Developer/personal-project/HANNUN/web/node_modules/marked/lib/marked.esm.js'
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 const [SRC, OUT] = process.argv.slice(2)
 
