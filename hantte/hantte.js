@@ -18,6 +18,7 @@
       todayMap: '오늘 지나온 길이 그려진 지도',
       tripMap: t => `예시 한때의 지도 — ${t}`,
       play: '리플레이 재생', pause: '리플레이 멈춤',
+      visited: n => `들른 곳 ${n}`, night: '하룻밤', dur: (h, m) => h ? `${h}시간${m ? ` ${m}분` : ''}` : `${m}분`,
       days: { 3: '하루하루를 크게', 5: '평소에 보는 크기', 15: '한 달이 한 줄에', 31: '한 해가 한 장에' },
       photo: p => `예시 사진 — ${p}`,
     },
@@ -29,6 +30,7 @@
       todayMap: 'A map with today’s path drawn on it',
       tripMap: t => `Map of a sample Hantte — ${t}`,
       play: 'Play replay', pause: 'Pause replay',
+      visited: n => `${n} places`, night: 'Overnight', dur: (h, m) => h ? `${h} h${m ? ` ${m} min` : ''}` : `${m} min`,
       days: { 3: 'Each day, up close', 5: 'The everyday view', 15: 'A month in a row', 31: 'A whole year on one page' },
       photo: p => `Sample photo — ${p}`,
     },
@@ -40,6 +42,7 @@
       todayMap: '今日たどった道が描かれた地図',
       tripMap: t => `ハンテの例の地図 — ${t}`,
       play: 'リプレイを再生', pause: 'リプレイを一時停止',
+      visited: n => `立ち寄り ${n}か所`, night: 'ひと晩', dur: (h, m) => h ? `${h}時間${m ? `${m}分` : ''}` : `${m}分`,
       days: { 3: '一日ずつ大きく', 5: 'いつもの大きさ', 15: 'ひと月が一列に', 31: '一年が一枚に' },
       photo: p => `サンプル写真 — ${p}`,
     },
@@ -51,6 +54,7 @@
       todayMap: '画着今天走过的路的地图',
       tripMap: t => `HANTTE 示例地图 — ${t}`,
       play: '播放回放', pause: '暂停回放',
+      visited: n => `去过 ${n} 处`, night: '过夜', dur: (h, m) => h ? `${h}小时${m ? `${m}分钟` : ''}` : `${m}分钟`,
       days: { 3: '一天一天，放大看', 5: '平常的大小', 15: '一个月排成一行', 31: '一整年，收进一张' },
       photo: p => `示例照片 — ${p}`,
     },
@@ -221,44 +225,58 @@
   ]
   TRIP.forEach((s, i) => { s.place = T.places[i]; s.word = s.w == null ? '' : T.words[s.w]; s.time = stamp.format(s.t) })
 
+  // 한마디 중 사진에 쓴 것은 그 사진을 기억한다 — 말풍선에 그 사진이 작게 붙는다
+  TRIP[2].wordPhoto = 326
+  TRIP[8].wordPhoto = 77
+
+  // 지도는 넓게 깔아 둔다 — 피드에서는 카메라가 구간마다 다가간다
   function tripMap(el) {
     const d = smooth(TRIP.map(s => s.at), 5)
     el.innerHTML = `<svg viewBox="0 0 900 520" preserveAspectRatio="xMidYMid slice" role="img" aria-label="${T.tripMap(T.trip)}">${defs}
-      <rect width="900" height="520" fill="${MAP.land}"/>
-      <path d="M0 318C80 290 150 348 230 338S360 268 430 318 560 408 640 368 780 288 900 328V520H0Z" fill="${MAP.sand}"/>
-      <path d="M0 330C80 302 150 360 230 350S360 280 430 330 560 420 640 380 780 300 900 340V520H0Z" fill="${MAP.water}"/>
+      <rect x="-800" y="-600" width="2500" height="1800" fill="${MAP.land}"/>
+      <path d="M-800 300L0 318C80 290 150 348 230 338S360 268 430 318 560 408 640 368 780 288 900 328L1700 290V1200H-800Z" fill="${MAP.sand}"/>
+      <path d="M-800 312L0 330C80 302 150 360 230 350S360 280 430 330 560 420 640 380 780 300 900 340L1700 302V1200H-800Z" fill="${MAP.water}"/>
       <ellipse cx="150" cy="450" rx="54" ry="20" fill="${MAP.sand}"/><ellipse cx="150" cy="448" rx="48" ry="16" fill="${MAP.park}"/>
       <ellipse cx="520" cy="474" rx="34" ry="13" fill="${MAP.sand}"/><ellipse cx="520" cy="472" rx="29" ry="10" fill="${MAP.park}"/>
       <ellipse cx="804" cy="440" rx="22" ry="9" fill="${MAP.park}"/>
+      <ellipse cx="1180" cy="520" rx="70" ry="24" fill="${MAP.sand}"/><ellipse cx="1180" cy="517" rx="62" ry="19" fill="${MAP.park}"/>
       <path d="M470 60C560 30 660 70 640 150S500 230 440 190 410 86 470 60Z" fill="${MAP.park}"/>
       <path d="M90 150C150 130 230 160 210 220S110 250 80 220 60 162 90 150Z" fill="${MAP.park}"/>
       <path d="M740 40C800 30 880 60 860 110S760 130 730 100 716 46 740 40Z" fill="${MAP.park}"/>
+      <path d="M1040 -40C1130 -70 1230 -20 1200 60S1060 110 1020 70 990 -20 1040 -40Z" fill="${MAP.park}"/>
+      <path d="M-300 120C-220 90 -140 130 -160 190S-280 230 -310 190 -340 136 -300 120Z" fill="${MAP.park}"/>
       <g fill="none" stroke-linecap="round">
-        <path d="M0 60C200 100 300 40 480 30S760 20 900 70M40 0C80 160 200 250 330 250S520 300 700 290 840 240 900 250M330 250C330 150 380 80 480 30M700 290C720 180 800 120 900 150" stroke="${MAP.roadEdge}" stroke-width="12"/>
-        <path d="M0 60C200 100 300 40 480 30S760 20 900 70M40 0C80 160 200 250 330 250S520 300 700 290 840 240 900 250M330 250C330 150 380 80 480 30M700 290C720 180 800 120 900 150" stroke="${MAP.road}" stroke-width="9"/>
-        <path d="M120 0L250 150M560 0L600 250M0 200L160 260M760 150L640 300M250 150L420 120" stroke="${MAP.road}" stroke-width="4.5"/>
+        <path id="roads" d="M-800 110C-400 90-200 40 0 60C200 100 300 40 480 30S760 20 900 70 1300 30 1700 60M40 0C20-200-60-400-40-600M40 0C80 160 200 250 330 250S520 300 700 290 840 240 900 250 1300 250 1700 230M330 250C330 150 380 80 480 30M700 290C720 180 800 120 900 150S1100 120 1300-100M480 30C470-200 520-400 560-600M-800 230C-500 210-200 260 0 200" stroke="${MAP.roadEdge}" stroke-width="12"/>
+        <use href="#roads" stroke="${MAP.road}" stroke-width="9"/>
+        <path d="M120 0L250 150M560 0L600 250M0 200L160 260M760 150L640 300M250 150L420 120M1000 250L1080 120M-200 230L-120 60" stroke="${MAP.road}" stroke-width="4.5"/>
         <path d="M764 300L792 352" stroke="#d9cfb8" stroke-width="5"/>
       </g>
       <g font-size="12" fill="${MAP.label}" font-weight="500"><text x="512" y="100">${T.map[3]}</text><text x="330" y="440" fill="#5d9fc4" font-size="14">${T.map[4]}</text><text x="124" y="452" font-size="10.5">${T.map[5]}</text></g>
-      <path d="${d}" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".9"/>
-      <path d="${d}" fill="none" stroke="#67B825" stroke-width="4" stroke-linecap="round" opacity=".28"/>
-      <path class="rp-case" d="${d}" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
-      <path class="rp-line" d="${d}" fill="none" stroke="#67B825" stroke-width="5" stroke-linecap="round"/>
-      <g class="rp-dots">${TRIP.map(s => `<circle cx="${s.at[0]}" cy="${s.at[1]}" r="6" fill="#fff" stroke="#c4cab9" stroke-width="3"/>`).join('')}</g>
-      <image class="rp-char" href="${BASE}img/balloon.svg" width="62" height="80"/>
+      <path class="rp-ghost-case" d="${d}" fill="none" stroke="#fff" stroke-linecap="round" opacity=".9"/>
+      <path class="rp-ghost" d="${d}" fill="none" stroke="#67B825" stroke-linecap="round" opacity=".28"/>
+      <path class="rp-case" d="${d}" fill="none" stroke="#fff" stroke-linecap="round"/>
+      <path class="rp-line" d="${d}" fill="none" stroke="#67B825" stroke-linecap="round"/>
+      <g class="rp-dots">${TRIP.map(s => `<g class="rp-mark" data-x="${s.at[0]}" data-y="${s.at[1]}"><circle r="6" fill="#fff" stroke="#c4cab9" stroke-width="3"/></g>`).join('')}</g>
+      <g class="rp-pins">${TRIP.map((s, i) => `<g class="rp-mark rp-pin" data-x="${s.at[0]}" data-y="${s.at[1]}"><g filter="url(#pinShadow)"><circle r="13" fill="#67B825" stroke="#fff" stroke-width="3"/></g><text y="4.5" text-anchor="middle" font-size="12.5" font-weight="800" fill="#fff">${i + 1}</text></g>`).join('')}</g>
+      <g class="rp-mark rp-char"><image href="${BASE}img/balloon.svg" x="-28" y="-70" width="56" height="72"/></g>
     </svg>`
   }
 
   $$('[data-map="today"]').forEach(todayMap)
 
-  // ── 리플레이 ───────────────────────────────────────────────────────
+  // ── 리플레이 — 피드(기본)와 따라가기 ────────────────────────────────
 
   const replay = $('#replay')
   if (replay) {
+    const view = $('.replay__view', replay)
     tripMap($('[data-map="trip"]', replay))
+    const svg = $('svg', view)
     const line = $('.rp-line', replay), cas = $('.rp-case', replay), chr = $('.rp-char', replay)
-    const dots = $$('.rp-dots circle', replay)
+    const dots = $$('.rp-dots .rp-mark', replay), pins = $$('.rp-pin', replay)
+    const marks = $$('.rp-mark', replay)
     const pop = $('#replayPop'), popImgs = $$('img', pop), popWord = $('p', pop)
+    const say = $('#replaySay'), sayImg = $('img', say), sayWord = $('p', say)
+    const feed = $('#replayFeed')
     const play = $('#replayPlay'), scrub = $('#replayScrub'), time = $('#replayTime')
     const len = line.getTotalLength()
     for (const p of [line, cas]) p.style.strokeDasharray = `${len} ${len}`
@@ -275,37 +293,121 @@
       s.len = from = best
     }
 
-    let t = 0, playing = false, last = 0, shown = -1
-    const DUR = 26000
+    // 피드 카드 — 머리 카드, 들른 곳마다 한 장, 사이에는 거리와 걸린 시간
+    const KM = 142 / len
+    const km = v => v >= 10 ? `${Math.round(v)}km` : `${v.toFixed(1)}km`
+    const gap = (a, b) => {
+      const min = Math.round((b - a) / 60000)
+      return min > 360 ? T.night : T.dur(Math.floor(min / 60), min % 60)
+    }
+    feed.innerHTML = `<li class="fc-head"><b>${T.trip}</b><span>${$('.replay__title span', replay).textContent}</span><span>${T.visited(TRIP.length)} · 142km</span></li>` +
+      TRIP.map((s, i) => (i ? `<li class="fc-link" aria-hidden="true"><span>${km((s.len - TRIP[i - 1].len) * KM)} · ${gap(TRIP[i - 1].t, s.t)}</span></li>` : '') +
+        `<li class="fc" data-i="${i}"><button type="button"><span class="fc__n">${i + 1}</span><span class="fc__t"><time>${s.time}</time><b>${s.place}</b></span>` +
+        `<span class="fc__pics">${s.photos.map(id => `<img src="${BASE}photos/s/${id}.jpg" alt="" loading="lazy">`).join('')}</span></button></li>`).join('')
+    const cards = $$('.fc', feed), links = $$('.fc-link', feed)
+
+    let mode = 'feed', t = 0, playing = false, last = 0, shown = -2, picked = -1, handOff = 0
+
+    // ── 카메라 — viewBox 를 화면 비율에 맞춰 옮긴다. 선 굵기 · 핀 크기는 화면에 고정
+    let cam = null, camFrom = null, camTo = null, camT0 = 0
+    function fitBox(x0, y0, x1, y1) {
+      const W = view.clientWidth, H = view.clientHeight
+      const over = mode === 'feed' && getComputedStyle(feed).position === 'absolute'
+      const left = 16, top = W < 520 ? 58 : 76, right = over ? feed.offsetWidth + 28 : 16, bottom = 16
+      const pw = W - left - right, ph = H - top - bottom
+      const pad = 46
+      let s = Math.min(pw / (x1 - x0 + pad * 2), ph / (y1 - y0 + pad * 2))
+      s = Math.min(s, (W - right) / 420)
+      const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2
+      return [cx - (left + pw / 2) / s, cy - (top + ph / 2) / s, W / s]
+    }
+    const boxOf = list => {
+      const xs = list.map(s => s.at[0]), ys = list.map(s => s.at[1])
+      return fitBox(Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys))
+    }
+    function applyCam(c) {
+      cam = c
+      const W = view.clientWidth, H = view.clientHeight, k = c[2] / W
+      svg.setAttribute('viewBox', `${c[0]} ${c[1]} ${c[2]} ${c[2] * H / W}`)
+      svg.style.setProperty('--k', k)
+      for (const m of marks) if (m !== chr) m.setAttribute('transform', `translate(${m.dataset.x} ${m.dataset.y}) scale(${k})`)
+      placeChar()
+      placeBubbles()
+    }
+    function aim(c, now = false) {
+      if (!cam || now || calm) { camTo = null; applyCam(c); return }
+      camFrom = cam; camTo = c; camT0 = performance.now()
+      requestAnimationFrame(glide)
+    }
+    function glide(n) {
+      if (!camTo) return
+      const u = Math.min(1, (n - camT0) / 950), e = u < 0.5 ? 2 * u * u : 1 - (-2 * u + 2) ** 2 / 2
+      applyCam(camFrom.map((v, i) => v + (camTo[i] - v) * e))
+      if (u < 1) requestAnimationFrame(glide); else camTo = null
+    }
+    const toScreen = (x, y) => [(x - cam[0]) / cam[2] * view.clientWidth, (y - cam[1]) / cam[2] * view.clientWidth]
+
+    function stopIndex(l) { let i = -1; TRIP.forEach((s, k) => { if (s.len <= l + 0.5) i = k }); return i }
+    function shot(i) {
+      if (mode === 'follow' || i < 0 || t >= 1) return boxOf(TRIP)
+      return boxOf(TRIP.slice(i, i + 2))
+    }
+
+    let charAt = [0, 0]
+    function placeChar() {
+      chr.setAttribute('transform', `translate(${charAt[0]} ${charAt[1]}) scale(${cam ? cam[2] / view.clientWidth : 1})`)
+    }
+    function placeBubbles() {
+      for (const [el, i] of [[pop, pop.dataset.i], [say, say.dataset.i]]) {
+        if (i == null || el.hidden || !cam) continue
+        const [x, y] = toScreen(...TRIP[i].at)
+        el.style.left = x + 'px'; el.style.top = y + 'px'
+        const below = y < view.clientHeight * 0.36
+        el.style.translate = below ? '-50% 26px' : ''
+        el.style.transformOrigin = below ? '50% 0' : ''
+      }
+    }
 
     function draw() {
       const l = t * len
       const p = line.getPointAtLength(l)
       for (const el of [line, cas]) el.style.strokeDashoffset = len - l
-      chr.setAttribute('x', p.x - 31)
-      chr.setAttribute('y', p.y - 78)
-      let i = -1
-      TRIP.forEach((s, k) => { if (s.len <= l + 0.5) i = k })
-      dots.forEach((dot, k) => dot.setAttribute('stroke', k <= i ? '#67B825' : '#c4cab9'))
+      charAt = [p.x, p.y]; placeChar()
+      const i = stopIndex(l)
+      dots.forEach((d, k) => $('circle', d).setAttribute('stroke', k <= i ? '#67B825' : '#c4cab9'))
+      pins.forEach((pin, k) => { pin.classList.toggle('is-on', k <= i); pin.classList.toggle('is-dim', picked >= 0 && k !== picked) })
+      cards.forEach((c, k) => { c.classList.toggle('is-past', k <= i); c.classList.toggle('is-now', k === i) })
+      links.forEach((c, k) => c.classList.toggle('is-past', k < i))
       if (i !== shown) {
         shown = i
-        if (i < 0) pop.hidden = true
+        if (i < 0) { pop.hidden = say.hidden = true; time.textContent = TRIP[0].time }
         else {
           const s = TRIP[i]
-          popImgs[0].src = `${BASE}photos/s/${s.photos[0]}.jpg`
-          popImgs[1].hidden = !s.photos[1]
-          if (s.photos[1]) popImgs[1].src = `${BASE}photos/s/${s.photos[1]}.jpg`
-          popWord.textContent = s.word || ''
-          const below = s.at[1] < 190
-          pop.style.left = Math.min(86, Math.max(14, s.at[0] / 900 * 100)) + '%'
-          pop.style.top = (s.at[1] / 520 * 100) + '%'
-          pop.style.translate = below ? '-50% 22px' : ''
-          pop.style.transformOrigin = below ? '50% 0' : ''
-          pop.hidden = false
           time.textContent = `${s.time} · ${s.place}`
+          // 따라가기 — 사진 묶음이 그 자리에서 솟는다. 한마디가 있는 사진이 맨 앞
+          const ph = s.wordPhoto ? [s.wordPhoto, ...s.photos.filter(id => id !== s.wordPhoto)] : s.photos
+          popImgs[0].src = `${BASE}photos/s/${ph[0]}.jpg`
+          popImgs[1].hidden = !ph[1]
+          if (ph[1]) popImgs[1].src = `${BASE}photos/s/${ph[1]}.jpg`
+          popWord.textContent = s.word || ''
+          pop.dataset.i = i; pop.hidden = mode !== 'follow'
+          // 피드 — 한마디만 지도 위 그 자리에서 말풍선으로
+          say.dataset.i = i
+          sayWord.textContent = s.word || ''
+          sayImg.hidden = !s.wordPhoto
+          if (s.wordPhoto) sayImg.src = `${BASE}photos/s/${s.wordPhoto}.jpg`
+          say.hidden = mode !== 'feed' || !s.word
+          placeBubbles()
+          if (mode === 'feed' && picked < 0) {
+            aim(shot(i))
+            // 지금 카드로 저절로 내린다 — 손으로 넘긴 뒤 3초는 그대로 둔다
+            if (playing && performance.now() - handOff > 3000) {
+              const c = cards[i]
+              feed.scrollTo({ top: c.offsetTop - feed.clientHeight / 2 + c.offsetHeight / 2, behavior: calm ? 'auto' : 'smooth' })
+            }
+          }
         }
       }
-      if (i < 0) time.textContent = TRIP[0].time
       scrub.value = Math.round(t * 1000)
     }
 
@@ -314,17 +416,50 @@
       t = Math.min(1, t + (now - last) / DUR)
       last = now
       draw()
-      if (t >= 1) setPlaying(false)
+      if (t >= 1) { setPlaying(false); if (mode === 'feed') aim(shot(-1)) }
       else requestAnimationFrame(frame)
     }
+    const DUR = 30000
     function setPlaying(on) {
       playing = on
       play.classList.toggle('is-playing', on)
       play.setAttribute('aria-label', on ? T.pause : T.play)
-      if (on) { if (t >= 1) t = 0; last = performance.now(); requestAnimationFrame(frame) }
+      if (on) {
+        if (t >= 1) { t = 0; shown = -2 }
+        if (picked >= 0) { picked = -1; shown = -2 }
+        last = performance.now(); requestAnimationFrame(frame)
+      }
     }
     play.addEventListener('click', () => setPlaying(!playing))
-    scrub.addEventListener('input', () => { setPlaying(false); t = scrub.value / 1000; draw() })
+    scrub.addEventListener('input', () => { setPlaying(false); picked = -1; t = scrub.value / 1000; draw() })
+
+    // 카드를 누르면 그 자리로 — 멈추고, 그 핀만 진하게
+    feed.addEventListener('click', e => {
+      const c = e.target.closest('.fc'); if (!c) return
+      const i = +c.dataset.i
+      setPlaying(false)
+      picked = i; shown = -2
+      t = TRIP[i].len / len
+      draw()
+      aim(boxOf([TRIP[i]]))
+    })
+    for (const ev of ['wheel', 'touchstart', 'pointerdown']) feed.addEventListener(ev, () => { handOff = performance.now() }, { passive: true })
+
+    // 피드 ↔ 따라가기 — 재생 중이어도 멈추지 않는다
+    const modes = $$('.replay__modes button', replay)
+    for (const b of modes) b.addEventListener('click', () => {
+      if (b.dataset.mode === mode) return
+      mode = b.dataset.mode
+      for (const x of modes) x.setAttribute('aria-pressed', x === b)
+      replay.classList.toggle('is-feed', mode === 'feed')
+      replay.classList.toggle('is-follow', mode === 'follow')
+      picked = -1; shown = -2
+      cam = null
+      aim(shot(stopIndex(t * len)), true)
+      draw()
+    })
+
+    new ResizeObserver(() => { camTo = null; applyCam(shot(stopIndex(t * len))) }).observe(view)
 
     // 처음 화면에 들어오면 한 번 스스로 재생한다
     let auto = !calm
@@ -333,8 +468,9 @@
         if (e.isIntersecting && auto) { auto = false; setPlaying(true) }
         else if (!e.isIntersecting && playing) setPlaying(false)
       }
-    }, { threshold: 0.55 }).observe($('.replay__stage', replay))
+    }, { threshold: 0.55 }).observe(view)
     t = calm ? 0.42 : 0
+    applyCam(shot(stopIndex(t * len)))
     draw()
   }
 

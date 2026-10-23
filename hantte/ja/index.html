@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ハンテ — 歩いた道と写真で残す、一日</title>
-<meta name="description" content="今日たどった道が地図に残り、写真は撮ったその場所にそっと置かれます。旅した日々はひとつにまとめて、いつでも開けます。iPhone 用、まもなく公開。アカウントも広告もありません。">
+<meta name="description" content="今日たどった道が地図に残り、写真は撮ったその場所にそっと置かれます。旅した日々はひとつにまとめて、いつでも開けます。iPhone · iPad · Mac 用、まもなく公開。アカウントも広告もありません。">
 <meta name="theme-color" content="#fbfaf5">
 <meta property="og:title" content="ハンテ — 歩いた道と写真で残す、一日">
 <meta property="og:description" content="たどった道の上に、その日の写真を。">
@@ -62,7 +62,7 @@
             <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M13.6 10.6c0-1.6 1.3-2.4 1.4-2.4-.8-1.1-2-1.3-2.4-1.3-1-.1-2 .6-2.5.6s-1.3-.6-2.2-.6c-1.1 0-2.2.7-2.8 1.7-1.2 2.1-.3 5.1.9 6.8.6.8 1.2 1.7 2.1 1.7.8 0 1.2-.5 2.2-.5s1.3.5 2.2.5 1.5-.8 2-1.7c.6-.9.9-1.8.9-1.9 0 0-1.8-.7-1.8-2.9ZM12 5.6c.5-.6.8-1.4.7-2.2-.7 0-1.5.5-2 1.1-.4.5-.8 1.3-.7 2.1.8 0 1.5-.4 2-1Z"/></svg>
             App Store <small>まもなく公開</small>
           </a>
-          <span class="cta__meta">iPhone · iOS 26 以降</span>
+          <span class="cta__meta">iPhone · iPad · Mac</span>
         </div>
       </div>
 
@@ -147,24 +147,33 @@
       <div class="main prose">
         <h2>旅した日々を、<br>もう一度歩く</h2>
         <p>遠くまで出かけた日、いつもより写真をたくさん撮った日を見つけて、<q>この日々、ひとときとして残しますか？</q>とそっとたずねます。<strong>残す</strong>を押したときだけ、ひとときになります。勝手に作っておくことはありません。</p>
-        <p>残したひとときは<strong>リプレイ</strong>で、もう一度。その日の道をたどっていくと、立ち寄った場所ごとに、そのとき撮った写真がひとつずつ浮かび上がります。</p>
+        <p>残したひとときは<strong>リプレイ</strong>で、もう一度。地図の上で立ち寄った場所ごとに番号がつき、そばにはその日の写真が順に並びます。写真を押すと地図がその場所へ移り、そこで残したひとことが吹き出しで浮かびます。</p>
+        <p>ひとときには<strong>タグ</strong>をつけておきましょう。🚆 電車、✈️ 飛行機のようにどうやって出かけたか、旅 · キャンプ · グルメのようにどんなひとときだったかを選んでおけば、検索でタグから絞り込めます。</p>
       </div>
       <aside class="note">
-        <p>道をたどるキャラクターは、新芽の熱気球とタンポポの綿毛から選べます。キャラクターなしで、点だけを動かすこともできます。</p>
+        <p><strong>たどる</strong>に切り替えると、キャラクターがその日の道をはじめからたどります。キャラクターは新芽の熱気球とタンポポの綿毛から選べ、点だけを動かすこともできます。</p>
         <img class="note__char" src="../img/dandelion.svg" alt="タンポポの綿毛のキャラクター" width="110" height="140">
       </aside>
-      <div class="band replay" id="replay">
+      <div class="band replay is-feed" id="replay">
         <div class="replay__stage">
-          <div class="replay__map" data-map="trip"></div>
-          <div class="glass replay__title"><b>春、南の海</b><span>2026年4月17日 – 19日</span></div>
-          <div class="replay__pop" id="replayPop" hidden><img alt=""><img alt=""><p></p></div>
+          <div class="replay__view">
+            <div class="replay__map" data-map="trip"></div>
+            <div class="glass replay__title"><b>春、南の海</b><span>2026年4月17日 – 19日</span></div>
+            <div class="glass replay__modes" role="group" aria-label="リプレイの表示">
+              <button type="button" data-mode="feed" aria-pressed="true">フィード</button>
+              <button type="button" data-mode="follow" aria-pressed="false">たどる</button>
+            </div>
+            <div class="replay__pop" id="replayPop" hidden><img alt=""><img alt=""><p></p></div>
+            <div class="replay__say" id="replaySay" hidden><img alt=""><p></p></div>
+          </div>
+          <ol class="glass replay__feed" id="replayFeed" aria-label="立ち寄った場所"></ol>
         </div>
         <div class="replay__bar">
           <button type="button" class="play" id="replayPlay" aria-label="リプレイを再生"><svg viewBox="0 0 20 20" aria-hidden="true"><path class="i-play" d="M6 3.8v12.4L16.5 10Z"/><path class="i-pause" d="M5.5 4h3v12h-3zM11.5 4h3v12h-3z"/></svg></button>
           <span class="replay__time" id="replayTime"></span>
           <input type="range" id="replayScrub" min="0" max="1000" value="0" aria-label="リプレイの位置">
         </div>
-        <p class="cap">録画ではありません。このページの上で実際に動いています。再生を押すか、バーをドラッグしてみてください。写真と地名は例です。</p>
+        <p class="cap">録画ではありません。このページの上で実際に動いています。再生を押すか、カードを押してみてください。写真と地名は例です。</p>
       </div>
     </div>
   </section>
@@ -176,6 +185,7 @@
       <div class="main prose">
         <h2>立てかければ、<br>フォトフレームに</h2>
         <p>ひとときの写真を一枚ずつ、ゆっくりとめくっていきます。写真のそばには、撮った場所の小さな地図と、そのときの時刻、残しておいたひとことが浮かびます。</p>
+        <p>一枚にとどまる時間は4秒から1分まで、めくり方も4種類から選べます。写真だけを大きく映すことも、フレームに飾る写真を外したり、ほかの日の写真を加えたりすることもできます。</p>
         <p>表示しているあいだ、画面は消えません。充電器に立てかけて、のんびり眺めてください。</p>
       </div>
       <div class="band frame" id="frame-demo">
@@ -197,7 +207,7 @@
       <div class="gut"><span class="stop" data-stop></span><b>共有</b></div>
       <div class="main prose">
         <h2>一枚にまとめて、<br>手渡す</h2>
-        <p>ひとつのひとときが、一枚のポスターになります。代表の写真とたどった道、タイトルと期間、歩数と距離をのせて。ポラロイド、複数枚、ストーリー、正方形から選べます。</p>
+        <p>ひとつのひとときが、一枚のポスターになります。代表の写真とたどった道、タイトルと期間、歩数と距離、立ち寄った場所の数をのせて。つけておいたタグも文字で入ります。ポラロイド、複数枚、ストーリー、正方形から選べます。</p>
         <p><strong>家と職場のまわりの道は、自動で隠します。</strong>道は住んでいる場所を語ってしまうから。何も手を加える必要はありません。</p>
       </div>
       <div class="side side--poster">
@@ -207,7 +217,7 @@
             <svg viewBox="0 0 120 44" aria-hidden="true"><circle cx="12" cy="30" r="9" fill="none" stroke="#b9bfb0" stroke-width="1.2" stroke-dasharray="2 3"/><path d="M22 26 C34 10 44 36 58 22 S84 8 96 20 108 30 112 14" fill="none" stroke="#67B825" stroke-width="3" stroke-linecap="round"/><circle cx="112" cy="14" r="3.6" fill="#67B825"/></svg>
             <b>春、南の海</b>
             <span>2026年4月17日 – 19日</span>
-            <span class="poster__nums">31,902歩 · 142km · 立ち寄った場所 13</span>
+            <span class="poster__nums">31,902歩 · 142km · 立ち寄った場所 12</span>
             <small>ハンテでつくりました</small>
           </figcaption>
         </figure>
@@ -222,8 +232,8 @@
       <div class="gut"><span class="stop" data-stop></span><b>ふりかえり</b></div>
       <div class="main prose">
         <h2>日曜の夜、<br>一週間をふりかえる</h2>
-        <p>今週はどれくらい歩いたか、どこに立ち寄ったか、いちばん長くいたのはどこか。その週に撮った写真を何枚か添えてお見せします。数年前の、ちょうどこのころの写真も一緒に。</p>
-        <p>受け取ると決めた方にだけ、日曜の夜9時に、通知を一度だけお届けします。</p>
+        <p>今週はどれくらい歩き、どれくらい移動したか、どこに立ち寄ったか、いちばん長くいたのはどこか。<strong>一週間の地図</strong>の上をキャラクターが曜日ごとの道をたどり、その週に撮った写真からよく撮れた12枚を選んでお見せします。ひとときとして残したい日があれば、それもお知らせします。</p>
+        <p>受け取ると決めた方にだけ、日曜の夜9時に、通知を一度だけお届けします。見逃しても、月曜までは「今日」タブの<strong>先週</strong>カードから、そのあとは検索や「ひととき」タブからもう一度開けます。</p>
       </div>
       <div class="side">
         <div class="notice glass">
@@ -233,7 +243,7 @@
         <div class="week glass">
           <div class="week__bars" aria-hidden="true"><i style="--h:34%"></i><i style="--h:52%"></i><i style="--h:28%"></i><i style="--h:40%"></i><i style="--h:71%"></i><i style="--h:100%" class="on"></i><i style="--h:86%" class="on"></i></div>
           <div class="week__days" aria-hidden="true"><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span><span>日</span></div>
-          <dl><div><dt>歩数</dt><dd>58,214</dd></div><div><dt>立ち寄った場所</dt><dd>17か所</dd></div><div><dt>いちばん長くいた場所</dt><dd>海辺の茶屋</dd></div></dl>
+          <dl><div><dt>歩数</dt><dd>58,214</dd></div><div><dt>移動距離</dt><dd>96km</dd></div><div><dt>立ち寄った場所</dt><dd>17か所</dd></div><div><dt>いちばん長くいた場所</dt><dd>海辺の茶屋</dd></div></dl>
           <div class="week__pics"><img src="../photos/s/323.jpg" alt="" loading="lazy"><img src="../photos/s/106.jpg" alt="" loading="lazy"><img src="../photos/s/77.jpg" alt="" loading="lazy"><img src="../photos/s/385.jpg" alt="" loading="lazy"></div>
         </div>
       </div>
@@ -246,8 +256,9 @@
       <div class="gut"><span class="stop" data-stop></span><b>バッテリー</b></div>
       <div class="main prose">
         <h2>家と職場では、<br>ひと休み</h2>
-        <p>いつも過ごす場所を<strong>わたしの場所</strong>に登録しておけば、その中にいるあいだは位置を測りません。一日の大半を休んでいるようなものなので、バッテリーも長持ちします。ドアを出たら、そこからまた道をつないでいきます。</p>
-        <p>旅のように道を細かく残したい日は、<strong>旅の記録</strong>をオンにしてみてください。その日の真夜中になると自動でオフになり、バッテリーが少なくなると自分で止まります。オンにするのは、いつもあなた自身です。</p>
+        <p>いつも過ごす場所を<strong>わたしの場所</strong>に登録しておけば、その中にいるあいだは位置を測りません。一日の大半を休んでいるようなものなので、バッテリーも長持ちします。</p>
+        <p>ドアを出たら、そこから最大90分、道を細かく残します。歩くときは数歩ごとに記録するので、路地まできちんと描けます。着いたり、一か所にとどまったりすると、GPSは休みます。はじめからオンになっていて、設定でオフにできます。</p>
+        <p>旅のように一日じゅう細かく残したい日は、<strong>旅の記録</strong>をオンにしてみてください。わたしの場所に戻るか、真夜中になると自動で終わります。バッテリーが20%を切るとGPSだけが休み、充電すればまた続けます。オンにするのは、いつもあなた自身です。家の外で夜を過ごした日は、朝8時に<q>旅行中ですか？</q>と先にたずねます。</p>
         <div class="rest" aria-label="わたしの場所の中では休み、外でだけ記録します">
           <span class="rest__hub">家<small>休憩中</small></span>
           <span class="rest__way"><i></i><small>記録中</small></span>
@@ -255,7 +266,7 @@
         </div>
       </div>
       <aside class="note">
-        <p>旅の記録がオンのあいだは、ロック画面とダイナミックアイランドで、経過時間と移動距離を確かめられます。</p>
+        <p>旅の記録がオンのあいだは、ロック画面とダイナミックアイランド、Apple Watch で、経過時間と移動距離、歩数を確かめられます。何を表示するかは設定で選べます。</p>
         <hr>
         <p>権限は最初にまとめてたずねません。写真は「日々」をはじめて開くとき、ヘルスケアは歩数の連携をオンにするときのように、その機能を使う瞬間にたずねます。</p>
       </aside>
@@ -269,7 +280,7 @@
       <div class="gut"><span class="stop" data-stop></span><b>プライバシー</b></div>
       <div class="main">
         <h2>どこへ行ったかは、<br>あなただけが知っています。</h2>
-        <p class="sub">記録はあなたの iPhone と、あなたの iCloud にだけ残ります。ハンテにはサーバーがないので、作った人ものぞく方法がありません。</p>
+        <p class="sub">記録はあなたのデバイスと、あなたの iCloud にだけ残ります。ハンテにはサーバーがないので、作った人ものぞく方法がありません。</p>
         <p class="sub">アカウントも、ログインも、広告もありません。分析ツールも入れていません。</p>
         <p class="gap"><a href="privacy/">プライバシーポリシーを見る</a></p>
       </div>
@@ -302,27 +313,31 @@
           </ul></section>
           <section><h3>ひととき</h3><ul>
             <li>自分で作る · おすすめを受け取る</li>
-            <li>リプレイ</li>
-            <li>フォトフレーム</li>
+            <li>リプレイ <small>フィード · たどる</small></li>
+            <li>タグ <small>移動手段 · どんなひととき</small></li>
+            <li>フォトフレーム <small>表示時間 · めくり方</small></li>
             <li>ポスターで共有 <small>4種類</small></li>
-            <li>検索</li>
+            <li>検索 <small>タグで絞り込み</small></li>
           </ul></section>
           <section><h3>通知</h3><ul>
-            <li>一週間のふりかえり <small>日曜の夜</small></li>
+            <li>一週間のふりかえり <small>日曜の夜 · 一週間の地図</small></li>
             <li>出かけたあとのおすすめ</li>
-            <li>旅の記録のリアルタイム表示</li>
+            <li>旅行中の朝にたずねる</li>
+            <li>旅の記録のリアルタイム表示 <small>Apple Watch にも</small></li>
           </ul></section>
           <section><h3>記録</h3><ul>
             <li>わたしの場所 <small>家 · 職場</small></li>
+            <li>出かけるときはもっと細かく</li>
             <li>旅の記録</li>
-            <li>ヘルスケアの歩数と連携</li>
+            <li>歩数もいっしょに表示</li>
             <li>iCloud 同期</li>
             <li>書き出し · 読み込み</li>
           </ul></section>
           <section><h3>かざり</h3><ul>
             <li>ライト · ダーク · 自動</li>
             <li>道をたどるキャラクター</li>
-            <li>木の葉 · タンポポ · 紅葉の演出</li>
+            <li>木の葉 · タンポポ · 紅葉 · 桜の演出</li>
+            <li>花畑をつくる魔法</li>
           </ul></section>
         </div>
       </div>
@@ -335,7 +350,7 @@
       <div class="gut"><span class="stop" data-stop></span><b>お知らせ</b></div>
       <div class="main prose">
         <h2>もうすぐ App Store で<br>会えます</h2>
-        <p>いまは公開前の最後の確認をしています。iOS 26 以降の iPhone で使え、iPad と Mac はそのあとに準備します。</p>
+        <p>いまは公開前の最後の確認をしています。iPhone、iPad、Mac で使えます。道はいつも持ち歩く iPhone が残し、iPad と Mac では iCloud で受け取って大きな画面で見られます。</p>
         <div class="cta">
           <a class="btn is-soon" href="#get" aria-disabled="true">App Store <small>まもなく公開</small></a>
           <a class="btn btn--line" href="mailto:hantte@putchamoe.com?subject=%E3%83%8F%E3%83%B3%E3%83%86">お問い合わせ</a>
@@ -352,14 +367,14 @@
         <h2>よくある質問</h2>
         <div class="faq">
           <details><summary>バッテリーをたくさん使いませんか？</summary><div>
-            <p>家や職場など、登録したわたしの場所の中では位置を測りません。外にいるときも、ふだんは電力をあまり使わない方法で、大きな移動だけを残します。</p>
-            <p>道を細かく残す旅の記録は、自分でオンにしたときだけ動き、その日の真夜中にオフになります。</p>
+            <p>家や職場など、登録したわたしの場所の中では位置を測りません。わたしの場所を出ると最大90分、道を細かく残し、着いたり一か所にとどまったりするとGPSを休めます。</p>
+            <p>一日じゅう細かく残す旅の記録は、自分でオンにしたときだけ動き、わたしの場所に戻るか真夜中になると終わります。バッテリーが20%を切るとGPSを休め、充電すればまた続けます。</p>
           </div></details>
           <details><summary>位置情報をなぜ<q>常に許可</q>にする必要があるのですか？</summary><div>
             <p>アプリを閉じているあいだも道をつなぐために必要です。<q>アプリの使用中は許可</q>でも使えますが、その場合はアプリを開いていたあいだの道だけが残ります。</p>
           </div></details>
           <details><summary>自分の位置の記録を、ほかの人が見ることはできますか？</summary><div>
-            <p>いいえ。記録はあなたの iPhone と iCloud にだけ保存され、開発者を含め、誰にも送りません。外に出るのは自分でポスターを作って共有するときだけで、そのときも家と職場のまわりの道は隠されます。</p>
+            <p>いいえ。記録はあなたのデバイスと iCloud にだけ保存され、開発者を含め、誰にも送りません。外に出るのは自分でポスターを作って共有するときだけで、そのときも家と職場のまわりの道は隠されます。</p>
           </div></details>
           <details><summary>写真をアップロードしたり、移したりする必要はありますか？</summary><div>
             <p>いいえ。写真アプリにある写真をそのまま読み込んで表示します。写真をコピーしておくことはなく、自分で位置を追加したり削除したりしない限り、写真を変えることもありません。</p>
@@ -380,7 +395,7 @@
     <div class="main">
       <dl class="box">
         <div class="t"><img src="../img/icon-128.png" alt="" width="28" height="28">ハンテ</div>
-        <dt>対応デバイス</dt><dd>iPhone · iOS 26 以降</dd>
+        <dt>対応デバイス</dt><dd>iPhone · iPad · Mac <small>iOS · iPadOS · macOS 26 以降</small></dd>
         <dt>制作</dt><dd><a class="maker" href="/"><img src="/assets/brand/mark.svg" alt="" width="18" height="18">プッチャメ</a></dd>
         <dt>お問い合わせ</dt><dd><a href="mailto:hantte@putchamoe.com">hantte@putchamoe.com</a></dd>
         <dt>フォント</dt><dd>Pretendard JP (SIL OFL)</dd>

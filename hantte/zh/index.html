@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HANTTE — 把走过的路和照片，留在地图上</title>
-<meta name="description" content="今天走过的路留在地图上，照片静静地落在拍下它的地方。旅行的日子收在一起，想起时再打开。适用于 iPhone，即将推出。无需账号，没有广告。">
+<meta name="description" content="今天走过的路留在地图上，照片静静地落在拍下它的地方。旅行的日子收在一起，想起时再打开。适用于 iPhone、iPad 和 Mac，即将推出。无需账号，没有广告。">
 <meta name="theme-color" content="#fbfaf5">
 <meta property="og:title" content="HANTTE — 把走过的路和照片，留在地图上">
 <meta property="og:description" content="在走过的路上，放好那一天的照片。">
@@ -64,7 +64,7 @@
             <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M13.6 10.6c0-1.6 1.3-2.4 1.4-2.4-.8-1.1-2-1.3-2.4-1.3-1-.1-2 .6-2.5.6s-1.3-.6-2.2-.6c-1.1 0-2.2.7-2.8 1.7-1.2 2.1-.3 5.1.9 6.8.6.8 1.2 1.7 2.1 1.7.8 0 1.2-.5 2.2-.5s1.3.5 2.2.5 1.5-.8 2-1.7c.6-.9.9-1.8.9-1.9 0 0-1.8-.7-1.8-2.9ZM12 5.6c.5-.6.8-1.4.7-2.2-.7 0-1.5.5-2 1.1-.4.5-.8 1.3-.7 2.1.8 0 1.5-.4 2-1Z"/></svg>
             App Store <small>即将推出</small>
           </a>
-          <span class="cta__meta">iPhone · iOS 26 或更高版本</span>
+          <span class="cta__meta">iPhone · iPad · Mac</span>
         </div>
       </div>
 
@@ -149,24 +149,33 @@
       <div class="main prose">
         <h2>旅行的日子，<br>再走一遍</h2>
         <p>找到你走得很远的日子、拍了格外多照片的日子，轻轻问一句：<q>这几天，要留成一段时光吗？</q>只有按下<strong>留下</strong>，才会成为时光。不会擅自替你做好。</p>
-        <p>留下的时光，可以用<strong>回放</strong>再见一面。沿着那天的路走下去，每到一个停留过的地方，当时拍下的照片就一张张浮现出来。</p>
+        <p>留下的时光，可以用<strong>回放</strong>再见一面。地图上每个停留过的地方都会标上编号，旁边按顺序排着那天的照片。点一下照片，地图就移到那里，你在那儿留下的一句话会以气泡浮现。</p>
+        <p>给每段时光加上<strong>标签</strong>吧。🚆 火车、✈️ 飞机——是怎么去的；旅行 · 露营 · 美食——是什么样的时光。之后在搜索里按标签就能筛出来。</p>
       </div>
       <aside class="note">
-        <p>沿路前行的角色，可以在嫩芽热气球和蒲公英种子之间挑选。也可以不要角色，只让一个点移动。</p>
+        <p>切换到<strong>跟随</strong>，角色会从头沿着那天的路走一遍。角色可以在嫩芽热气球和蒲公英种子之间挑选，也可以只让一个点移动。</p>
         <img class="note__char" src="../img/dandelion.svg" alt="蒲公英种子角色" width="110" height="140">
       </aside>
-      <div class="band replay" id="replay">
+      <div class="band replay is-feed" id="replay">
         <div class="replay__stage">
-          <div class="replay__map" data-map="trip"></div>
-          <div class="glass replay__title"><b>春天，南边的海</b><span>2026年4月17日 – 19日</span></div>
-          <div class="replay__pop" id="replayPop" hidden><img alt=""><img alt=""><p></p></div>
+          <div class="replay__view">
+            <div class="replay__map" data-map="trip"></div>
+            <div class="glass replay__title"><b>春天，南边的海</b><span>2026年4月17日 – 19日</span></div>
+            <div class="glass replay__modes" role="group" aria-label="回放视图">
+              <button type="button" data-mode="feed" aria-pressed="true">动态</button>
+              <button type="button" data-mode="follow" aria-pressed="false">跟随</button>
+            </div>
+            <div class="replay__pop" id="replayPop" hidden><img alt=""><img alt=""><p></p></div>
+            <div class="replay__say" id="replaySay" hidden><img alt=""><p></p></div>
+          </div>
+          <ol class="glass replay__feed" id="replayFeed" aria-label="去过的地方"></ol>
         </div>
         <div class="replay__bar">
           <button type="button" class="play" id="replayPlay" aria-label="播放回放"><svg viewBox="0 0 20 20" aria-hidden="true"><path class="i-play" d="M6 3.8v12.4L16.5 10Z"/><path class="i-pause" d="M5.5 4h3v12h-3zM11.5 4h3v12h-3z"/></svg></button>
           <span class="replay__time" id="replayTime"></span>
           <input type="range" id="replayScrub" min="0" max="1000" value="0" aria-label="回放位置">
         </div>
-        <p class="cap">这不是录屏，它真的在这个页面上动。点播放，或者拖动进度条试试。照片和地名都是示例。</p>
+        <p class="cap">这不是录屏，它真的在这个页面上动。点播放，或者点一下卡片试试。照片和地名都是示例。</p>
       </div>
     </div>
   </section>
@@ -178,6 +187,7 @@
       <div class="main prose">
         <h2>立起来，<br>就是一只相框</h2>
         <p>一张一张，慢慢翻过时光里的照片。每张照片旁边，浮着拍摄地的小地图、当时的时间，还有你留下的那句话。</p>
+        <p>每张停留的时间可以从 4 秒到 1 分钟，翻页方式也有四种可选。可以只把照片放大显示，也可以从相框里拿掉照片，或加入其他日子的照片。</p>
         <p>播放时屏幕不会熄灭。把手机立在充电座上，静静地看一会儿吧。</p>
       </div>
       <div class="band frame" id="frame-demo">
@@ -199,7 +209,7 @@
       <div class="gut"><span class="stop" data-stop></span><b>分享</b></div>
       <div class="main prose">
         <h2>收成一张，<br>递给你</h2>
-        <p>一段时光，变成一张海报。代表照片和走过的路、标题和日期、步数和距离都在上面。可以选拍立得、多图、快拍或正方形。</p>
+        <p>一段时光，变成一张海报。代表照片和走过的路、标题和日期、步数、距离和去过的地方数都在上面，加过的标签也会以文字写上。可以选拍立得、多图、快拍或正方形。</p>
         <p><strong>家和公司附近的路，会自动帮你遮住。</strong>因为路会说出你住在哪里。你什么都不用动。</p>
       </div>
       <div class="side side--poster">
@@ -209,7 +219,7 @@
             <svg viewBox="0 0 120 44" aria-hidden="true"><circle cx="12" cy="30" r="9" fill="none" stroke="#b9bfb0" stroke-width="1.2" stroke-dasharray="2 3"/><path d="M22 26 C34 10 44 36 58 22 S84 8 96 20 108 30 112 14" fill="none" stroke="#67B825" stroke-width="3" stroke-linecap="round"/><circle cx="112" cy="14" r="3.6" fill="#67B825"/></svg>
             <b>春天，南边的海</b>
             <span>2026年4月17日 – 19日</span>
-            <span class="poster__nums">31,902步 · 142km · 去过 13 处</span>
+            <span class="poster__nums">31,902步 · 142km · 去过 12 处</span>
             <small>用 HANTTE 制作</small>
           </figcaption>
         </figure>
@@ -224,8 +234,8 @@
       <div class="gut"><span class="stop" data-stop></span><b>一周回顾</b></div>
       <div class="main prose">
         <h2>周日傍晚，<br>回头看看这一周</h2>
-        <p>这周走了多远，去过哪里，在哪里待得最久——配上这一周拍下的几张照片给你看。几年前这个时候的照片，也一起翻出来。</p>
-        <p>只发给选择接收的人：每周日晚上 9 点，一条通知。</p>
+        <p>这周走了多远、移动了多远，去过哪里，在哪里待得最久。在<strong>一周地图</strong>上，角色会按星期沿着每天的路走一遍，再从这一周拍下的照片里挑出拍得最好的十二张给你看。如果有值得留成时光的日子，也会告诉你。</p>
+        <p>只发给选择接收的人：每周日晚上 9 点，一条通知。错过了也没关系，周一之前可以在“今天”页的<strong>上周</strong>卡片里打开，之后也能从搜索或“时光”页再次打开。</p>
       </div>
       <div class="side">
         <div class="notice glass">
@@ -235,7 +245,7 @@
         <div class="week glass">
           <div class="week__bars" aria-hidden="true"><i style="--h:34%"></i><i style="--h:52%"></i><i style="--h:28%"></i><i style="--h:40%"></i><i style="--h:71%"></i><i style="--h:100%" class="on"></i><i style="--h:86%" class="on"></i></div>
           <div class="week__days" aria-hidden="true"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
-          <dl><div><dt>步数</dt><dd>58,214</dd></div><div><dt>去过的地方</dt><dd>17处</dd></div><div><dt>待得最久的地方</dt><dd>海边茶馆</dd></div></dl>
+          <dl><div><dt>步数</dt><dd>58,214</dd></div><div><dt>移动距离</dt><dd>96km</dd></div><div><dt>去过的地方</dt><dd>17处</dd></div><div><dt>待得最久的地方</dt><dd>海边茶馆</dd></div></dl>
           <div class="week__pics"><img src="../photos/s/323.jpg" alt="" loading="lazy"><img src="../photos/s/106.jpg" alt="" loading="lazy"><img src="../photos/s/77.jpg" alt="" loading="lazy"><img src="../photos/s/385.jpg" alt="" loading="lazy"></div>
         </div>
       </div>
@@ -248,8 +258,9 @@
       <div class="gut"><span class="stop" data-stop></span><b>电量</b></div>
       <div class="main prose">
         <h2>在家和公司，<br>它会歇一歇</h2>
-        <p>把常待的地方设为<strong>我的地点</strong>，待在里面的时候就不测量位置。一天里大部分时间都在休息，电量自然更耐用。一出门，路就从那里接着画下去。</p>
-        <p>像旅行那样想把路记得细一点的日子，就打开<strong>旅行记录</strong>。当天午夜会自动关闭，电量不多时也会自己停下。打开它的，永远是你自己。</p>
+        <p>把常待的地方设为<strong>我的地点</strong>，待在里面的时候就不测量位置。一天里大部分时间都在休息，电量自然更耐用。</p>
+        <p>一出门，就从那里起最多 90 分钟把路记得细一点。走路时每走几步就记一次，连小巷都画得清清楚楚。到了地方、或在一处停下来，GPS 就会歇一歇。一开始就是打开的，可以在设置里关闭。</p>
+        <p>像旅行那样想把一整天都记得细一点的日子，就打开<strong>旅行记录</strong>。回到我的地点或到了午夜，会自动结束。电量低于 20% 时只让 GPS 歇一歇，充上电就接着记。打开它的，永远是你自己。在家以外过夜的日子，早上 8 点会先问一句：<q>你在旅行吗？</q></p>
         <div class="rest" aria-label="在我的地点里休息，只在外面记录">
           <span class="rest__hub">家<small>休息中</small></span>
           <span class="rest__way"><i></i><small>记录中</small></span>
@@ -257,7 +268,7 @@
         </div>
       </div>
       <aside class="note">
-        <p>旅行记录开启时，可以在锁定屏幕和灵动岛上看到已用时间和移动距离。</p>
+        <p>旅行记录开启时，可以在锁定屏幕、灵动岛和 Apple Watch 上看到已用时间、移动距离和步数。显示哪些，可以在设置里选。</p>
         <hr>
         <p>权限不会一开始就一起问。照片在第一次打开“日子”时问，健康数据在打开步数同步时问——都在你用到它的那一刻。</p>
       </aside>
@@ -271,7 +282,7 @@
       <div class="gut"><span class="stop" data-stop></span><b>隐私</b></div>
       <div class="main">
         <h2>去过哪里，<br>只有你知道。</h2>
-        <p class="sub">记录只留在你的 iPhone 和你的 iCloud 里。HANTTE 没有服务器，连做它的人也没有办法看到。</p>
+        <p class="sub">记录只留在你的设备和你的 iCloud 里。HANTTE 没有服务器，连做它的人也没有办法看到。</p>
         <p class="sub">没有账号，不用登录，没有广告。也没有放任何分析工具。</p>
         <p class="gap"><a href="privacy/">查看隐私政策</a></p>
       </div>
@@ -304,27 +315,31 @@
           </ul></section>
           <section><h3>时光</h3><ul>
             <li>自己创建 · 接收推荐</li>
-            <li>回放</li>
-            <li>相框</li>
+            <li>回放 <small>动态 · 跟随</small></li>
+            <li>标签 <small>交通方式 · 什么样的时光</small></li>
+            <li>相框 <small>停留时间 · 翻页方式</small></li>
             <li>海报分享 <small>4 种</small></li>
-            <li>搜索</li>
+            <li>搜索 <small>按标签筛选</small></li>
           </ul></section>
           <section><h3>通知</h3><ul>
-            <li>一周回顾 <small>周日晚上</small></li>
+            <li>一周回顾 <small>周日晚上 · 一周地图</small></li>
             <li>出门回来后的推荐</li>
-            <li>旅行记录实时状态</li>
+            <li>旅行中的早上问一句</li>
+            <li>旅行记录实时状态 <small>Apple Watch 也能看</small></li>
           </ul></section>
           <section><h3>记录</h3><ul>
             <li>我的地点 <small>家 · 公司</small></li>
+            <li>出门时记得更细</li>
             <li>旅行记录</li>
-            <li>同步“健康”中的步数</li>
+            <li>一起显示步数</li>
             <li>iCloud 同步</li>
             <li>导出 · 导入</li>
           </ul></section>
           <section><h3>装饰</h3><ul>
             <li>浅色 · 深色 · 自动</li>
             <li>路上的小角色</li>
-            <li>树叶 · 蒲公英 · 红叶特效</li>
+            <li>树叶 · 蒲公英 · 红叶 · 樱花特效</li>
+            <li>变出花田的魔法</li>
           </ul></section>
         </div>
       </div>
@@ -337,7 +352,7 @@
       <div class="gut"><span class="stop" data-stop></span><b>上线</b></div>
       <div class="main prose">
         <h2>很快就能在 App Store<br>见面</h2>
-        <p>现在正在做上线前的最后检查。HANTTE 可在 iOS 26 或更高版本的 iPhone 上使用，iPad 和 Mac 会在之后准备。</p>
+        <p>现在正在做上线前的最后检查。HANTTE 可在 iPhone、iPad 和 Mac 上使用。走过的路由随身带着的 iPhone 记下，在 iPad 和 Mac 上可以通过 iCloud 收到，用大屏幕看。</p>
         <div class="cta">
           <a class="btn is-soon" href="#get" aria-disabled="true">App Store <small>即将推出</small></a>
           <a class="btn btn--line" href="mailto:hantte@putchamoe.com?subject=HANTTE">联系我们</a>
@@ -354,14 +369,14 @@
         <h2>常见问题</h2>
         <div class="faq">
           <details><summary>会不会很耗电？</summary><div>
-            <p>在家、公司这些设为“我的地点”的地方，完全不测量位置。在外面时，平常也只用低功耗的方式记下较大的移动。</p>
-            <p>把路记得很细的旅行记录，只在你亲手打开时运行，当天午夜就会关闭。</p>
+            <p>在家、公司这些设为“我的地点”的地方，完全不测量位置。离开我的地点后，最多 90 分钟会把路记得细一点；到了地方或停下来，GPS 就会歇一歇。</p>
+            <p>把一整天都记得很细的旅行记录，只在你亲手打开时运行，回到我的地点或到了午夜就会结束。电量低于 20% 时 GPS 会歇一歇，充上电就接着记。</p>
           </div></details>
           <details><summary>为什么位置权限要设成<q>始终</q>？</summary><div>
             <p>这样应用关着的时候，也能把路接着画下去。设成<q>使用 App 期间</q>也能用，不过那样只会留下应用打开期间的路。</p>
           </div></details>
           <details><summary>别人能看到我的位置记录吗？</summary><div>
-            <p>不能。记录只保存在你的 iPhone 和 iCloud 里，不会发给任何人，包括开发者。只有你自己制作并分享海报时才会离开设备，而且那时家和公司附近的路也会被遮住。</p>
+            <p>不能。记录只保存在你的设备和 iCloud 里，不会发给任何人，包括开发者。只有你自己制作并分享海报时才会离开设备，而且那时家和公司附近的路也会被遮住。</p>
           </div></details>
           <details><summary>需要上传或搬动照片吗？</summary><div>
             <p>不需要。HANTTE 直接读取照片应用里的照片来显示。不会另存副本；除非你自己添加位置或删除照片，也不会改动照片。</p>
@@ -382,7 +397,7 @@
     <div class="main">
       <dl class="box">
         <div class="t"><img src="../img/icon-128.png" alt="" width="28" height="28">HANTTE</div>
-        <dt>支持设备</dt><dd>iPhone · iOS 26 或更高版本</dd>
+        <dt>支持设备</dt><dd>iPhone · iPad · Mac <small>iOS · iPadOS · macOS 26 或更高版本</small></dd>
         <dt>出品</dt><dd><a class="maker" href="/"><img src="/assets/brand/mark.svg" alt="" width="18" height="18">Putchamoe</a></dd>
         <dt>联系</dt><dd><a href="mailto:hantte@putchamoe.com">hantte@putchamoe.com</a></dd>
         <dt>字体</dt><dd>Pretendard · Noto Sans SC (SIL OFL)</dd>
