@@ -307,8 +307,13 @@ q { quotes: '“' '”'; }
 .card b { display: block; font-size: 21px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; font-variant-numeric: tabular-nums; }
 .card b i { font-style: normal; font-size: 12px; font-weight: 600; margin-left: 2px; }
 .card small { font-size: 11px; color: var(--ink-2); }
-.tabs { position: absolute; left: 12px; right: 12px; bottom: 12px; height: 54px; border-radius: 27px; display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; text-align: center; font-size: 11.5px; font-weight: 600; color: var(--ink-2); padding: 0 6px; }
+.tabs { position: absolute; left: 12px; right: 74px; bottom: 12px; height: 54px; border-radius: 27px; display: grid; grid-template-columns: repeat(3, 1fr); align-items: center; text-align: center; font-size: 11.5px; font-weight: 600; color: var(--ink-2); padding: 0 6px; }
 .tabs .on { color: #3d8a0c; background: rgb(255 255 255 / 80%); border-radius: 21px; padding: 11px 0; }
+.phone__find { position: absolute; right: 12px; bottom: 12px; width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; }
+.phone__side { position: absolute; right: 12px; top: 42%; width: 46px; padding: 6px 0; border-radius: 23px; display: grid; justify-items: center; }
+.phone__side i { width: 46px; height: 42px; display: grid; place-items: center; }
+.phone__side i + i { border-top: 1px solid rgb(40 50 20 / 10%); }
+.phone svg.ic { width: 21px; height: 21px; fill: none; stroke: var(--ink); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
 
 /* 지도 위 핀 */
 .pin-photo image { clip-path: circle(50%); }
@@ -442,7 +447,17 @@ input[type='range'] { flex: 1; min-width: 0; accent-color: var(--lime); height: 
 .notice span { font-size: 12.5px; color: var(--ink-2); }
 .week { width: min(100%, 340px); margin: 0 auto; padding: 20px; border-radius: 26px; background: rgb(255 255 255 / 80%); }
 .week__bars { height: 84px; display: grid; grid-template-columns: repeat(7, 1fr); gap: 9px; align-items: end; }
-.week__bars i { height: var(--h); border-radius: 7px; background: #dfe6d3; }
+.week__map { aspect-ratio: 2 / 1; border-radius: 16px; overflow: hidden; margin-bottom: 16px; }
+.week__map svg { width: 100%; height: 100%; display: block; }
+.wk-reveal { transform: scaleX(0); transition: transform 2.6s cubic-bezier(.45,0,.4,1); }
+.wk-char { opacity: 0; transition: opacity .5s 2.4s; }
+.week.is-on .wk-reveal { transform: none; }
+.week.is-on .wk-char { opacity: 1; }
+.week__bars i { height: 6%; border-radius: 7px; background: #dfe6d3; transition: height .7s cubic-bezier(.3,.7,.3,1); }
+.week.is-on .week__bars i { height: var(--h); }
+.week.is-on .week__bars i:nth-child(2) { transition-delay: .25s; } .week.is-on .week__bars i:nth-child(3) { transition-delay: .5s; }
+.week.is-on .week__bars i:nth-child(4) { transition-delay: .75s; } .week.is-on .week__bars i:nth-child(5) { transition-delay: 1s; }
+.week.is-on .week__bars i:nth-child(6) { transition-delay: 1.4s; } .week.is-on .week__bars i:nth-child(7) { transition-delay: 1.9s; }
 .week__bars i.on { background: linear-gradient(var(--lime-hi), var(--lime)); }
 .week__days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 9px; text-align: center; font-size: 11.5px; color: var(--ink-3); margin-top: 5px; }
 .week dl { margin: 16px 0 0; display: grid; gap: 7px; font-size: 14.5px; }

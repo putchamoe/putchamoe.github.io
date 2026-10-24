@@ -262,7 +262,37 @@
     </svg>`
   }
 
+  // 한 주 지도 — 앞의 닷새는 동네, 주말은 남쪽 바다로. 점선은 기록이 성긴 구간
+  function weekMap(el) {
+    const town = smooth([[44, 34], [70, 52], [62, 74], [86, 86], [104, 70]])
+    const away = smooth([[104, 70], [150, 92], [196, 104]])
+    const coast = smooth([[196, 104], [228, 118], [262, 110], [276, 128], [250, 142]])
+    el.innerHTML = `<svg viewBox="0 0 300 150" preserveAspectRatio="xMidYMid slice">
+      <defs><clipPath id="wkReveal"><rect class="wk-reveal" width="300" height="150"/></clipPath></defs>
+      <rect width="300" height="150" fill="${MAP.land}"/>
+      <path d="M180 150C190 128 214 132 236 124S272 96 300 92V150Z" fill="${MAP.sand}"/>
+      <path d="M190 150C200 134 222 138 244 130S278 104 300 100V150Z" fill="${MAP.water}"/>
+      <path d="M8 96C36 86 60 100 52 122S10 134 4 118Z" fill="${MAP.park}"/>
+      <path d="M150 20C178 12 206 26 198 46S156 56 146 42Z" fill="${MAP.park}"/>
+      <g fill="none" stroke-linecap="round">
+        <path d="M-10 60C60 50 120 80 210 70M90 0C96 50 120 100 150 160M230 0C220 40 240 70 300 60" stroke="${MAP.roadEdge}" stroke-width="7"/>
+        <path d="M-10 60C60 50 120 80 210 70M90 0C96 50 120 100 150 160M230 0C220 40 240 70 300 60" stroke="${MAP.road}" stroke-width="5"/>
+      </g>
+      <g clip-path="url(#wkReveal)" fill="none" stroke-linecap="round">
+        <path d="${town}" stroke="#fff" stroke-width="6"/><path d="${town}" stroke="#a9c98f" stroke-width="3.5"/>
+        <path d="${away}" stroke="#67B825" stroke-width="3.5" stroke-dasharray="0.1 7"/>
+        <path d="${coast}" stroke="#fff" stroke-width="7"/><path d="${coast}" stroke="#67B825" stroke-width="4.5"/>
+      </g>
+      <circle cx="44" cy="34" r="4.5" fill="#fff" stroke="#67B825" stroke-width="2.5"/>
+      <image class="wk-char" href="${BASE}img/balloon.svg" x="236" y="108" width="26" height="34"/>
+    </svg>`
+  }
+
   $$('[data-map="today"]').forEach(todayMap)
+  $$('[data-map="week"]').forEach(weekMap)
+  $$('.week').forEach(w => new IntersectionObserver((es, io) => {
+    if (es[0].isIntersecting) { w.classList.add('is-on'); io.disconnect() }
+  }, { threshold: 0.4 }).observe(w))
 
   // ── 리플레이 — 피드(기본)와 따라가기 ────────────────────────────────
 
