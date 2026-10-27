@@ -592,7 +592,7 @@ a:focus-visible { outline: 3px solid var(--seal); outline-offset: 4px; }
 .sheet--past h3 small { display: block; margin-top: 8px; font-family: var(--cond); font-weight: 700; font-size: 13px; letter-spacing: .22em; text-transform: uppercase; color: var(--ink-70); }
 .file__item + .file__item .sheet--past { transform: rotate(.6deg); }
 .file__slot { aspect-ratio: 900 / 760; zoom: .62; border: 2px dashed rgb(29 26 22 / 30%); border-radius: 2px; display: grid; place-items: center; color: rgb(29 26 22 / 40%); font-family: var(--cond); font-weight: 700; font-size: 20px; letter-spacing: .2em; text-transform: uppercase; }
-.file__slot::after { content: 'Next sheet'; }
+.file__slot::after { content: 'In use'; }
 .no-pull .sheet--past { margin-top: 0; }
 
 /* ═══════════════════════════════════════════════════════════════════
