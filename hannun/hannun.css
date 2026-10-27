@@ -240,7 +240,7 @@ kbd, .kbd {
   line-height: 1.7;
   color: var(--ink-2);
 }
-.meta > * + *::before { content: '·'; margin: 0 0.6em; color: #c9c2b4; }
+.meta > * + *::before { content: '·'; margin: 0 1em; color: #c9c2b4; }
 .meta__ver { color: inherit; text-decoration: underline; text-decoration-color: #c9c2b4; text-underline-offset: 3px; }
 .meta__ver:hover { text-decoration-color: currentColor; }
 
