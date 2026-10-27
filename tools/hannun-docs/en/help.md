@@ -12,7 +12,17 @@
 | Tab bar | Open documents (type icon + name) · `+` for a new document · a tab count on the right when two or more tabs are open |
 | Status bar | Only while editing — line:column · encoding (click to reopen with another encoding) · line ending style |
 
-When there are more tabs than fit, the tab bar scrolls sideways (trackpad swipe or mouse wheel). Drag a tab to reorder it — the new order is kept the next time you open the app.
+When there are more tabs than fit, the tab bar scrolls sideways (trackpad swipe or mouse wheel). Drag a tab to reorder it — the new order is kept the next time you open the app. Right-click a tab for **Close Other Tabs · Close Tabs to the Left · Close Tabs to the Right** (files are not deleted).
+
+## Multiple panes (Mac)
+
+Split the window across and down to view **up to 4** documents at once.
+
+- **Split**: drag a tab to the edge of a pane, or choose **View › Split Right** (`⌘\`) · **Split Down** (`⌘⇧\`). Splitting in the same direction keeps panes equal (`⌘\` three times = 4 columns)
+- **Close Pane**: `⌘⌥W` or the ✕ on the pane header. The tab stays in the tab bar
+- **Move**: drag the file name on a pane header to move it, or to swap two panes
+- **Even out**: double-click a divider to make the panes in that row equal
+- Shortcuts and menus act on the pane you clicked last, and the layout is kept the next time you open the app
 
 ## View modes — `⌘/`
 
@@ -21,7 +31,7 @@ Cycles through **Preview → Split → Editor**.
 - **Preview**: the rendered document, full window. Default for Markdown files
 - **Split**: editor on the left, preview on the right. Drag the divider to resize; each tab remembers its position. Both sides scroll together
 - **Editor**: the editor, full window. Default for `.txt`
-- Data documents (`.json` `.xml` `.yaml`) have no Split view and switch between **Preview ⇄ Editor** only — see "Data View" below
+- On Mac, data documents (`.json` `.xml` `.yaml`) also open in Split view like Markdown, with the source and the view side by side — see "Data View" below
 
 ## Zoom
 
@@ -59,6 +69,7 @@ While editing, hold `⌥` (Option) and the palette opens at the bottom right. It
 | `⌘1–9` | Go to tab 1–9 |
 | `⌘⇧[` / `⌘⇧]` | Previous / next tab |
 | `⌘B` / `⌘I` / `⌘K` / `⌘⇧K` | Bold / italic / link / code block (while editing) |
+| `⌘\` / `⌘⇧\` / `⌘⌥W` | Split Right / Split Down / Close Pane (Mac) |
 | `⌘,` | Settings |
 
 ## Preview features
@@ -79,11 +90,11 @@ While editing, hold `⌥` (Option) and the palette opens at the bottom right. It
 
 ## Managing files
 
-- **Outside changes**: when another app changes an open file, Hannun reloads it automatically. If you were editing, a banner asks what to do
+- **Outside changes**: when another app changes an open file, Hannun reloads it automatically. If you were editing, Hannun asks first
 - **Unsaved edits are kept**: if the app quits before you save, your edits come back — marked with ● — the next time you open it. Closing a tab with unsaved edits asks first
 - **Session restore**: quit and reopen, and your tabs, view modes, and scroll positions are right where you left them
 - **Reopen a closed window (Mac)**: if you closed the window with the red button, choose **Window › HANNUN** in the menu bar
-- **Allow access to image folders**: if a document's images don't show, click "Allow Folder…" in the banner at the top (a macOS security requirement)
+- **Allow access to image folders**: if a document's images don't show, click "Allow Folder" in the box shown in the image's place, or in the notice bar at the top (a macOS security requirement)
 
 ## PDF
 
@@ -93,7 +104,7 @@ While editing, hold `⌥` (Option) and the palette opens at the bottom right. It
 
 ## Settings (`⌘,`)
 
-- **General**: theme (Auto/Light/Dark) · language (Korean/English/Japanese/Chinese, applies after restart) · detect outside changes · default app · Automatically check for updates (free Mac version from our website only)
+- **General**: theme (Auto/Light/Dark) · language (Korean/English/Japanese/Chinese, applies after restart) · detect outside changes · default app · Automatically check for updates · **Install updates automatically** (free Mac version from our website only — when on, the update installs as you quit Hannun and shows what's new the next time you open it)
   - Default app — for types where Hannun is already the default, you'll see **"Default"** instead of a button
 - **Preview**: content width · body typeface (Serif/Sans-serif) · heading typeface · font size · **Data View** (Source/Tree/List)
 - **Editor**: monospaced font · font size

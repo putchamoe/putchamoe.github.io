@@ -74,14 +74,23 @@
 <td>Only while editing — line:column · encoding (click to reopen with another encoding) · line ending style</td>
 </tr>
 </tbody></table>
-<p>When there are more tabs than fit, the tab bar scrolls sideways (trackpad swipe or mouse wheel). Drag a tab to reorder it — the new order is kept the next time you open the app.</p>
+<p>When there are more tabs than fit, the tab bar scrolls sideways (trackpad swipe or mouse wheel). Drag a tab to reorder it — the new order is kept the next time you open the app. Right-click a tab for <strong>Close Other Tabs · Close Tabs to the Left · Close Tabs to the Right</strong> (files are not deleted).</p>
+<h2 id="multiple-panes-mac">Multiple panes (Mac)</h2>
+<p>Split the window across and down to view <strong>up to 4</strong> documents at once.</p>
+<ul>
+<li><strong>Split</strong>: drag a tab to the edge of a pane, or choose <strong>View › Split Right</strong> (<kbd>⌘\</kbd>) · **Split Down** (<kbd>⌘⇧\</kbd>). Splitting in the same direction keeps panes equal (<kbd>⌘\</kbd> three times = 4 columns)</li>
+<li><strong>Close Pane</strong>: <kbd>⌘⌥W</kbd> or the ✕ on the pane header. The tab stays in the tab bar</li>
+<li><strong>Move</strong>: drag the file name on a pane header to move it, or to swap two panes</li>
+<li><strong>Even out</strong>: double-click a divider to make the panes in that row equal</li>
+<li>Shortcuts and menus act on the pane you clicked last, and the layout is kept the next time you open the app</li>
+</ul>
 <h2 id="view-modes-⌘/">View modes — <kbd>⌘/</kbd></h2>
 <p>Cycles through <strong>Preview → Split → Editor</strong>.</p>
 <ul>
 <li><strong>Preview</strong>: the rendered document, full window. Default for Markdown files</li>
 <li><strong>Split</strong>: editor on the left, preview on the right. Drag the divider to resize; each tab remembers its position. Both sides scroll together</li>
 <li><strong>Editor</strong>: the editor, full window. Default for <code>.txt</code></li>
-<li>Data documents (<code>.json</code> <code>.xml</code> <code>.yaml</code>) have no Split view and switch between <strong>Preview ⇄ Editor</strong> only — see &quot;Data View&quot; below</li>
+<li>On Mac, data documents (<code>.json</code> <code>.xml</code> <code>.yaml</code>) also open in Split view like Markdown, with the source and the view side by side — see &quot;Data View&quot; below</li>
 </ul>
 <h2 id="zoom">Zoom</h2>
 <p>Same everywhere: <strong>pinch on the trackpad</strong> or <strong>⌘ + scroll</strong>.</p>
@@ -189,6 +198,10 @@
 <td>Bold / italic / link / code block (while editing)</td>
 </tr>
 <tr>
+<td><kbd>⌘\</kbd> / <kbd>⌘⇧\</kbd> / <kbd>⌘⌥W</kbd></td>
+<td>Split Right / Split Down / Close Pane (Mac)</td>
+</tr>
+<tr>
 <td><kbd>⌘,</kbd></td>
 <td>Settings</td>
 </tr>
@@ -211,11 +224,11 @@
 </ul>
 <h2 id="managing-files">Managing files</h2>
 <ul>
-<li><strong>Outside changes</strong>: when another app changes an open file, Hannun reloads it automatically. If you were editing, a banner asks what to do</li>
+<li><strong>Outside changes</strong>: when another app changes an open file, Hannun reloads it automatically. If you were editing, Hannun asks first</li>
 <li><strong>Unsaved edits are kept</strong>: if the app quits before you save, your edits come back — marked with ● — the next time you open it. Closing a tab with unsaved edits asks first</li>
 <li><strong>Session restore</strong>: quit and reopen, and your tabs, view modes, and scroll positions are right where you left them</li>
 <li><strong>Reopen a closed window (Mac)</strong>: if you closed the window with the red button, choose <strong>Window › HANNUN</strong> in the menu bar</li>
-<li><strong>Allow access to image folders</strong>: if a document&#39;s images don&#39;t show, click &quot;Allow Folder…&quot; in the banner at the top (a macOS security requirement)</li>
+<li><strong>Allow access to image folders</strong>: if a document&#39;s images don&#39;t show, click &quot;Allow Folder&quot; in the box shown in the image&#39;s place, or in the notice bar at the top (a macOS security requirement)</li>
 </ul>
 <h2 id="pdf">PDF</h2>
 <ul>
@@ -225,7 +238,7 @@
 </ul>
 <h2 id="settings-⌘,">Settings (<kbd>⌘,</kbd>)</h2>
 <ul>
-<li><strong>General</strong>: theme (Auto/Light/Dark) · language (Korean/English/Japanese/Chinese, applies after restart) · detect outside changes · default app · Automatically check for updates (free Mac version from our website only)<ul>
+<li><strong>General</strong>: theme (Auto/Light/Dark) · language (Korean/English/Japanese/Chinese, applies after restart) · detect outside changes · default app · Automatically check for updates · <strong>Install updates automatically</strong> (free Mac version from our website only — when on, the update installs as you quit Hannun and shows what&#39;s new the next time you open it)<ul>
 <li>Default app — for types where Hannun is already the default, you&#39;ll see <strong>&quot;Default&quot;</strong> instead of a button</li>
 </ul>
 </li>
@@ -318,7 +331,7 @@
 </ul>
 
     </article>
-    <aside class="note doc-toc"><nav aria-label="Contents"><h4>Contents</h4><a href="#getting-started">Getting started</a><a href="#the-window-mac">The window (Mac)</a><a href="#view-modes-⌘/">View modes — ⌘/</a><a href="#zoom">Zoom</a><a href="#syntax-palette-hold-⌥-mac">Syntax Palette — hold ⌥ (Mac)</a><a href="#keyboard-shortcuts">Keyboard shortcuts</a><a href="#preview-features">Preview features</a><a href="#editing-features">Editing features</a><a href="#managing-files">Managing files</a><a href="#pdf">PDF</a><a href="#settings-⌘,">Settings (⌘,)</a><a href="#supported-files">Supported files</a><a href="#ipad-iphone">iPad · iPhone</a></nav></aside>
+    <aside class="note doc-toc"><nav aria-label="Contents"><h4>Contents</h4><a href="#getting-started">Getting started</a><a href="#the-window-mac">The window (Mac)</a><a href="#multiple-panes-mac">Multiple panes (Mac)</a><a href="#view-modes-⌘/">View modes — ⌘/</a><a href="#zoom">Zoom</a><a href="#syntax-palette-hold-⌥-mac">Syntax Palette — hold ⌥ (Mac)</a><a href="#keyboard-shortcuts">Keyboard shortcuts</a><a href="#preview-features">Preview features</a><a href="#editing-features">Editing features</a><a href="#managing-files">Managing files</a><a href="#pdf">PDF</a><a href="#settings-⌘,">Settings (⌘,)</a><a href="#supported-files">Supported files</a><a href="#ipad-iphone">iPad · iPhone</a></nav></aside>
   </div>
 </main>
 <footer class="colophon">

@@ -74,14 +74,23 @@
 <td>仅在编辑时显示——行:列 · 编码（点按可重新读取）· 换行格式</td>
 </tr>
 </tbody></table>
-<p>标签页太多时可以左右滚动（触控板横向轻扫或鼠标滚轮都行）。拖动标签页可以调整顺序，调整后的顺序下次打开时依然保留。</p>
+<p>标签页太多时可以左右滚动（触控板横向轻扫或鼠标滚轮都行）。拖动标签页可以调整顺序，调整后的顺序下次打开时依然保留。右键点按标签页，可用<strong>关闭其他标签页 · 关闭左侧标签页 · 关闭右侧标签页</strong>一次关闭多个标签页（文件不会被删除）。</p>
+<h2 id="多窗格显示（mac）">多窗格显示（Mac）</h2>
+<p>把窗口横向、纵向拆分，<strong>最多同时看 4 份</strong>文稿。</p>
+<ul>
+<li><strong>拆分</strong>：把标签页拖到窗格边缘，或选择 <strong>显示 › 向右拆分</strong>（<kbd>⌘\</kbd>）· **向下拆分**（<kbd>⌘⇧\</kbd>）。同一方向拆分时宽度相同（按三次 <kbd>⌘\</kbd> = 4 列）</li>
+<li><strong>关闭窗格</strong>：<kbd>⌘⌥W</kbd> 或窗格顶部的 ✕。标签页仍保留在标签栏中</li>
+<li><strong>移动</strong>：拖动窗格顶部的文件名，可以移到别处，或交换两个窗格的位置</li>
+<li><strong>均分宽度</strong>：连按两下分隔线，那一排的窗格会变成同样宽</li>
+<li>快捷键和菜单作用于最后点按的窗格，拆分的布局下次打开时保持不变</li>
+</ul>
 <h2 id="显示模式-⌘/">显示模式 — <kbd>⌘/</kbd></h2>
 <p>在<strong>预览 → 分栏 → 编辑</strong>之间循环切换。</p>
 <ul>
 <li><strong>预览</strong>：全屏显示排版后的文档，Markdown 文件默认如此</li>
 <li><strong>分栏</strong>：左边编辑器、右边预览。分隔线可以拖动，每个标签页分别记住位置。两边滚动会自动对齐</li>
 <li><strong>编辑</strong>：全屏编辑器，<code>.txt</code> 默认如此</li>
-<li>数据文档（<code>.json</code> <code>.xml</code> <code>.yaml</code>）没有分栏，只在<strong>预览 ⇄ 编辑</strong>之间切换——详见下方“数据文档显示”</li>
+<li>在 Mac 上，数据文档（<code>.json</code> <code>.xml</code> <code>.yaml</code>）也能像 Markdown 一样分栏，源文本和显示并排——详见下方“数据文档显示”</li>
 </ul>
 <h2 id="缩放">缩放</h2>
 <p>到处都一样：<strong>触控板双指捏合</strong>，或 <strong>⌘+滚动</strong>。</p>
@@ -189,6 +198,10 @@
 <td>粗体 / 斜体 / 链接 / 代码块（编辑时）</td>
 </tr>
 <tr>
+<td><kbd>⌘\</kbd> / <kbd>⌘⇧\</kbd> / <kbd>⌘⌥W</kbd></td>
+<td>向右拆分 / 向下拆分 / 关闭窗格（Mac）</td>
+</tr>
+<tr>
 <td><kbd>⌘,</kbd></td>
 <td>设置</td>
 </tr>
@@ -211,11 +224,11 @@
 </ul>
 <h2 id="文件管理">文件管理</h2>
 <ul>
-<li><strong>检测外部更改</strong>：其他应用修改了已打开的文件时会自动重新读取。如果你正在编辑，会用横幅先询问</li>
+<li><strong>检测外部更改</strong>：其他应用修改了已打开的文件时会自动重新读取。如果你正在编辑，会先询问</li>
 <li><strong>保留未保存的修改</strong>：还没保存应用就退出了，下次打开时改到一半的内容会带着 ● 标记恢复。关闭有修改的标签页前会先询问</li>
 <li><strong>恢复上次会话</strong>：退出后再打开，标签页、显示模式、滚动位置都和原来一样</li>
 <li><strong>重新打开关闭的窗口（Mac）</strong>：如果用红色按钮关闭了窗口，请在菜单栏选择 <strong>窗口 › HANNUN</strong> 重新打开</li>
-<li><strong>允许访问图片文件夹</strong>：文档中的图片显示不出来时，请点按顶部横幅中的“允许文件夹…”授权访问（macOS 安全规则）</li>
+<li><strong>允许访问图片文件夹</strong>：文档中的图片显示不出来时，请点按图片位置上的方框或顶部提示栏中的“允许文件夹”授权访问（macOS 安全规则）</li>
 </ul>
 <h2 id="pdf">PDF</h2>
 <ul>
@@ -225,7 +238,7 @@
 </ul>
 <h2 id="设置（⌘,）">设置（<kbd>⌘,</kbd>）</h2>
 <ul>
-<li><strong>通用</strong>：主题（自动 / 浅色 / 深色）· 语言（韩语 / 英语 / 日语 / 中文，重新启动后生效）· 检测外部更改 · 默认应用 · 自动检查更新（仅限从官网下载的 Mac 免费版）<ul>
+<li><strong>通用</strong>：主题（自动 / 浅色 / 深色）· 语言（韩语 / 英语 / 日语 / 中文，重新启动后生效）· 检测外部更改 · 默认应用 · 自动检查更新 · <strong>自动安装更新</strong>（仅限从官网下载的 Mac 免费版——开启后会在退出时安装，下次打开时显示更新内容）<ul>
 <li>默认应用——Hannun 已经是默认应用的格式，按钮处会显示 <strong>“已设为默认”</strong></li>
 </ul>
 </li>
@@ -318,7 +331,7 @@
 </ul>
 
     </article>
-    <aside class="note doc-toc"><nav aria-label="目录"><h4>目录</h4><a href="#快速上手">快速上手</a><a href="#界面说明（mac）">界面说明（Mac）</a><a href="#显示模式-⌘/">显示模式 — ⌘/</a><a href="#缩放">缩放</a><a href="#语法面板-按住-⌥（mac）">语法面板 — 按住 ⌥（Mac）</a><a href="#常用快捷键">常用快捷键</a><a href="#预览功能">预览功能</a><a href="#编辑功能">编辑功能</a><a href="#文件管理">文件管理</a><a href="#pdf">PDF</a><a href="#设置（⌘,）">设置（⌘,）</a><a href="#支持的文件">支持的文件</a><a href="#ipad-iphone">iPad · iPhone</a></nav></aside>
+    <aside class="note doc-toc"><nav aria-label="目录"><h4>目录</h4><a href="#快速上手">快速上手</a><a href="#界面说明（mac）">界面说明（Mac）</a><a href="#多窗格显示（mac）">多窗格显示（Mac）</a><a href="#显示模式-⌘/">显示模式 — ⌘/</a><a href="#缩放">缩放</a><a href="#语法面板-按住-⌥（mac）">语法面板 — 按住 ⌥（Mac）</a><a href="#常用快捷键">常用快捷键</a><a href="#预览功能">预览功能</a><a href="#编辑功能">编辑功能</a><a href="#文件管理">文件管理</a><a href="#pdf">PDF</a><a href="#设置（⌘,）">设置（⌘,）</a><a href="#支持的文件">支持的文件</a><a href="#ipad-iphone">iPad · iPhone</a></nav></aside>
   </div>
 </main>
 <footer class="colophon">

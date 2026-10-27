@@ -1,7 +1,8 @@
 # 한때 개인정보처리방침 — 네 언어 페이지를 굽는다. 한국어 본문은 hantte/privacy/index.html 에서 읽어 오고, 머리·언어 단추는 여기서 통일한다
 # 사용: python3 tools/hantte-docs/privacy.py
-import re
-ROOT='/Users/jdu/Documents/dev_workspace/00.personal project/WEB/putchamoe.github.io/hantte/'
+# 주의: 442be48 에서 영·일·중 페이지를 직접 고쳤고 이 스크립트의 번역은 그 전 문구다. 돌리기 전에 T 의 문구를 지금 페이지에 맞출 것
+import os, re
+ROOT=os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'hantte') + '/'
 FONT_PRET='<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">'
 FONTS={
  'ko': FONT_PRET,
