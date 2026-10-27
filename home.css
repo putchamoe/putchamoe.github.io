@@ -199,7 +199,7 @@ a:focus-visible { outline: 3px solid var(--seal); outline-offset: 4px; }
 /* 속에 든 작은 상자들 — 앱 하나가 상자 하나. 위에서 보면 라벨이 보인다 */
 .minis { inset: 0; margin: 0; padding: 0; list-style: none; transform-style: preserve-3d; pointer-events: none; backface-visibility: visible; }
 .mini {
-  --i: 0; --cols: 3;
+  --i: 0; --cols: 4;
   --mw: calc((100% - 8% - (var(--cols) - 1) * 4%) / var(--cols));
   --mh: 52%;
   --md: calc(var(--D) * .5);
@@ -727,8 +727,10 @@ a:focus-visible { outline: 3px solid var(--seal); outline-offset: 4px; }
   #crate.is-open .flap--back { transform: rotateX(112deg); }
   #crate.is-open .flap--front { transform: rotateX(104deg); }
   .mini { --mh: 94%; }
-  .mini__label { padding: 8px 8px; left: 5%; right: 5%; }
-  .mini__label b { font-size: 15px; }
+  /* 폰에서는 네 상자가 좁다 — 표를 위, 이름을 아래로 세운다 */
+  .mini__label { padding: 8px 4px; left: 5%; right: 5%; grid-template-columns: 1fr; justify-items: center; row-gap: 6px; text-align: center; }
+  .mini__label svg, .mini__label i { grid-row: auto; width: 26px; height: 26px; }
+  .mini__label b { font-size: 14px; white-space: nowrap; }
   .hero:has(.crate.is-open) { padding-bottom: 0; }
 
   .hint { justify-content: center; margin: 0 auto 30px; order: -1; }
