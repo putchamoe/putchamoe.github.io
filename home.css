@@ -482,7 +482,7 @@ a:focus-visible { outline: 3px solid var(--seal); outline-offset: 4px; }
 .name-cell__en { display: block; margin-top: 6px; font-family: var(--cond); font-weight: 700; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-70); }
 .ledger .state { position: relative; }
 .state__btn { position: absolute; inset: 0; width: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
-.state__btn .stamp { transition: transform .25s ease; }
+.state__btn .stamp { transition: transform .25s ease; pointer-events: auto; }   /* 칸 밖으로 비어져 나온 도장 부분도 눌린다 */
 .state__btn:hover .stamp--red { transform: translate(-50%, -44%) rotate(-11deg) scale(1.06); }
 .state__btn:hover .stamp--blue { transform: translate(-50%, -46%) rotate(6deg) scale(1.06); }
 .state__btn:focus-visible { outline: 3px solid var(--seal); outline-offset: -3px; }
