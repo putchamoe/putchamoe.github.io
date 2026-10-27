@@ -481,6 +481,24 @@ a:focus-visible { outline: 3px solid var(--seal); outline-offset: 4px; }
 .name-cell a:hover::after { transform: scaleX(1); }
 .name-cell__en { display: block; margin-top: 6px; font-family: var(--cond); font-weight: 700; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-70); }
 .ledger .state { position: relative; }
+.state__btn { position: absolute; inset: 0; width: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
+.state__btn .stamp { transition: transform .25s ease; }
+.state__btn:hover .stamp--red { transform: translate(-50%, -44%) rotate(-11deg) scale(1.06); }
+.state__btn:hover .stamp--blue { transform: translate(-50%, -46%) rotate(6deg) scale(1.06); }
+.state__btn:focus-visible { outline: 3px solid var(--seal); outline-offset: -3px; }
+
+/* 릴리즈 노트 팝업 — 전표 위에 한 장 더 얹은 종이 */
+.notes { width: min(760px, calc(100vw - 32px)); height: min(84svh, 900px); padding: 0; border: 0; border-radius: 2px; background: var(--paper-grain), var(--paper); color: var(--ink); box-shadow: 0 30px 70px -20px rgb(20 16 10 / 55%); overflow: hidden; }
+.notes[open] { display: grid; grid-template-rows: auto 1fr; }
+.notes::backdrop { background: rgb(29 26 22 / 48%); }
+.notes__head { display: flex; align-items: center; gap: 16px; padding: 16px 18px 14px 24px; border-bottom: 3px solid var(--ink); }
+.notes__head h2 { margin: 0; flex: 1; font-weight: 900; font-size: 22px; letter-spacing: -.03em; }
+.notes__head h2 small { margin-left: 10px; font-family: var(--cond); font-weight: 700; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-70); }
+.notes__out { font-size: 14px; color: var(--ink-70); }
+.notes__x { width: 40px; height: 40px; border: 2px solid var(--ink); border-radius: 50%; background: none; color: var(--ink); font-size: 16px; cursor: pointer; }
+.notes__x:focus-visible { outline: 3px solid var(--seal); outline-offset: 2px; }
+.notes__frame { width: 100%; height: 100%; border: 0; background: #fff; }
+@media (max-width: 640px) { .notes { width: 100vw; max-width: 100vw; height: 92svh; margin-bottom: 0; } .notes__head h2 small, .notes__out { display: none; } }
 .row--empty td { height: 52px; }
 .row--empty td.mono { color: var(--ink-45); }
 
