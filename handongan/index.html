@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>한동안 — 일할 때 켜 두는 창밖 풍경</title>
+<meta name="description" content="일할 때 켜 두는 창밖 풍경. 보는 창만 환하게, 하루는 숫자 말고 말로 남기는 맥 앱이에요. 지금 만드는 중.">
+<meta name="theme-color" content="#0e1b3a">
+<meta property="og:title" content="한동안 — 일할 때 켜 두는 창밖 풍경">
+<meta property="og:description" content="일할 때 켜 두는 창밖 풍경.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='s' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%232e3470'/%3E%3Cstop offset='.6' stop-color='%23f0915e'/%3E%3Cstop offset='1' stop-color='%23ffd49a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='2' y='2' width='28' height='28' rx='8' fill='url(%23s)'/%3E%3Cpath d='M2 22c6-4 10-5 15-3s9 1 13-2v5a8 8 0 0 1-8 8H10a8 8 0 0 1-8-8z' fill='%232e2d40'/%3E%3Crect x='2.5' y='2.5' width='27' height='27' rx='7.5' fill='none' stroke='%23fff' stroke-opacity='.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="handongan.css">
+</head>
+<body>
+
+<div class="scene" aria-hidden="true"><canvas id="scene"></canvas></div>
+
+<header class="bar">
+  <a class="bar__brand" href="#top">한동안</a>
+  <nav class="bar__nav" aria-label="바로 가기">
+    <a href="#window">창문</a>
+    <a href="#sound">소리</a>
+    <a href="#talk">메시지</a>
+    <a href="#day">하루 끝</a>
+    <a href="#privacy">개인정보</a>
+    <a href="#faq">질문</a>
+  </nav>
+  <span class="bar__today" title="메뉴 막대에 뜨는 오늘 머문 시간 (예시)"><i aria-hidden="true"></i><span data-today>오늘 0분</span></span>
+</header>
+
+<main id="top">
+
+  <!-- 첫 화면: 아침 ─────────────────────────────────────────────── -->
+  <section class="hero" data-time="0">
+    <div class="wrap">
+      <p class="hero__name">한동안 · Handongan</p>
+      <h1>한동안 머물 곳을<br>정하세요.</h1>
+      <p class="hero__lede">일할 때 켜 두는 창밖 풍경이에요. 마음에 드는 곳을 골라 화면 한쪽에 띄워 두면, 지금 보는 창만 환하고 나머지는 은은하게 어두워져요. 하루를 마칠 땐 오늘을 한두 줄로 정리해 줘요.</p>
+      <div class="cta">
+        <a class="pill is-soon" href="#get" aria-disabled="true">
+          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M13.6 10.6c0-1.6 1.3-2.4 1.4-2.4-.8-1.1-2-1.3-2.4-1.3-1-.1-2 .6-2.5.6s-1.3-.6-2.2-.6c-1.1 0-2.2.7-2.8 1.7-1.2 2.1-.3 5.1.9 6.8.6.8 1.2 1.7 2.1 1.7.8 0 1.2-.5 2.2-.5s1.3.5 2.2.5 1.5-.8 2-1.7c.6-.9.9-1.8.9-1.9 0 0-1.8-.7-1.8-2.9ZM12 5.6c.5-.6.8-1.4.7-2.2-.7 0-1.5.5-2 1.1-.4.5-.8 1.3-.7 2.1.8 0 1.5-.4 2-1Z"/></svg>
+          Mac App Store <small>만드는 중</small>
+        </a>
+        <span class="cta__meta">macOS 26 이상 · Apple Silicon</span>
+      </div>
+    </div>
+    <p class="hero__hint" aria-hidden="true">스크롤을 내리면 창밖도 저물어요</p>
+  </section>
+
+  <!-- 창문 · 보는 창만 밝게: 한낮 ─────────────────────────────────────────── -->
+  <section class="sec" id="window" data-time="1">
+    <div class="wrap split">
+      <div class="glass prose">
+        <p class="kicker">창문</p>
+        <h2>작업 화면 한쪽에<br>창문 하나.</h2>
+        <p>숲이든 바다든, 고르면 그곳의 풍경과 소리가 화면 한쪽 창문에 펼쳐져요. 어떤 곳들이 기다리고 있는지는 나오면 직접 열어 보세요.</p>
+      </div>
+
+      <figure class="desk" id="desk" style="--dim:.55">
+        <div class="desk__screen">
+          <span class="desk__veil" aria-hidden="true"></span>
+          <button type="button" class="win win--doc is-active" data-win style="--x:4%;--y:14%;--w:52%;--h:62%"><span class="win__bar"><i></i><i></i><i></i>문서</span><span class="win__body win__body--doc"></span></button>
+          <button type="button" class="win win--web" data-win style="--x:30%;--y:30%;--w:46%;--h:58%"><span class="win__bar"><i></i><i></i><i></i>브라우저</span><span class="win__body win__body--web"></span></button>
+          <button type="button" class="win win--music" data-win style="--x:8%;--y:70%;--w:30%;--h:26%"><span class="win__bar"><i></i><i></i><i></i>음악</span><span class="win__body win__body--music"></span></button>
+          <div class="pane" style="--x:62%;--y:8%;--w:34%">
+            <canvas class="pane__view" id="pane" width="320" height="200" aria-label="창문 속 장소 (예시)"></canvas>
+            <span class="pane__pill" aria-hidden="true"><i>◐</i><i>♪</i><i>☼</i></span>
+          </div>
+        </div>
+        <figcaption>
+          <label class="slider"><span>어둡게</span><input id="dim" type="range" min="0" max="90" value="55" aria-label="나머지를 어둡게 하는 정도"></label>
+          <p>창을 하나 눌러 보세요. 누른 창만 또렷하고, 나머지는 배경까지 어둡고 흐릿하게 물러나요.</p>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="wrap">
+      <div class="glass row3">
+        <div><h3>보는 창만 또렷하게</h3><p>다른 창도, 바탕화면도 어둑하게 물러나요.</p></div>
+        <div><h3>늘 밝게 둘 수도</h3><p>꼭 보여야 하는 앱은 어두워지지 않게 둘 수 있어요.</p></div>
+        <div><h3>전체화면은 그대로</h3><p>전체화면으로 쓰는 앱은 밝게 둬요.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 소리: 늦은 오후 ───────────────────────────────────────────── -->
+  <section class="sec" id="sound" data-time="1.6">
+    <div class="wrap split split--rev">
+      <div class="glass mixer" id="mixer">
+        <header class="mixer__head">
+          <div><small>이 장소의 소리</small><b>바람 부는 언덕</b></div>
+          <button type="button" class="pill pill--sm" id="audio" aria-pressed="false">소리 켜기</button>
+        </header>
+        <label class="slider"><span>장소 소리</span><input id="vol" type="range" min="0" max="100" value="70" aria-label="장소 소리 크기"></label>
+        <ul class="layers">
+          <li><button type="button" data-layer="rain" aria-pressed="true"><span>비</span><span class="meter" aria-hidden="true"></span></button></li>
+          <li><button type="button" data-layer="wind" aria-pressed="false"><span>바람</span><span class="meter" aria-hidden="true"></span></button></li>
+          <li><button type="button" data-layer="thunder" aria-pressed="false"><span>천둥</span><span class="meter" aria-hidden="true"></span></button></li>
+        </ul>
+        <p class="mixer__note">여기서 나는 소리는 브라우저로 흉내 낸 예시예요.</p>
+      </div>
+      <div class="glass prose">
+        <p class="kicker">소리</p>
+        <h2>빗소리 좀<br>깔아 둘까요?</h2>
+        <p>장소마다 원래 들리는 소리가 있고, 거기에 비, 바람, 천둥 소리를 더할 수 있어요. 마음에 쏙 드는 조합은 남겨 뒀다가 다시 꺼내 쓰면 돼요.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 떠 있는 메시지: 해질녘 ────────────────────────────────────── -->
+  <section class="sec" id="talk" data-time="2">
+    <div class="wrap split">
+      <div class="glass prose">
+        <p class="kicker">떠 있는 메시지</p>
+        <h2>가끔 한마디씩<br>건네요.</h2>
+        <p>오래 앉아 있었거나, 일을 몰아서 했거나, 시간이 많이 늦었을 때 짧게 한마디 해요. 화면이 꺼져 있거나 잠겨 있을 땐 조용히 있어요. 알림음을 낼지는 설정에서 정하면 돼요.</p>
+        <p>메시지를 누르면 그대로 대화를 이어 갈 수 있어요. 답은 기본으로 맥에 들어 있는 모델이 맥 안에서 만들어요.</p>
+      </div>
+      <div class="chat glass" aria-label="대화 예시">
+        <div class="chat__float"><small>한동안</small>세 시간째다... 물 좀 마셔요</div>
+        <div class="chat__me">벌써? 이것만 하고.</div>
+        <div class="chat__it">그래요. 끝나면 창밖 한번 보고 와요.</div>
+        <div class="chat__input"><span>대화</span><b>보내기</b></div>
+        <small class="chat__foot">이 맥 안에서 만든 문장이에요 · 대화는 예시예요</small>
+      </div>
+    </div>
+    <div class="wrap">
+      <ul class="lines">
+        <li class="bubble">세 시간째다... 물 좀 마셔요</li>
+        <li class="bubble">오늘 좀 몰아쳤네요. 잠깐 밖 보세요</li>
+        <li class="bubble">오늘은 여기까지?</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 하루의 끝: 밤 ─────────────────────────────────────────────── -->
+  <section class="sec" id="day" data-time="3">
+    <div class="wrap split split--rev">
+      <figure class="day glass" id="daycard">
+        <small class="day__date">10월 30일</small>
+        <ol class="day__lines" aria-live="polite">
+          <li>오늘은 좀 길었어요</li>
+          <li>대부분 문서 앞에 있었네요</li>
+          <li>오늘은 비가 왔었네요</li>
+          <li>이제 닫아도 돼요</li>
+        </ol>
+        <p class="day__hint">누르면 오늘을 마무리해요</p>
+        <button type="button" class="pill" id="close-day">오늘 마무리하기</button>
+      </figure>
+      <div class="glass prose">
+        <p class="kicker">하루의 끝</p>
+        <h2>오늘 하루,<br>숫자 말고 말로.</h2>
+        <p>하루를 마칠 때 누르면 오늘을 한두 줄로 정리해 줘요. 몇 시간 일했는지보다 어떤 하루였는지를요.</p>
+        <p class="muted">나오는 말은 날마다 달라요. 여기 문장은 예시예요.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 지난 기록 ─────────────────────────────────────────────────── -->
+  <section class="sec" id="trend" data-time="3">
+    <div class="wrap split">
+      <div class="glass prose">
+        <p class="kicker">지난 기록</p>
+        <h2>언제, 무슨 앱 앞에<br>있었나.</h2>
+        <p>날짜별, 앱별, 시간대별로 지난 기록을 볼 수 있어요. 오늘 얼마나 있었는지는 메뉴 막대에 늘 떠 있어요.</p>
+        <p class="quote">「취향 기록. 생산성 지표 아님」</p>
+      </div>
+      <div class="glass trend" id="trendbox">
+        <div class="tabs" role="tablist" aria-label="지난 기록 보기">
+          <button type="button" role="tab" aria-selected="true" data-tab="day">하루마다 머문 시간</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="app">앱별</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="hour">시간대</button>
+        </div>
+        <div class="chart" data-panel="day">
+          <ol class="bars">
+            <li style="--v:.55"><b>3시간 18분</b><span>목</span></li>
+            <li style="--v:.82"><b>4시간 55분</b><span>금</span></li>
+            <li style="--v:.12"><b>42분</b><span>토</span></li>
+            <li style="--v:0"><b>0분</b><span>일</span></li>
+            <li style="--v:.74"><b>4시간 26분</b><span>월</span></li>
+            <li style="--v:.96"><b>5시간 46분</b><span>화</span></li>
+            <li style="--v:.6" class="is-today"><b>3시간 36분</b><span>오늘</span></li>
+          </ol>
+        </div>
+        <div class="chart" data-panel="app" hidden>
+          <ul class="apps">
+            <li style="--v:.9"><span>문서</span><i></i><b>2시간 10분</b></li>
+            <li style="--v:.62"><span>브라우저</span><i></i><b>1시간 30분</b></li>
+            <li style="--v:.28"><span>메신저</span><i></i><b>40분</b></li>
+            <li style="--v:.14"><span>음악</span><i></i><b>20분</b></li>
+          </ul>
+          <p class="chart__note">합계는 겹친 시간을 한 번만 셉니다</p>
+        </div>
+        <div class="chart" data-panel="hour" hidden>
+          <ol class="hours" aria-label="시간대별 머문 정도">
+            <li style="--v:0"></li><li style="--v:0"></li><li style="--v:0"></li><li style="--v:0"></li><li style="--v:0"></li><li style="--v:0"></li><li style="--v:0"></li><li style="--v:.1"></li><li style="--v:.4"></li><li style="--v:.85"></li><li style="--v:1"></li><li style="--v:.7"></li><li style="--v:.2"></li><li style="--v:.6"></li><li style="--v:.9"></li><li style="--v:.95"></li><li style="--v:.75"></li><li style="--v:.5"></li><li style="--v:.15"></li><li style="--v:.05"></li><li style="--v:.3"></li><li style="--v:.35"></li><li style="--v:.1"></li><li style="--v:0"></li>
+          </ol>
+          <p class="hours__axis"><span>0시</span><span>6시</span><span>12시</span><span>18시</span><span>24시</span></p>
+        </div>
+        <p class="chart__eg">숫자는 모두 예시예요</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 개인정보 ──────────────────────────────────────────────────── -->
+  <section class="sec" id="privacy" data-time="3">
+    <div class="wrap">
+      <div class="glass privacy">
+        <p class="kicker">개인정보</p>
+        <h2>이 맥 안에서만 셉니다.</h2>
+        <div class="privacy__cols">
+          <div>
+            <h3>기록하는 것</h3>
+            <ul>
+              <li>키보드나 마우스를 썼는지 <small>뭘 입력했는지는 몰라요</small></li>
+              <li>지금 앞에 띄워 둔 앱 이름</li>
+              <li>화면이 꺼졌거나 잠겼는지</li>
+              <li>다른 앱이 마이크를 쓰고 있는지 <small>회의 중인지 알아보려고만 봐요. 소리는 듣지 않아요</small></li>
+            </ul>
+          </div>
+          <div>
+            <h3>보지 않는 것</h3>
+            <ul class="no">
+              <li>뭘 입력했는지</li>
+              <li>창 제목</li>
+              <li>화면 내용</li>
+            </ul>
+            <p>그래서 권한을 달라고 하지 않아요.</p>
+            <p class="chips"><s>손쉬운 사용</s><s>화면 기록</s><s>마이크</s><s>위치</s><s>알림</s></p>
+          </div>
+        </div>
+        <ul class="facts">
+          <li><b>서버 없음</b><span>기록은 이 맥에만 남아요</span></li>
+          <li><b>계정 · 광고 · 분석 도구 없음</b><span>가입도 없고, 나를 따라다니는 것도 없어요</span></li>
+          <li><b>언제든 지우기</b><span>기록은 언제든 다 지울 수 있어요</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 자주 묻는 질문 ─────────────────────────────────────────────── -->
+  <section class="sec" id="faq" data-time="3">
+    <div class="wrap">
+      <div class="faq">
+        <p class="kicker">자주 묻는 질문</p>
+        <details class="glass"><summary>일하는 걸 감시하는 앱인가요?</summary><p>아니요. 점수를 매기지 않아요. 오늘이 어땠는지만 말로 남겨요.</p></details>
+        <details class="glass"><summary>제 정보는 어디로 가요?</summary><p>아무 데도 안 가요. 기록은 이 맥 안에만 남아요.</p></details>
+        <details class="glass"><summary>어떤 맥에서 써요?</summary><p>Apple Silicon 맥이면 돼요.</p></details>
+        <details class="glass"><summary>언제 나와요?</summary><p>지금 열심히 만들고 있어요. 나오면 여기서 먼저 알려 드릴게요.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 받기 ──────────────────────────────────────────────────────── -->
+  <section class="sec sec--get" id="get" data-time="3">
+    <div class="wrap">
+      <div class="get">
+        <h2>한동안은 아직<br>만드는 중이에요.</h2>
+        <p>나오면 여기서 제일 먼저 알려 드릴게요.</p>
+        <p class="get__close">이제 닫아도 돼요.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <dl class="foot__box">
+      <div class="t">한동안</div>
+      <dt>지원 기기</dt><dd>Mac <small>macOS 26 이상 · Apple Silicon</small></dd>
+      <dt>언어</dt><dd>한국어</dd>
+      <dt>만든 곳</dt><dd><a class="maker" href="/"><img src="/assets/brand/mark.svg" alt="" width="16" height="16">풋참외</a></dd>
+      <dt>글꼴</dt><dd>Noto Serif KR · Pretendard (SIL OFL)</dd>
+      <dt>이 페이지</dt><dd>광고, 쿠키, 분석 도구 없음 · 풍경과 숫자는 모두 예시예요</dd>
+    </dl>
+  </div>
+</footer>
+
+<aside class="float" id="float" role="status" aria-live="polite" hidden><small>한동안</small><span></span></aside>
+
+<script src="handongan.js" defer></script>
+</body>
+</html>
